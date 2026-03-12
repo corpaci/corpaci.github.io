@@ -1,0 +1,26 @@
+<script>
+(function() {
+  var filter = document.getElementById('tag-filter');
+  var posts = document.getElementById('posts-list');
+  if (!filter || !posts) return;
+
+  filter.addEventListener('click', function(e) {
+    if (e.target.tagName !== 'A') return;
+    e.preventDefault();
+
+    filter.querySelectorAll('a').forEach(function(a) { a.classList.remove('active'); });
+    e.target.classList.add('active');
+
+    var tag = e.target.getAttribute('data-tag');
+    var cards = posts.querySelectorAll('.post-card');
+
+    cards.forEach(function(card) {
+      if (tag === 'all' || card.getAttribute('data-tags').indexOf(tag) !== -1) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+})();
+</script>

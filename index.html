@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="home-identity">
+  <h1>Luiza Corpaci</h1>
+  <p>AI Engineer at AMD. Completing a Master's in Data Science, applying to PhD programs for Fall 2026. Research interests: <a href="/research/#limits-to-formalization">limits to formalization</a>, interpretability, category theory, and AI safety.</p>
+</div>
+
+<h2 class="mb-3" style="font-size: 1.15rem;">Recent Writing</h2>
+<div class="posts">
+  {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
+  {% for post in visible_posts limit:10 %}
+  <article class="post-card mb-3">
+    <time class="entry_date">{{ post.date | date: "%B %d, %Y" }}</time>
+    <h2 class="post-title">
+      <a href="{{ post.url }}" class="entry_title">{{ post.title }}</a>
+      {% for tag in post.tags %}
+      <a href="/blog/tags/#{{ tag | slugify }}" class="tag-badge">{{ tag }}</a>
+      {% endfor %}
+    </h2>
+  </article>
+  {% endfor %}
+
+  {% if visible_posts.size == 0 %}
+  <p class="text-muted">No posts yet. Check back soon!</p>
+  {% endif %}
+</div>

@@ -1,0 +1,35 @@
+excerpt_separator: "<!--more-->"
+markdown: kramdown
+
+name: Luiza Corpaci
+url: https://corpaci.github.io
+author:
+  name: Luiza Corpaci
+
+# jekyll-seo-tag
+title: Luiza Corpaci
+tagline: "AI safety · formal methods · the geometry of understanding"
+description: "AI engineer at AMD building Spectrum. Research at the intersection of formal verification, interpretability, category theory, and AI safety."
+og_image: /apple-touch-icon.png
+social:
+  name: Luiza Corpaci
+  links:
+    - https://github.com/corpaci
+    - https://linkedin.com/in/corpaci
+lang: en
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-last-modified-at
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /apple-touch-icon.png
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post

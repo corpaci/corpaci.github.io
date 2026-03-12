@@ -1,0 +1,26 @@
+---
+layout: default
+title: Posts by Tag
+permalink: /blog/tags/
+---
+
+<div class="page-header">
+  <h1>Posts by Tag</h1>
+</div>
+
+{% assign sorted_tags = site.tags | sort %}
+{% for tag in sorted_tags %}
+<section id="{{ tag[0] | slugify }}" class="mb-4">
+  <h2>{{ tag[0] }}</h2>
+  <div class="posts">
+    {% for post in tag[1] %}
+    <article class="post-card mb-2">
+      <time class="entry_date">{{ post.date | date: "%B %d, %Y" }}</time>
+      <h3 class="post-title" style="font-size: 1.1rem;">
+        <a href="{{ post.url }}" class="entry_title">{{ post.title }}</a>
+      </h3>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}

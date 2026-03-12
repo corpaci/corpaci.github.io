@@ -1,0 +1,70 @@
+<script>
+(function() {
+  var content = document.querySelector('.post-content');
+  var nav = document.querySelector('.toc-nav');
+  if (!content || !nav) return;
+
+  var headings = content.querySelectorAll('h2, h3');
+  if (headings.length < 2) return;
+
+  var ul = document.createElement('ul');
+
+  // "Overview" entry pointing to the top of the post
+  var overviewLi = document.createElement('li');
+  overviewLi.className = 'toc-h2';
+  var overviewA = document.createElement('a');
+  overviewA.href = '#';
+  overviewA.textContent = 'Overview';
+  overviewLi.appendChild(overviewA);
+  ul.appendChild(overviewLi);
+
+  headings.forEach(function(h) {
+    if (!h.id) {
+      h.id = h.textContent.trim().toLowerCase()
+        .replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+    }
+    var li = document.createElement('li');
+    li.className = 'toc-' + h.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  nav.appendChild(ul);
+
+  // Scroll spy with IntersectionObserver
+  var links = nav.querySelectorAll('a');
+  var headingMap = {};
+  links.forEach(function(link) {
+    headingMap[link.getAttribute('href').slice(1)] = link;
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('toc-active'); });
+        var active = headingMap[entry.target.id];
+        if (active) active.classList.add('toc-active');
+      }
+    });
+  }, { rootMargin: '0px 0px -80% 0px' });
+
+  headings.forEach(function(h) { observer.observe(h); });
+
+  // Activate "Overview" when scrolled above the first heading
+  var firstHeading = headings[0];
+  if (firstHeading) {
+    var topObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('toc-active'); });
+        overviewA.classList.add('toc-active');
+      }
+    }, { rootMargin: '0px 0px -80% 0px' });
+    topObserver.observe(document.querySelector('.post-header'));
+  }
+
+  // Set initial active state
+  overviewA.classList.add('toc-active');
+})();
+</script>
