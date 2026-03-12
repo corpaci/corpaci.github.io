@@ -1,13 +1,9 @@
 ---
-layout: default
+layout: page
 title: Research
+subtitle: Active threads and publications.
 permalink: /research/
 ---
-
-<div class="page-header">
-  <h1>Research</h1>
-  <p class="page-subtitle">Active threads and publications.</p>
-</div>
 
 ## Active Threads
 
@@ -41,7 +37,7 @@ One direction recommended by [Leo de Moura's work on Lean](https://lean-lang.org
 
 ### Grounding Relative Understanding (GRU)
 
-A system's outputs encode the structure of the measuring system itself. This principle, connected to the ICTSS 2024 result on spectral metrics, give a basis for a framework for thinking about what interpretability methods can (and cannot) reveal about neural networks.
+A system's outputs encode the structure of the measuring system itself. This principle, connected to the ICTSS 2024 result on spectral metrics, gives a basis for thinking about what interpretability methods can and cannot reveal about neural networks. The connection to Fisher Information is key: the information a measurement carries about a parameter is bounded by the geometry of the measurement apparatus. Applied to interpretability, this means the features we extract from a model are as much about our probing method as about the model itself.
 
 </div>
 
@@ -50,7 +46,7 @@ A system's outputs encode the structure of the measuring system itself. This pri
 
 ### SAE Feature Invariance
 
-Probing how sparse autoencoder features behave in ambiguous contexts using tacit knowledge and rule-gap situations as the main test. The question is whether SAE features remain stable across the boundary between clear and ambiguous inputs, and what breaks when they don't.
+Probing how sparse autoencoder features behave in ambiguous contexts using tacit knowledge and rule-gap situations as the main test. The question is whether SAE features remain stable across the boundary between clear and ambiguous inputs, and what breaks when they don't. This matters for AI safety because feature instability in ambiguous regions is precisely where a system is most likely to be operating outside its reliable regime — and where we most need interpretability to work.
 
 </div>
 
@@ -59,7 +55,7 @@ Probing how sparse autoencoder features behave in ambiguous contexts using tacit
 
 ### Social Bias Measurement
 
-An experimental framework using the BBQ dataset and SONAR embeddings, with midpoint geometry as the principled bias metric. The goal is to measure social bias in language models with mathematical rigor rather than ad hoc benchmarks.
+An experimental framework using the BBQ dataset and SONAR embeddings, with midpoint geometry as the principled bias metric. The goal is to measure social bias in language models with mathematical rigor rather than ad hoc benchmarks. The specific insight: midpoint geometry avoids the reference-group problem that plagues most bias benchmarks — instead of measuring deviation from an arbitrary "neutral" baseline, it measures the geometric structure of the embedding space itself.
 
 </div>
 
@@ -68,16 +64,7 @@ An experimental framework using the BBQ dataset and SONAR embeddings, with midpo
 
 ### Mutual Thriving
 
-Infrastructure for collective intelligence and value alignment implemented in a framework with my collaborators, Marian and Johannes. Includes community formats, epistemic tools, and a shared vocabulary for reasoning about alignment at the human level.
-
-</div>
-
-<div class="research-thread" id="collective-intelligence">
-<div class="thread-status">Exploratory</div>
-
-### Collective Intelligence
-
-.... <luiza-todo>
+Infrastructure for collective intelligence and value alignment implemented in a framework with my collaborators, Marian and Johannes. Includes community formats, epistemic tools, and a shared vocabulary for reasoning about alignment at the human level. Theoretically grounded in active inference — the idea that collectives, like individuals, maintain themselves by minimizing surprise about their own boundaries and states.
 
 </div>
 
@@ -86,6 +73,12 @@ Infrastructure for collective intelligence and value alignment implemented in a 
 <ul class="publications">
   <li>
     <span class="publication-award">Best Paper</span><br>
-    <strong>ICTSS 2024</strong> — Spectral metrics predicting combinatorial test coverage.
+    L. Corpaci, M. Wagner, S. Raubitzek, L. Kampel, K. Mallinger, D. E. Simos. <em>Estimating Combinatorial t-Way Coverage Based on Matrix Complexity Metrics.</em> <strong>ICTSS 2024</strong>: 3-20. <a href="https://doi.org/10.1007/978-3-031-80889-0_1">DOI</a>
+  </li>
+  <li>
+    K. Mallinger, L. Corpaci, T. Neubauer, I. E. Tikász, T. M. Banhazi. <em>Unsupervised and supervised machine learning approach to assess user readiness levels for precision livestock farming technology adoption.</em> Computers and Electronics in Agriculture, 213: 108239, 2023. <a href="https://doi.org/10.1016/j.compag.2023.108239">DOI</a>
+  </li>
+  <li>
+    S. Raubitzek, L. Corpaci, R. Hofer, K. Mallinger. <em>Scaling Exponents of Time Series Data: A Machine Learning Approach.</em> Entropy 25(12): 1671, 2023.
   </li>
 </ul>

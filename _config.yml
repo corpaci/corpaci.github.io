@@ -9,13 +9,15 @@ author:
 # jekyll-seo-tag
 title: Luiza Corpaci
 tagline: "AI safety · formal methods · the geometry of understanding"
-description: "AI engineer at AMD building Spectrum. Research at the intersection of formal verification, interpretability, category theory, and AI safety."
+description: "AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety."
 og_image: /apple-touch-icon.png
 social:
   name: Luiza Corpaci
   links:
-    - https://github.com/corpaci
-    - https://linkedin.com/in/corpaci
+    - https://github.com/CorpaciLC
+    - https://linkedin.com/in/luiza-corpaci/
+    - https://orcid.org/0009-0004-4432-6843
+    - https://scholar.google.com/citations?user=OhRQsPAAAAAJ
 lang: en
 
 plugins:

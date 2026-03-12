@@ -37,7 +37,7 @@ description: "Short description for SEO/feeds"
 ---
 ```
 
-- Single `post` layout for all posts (no bilingual system)
+- Three layouts: `default` (base), `page` (pages with auto header/subtitle), `post` (blog posts with tags/TOC/sidenotes)
 - Tags render as amber badges linking to `/blog/tags/#tag-slug`
 - Use `<!--more-->` separator for homepage excerpts
 - Use `published: false` in front matter for drafts
@@ -45,7 +45,7 @@ description: "Short description for SEO/feeds"
 
 ### Styling
 
-`css/main.css` — warm-mathematical theme with CSS variables, dark mode (`prefers-color-scheme: dark`), Bootstrap 5.3 for layout grid.
+`css/main.css` — warm-mathematical theme with CSS variables, dark mode (`prefers-color-scheme: dark`). No Bootstrap — spacing utilities (`mb-3`, `py-4`, etc.) are defined directly in main.css.
 
 **Fonts** (Google Fonts): Source Serif 4 (body serif), Inter (UI sans — navbar, footer, dates, TOC, tags), JetBrains Mono (code).
 
@@ -55,7 +55,7 @@ description: "Short description for SEO/feeds"
 
 ### Includes
 
-- `head.html`: Meta tags, fonts, MathJax, Bootstrap CSS
+- `head.html`: Meta tags, fonts, KaTeX (math rendering with `$...$`, `$$...$$`, `\(...\)`, `\[...\]` delimiters)
 - `toc.html`: Auto-generated table of contents from h2/h3 headings (visible on wide screens ≥1200px)
 - `sidenotes.html`: Transforms Markdown footnotes into margin sidenotes (wide screens) or toggleable inline notes (narrow screens)
 - `tag-filter.html`: Lightweight JS for client-side tag filtering on the blog page

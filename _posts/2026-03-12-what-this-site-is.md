@@ -10,7 +10,7 @@ This is the first post on this site, and it seems right to say what it is for.
 
 <!--more-->
 
-I am an AI engineer at AMD, where I tools for hardware verification. I am (working towards) completing a Master's in Data Science and aligning myself to apply to PhD programs for 2027. My research interests condense at the intersection of formal verification, interpretability, and AI safety.
+I am an AI engineer at AMD, where I build tools for hardware verification. I am completing a Master's in Data Science and applying to PhD programs for Fall 2026. My research interests sit at the intersection of formal verification, interpretability, and AI safety.
 
 This site is a place to think in public. Some posts will be technical — walkthroughs of research, notes on category theory or persistent homology, observations from building LLM systems for hardware. Some will be more reflective — on what it means to work at the boundary between formal methods and machine learning, or on the contemplative dimensions of attention and representation.
 
@@ -18,7 +18,7 @@ I call the thread that connects these things "systems all the way down." The sam
 
 What you can expect:
 
-- **Technical deep-dives** into Spectrum, SAE features, bias measurement, and the mathematics behind them.
+- **Technical deep-dives** into formalization limits, SAE features, bias measurement, and the mathematics behind them.
 - **Conceptual sketches** connecting category theory, active inference, and interpretability.
 - **Research notes** that are somewhere between a lab notebook and an essay — compressed, precise, generative.
 

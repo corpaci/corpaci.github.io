@@ -138,8 +138,20 @@ img {
 /* Layout */
 .container {
   max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 1.5rem;
 }
+
+/* Spacing utilities (Bootstrap replacement) */
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+.py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.text-muted { color: var(--text-secondary); }
+
+*, *::before, *::after { box-sizing: border-box; }
 
 /* Navbar */
 .navbar {
@@ -656,5 +668,9 @@ sup[id^="fnref:"] a {
 
   .nav-links .nav-link {
     font-size: 0.8rem;
+  }
+
+  .nav-rss {
+    display: none;
   }
 }

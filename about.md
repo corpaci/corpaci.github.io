@@ -1,16 +1,12 @@
 ---
-layout: default
+layout: page
 title: About
 permalink: /about/
 ---
 
-<div class="page-header">
-  <h1>About</h1>
-</div>
-
 I am an AI engineer at AMD in Iași, Romania, working on hardware verification. My current research interest is in the [limits of formalization](/research/#limits-to-formalization) — what happens when you try to take fuzzy input and produce something checkable, and where that process necessarily breaks down.
 
-Before AMD, I worked on physical verification at Marvell and spent time at the University of Vienna studying mechanistic interpretability. I am completing a Master's in Data Science and applying to PhD programs for Fall 2026, along with research fellowships in AI safety (MATS, Apollo Research, ARENA, and others).
+I studied Automatic Control and Computer Science at Politehnica University of Bucharest, then moved into chip design at Marvell. From there I went to SBA Research in Vienna, working on complexity theory and resilience of socio-technological systems, then to the University of Vienna for ML research on mechanistic interpretability. I am completing a Master's in Data Science and applying to PhD programs for Fall 2026, along with research fellowships in AI safety (MATS, Apollo Research, ARENA, and others).
 
 I won **Best Paper at ICTSS 2024** for work on spectral metrics predicting combinatorial test coverage — a result I see as part of a broader insight I call *Grounding Relative Understanding*: that any system's outputs encode the structure of the measuring system itself.
 
@@ -24,4 +20,4 @@ I have a contemplative practice informed by correspondence with Shinzen Young on
 
 ## Background
 
-Chip design at Marvell → ML research at University of Vienna (interpretability) → hardware verification at AMD → converging all of it toward AI safety and the geometry of understanding.
+Politehnica Bucharest (Automatic Control & CS) → chip design at Marvell → complexity research at SBA Research (Vienna) → ML research at University of Vienna (interpretability) → hardware verification at AMD → converging all of it toward AI safety and the geometry of understanding.

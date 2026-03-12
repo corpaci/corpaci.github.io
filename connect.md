@@ -1,17 +1,15 @@
 ---
-layout: default
+layout: page
 title: Connect
 permalink: /connect/
 ---
 
-<div class="page-header">
-  <h1>Connect</h1>
-</div>
-
 ## Find Me
 
-- [GitHub](https://github.com/corpaci)
-- [LinkedIn](https://linkedin.com/in/corpaci)
+- [GitHub](https://github.com/CorpaciLC)
+- [LinkedIn](https://linkedin.com/in/luiza-corpaci/)
+- [ORCID](https://orcid.org/0009-0004-4432-6843)
+- [Google Scholar](https://scholar.google.com/citations?user=OhRQsPAAAAAJ)
 - [RSS Feed](/feed.xml)
 
 ## Communities
@@ -21,4 +19,4 @@ permalink: /connect/
 
 ## Get in Touch
 
-The best way to reach me is via LinkedIn or GitHub. I'm always interested in conversations about AI safety, formal methods, interpretability, and the mathematics of understanding.
+I am open to collaboration on AI safety research, interpretability, and formal methods. The best way to reach me is through [LinkedIn](https://linkedin.com/in/luiza-corpaci/) or by email at **luiza.corpaci@gmail.com**.

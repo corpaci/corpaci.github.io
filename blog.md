@@ -1,13 +1,9 @@
 ---
-layout: default
+layout: page
 title: Blog
+subtitle: Notes, essays, and thinking in public.
 permalink: /blog/
 ---
-
-<div class="page-header">
-  <h1>Blog</h1>
-  <p class="page-subtitle">Notes, essays, and thinking in public.</p>
-</div>
 
 <div class="tag-filter" id="tag-filter">
   <a href="#" class="active" data-tag="all">All</a>
