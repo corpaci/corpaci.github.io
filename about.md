@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-<div class="public-only">
+<div class="public-only" markdown="1">
 
 I'm an AI engineer at AMD in Iași, Romania. My job is making sure chips work correctly before they go into the world — a bit like being a very rigorous editor for hardware.
 
@@ -18,7 +18,7 @@ I won Best Paper at ICTSS 2024. I run reading groups on topology and category th
 
 </div>
 
-<div class="nerd-only">
+<div class="nerd-only" markdown="1">
 
 AMD hardware verification engineer by day; the rest is a single research program with several open threads.
 
@@ -40,10 +40,10 @@ Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / A
 
 ## Background
 
-<div class="public-only">
+<div class="public-only" markdown="1">
 Bucharest (engineering) → Marvell (chip design) → Vienna (math & ML research) → AMD (AI/hardware) → PhD & AI safety, 2026.
 </div>
 
-<div class="nerd-only">
+<div class="nerd-only" markdown="1">
 Politehnica Bucharest → Marvell → SBA Research → University of Vienna → AMD → PhD + safety fellowships, 2026.
 </div>
