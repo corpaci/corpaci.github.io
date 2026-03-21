@@ -132,15 +132,15 @@ Click cells to toggle bits. Try making a highly structured matrix vs. a random o
       <div class="metric-row">
         <div class="metric-card">
           <div class="metric-label">SVD Entropy</div>
-          <div class="metric-val" id="val-entropy">—</div>
+          <div class="metric-val" id="val-entropy">;</div>
         </div>
         <div class="metric-card">
           <div class="metric-label">Spectral Radius σ₁</div>
-          <div class="metric-val" id="val-radius">—</div>
+          <div class="metric-val" id="val-radius">;</div>
         </div>
         <div class="metric-card">
           <div class="metric-label">Rank</div>
-          <div class="metric-val" id="val-rank">—</div>
+          <div class="metric-val" id="val-rank">;</div>
         </div>
       </div>
       <canvas id="spectrumChart"></canvas>
@@ -271,4 +271,4 @@ Click cells to toggle bits. Try making a highly structured matrix vs. a random o
 
 ---
 
-**What you're seeing:** The singular values of the matrix are the square roots of the eigenvalues of $A^T A$. A flat spectrum (high SVD entropy) means the matrix's "information" is spread across many dimensions — it covers the test space more uniformly. A peaked spectrum (low entropy, high $\sigma_1$) means most variance is concentrated in one direction — the matrix is redundant. The ICTSS result: this entropy predicts combinatorial *t*-way coverage without enumerating the combinations.
+**What you're seeing:** The singular values of the matrix are the square roots of the eigenvalues of $A^T A$. A flat spectrum (high SVD entropy) means the matrix's "information" is spread across many dimensions ; it covers the test space more uniformly. A peaked spectrum (low entropy, high $\sigma_1$) means most variance is concentrated in one direction ; the matrix is redundant. The ICTSS result: this entropy predicts combinatorial *t*-way coverage without enumerating the combinations.

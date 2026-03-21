@@ -3,7 +3,7 @@ layout: post
 title: "What This Site Is"
 permalink: /blog/what-this-site-is
 tags: [meta]
-description: "First post — what this site is for and what you'll find here."
+description: "First post ; what this site is for and what you'll find here."
 ---
 
 This is the first post on this site, and it seems right to say what it is for.

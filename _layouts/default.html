@@ -22,8 +22,7 @@
       <a class="nav-link{% if page.url == '/blog/' or page.layout == 'post' %} active{% endif %}" href="/blog/">Blog</a>
       <a class="nav-link{% if page.url == '/about/' %} active{% endif %}" href="/about/">About</a>
       <a class="nav-link{% if page.url == '/connect/' %} active{% endif %}" href="/connect/">Connect</a>
-      <a class="nav-link nav-rss" href="/feed.xml">RSS</a>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">◐</button>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">◐</button>
     </div>
   </nav>
 
@@ -40,7 +39,7 @@
 
   <script>
     var THEMES = ['day', 'night', 'spectrum'];
-    var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u25C8' };
+    var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u273A' };
     function toggleTheme() {
       var current = document.documentElement.getAttribute('data-theme');
       var idx = THEMES.indexOf(current);
