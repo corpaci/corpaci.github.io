@@ -157,17 +157,11 @@ img {
 .navbar {
   background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
-  display: flex;
-  align-items: center;
-  font-family: var(--font-sans);
-}
-
-.navbar .container {
+  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  font-family: var(--font-sans);
 }
 
 .navbar-brand {
