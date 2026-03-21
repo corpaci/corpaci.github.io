@@ -687,14 +687,14 @@ sup[id^="fnref:"] a {
 
 /* Spectrum */
 [data-theme="spectrum"] {
-  --text-primary: #111;
-  --text-secondary: #555;
-  --bg-primary: #ffffff;
-  --border-color: #e0e0e0;
-  --code-bg: #f6f6f6;
-  --accent: #d4006a;
-  --accent-hover: #a80050;
-  --accent-secondary: #ff7800;
+  --text-primary: #e2dfd9;
+  --text-secondary: #9b9590;
+  --bg-primary: #1c1b19;
+  --border-color: #3a3632;
+  --code-bg: #252320;
+  --accent: #e91e8c;
+  --accent-hover: #ff5cb8;
+  --accent-secondary: #ff9800;
 }
 
 [data-theme="spectrum"] h1,
