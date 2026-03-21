@@ -684,8 +684,6 @@ sup[id^="fnref:"] a {
 
 .theme-toggle:hover { color: var(--text-primary); }
 
-.theme-toggle::before { content: '◐'; }
-[data-theme="dark"] .theme-toggle::before { content: '◑'; }
 
 /* Mobile */
 @media (max-width: 768px) {
