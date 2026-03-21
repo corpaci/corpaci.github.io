@@ -3,6 +3,7 @@ layout: page
 title: Blog
 subtitle: Notes, essays, and thinking in public.
 permalink: /blog/
+hide_title: true
 ---
 
 <div class="tag-filter" id="tag-filter">

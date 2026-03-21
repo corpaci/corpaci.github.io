@@ -15,7 +15,6 @@ An experimental framework using the BBQ dataset and SONAR embeddings, with midpo
 
 **The GRU connection.** LLM decision boundaries in SONAR space reveal internal precision-weighting that isn't specified by the training objective. The model's own geometry generates relevance — which groups it treats as similar, which as distant — in ways that weren't externally imposed. This is one of the two empirical anchors for the [active inference](/research/active-inference/) thread.
 
-**Publication:** L. Corpaci, M. Wagner, S. Raubitzek, L. Kampel, K. Mallinger, D. E. Simos. *Estimating Combinatorial t-Way Coverage Based on Matrix Complexity Metrics.* **ICTSS 2024**: 3–20. [DOI](https://doi.org/10.1007/978-3-031-80889-0_1) — Best Paper Award.
 
 </div>
 

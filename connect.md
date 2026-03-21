@@ -2,6 +2,7 @@
 layout: page
 title: Connect
 permalink: /connect/
+hide_title: true
 ---
 
 ## Find Me

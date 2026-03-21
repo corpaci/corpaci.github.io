@@ -25,7 +25,7 @@ I won Best Paper at ICTSS 2024. I run reading groups on topology and category th
 
 Wanderer by night.
 
-**A central result so far:** ICTSS 2024 Best Paper — spectral matrix complexity metrics predict combinatorial t-way coverage. The deeper claim: *any system's outputs encode the geometry of the measuring apparatus.* This is what I call Grounding Relative Understanding (GRU). The Fisher Information bound makes it precise: I(θ; X) ≤ I(θ; f(X)) with equality iff f is sufficient. Applied to mechanistic interpretability — your probing method is not neutral. The features you find are a joint product of the model and the probe. This is not a bug in the methodology, it is the methodology's fundamental structure, and most of the field is not being careful about it.
+**A central result so far:** spectral matrix complexity metrics predict combinatorial t-way coverage. The deeper claim: *any system's outputs encode the geometry of the measuring apparatus.* This is what I call Grounding Relative Understanding (GRU). The Fisher Information bound makes it precise: I(θ; X) ≤ I(θ; f(X)) with equality iff f is sufficient. Applied to mechanistic interpretability — your probing method is not neutral. The features you find are a joint product of the model and the probe. This is not a bug in the methodology, it is the methodology's fundamental structure, and most of the field is not being careful about it.
 
 **The formalization thread:** Tarski, Gödel, Chaitin form a sequence. Undefinability → incompleteness → incompressibility. The Chaitin bound is the one that bites hardest in practice: for any formal system F there exists c such that F ⊬ K(s) > c for any specific string s. The ceiling on certifiable compression is bounded by the complexity of the formalizer itself. This shows up in hardware verification (why specs always have gaps), in interpretability (why SAE features behave strangely at ambiguous boundaries), and in natural language (why controlled natural languages feel like they've had their soul removed). Same phenomenon, different substrate.
 
@@ -42,7 +42,7 @@ Wanderer by night.
 Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / ARENA fellowships, Fall 2026.
 
 <div class="beyond-only" markdown="1">
-
+Curious in-between.
 <div>
 
 
@@ -50,12 +50,12 @@ Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / A
 
 ## Background
 
-<div class="day-only" markdown="1">
+<!-- <div class="day-only" markdown="1">
 Bucharest (engineering) → Marvell (chip design) → Vienna (math & ML research) → AMD (AI/hardware)
 </div>
 
 <div class="night-only" markdown="1">
 Politehnica Bucharest → Marvell → SBA Research → University of Vienna → AMD → PhD + safety fellowships.
-</div>
+</div> -->
 
 [^vv-def]: Official definitions (ISO 9000:2015): verification is "confirmation, through the provision of objective evidence, that specified requirements have been fulfilled"; validation is "confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled."

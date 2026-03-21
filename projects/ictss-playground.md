@@ -5,9 +5,11 @@ subtitle: "Poke at a test matrix, watch the spectral complexity react."
 permalink: /projects/ictss-playground/
 ---
 
-From the [ICTSS 2024 Best Paper](/projects/bias-measurement/): spectral matrix complexity metrics predict combinatorial *t*-way coverage. The intuition — a random-looking matrix covers more combinations than a structured one, and its singular value spectrum is visibly flatter.
+From the [ICTSS 2024 Best Paper](https://www.sba-research.org/2024/11/04/best-paper-presentation-at-ictss-2024-in-london/): spectral matrix complexity metrics predict combinatorial *t*-way coverage. 
 
-Click cells to toggle bits. Try making a highly structured matrix (stripes, blocks) vs. a random one and watch how the singular value distribution changes.
+The intuition is that a random-looking matrix covers more combinations than a structured one, and its singular value spectrum is visibly flatter.
+
+Click cells to toggle bits. Try making a highly structured matrix vs. a random one and watch how the singular value distribution changes.
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -187,13 +189,14 @@ Click cells to toggle bits. Try making a highly structured matrix (stripes, bloc
     var AS = math.multiply(AT, A);
     var sigmas = [];
     try {
-      var eigs = math.eigs(AS).values.toArray();
+      var raw = math.eigs(AS).values;
+      var eigs = Array.isArray(raw) ? raw : raw.toArray();
       sigmas = eigs
-        .map(function(v) { return typeof v === 'number' ? v : (v.re || 0); })
+        .map(function(v) { return typeof v === 'number' ? v : (v.re !== undefined ? v.re : 0); })
         .map(function(v) { return Math.sqrt(Math.max(0, v)); })
         .filter(function(v) { return v > 1e-6; })
         .sort(function(a, b) { return b - a; });
-    } catch(e) {}
+    } catch(e) { console.warn('eigs failed:', e); }
     return sigmas;
   }
 
