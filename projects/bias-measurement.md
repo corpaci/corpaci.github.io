@@ -5,7 +5,7 @@ subtitle: Geometric rigor over ad hoc benchmarks.
 permalink: /projects/bias-measurement/
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 An experimental framework using the BBQ dataset and SONAR embeddings, with midpoint geometry as the principled bias metric. With Soheyb Kouider (primary collaborator on the geometric framing).
 
@@ -19,7 +19,7 @@ An experimental framework using the BBQ dataset and SONAR embeddings, with midpo
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 An experimental framework for measuring social bias in AI language models with mathematical rigor, rather than ad hoc benchmarks. With Soheyb Kouider.
 

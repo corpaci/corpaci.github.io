@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-theme="light">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-theme="day">
 
 <head>
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
-      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
       document.documentElement.setAttribute('data-theme', saved || preferred);
     })();
   </script>
@@ -37,19 +37,21 @@
   </footer>
 
   <script>
+    var THEMES = ['day', 'night', 'aurora', 'pastels', 'spectrum'];
+    var ICONS  = { day: '\u25CB', night: '\u25D1', aurora: '\u2726', pastels: '\u273F', spectrum: '\u25C8' };
     function toggleTheme() {
       var current = document.documentElement.getAttribute('data-theme');
-      var next = current === 'dark' ? 'light' : 'dark';
+      var idx = THEMES.indexOf(current);
+      var next = THEMES[(idx + 1) % THEMES.length];
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       var btn = document.querySelector('.theme-toggle');
-      if (btn) btn.textContent = next === 'dark' ? '\u25D1' : '\u25D0';
+      if (btn) btn.textContent = ICONS[next] || ICONS['day'];
     }
-    // Sync button icon to current theme on load
     (function() {
       var t = document.documentElement.getAttribute('data-theme');
       var btn = document.querySelector('.theme-toggle');
-      if (btn) btn.textContent = t === 'dark' ? '\u25D1' : '\u25D0';
+      if (btn) btn.textContent = ICONS[t] || ICONS['day'];
     })();
   </script>
 </body>

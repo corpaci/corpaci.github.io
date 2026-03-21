@@ -6,7 +6,7 @@ tags: [interpretability, formal-methods]
 description: "Why Euclidean midpoints in SONAR space are a better bias metric than deviation from an arbitrary centroid — and what the reference-group problem actually is."
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 The reference-group problem in bias measurement: most metrics for bias in language models compute deviation from a "neutral" or "stereotypical" baseline embedding. The baseline is chosen by the researcher. The choice is not neutral. The metric is contaminated by the choice.
 
@@ -28,7 +28,7 @@ The key property: $m_{AB}$ requires no external calibration. It's defined by the
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 How do you measure unfairness without first defining what "fair" looks like?
 

@@ -6,7 +6,7 @@ tags: [ai-safety, interpretability, formal-methods]
 description: "What's the difference between a thermostat and a bacterium? The ALife argument for endogenous precision-weighting."
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 Both a thermostat and a cell minimize free energy in the sense of the Free Energy Principle. The thermostat senses a temperature differential and acts to reduce it. The cell senses metabolic imbalance and acts to restore it. Both are minimizing prediction error. So what's the difference?
 
@@ -30,7 +30,7 @@ This is the direction I find most promising for making the living/non-living dis
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 A thermostat and a bacterium have something in common: they both react to their environment to maintain a stable state. The thermostat senses temperature; the bacterium senses metabolic balance. Both correct deviations. Both are, in a technical sense, minimizing "surprise."
 

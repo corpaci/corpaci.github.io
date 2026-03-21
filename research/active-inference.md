@@ -5,7 +5,7 @@ subtitle: What distinguishes a thermostat from a cell.
 permalink: /research/active-inference/
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 Here's the claim: what distinguishes living from non-living active inference systems isn't complexity, embodiment, or self-modeling per se — it's whether the E-component (the precision or relevance-weighting over prediction errors) is endogenously generated through organizational closure. A thermostat minimizes free energy. A cell minimizes free energy *and* generates its own relevance function from within its own organizational dynamics. This is the autopoietic twist on FEP, and I think it's testable.
 
@@ -17,7 +17,7 @@ Two empirical anchors: (1) the ICTSS spectral metrics result, where matrix compl
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 Living things and thermostats both react to their environment. But a thermostat just follows a rule someone else set. A living cell decides for itself what matters — it generates its own sense of relevance from its own internal organization.
 

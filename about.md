@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 I'm an AI engineer at AMD in Iași, Romania. My job is making sure chips work correctly before they go into the world — a bit like being a very rigorous editor for hardware.
 
@@ -16,11 +16,11 @@ That question connects everything I do. I study how AI systems represent knowled
 
 I studied engineering in Bucharest, designed chips at Marvell, did math and complexity research in Vienna, then ML research on how neural networks work from the inside. I'm finishing a Master's in Data Science and applying to PhD programs and AI safety fellowships for 2026.
 
-I won Best Paper at ICTSS 2024. I run reading groups on topology and category theory, and I'm building towards a framework called **Mutual Thriving** for how groups can reason well together — with Johannes Jaeger and Marian Olariu.
+I won Best Paper at ICTSS 2024. I run reading groups on topology and category theory, and I'm building towards a framework called **Mutual Thriving** for how groups can reason well together with Johannes and Marian.
 
 </div>
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 AMD hardware verification engineer by day; research at the intersection of formal methods and language model reliability runs through my day job. The rest is a single research program with several open threads.
 
@@ -44,10 +44,10 @@ Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / A
 
 ## Background
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 Bucharest (engineering) → Marvell (chip design) → Vienna (math & ML research) → AMD (AI/hardware)
 </div>
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 Politehnica Bucharest → Marvell → SBA Research → University of Vienna → AMD → PhD + safety fellowships.
 </div>

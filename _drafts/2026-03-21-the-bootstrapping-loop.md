@@ -6,7 +6,7 @@ tags: [formal-methods, ai-safety, interpretability]
 description: "Leo de Moura's insight about implementation-as-spec, connected to fixed-point theorems and hardware verification."
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 Leo de Moura's key insight, applied to the Lean prover: the best spec for a second implementation is a first implementation. Not because the first implementation is correct, but because it has committed to specific answers for every ambiguity the original spec left open.
 
@@ -27,7 +27,7 @@ This is the structure underlying LLM-to-formal-assertion pipelines in hardware v
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 Here's a strange trick for writing better recipes: cook from the recipe, then write a new recipe based on what you actually did.
 

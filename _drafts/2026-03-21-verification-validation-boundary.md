@@ -6,7 +6,7 @@ tags: [formal-methods, ai-safety, interpretability]
 description: "Why you can never fully check your own work — and what Tarski has to do with it."
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 In engineering, verification and validation are distinguished as follows: verification asks "did we build the thing right?" and validation asks "did we build the right thing?" Most engineering curricula treat this as a procedural distinction — different stages of a project, different checklists. I think it's an epistemological boundary.
 
@@ -28,7 +28,7 @@ This is not a contingent limitation that better tooling will fix. It's a structu
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 There's a distinction engineers are trained to make: verification asks "did we build it right?" and validation asks "did we build the right thing?"
 

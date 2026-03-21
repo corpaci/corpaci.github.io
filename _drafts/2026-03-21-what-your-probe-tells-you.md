@@ -6,7 +6,7 @@ tags: [interpretability, ai-safety, formal-methods]
 description: "GRU as an interpretability meta-result: the Fisher Information geometry of probing, and the Cramér-Rao bound as a statement about measurement."
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 Every microscope has a fingerprint. The structures you see through it are partly in the specimen and partly in the optics. This is not a defect of microscopy — it's its fundamental structure. The right response is not to pretend the fingerprint isn't there, but to characterize it precisely.
 
@@ -31,7 +31,7 @@ The ICTSS 2024 result[^ictss] is the empirical anchor: spectral matrix complexit
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 Every microscope has a fingerprint. The patterns you see through it are partly in the specimen and partly in the glass. A good microscopist knows this and accounts for it. A careless one mistakes the optics for reality.
 

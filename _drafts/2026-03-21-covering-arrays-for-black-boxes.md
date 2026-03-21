@@ -6,7 +6,7 @@ tags: [formal-methods, ai-safety, interpretability]
 description: "Testing every possible combination is impossible — but testing the right combinations isn't. Combinatorial testing for LLM decision boundaries."
 ---
 
-<div class="nerd-only" markdown="1">
+<div class="night-only" markdown="1">
 
 A *t*-way covering array $CA(N; t, k, v)$ is an $N \times k$ array over a $v$-element alphabet such that every $t$-column subarray contains every $t$-tuple at least once. The key parameter is $t$ — the interaction strength. A 2-way covering array guarantees that every pair of input features takes every combination of values at least once. A 3-way array covers every triple. And so on.
 
@@ -26,7 +26,7 @@ The classical result: the size of a *t*-way covering array grows logarithmically
 
 </div>
 
-<div class="public-only" markdown="1">
+<div class="day-only" markdown="1">
 
 Testing whether an AI behaves correctly is hard because the space of possible inputs is enormous — effectively infinite. You can't test everything.
 
