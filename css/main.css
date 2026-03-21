@@ -1,13 +1,13 @@
-/* Warm-Mathematical Academic Theme */
+/* LC Academic Theme */
 
 :root {
-  --text-primary: #2d2a26;
-  --text-secondary: #6b6560;
-  --bg-primary: #faf9f7;
-  --border-color: #e2dfd9;
-  --code-bg: #f3f1ed;
-  --accent: #0d7377;
-  --accent-hover: #0a5c5f;
+  --text-primary: #222830;
+  --text-secondary: #626b78;
+  --bg-primary: #f0efeb;
+  --border-color: #dcdad3;
+  --code-bg: #e8e7e1;
+  --accent: #1580a0;
+  --accent-hover: #0e6882;
   --accent-secondary: #c4841d;
   --font-serif: 'Source Serif 4', 'Iowan Old Style BT', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -635,8 +635,8 @@ sup[id^="fnref:"] a {
     --bg-primary: #1c1b19;
     --border-color: #3a3632;
     --code-bg: #252320;
-    --accent: #2fb8bd;
-    --accent-hover: #46ccd1;
+    --accent: #3aaac8;
+    --accent-hover: #54bdd8;
     --accent-secondary: #e0a040;
   }
 
