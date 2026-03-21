@@ -1,0 +1,11 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ site.url }}/research/</loc></url>
+  <url><loc>{{ site.url }}/research/formalization-limits/</loc></url>
+  <url><loc>{{ site.url }}/research/interpretability-grounding/</loc></url>
+  <url><loc>{{ site.url }}/research/collective-intelligence/</loc></url>
+  <url><loc>{{ site.url }}/research/ai-safety/</loc></url>
+  <url><loc>{{ site.url }}/research/category-theory/</loc></url>
+</urlset>

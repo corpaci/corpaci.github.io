@@ -2,5 +2,37 @@
 ---
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /_drafts/
+# Allow AI search/discovery bots
+User-agent: OAI-SearchBot
+Allow: /
 
-Sitemap: {{ site.url }}/sitemap.xml
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Optional: allow user-triggered retrieval for Claude
+User-agent: Claude-User
+Allow: /
+
+# Block training-oriented crawlers unless you explicitly want that
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Optional: block Common Crawl if you don't want broad dataset inclusion
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://corpaci.com/sitemap.xml
+Sitemap: https://corpaci.com/sitemap-research.xml
+Sitemap: https://corpaci.com/sitemap-projects.xml
+Sitemap: https://corpaci.com/sitemap-writing.xml

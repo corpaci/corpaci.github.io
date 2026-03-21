@@ -1,0 +1,35 @@
+# Luiza Corpaci
+
+AI engineer at AMD, completing a Master's in Data Science, applying to PhD programs for Fall 2026. Research at the intersection of formal verification, interpretability, collective intelligence, category theory, and AI safety.
+
+## Start here
+- /about/
+- /blog/what-this-site-is
+- /research/
+- /blog/
+
+## Core topics
+- Limits to formalization: syntax-semantics interface, incompleteness, what formalisms cannot reach
+- Interpretability and grounding: what measurement reveals and conceals about neural networks
+- Collective intelligence: value alignment at the human level, active inference, epistemic coordination
+- Social bias measurement: geometric approaches, midpoint geometry, SONAR embeddings
+- AI safety: feature invariance, reliable interpretability, formal tools for deployment guarantees
+- Category theory: structure-preserving maps, functors, applications to learning and meaning
+
+## Canonical research pages
+- /research/formalization-limits/
+- /research/interpretability-grounding/
+- /research/collective-intelligence/
+- /research/ai-safety/
+- /research/category-theory/
+
+## Projects
+- /projects/bias-measurement/
+
+## Writing
+- /blog/
+
+## Academic profiles
+- https://scholar.google.com/citations?user=OhRQsPAAAAAJ
+- https://orcid.org/0009-0004-4432-6843
+- https://github.com/CorpaciLC
