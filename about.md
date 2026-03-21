@@ -4,20 +4,46 @@ title: About
 permalink: /about/
 ---
 
-I am an AI engineer at AMD in Iași, Romania, working on hardware verification. My current research interest is in the [limits of formalization](/research/#limits-to-formalization).
+<div class="public-only">
 
-I studied Automatic Control and Computer Science at Politehnica University of Bucharest, then moved into chip design at Marvell. From there I went to SBA Research in Vienna, working on complexity theory and resilience of socio-technological systems, then to the University of Vienna for ML research on mechanistic interpretability. I am completing a Master's in Data Science and applying to PhD programs for Fall 2026, along with research fellowships in AI safety (MATS, Apollo Research, ARENA, and others).
+I'm an AI engineer at AMD in Iași, Romania. My job is making sure chips work correctly before they go into the world — a bit like being a very rigorous editor for hardware.
 
-I won **Best Paper at ICTSS 2024** for work on spectral metrics predicting combinatorial test coverage — a result I see as part of a broader insight I call *Grounding Relative Understanding*: that any system's outputs encode the structure of the measuring system itself.
+On the side, I do research. The question I keep coming back to is: *when you try to write rules for something, what gets lost?* A recipe can tell you the steps, but it can't tell you when the dough feels right. A test suite can check a thousand cases but can't guarantee the thousand-and-first. I'm interested in that gap — the edge where formal rules run out.
 
-## The thread
+That question connects everything I do. I study how AI systems represent knowledge internally (can we actually read what they're doing, or are we just projecting?), how groups of people build shared understanding, and whether the same patterns of structure and meaning show up in silicon, mathematics, and contemplative practice. I think they do.
 
-I am drawn to what I call "systems all the way down" — the idea that the same structural patterns appear whether you are looking at silicon, neural networks, mathematical spaces, or contemplative traditions. Category theory, persistent homology, active inference — these are not separate interests but different lenses on a single question about how structure gives rise to understanding.
+I studied engineering in Bucharest, designed chips at Marvell, did math and complexity research in Vienna, then ML research on how neural networks work from the inside. I'm finishing a Master's in Data Science and applying to PhD programs and AI safety fellowships for 2026.
 
-This is the thread that connects my engineering work to my research interests to the way I move through the world. I coordinate a SPAR cohort on collective intelligence and value alignment, organize reading clubs on topological signal processing and applied category theory, and am developing the **Mutual Thriving** framework for epistemic infrastructure with my partner Johannes and collaborators.
+I won Best Paper at ICTSS 2024. I run reading groups on topology and category theory, and I'm building towards a framework called **Mutual Thriving** for how groups can reason well together with Johannes and Marian.
 
-I have a contemplative practice informed by correspondence with Shinzen Young on topological approaches to meditative experience. I do not separate this from the technical work. I think it is the same work, seen from a different angle.
+</div>
+
+<div class="nerd-only">
+
+AMD hardware verification engineer by day; the rest is a single research program with several open threads.
+
+**The central result so far:** ICTSS 2024 Best Paper — spectral matrix complexity metrics predict combinatorial t-way coverage. The deeper claim: *any system's outputs encode the geometry of the measuring apparatus.* This is what I call Grounding Relative Understanding (GRU). The Fisher Information bound makes it precise: I(θ; X) ≤ I(θ; f(X)) with equality iff f is sufficient. Applied to mechanistic interpretability — your probing method is not neutral. The features you find are a joint product of the model and the probe. This is not a bug in the methodology, it is the methodology's fundamental structure, and most of the field is not being careful about it.
+
+**The formalization thread:** Tarski, Gödel, Chaitin form a sequence. Undefinability → incompleteness → incompressibility. The Chaitin bound is the one that bites hardest in practice: for any formal system F there exists c such that F ⊬ K(s) > c for any specific string s. The ceiling on certifiable compression is bounded by the complexity of the formalizer itself. This shows up in hardware verification (why specs always have gaps), in interpretability (why SAE features behave strangely at ambiguous boundaries), and in natural language (why controlled natural languages feel like they've had their soul removed). Same phenomenon, different substrate.
+
+**SAE feature invariance:** The question is whether sparse autoencoder features are stable across the tacit-knowledge / rule-gap boundary. Feynman would ask: stable in what sense? Stable under what transformation group? I mean: does the feature activation geometry remain consistent when the input transitions from clearly-in-distribution to rule-gap territory — cases where the training regime said nothing specific. If features fracture there, that is a precise safety-relevant signal. We're most exposed exactly where interpretability is most likely to break.
+
+**Collective intelligence:** The Mutual Thriving framework with Johannes and Marian is grounded in active inference — the FEP applied at the group level. A collective that models itself minimizes surprise about its own boundary conditions. The practical output is epistemic infrastructure: community formats and shared vocabulary for reasoning about alignment at the human level, before you even get to the AI alignment problem. Schmidhuber would say: the prior over group trajectories is learnable; Hinton would say: the distributed representation of group belief is what needs to be read, not the individual outputs.
+
+**The category-theoretic thread** is background radiation through all of it. Functors, natural transformations, adjunctions keep reappearing as the right language for talking about structure-preserving maps between domains that look unrelated on the surface. Learning is a functor from data to hypotheses. Interpretation is a natural transformation between models. The fixpoints are the interesting part.
+
+**Background:** Politehnica Bucharest (Automatic Control & CS) → Marvell (chip design, low-level verification) → SBA Research Vienna (combinatorial testing, complexity theory, socio-technological resilience) → University of Vienna (mechanistic interpretability, ML) → AMD (hardware verification) → converging toward AI safety and the geometry of understanding.
+
+Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / ARENA fellowships, Fall 2026.
+
+</div>
 
 ## Background
 
-Politehnica Bucharest (Automatic Control & CS) → chip design at Marvell → complexity research at SBA Research (Vienna) → ML research at University of Vienna (interpretability) → hardware verification at AMD → converging all of it toward AI safety and the geometry of understanding.
+<div class="public-only">
+Bucharest (engineering) → Marvell (chip design) → Vienna (math & ML research) → AMD (AI/hardware) → PhD & AI safety, 2026.
+</div>
+
+<div class="nerd-only">
+Politehnica Bucharest → Marvell → SBA Research → University of Vienna → AMD → PhD + safety fellowships, 2026.
+</div>
