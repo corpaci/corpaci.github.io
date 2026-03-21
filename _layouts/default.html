@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-theme="light">
 
 <head>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', saved || preferred);
+    })();
+  </script>
   {% include head.html %}
 </head>
 
@@ -15,6 +22,7 @@
         <a class="nav-link{% if page.url == '/about/' %} active{% endif %}" href="/about/">About</a>
         <a class="nav-link{% if page.url == '/connect/' %} active{% endif %}" href="/connect/">Connect</a>
         <a class="nav-link nav-rss" href="/feed.xml">RSS</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"></button>
       </div>
     </div>
   </nav>
@@ -29,6 +37,15 @@
       <p>&copy; {{ site.time | date: '%Y' }} Luiza Corpaci</p>
     </div>
   </footer>
+
+  <script>
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+  </script>
 </body>
 
 </html>

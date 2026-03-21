@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am an AI engineer at AMD in Iași, Romania, working on hardware verification. My current research interest is in the [limits of formalization](/research/#limits-to-formalization) — what happens when you try to take fuzzy input and produce something checkable, and where that process necessarily breaks down.
+I am an AI engineer at AMD in Iași, Romania, working on hardware verification. My current research interest is in the [limits of formalization](/research/#limits-to-formalization).
 
 I studied Automatic Control and Computer Science at Politehnica University of Bucharest, then moved into chip design at Marvell. From there I went to SBA Research in Vienna, working on complexity theory and resilience of socio-technological systems, then to the University of Vienna for ML research on mechanistic interpretability. I am completing a Master's in Data Science and applying to PhD programs for Fall 2026, along with research fellowships in AI safety (MATS, Apollo Research, ARENA, and others).
 
