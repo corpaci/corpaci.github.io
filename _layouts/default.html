@@ -5,6 +5,8 @@
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
+      if (saved === 'dark')  { saved = 'night'; localStorage.setItem('theme', 'night'); }
+      if (saved === 'light') { saved = 'day';   localStorage.setItem('theme', 'day');   }
       var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
       document.documentElement.setAttribute('data-theme', saved || preferred);
     })();
@@ -37,8 +39,8 @@
   </footer>
 
   <script>
-    var THEMES = ['day', 'night', 'aurora', 'pastels', 'spectrum'];
-    var ICONS  = { day: '\u25CB', night: '\u25D1', aurora: '\u2726', pastels: '\u273F', spectrum: '\u25C8' };
+    var THEMES = ['day', 'night', 'spectrum'];
+    var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u25C8' };
     function toggleTheme() {
       var current = document.documentElement.getAttribute('data-theme');
       var idx = THEMES.indexOf(current);

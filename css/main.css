@@ -637,9 +637,9 @@ sup[id^="fnref:"] a {
 [data-theme="night"] img { opacity: 0.9; }
 [data-theme="night"] .post-content details { background-color: #24221f; }
 
-/* Dark mode — system preference fallback (no JS) */
+/* Night mode — system preference fallback (no JS / stale localStorage) */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="day"]) {
+  [data-theme="night"] {
     --text-primary: #e2dfd9;
     --text-secondary: #9b9590;
     --bg-primary: #1c1b19;
@@ -649,8 +649,8 @@ sup[id^="fnref:"] a {
     --accent-hover: #54bdd8;
     --accent-secondary: #e0a040;
   }
-  :root:not([data-theme="day"]) img { opacity: 0.9; }
-  :root:not([data-theme="day"]) .post-content details { background-color: #24221f; }
+  [data-theme="night"] img { opacity: 0.9; }
+  [data-theme="night"] .post-content details { background-color: #24221f; }
 }
 
 /* Content visibility by mode */
@@ -660,17 +660,12 @@ sup[id^="fnref:"] a {
 [data-theme="night"] .night-only { display: revert; }
 [data-theme="night"] .day-only { display: none; }
 
-[data-theme="aurora"] .beyond-only,
-[data-theme="pastels"] .beyond-only,
 [data-theme="spectrum"] .beyond-only { display: revert; }
-
-[data-theme="aurora"] .day-only,
-[data-theme="pastels"] .day-only,
 [data-theme="spectrum"] .day-only { display: none; }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="day"]) .night-only { display: revert; }
-  :root:not([data-theme="day"]) .day-only { display: none; }
+  [data-theme="night"] .night-only { display: revert; }
+  [data-theme="night"] .day-only { display: none; }
 }
 
 /* Theme toggle button */
@@ -688,99 +683,9 @@ sup[id^="fnref:"] a {
 
 .theme-toggle:hover { color: var(--text-primary); }
 
-/* ── Beyond themes ─────────────────────────────────────────── */
+/* ── Beyond theme ──────────────────────────────────────────── */
 
-/* Aurora */
-[data-theme="aurora"] {
-  --text-primary: #d8eaf2;
-  --text-secondary: #7aa0b8;
-  --bg-primary: transparent;
-  --border-color: #1e3348;
-  --code-bg: #0e1e2e;
-  --accent: #4ecba0;
-  --accent-hover: #70dbb8;
-  --accent-secondary: #b07adb;
-  background-color: #080d14;
-}
-
-[data-theme="aurora"] body {
-  background: transparent;
-}
-
-[data-theme="aurora"] body::before {
-  content: '';
-  position: fixed;
-  width: 70vw;
-  height: 55vh;
-  background: #3ecf90;
-  border-radius: 50%;
-  filter: blur(110px);
-  opacity: 0.18;
-  top: 5%;
-  left: -15%;
-  z-index: -1;
-  pointer-events: none;
-  animation: aurora-green 16s ease-in-out infinite alternate;
-}
-
-[data-theme="aurora"] body::after {
-  content: '';
-  position: fixed;
-  width: 60vw;
-  height: 45vh;
-  background: #7040d0;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.18;
-  top: -10%;
-  right: -10%;
-  z-index: -1;
-  pointer-events: none;
-  animation: aurora-purple 20s ease-in-out infinite alternate;
-}
-
-@keyframes aurora-green {
-  0%   { transform: translate(0,    0)    scale(1); }
-  50%  { transform: translate(12vw, 20vh) scale(1.15); }
-  100% { transform: translate(4vw,  8vh)  scale(0.9); }
-}
-
-@keyframes aurora-purple {
-  0%   { transform: translate(0,     0)    scale(1); }
-  50%  { transform: translate(-10vw, 14vh) scale(1.2); }
-  100% { transform: translate(-3vw,  26vh) scale(1.05); }
-}
-
-[data-theme="aurora"] img { opacity: 0.85; }
-
-/* Dissolving pastels */
-[data-theme="pastels"] {
-  --text-primary: #2e2838;
-  --text-secondary: #7a6088;
-  --bg-primary: transparent;
-  --border-color: #d4c8e8;
-  --code-bg: #ede6f5;
-  --accent: #8854c0;
-  --accent-hover: #6a3aa8;
-  --accent-secondary: #c06090;
-  background: linear-gradient(-45deg, #fce4ec, #ede7f6, #e3f2fd, #e8f5e9, #fff9c4, #fce4ec);
-  background-size: 500% 500%;
-  animation: pastels-drift 16s ease infinite;
-}
-
-[data-theme="pastels"] body {
-  background: transparent;
-}
-
-@keyframes pastels-drift {
-  0%   { background-position: 0%   50%; }
-  25%  { background-position: 50%  0%;  }
-  50%  { background-position: 100% 50%; }
-  75%  { background-position: 50%  100%;}
-  100% { background-position: 0%   50%; }
-}
-
-/* Full spectrum */
+/* Spectrum */
 [data-theme="spectrum"] {
   --text-primary: #111;
   --text-secondary: #555;
