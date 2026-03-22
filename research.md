@@ -5,8 +5,6 @@ permalink: /research/
 hide_title: true
 ---
 
-Wondering about wonders.
-
 <!-- [Research map →](/research/map/) -->
 <!-- [Google Scholar](https://scholar.google.com/citations?user=OhRQsPAAAAAJ) ·  -->
 

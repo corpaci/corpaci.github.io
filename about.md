@@ -7,7 +7,7 @@ hide_title: true
 
 <div class="day-only" markdown="1">
 
-## AI hardware verification engineer by day
+## <span class="day-heading"> AI hardware verification engineer by day</span>
 
 My job is making sure AI understands how to make chips work correctly.
 
@@ -26,7 +26,7 @@ I won Best Paper at ICTSS 2024. I run reading groups on topology and category th
 
 <div class="night-only" markdown="1">
 
-## Wanderer by night.
+## <span class="night-heading"> Wanderer by night.</span>
 
 I explore undefinability, incompleteness and incompressibility in math, AI, and philosophy.
 
@@ -49,7 +49,7 @@ Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / A
 </div>
 
 <div class="beyond-only" markdown="1">
-## Wonderer in the beyond.
+## <span class="beyond-heading"> Wonderer in the beyond.</span>
 
 I wonder about wonders.
 

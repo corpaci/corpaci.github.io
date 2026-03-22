@@ -622,6 +622,28 @@ sup[id^="fnref:"] a {
 
 @media print { .sidenote { display: block; font-size: 0.8rem; } }
 
+/* Colorful heading classes for templates */
+.day-heading {
+  background: linear-gradient(135deg, #1580a0, #0e6882);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.night-heading {
+  background: linear-gradient(135deg, #c4841d, #a86d15);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.beyond-heading {
+  background: linear-gradient(135deg, #0d7377, #c4841d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Dark mode — explicit toggle */
 [data-theme="night"] {
   --text-primary: #e2dfd9;
