@@ -2,7 +2,7 @@
 layout: post
 title: "How Does Good Feel Like?"
 permalink: /blog/good-feels-like
-tags: [tag1, tag2]
+tags: [good, meta, philosophy, ai-safety, alignment, interpretability]
 description: "The nature of doing good; why department of war is a bad idea; verifiable vs validatable vs good; the gap between formal rules and lived experience."
 ---
 
