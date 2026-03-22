@@ -46,6 +46,8 @@ I explore undefinability, incompleteness and incompressibility in math, AI, and 
 
 Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / ARENA fellowships, Fall 2026. -->
 
+</div>
+
 <div class="beyond-only" markdown="1">
 ## Wonderer in the beyond.
 
