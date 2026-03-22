@@ -6,11 +6,39 @@ tags: [good, meta, philosophy, ai-safety, alignment, interpretability]
 description: "The nature of doing good; why department of war is a bad idea; verifiable vs validatable vs good; the gap between formal rules and lived experience."
 ---
 
-Does dinner with mom feel like a *good* use of your time? Is it good enough to anchor whatever it is you're doing instread against it?
+
+## Good cannot be computed. Good can be recognized.
+
+Does dinner with mom feel like a *good* use of time? 
+
+Not strategic, not productive, not efficient, nor optimal.
+
+Just good.
+
+Is it good enough to anchor whatever it is you're doing instread against it?
 
 <div class="day-only" markdown="1">
-Time is finite. The people we love won't be here forever. This is an accessible truth everyone can agree on.
-Good feels like the choice we'd still make knowing the full weight of what we're giving up. he felt decision, not the optimied one. When we're present at dinner with mom, we're not calculating opportunity costs. We're in the moment that, when it's gone, we cannot recover through any achievement. Good feels like attending to what's irreplaceable while it's still here.
+Time is finite. The people we love won't be here forever. This is an accessible truth we can (probably) agree on. [^finite-time]
+
+[^finite-time]: Maybe this will not be true for all of human existence, but it seems to be a limitation of today's experience. Until we reach whatever form of life expansion we settle on, I'll try to deal with the feebleness of being a biological human.
+
+
+<div class="day-only" markdown="1">
+Here's a small exercise:
+</div>
+
+<div class="in-night in-beyond" markdown="1">
+Here's a small exercise I stumbled on while going through the first question in [36 Questions on the Way to Love](https://www.nytimes.com/2015/02/13/style/the-36-questions-on-the-way-to-love.html): 
+</div>
+
+Think about what you're choosing to do today instead of dinner with someone you love. 
+Now imagine that person lives in the next town. How much would you give up to have that dinner? 
+What if they live in another country?
+Now imagine they're gone entirely and you're remembering the last dinner you didn't have.
+
+Something changes, doesn't it? The dinner didn't, but our ability to feel its worth did.
+
+Good feels like the choice we'd still make knowing the full weight of what we're giving up on. The felt choice, not the optimied one. When we're present at dinner, we're not calculating opportunity costs. We're in the moment that, when gone, we cannot recover through any adjustments of reality. Good feels like attending to what's irreplaceable while it's still here.
 </div>
 
 
