@@ -1,0 +1,880 @@
+---
+layout: default
+title: Research Category
+permalink: /research/map/
+hide_title: true
+---
+
+<style>
+  /* ── Break out of the site's narrow container ── */
+  body:has(.cat-editor) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  body:has(.cat-editor) main.container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  body:has(.cat-editor) .footer { display: none !important; }
+
+  /* ── SVG marker fills via CSS so they pick up variables ── */
+  #ah path        { fill: var(--text-secondary); }
+  #ah-accent path { fill: var(--accent); }
+  #ah-orange path { fill: #d97706; }
+  #ah-blue path   { fill: #3b82f6; }
+  #ah-green path  { fill: #22c55e; }
+  #ah-red path    { fill: #ef4444; }
+
+  /* ── Toolbar ── */
+  .cat-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+    font-family: var(--font-sans);
+    gap: 12px;
+  }
+  .cat-toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mode-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+  }
+  .mode-badge.navigate {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+  .mode-badge.connect {
+    color: #22c55e;
+    border-color: rgba(34,197,94,0.35);
+    background: rgba(34,197,94,0.08);
+  }
+  .mode-badge.delete-mode {
+    color: #ef4444;
+    border-color: rgba(239,68,68,0.35);
+    background: rgba(239,68,68,0.08);
+  }
+  .cat-toolbar-right {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .cat-btn {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .cat-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+  }
+  .cat-btn.active {
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+  .cat-btn.danger {
+    color: #ef4444;
+    border-color: rgba(239,68,68,0.3);
+  }
+  .cat-btn.danger:hover { background: rgba(239,68,68,0.08); }
+  .cat-btn.safe {
+    color: #22c55e;
+    border-color: rgba(34,197,94,0.3);
+  }
+  .cat-btn.safe:hover { background: rgba(34,197,94,0.08); }
+
+  /* ── Main split ── */
+  .cat-main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── Canvas ── */
+  .cat-canvas {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+  .cat-canvas svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .grid-dot {
+    fill: var(--border-color);
+    opacity: 0.6;
+  }
+
+  /* ── Nodes ── */
+  .node { cursor: grab; }
+  .node.dragging { cursor: grabbing; }
+  .node .node-bg {
+    fill: var(--code-bg);
+    stroke: var(--border-color);
+    stroke-width: 1.5;
+    rx: 6;
+    transition: stroke 0.2s, fill 0.2s;
+  }
+  .node:hover .node-bg,
+  .node.selected .node-bg {
+    stroke: var(--accent);
+    fill: color-mix(in srgb, var(--accent) 6%, var(--code-bg));
+  }
+  .node.connect-source .node-bg {
+    stroke: #22c55e;
+    fill: color-mix(in srgb, #22c55e 6%, var(--code-bg));
+  }
+  .node.delete-highlight .node-bg {
+    stroke: #ef4444 !important;
+    fill: color-mix(in srgb, #ef4444 6%, var(--code-bg)) !important;
+  }
+  .node .node-label {
+    fill: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    pointer-events: none;
+  }
+  .node .node-tag {
+    fill: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  /* ── Morphisms ── */
+  .morphism { cursor: pointer; }
+  .morphism .morph-path {
+    fill: none;
+    stroke: var(--text-secondary);
+    stroke-width: 1.8;
+    transition: stroke 0.2s, stroke-width 0.2s;
+    opacity: 0.7;
+  }
+  .morphism .morph-label-bg {
+    fill: var(--bg-primary);
+    opacity: 0.9;
+  }
+  .morphism .morph-label {
+    fill: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-style: italic;
+    pointer-events: none;
+    transition: fill 0.2s;
+  }
+  .morphism:hover .morph-path,
+  .morphism.selected .morph-path {
+    stroke: var(--accent);
+    stroke-width: 2.4;
+    opacity: 1;
+  }
+  .morphism:hover .morph-label,
+  .morphism.selected .morph-label { fill: var(--accent); }
+  .morphism.delete-highlight .morph-path {
+    stroke: #ef4444 !important;
+    opacity: 1;
+  }
+  .morphism.commute-a .morph-path {
+    stroke: #d97706 !important;
+    stroke-width: 2.4;
+    stroke-dasharray: 8 4;
+    opacity: 1;
+    animation: dash-flow 1.2s linear infinite;
+  }
+  .morphism.commute-a .morph-label { fill: #d97706 !important; }
+  .morphism.commute-b .morph-path {
+    stroke: #3b82f6 !important;
+    stroke-width: 2.4;
+    stroke-dasharray: 8 4;
+    opacity: 1;
+    animation: dash-flow 1.2s linear infinite reverse;
+  }
+  .morphism.commute-b .morph-label { fill: #3b82f6 !important; }
+
+  @keyframes dash-flow { to { stroke-dashoffset: -24; } }
+
+  .temp-line {
+    stroke: #22c55e;
+    stroke-width: 1.8;
+    stroke-dasharray: 6 4;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* ── Side panel ── */
+  .cat-panel {
+    width: 320px;
+    background: var(--code-bg);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow-y: auto;
+    font-family: var(--font-sans);
+  }
+  .panel-section {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .panel-section:last-child { border-bottom: none; }
+  .panel-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .panel-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .panel-desc {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+  .edit-field {
+    width: 100%;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    padding: 6px 9px;
+    margin-top: 6px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.5;
+  }
+  .edit-field:focus { border-color: var(--accent); }
+  .edit-field.mono { font-family: var(--font-mono); font-size: 0.78rem; }
+  select.edit-field {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 9px center;
+    padding-right: 26px;
+  }
+  .commute-pair {
+    padding: 9px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: border-color 0.15s;
+  }
+  .commute-pair:hover { border-color: var(--accent); }
+  .commute-pair.active-pair { border-color: var(--accent); }
+  .path-line {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.4;
+  }
+  .path-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 2px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .path-swatch.pa { background: #d97706; }
+  .path-swatch.pb { background: #3b82f6; }
+  .panel-empty {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    line-height: 1.6;
+  }
+  .shortcuts {
+    padding: 14px 20px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+  }
+  .shortcuts kbd {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 0.65rem;
+    color: var(--text-primary);
+  }
+
+  /* ── Toast ── */
+  .cat-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(60px);
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 8px 18px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: none;
+    z-index: 999;
+  }
+  .cat-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+</style>
+
+<div class="cat-editor">
+
+  <!-- Toolbar -->
+  <div class="cat-toolbar">
+    <div class="cat-toolbar-left">
+      <span class="mode-badge navigate" id="modeLabel">navigate</span>
+    </div>
+    <div class="cat-toolbar-right">
+      <button class="cat-btn" id="btnAddNode">+ object</button>
+      <button class="cat-btn" id="btnConnect">+ morphism</button>
+      <button class="cat-btn danger" id="btnDelete">delete</button>
+      <button class="cat-btn" id="btnFindPaths">⚯ find paths</button>
+      <button class="cat-btn safe" id="btnExport">export</button>
+      <button class="cat-btn" id="btnImport">import</button>
+    </div>
+  </div>
+
+  <!-- Canvas + panel -->
+  <div class="cat-main">
+    <div class="cat-canvas" id="canvasWrap">
+      <svg id="svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z"/>
+          </marker>
+          <marker id="ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z"/>
+          </marker>
+          <marker id="ah-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z"/>
+          </marker>
+          <marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z"/>
+          </marker>
+          <marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z"/>
+          </marker>
+          <marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z"/>
+          </marker>
+        </defs>
+        <g id="gridLayer"></g>
+        <g id="morphismLayer"></g>
+        <line id="tempLine" class="temp-line" x1="0" y1="0" x2="0" y2="0" style="display:none" marker-end="url(#ah-green)"/>
+        <g id="nodeLayer"></g>
+      </svg>
+    </div>
+
+    <div class="cat-panel" id="sidePanel">
+      <div class="panel-section" id="panelContent">
+        <div class="panel-eyebrow">Research Category</div>
+        <div class="panel-title">Interactive Map</div>
+        <div class="panel-desc">Click any object or morphism to read and edit it. Drag to reposition. Use the toolbar or keyboard shortcuts to add and connect.</div>
+      </div>
+      <div class="panel-section" id="editSection" style="display:none"></div>
+      <div class="panel-section" id="commuteSection" style="display:none">
+        <div class="panel-eyebrow">Commuting Paths</div>
+        <div id="commuteResults"></div>
+      </div>
+      <div class="shortcuts">
+        <kbd>N</kbd> object &nbsp;<kbd>C</kbd> morphism &nbsp;<kbd>D</kbd> delete<br>
+        <kbd>F</kbd> find paths &nbsp;<kbd>Esc</kbd> cancel<br>
+        <kbd>E</kbd> export &nbsp;<kbd>I</kbd> import
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cat-toast" id="catToast"></div>
+<input type="file" id="fileInput" accept=".json" style="display:none">
+
+<script>
+// ── Data ──────────────────────────────────────────
+var NODE_W = 170, NODE_H = 54;
+var TAGS = ['FRAMEWORK','THREAD','PRINCIPLE','ENGINEERING','EXPERIMENT','PUBLICATION','COLLABORATION','CONCEPT'];
+
+var state = {
+  nodes: {
+    'active-inference': { x: 80,  y: 60,  label: 'Active Inference',  tag: 'FRAMEWORK',    desc: 'The theoretical backbone. Systems maintain themselves by minimizing surprise about their own boundaries. The key question: when is the precision-weighting (the \u03b5-component) endogenously generated through organizational closure, versus externally fixed? This separates a bacterium from a thermostat ; and possibly an aligned AI from a misaligned one.' },
+    'formalization':    { x: 340, y: 40,  label: 'Formalization',      tag: 'THREAD',       desc: 'Syntax is tractable, semantics is rich, and formalization covers them imperfectly. Interested in the maximal complexity that survives compression from meaning to mechanism ; and whether the bootstrapping loop (implementation-as-spec) converges.' },
+    'spectrum':         { x: 640, y: 80,  label: 'Spectrum',            tag: 'ENGINEERING',  desc: 'The pipeline: natural language spec ; LLM-extracted formal rules ; C++ reference model ; SystemVerilog assertions ; VC Formal. Each arrow is a lossy compression step. The interesting question: can we characterize error modes of each compression independently, and does the bootstrapping loop converge?' },
+    'gru':              { x: 380, y: 200, label: 'GRU',                 tag: 'PRINCIPLE',    desc: "The central claim: a system\u2019s outputs encode the structure of the measuring system itself. Connected to Fisher Information ; the information a measurement carries about a parameter is bounded by the geometry of the measurement apparatus. The features we extract tell us as much about our probing method as about the model." },
+    'sae':              { x: 620, y: 310, label: 'SAE Invariance',      tag: 'EXPERIMENT',   desc: 'Do sparse autoencoder features remain stable when inputs cross from clear to ambiguous? Feature instability in ambiguous regions is where a model operates outside its reliable regime ; and where we most need interpretability.' },
+    'bias':             { x: 360, y: 400, label: 'Bias Measurement',    tag: 'EXPERIMENT',   desc: "Using BBQ dataset with SONAR embeddings, measuring bias via midpoint geometry. Most bias benchmarks have a reference-group problem ; they implicitly define \u2018neutral\u2019 and measure deviation. Midpoint geometry measures the geometric structure of the embedding space itself." },
+    'ictss':            { x: 100, y: 380, label: 'ICTSS 2024',          tag: 'PUBLICATION',  desc: 'Best Paper. Spectral metrics (SVD entropy, spectral radius, condition number) predict combinatorial t-way coverage. The result: you can estimate coverage by looking at the complexity structure of the test matrix. This was the empirical anchor for GRU.' },
+    'mt':               { x: 60,  y: 240, label: 'Mutual Thriving',     tag: 'COLLABORATION',desc: 'Infrastructure for collective intelligence and value alignment, with Johannes and collaborators. Theoretically grounded in active inference: collectives maintain themselves by minimizing surprise about their own boundaries.' }
+  },
+  morphisms: {
+    'm1':  { from: 'active-inference', to: 'gru',              label: 'precision-weighting', desc: 'The \u03b5-component in active inference determines which prediction errors get amplified. Fisher Information bounds what a measurement can reveal. These are the same idea at different scales.' },
+    'm2':  { from: 'active-inference', to: 'mt',               label: 'collective FE',        desc: 'If a single agent minimizes free energy at its Markov blanket, a collective does the same at the group boundary. Coordination problems are free energy minimization problems.' },
+    'm3':  { from: 'gru',              to: 'sae',              label: 'probe-relativity',     desc: 'SAE features encode the SAE architecture as much as the model being probed. The invariance question: which features are robust to probe variation vs. probe artifacts?' },
+    'm4':  { from: 'gru',              to: 'bias',             label: 'apparatus',            desc: "The benchmark is the measurement apparatus, and its structure shows up in results. Midpoint geometry avoids this ; it\u2019s GRU applied to fairness." },
+    'm5':  { from: 'formalization',    to: 'spectrum',         label: 'lossy compression',    desc: 'Each Spectrum pipeline stage is a formalization step with characterizable loss. The theoretical question becomes an engineering question.' },
+    'm6':  { from: 'formalization',    to: 'gru',              label: 'syntax-semantics',     desc: "What formalization loses is exactly what the measurement apparatus can\u2019t capture. The limits to formalization and the relativity of understanding are two faces of the same coin." },
+    'm7':  { from: 'ictss',            to: 'gru',              label: 'spectral anchor',      desc: 'The ICTSS result was the empirical discovery that launched GRU. Matrix complexity structure (via SVD) carries information about coverage.' },
+    'm8':  { from: 'ictss',            to: 'bias',             label: 't-way coverage',       desc: 'Combinatorial testing probes parameter interactions. Applied to bias: covering arrays explore which combinations of features trigger behavior changes.' },
+    'm9':  { from: 'sae',              to: 'bias',             label: 'feature stability',    desc: 'If SAE features are unstable in ambiguous regions, and bias manifests in ambiguous contexts, then feature instability is a bias signal.' },
+    'm10': { from: 'spectrum',         to: 'formalization',    label: 'bootstrapping loop',   desc: 'Implementation-as-spec: each run produces outputs that become the reference for the next iteration. Quality becomes convergence, not correspondence.', dashed: true },
+    'm11': { from: 'active-inference', to: 'bias',             label: 'endogenous \u03b5',    desc: 'LLMs develop internal precision-weighting not specified by training. When self-organized attention encodes stereotypes, that\u2019s bias as endogenous precision gone wrong.' }
+  },
+  nextNodeId: 1,
+  nextMorphId: 12
+};
+
+// ── Render ────────────────────────────────────────
+var svgEl = document.getElementById('svg');
+var nodeLayer = document.getElementById('nodeLayer');
+var morphismLayer = document.getElementById('morphismLayer');
+var gridLayer = document.getElementById('gridLayer');
+var tempLine = document.getElementById('tempLine');
+var canvasWrap = document.getElementById('canvasWrap');
+
+var mode = 'navigate';
+var selected = null;
+var connectSource = null;
+var dragging = null;
+var dragOffset = { x: 0, y: 0 };
+var svgRect = null;
+var activePairIdx = -1;
+var foundPairs = [];
+
+function getSVGPoint(e) {
+  if (!svgRect) svgRect = svgEl.getBoundingClientRect();
+  return { x: e.clientX - svgRect.left, y: e.clientY - svgRect.top };
+}
+
+function drawGrid() {
+  gridLayer.innerHTML = '';
+  var spacing = 28;
+  var w = canvasWrap.clientWidth, h = canvasWrap.clientHeight;
+  for (var x = spacing; x < w; x += spacing) {
+    for (var y = spacing; y < h; y += spacing) {
+      var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', x); c.setAttribute('cy', y);
+      c.setAttribute('r', 0.9); c.setAttribute('class', 'grid-dot');
+      gridLayer.appendChild(c);
+    }
+  }
+}
+
+function nodeCenter(id) {
+  var n = state.nodes[id];
+  return { x: n.x + NODE_W / 2, y: n.y + NODE_H / 2 };
+}
+
+function curvePath(from, to) {
+  var fc = nodeCenter(from), tc = nodeCenter(to);
+  var dx = tc.x - fc.x, dy = tc.y - fc.y;
+  var dist = Math.sqrt(dx*dx + dy*dy);
+  var angle = Math.atan2(dy, dx);
+  var sx = fc.x + Math.cos(angle) * (NODE_W/2 + 4);
+  var sy = fc.y + Math.sin(angle) * (NODE_H/2 + 4);
+  var ex = tc.x - Math.cos(angle) * (NODE_W/2 + 10);
+  var ey = tc.y - Math.sin(angle) * (NODE_H/2 + 10);
+  var px = -dy/dist, py = dx/dist;
+  var bend = Math.min(dist * 0.18, 55);
+  var cx1 = (sx+ex)/2 + px*bend, cy1 = (sy+ey)/2 + py*bend;
+  return {
+    d: 'M '+sx+' '+sy+' Q '+cx1+' '+cy1+' '+ex+' '+ey,
+    mx: (sx+ex)/2 + px*(bend*0.55),
+    my: (sy+ey)/2 + py*(bend*0.55)
+  };
+}
+
+function renderMorphisms() {
+  morphismLayer.innerHTML = '';
+  for (var id in state.morphisms) {
+    var m = state.morphisms[id];
+    if (!state.nodes[m.from] || !state.nodes[m.to]) continue;
+    var cp = curvePath(m.from, m.to);
+    var g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('class','morphism'); g.dataset.id = id;
+
+    var path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('class','morph-path');
+    path.setAttribute('d', cp.d);
+    path.setAttribute('marker-end','url(#ah)');
+    if (m.dashed) path.setAttribute('stroke-dasharray','6 3');
+    g.appendChild(path);
+
+    var lbl = m.label || id;
+    var approxW = lbl.length * 5.2 + 10;
+    var bg = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    bg.setAttribute('class','morph-label-bg');
+    bg.setAttribute('x', cp.mx - approxW/2); bg.setAttribute('y', cp.my - 8);
+    bg.setAttribute('width', approxW); bg.setAttribute('height', 13);
+    bg.setAttribute('rx', 2);
+    g.appendChild(bg);
+
+    var txt = document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('class','morph-label');
+    txt.setAttribute('x', cp.mx); txt.setAttribute('y', cp.my + 3);
+    txt.setAttribute('text-anchor','middle');
+    txt.textContent = lbl;
+    g.appendChild(txt);
+
+    morphismLayer.appendChild(g);
+  }
+}
+
+function renderNodes() {
+  nodeLayer.innerHTML = '';
+  for (var id in state.nodes) {
+    var n = state.nodes[id];
+    var g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('class','node');
+    g.setAttribute('transform','translate('+n.x+','+n.y+')');
+    g.dataset.id = id;
+
+    var rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    rect.setAttribute('class','node-bg');
+    rect.setAttribute('width', NODE_W); rect.setAttribute('height', NODE_H);
+    g.appendChild(rect);
+
+    var tag = document.createElementNS('http://www.w3.org/2000/svg','text');
+    tag.setAttribute('class','node-tag');
+    tag.setAttribute('x', NODE_W/2); tag.setAttribute('y', 17);
+    tag.setAttribute('text-anchor','middle');
+    tag.textContent = n.tag || 'OBJECT';
+    g.appendChild(tag);
+
+    var label = document.createElementNS('http://www.w3.org/2000/svg','text');
+    label.setAttribute('class','node-label');
+    label.setAttribute('x', NODE_W/2); label.setAttribute('y', 37);
+    label.setAttribute('text-anchor','middle');
+    label.textContent = n.label || id;
+    g.appendChild(label);
+
+    nodeLayer.appendChild(g);
+  }
+}
+
+function render() { renderMorphisms(); renderNodes(); applySelection(); }
+
+function applySelection() {
+  document.querySelectorAll('.node.selected,.morphism.selected').forEach(function(el) { el.classList.remove('selected'); });
+  if (selected) {
+    var el = document.querySelector('[data-id="'+selected.id+'"]');
+    if (el) el.classList.add('selected');
+  }
+}
+
+// ── Panel ──────────────────────────────────────────
+var panelContent = document.getElementById('panelContent');
+var editSection = document.getElementById('editSection');
+var commuteSection = document.getElementById('commuteSection');
+
+function showWelcome() {
+  editSection.style.display = 'none';
+  panelContent.innerHTML = '<div class="panel-eyebrow">Research Category</div>'
+    + '<div class="panel-title">Interactive Map</div>'
+    + '<div class="panel-desc">Click any object or morphism to read and edit it. Drag to reposition.</div>';
+}
+
+function showNodeEditor(id) {
+  var n = state.nodes[id];
+  editSection.style.display = 'block';
+  panelContent.innerHTML = '<div class="panel-eyebrow">'+esc(n.tag||'OBJECT')+'</div>'
+    + '<div class="panel-title">'+esc(n.label)+'</div>'
+    + '<div class="panel-desc">'+(n.desc ? esc(n.desc) : '<em style="opacity:0.5">No description yet.</em>')+'</div>';
+  editSection.innerHTML = '<div class="panel-eyebrow">Edit Object</div>'
+    + '<input class="edit-field mono" id="eLabel" value="'+esc(n.label)+'" placeholder="Label">'
+    + '<select class="edit-field mono" id="eTag">'+TAGS.map(function(t){return '<option value="'+t+'"'+(t===n.tag?' selected':'')+'>'+t+'</option>';}).join('')+'</select>'
+    + '<textarea class="edit-field" id="eDesc" rows="6" placeholder="Description...">'+esc(n.desc||'')+'</textarea>';
+  document.getElementById('eLabel').addEventListener('input', function(ev) { n.label = ev.target.value; render(); showNodeEditor(id); });
+  document.getElementById('eTag').addEventListener('change', function(ev) { n.tag = ev.target.value; render(); showNodeEditor(id); });
+  document.getElementById('eDesc').addEventListener('input', function(ev) { n.desc = ev.target.value; });
+}
+
+function showMorphismEditor(id) {
+  var m = state.morphisms[id];
+  var fl = (state.nodes[m.from]&&state.nodes[m.from].label)||m.from;
+  var tl = (state.nodes[m.to]&&state.nodes[m.to].label)||m.to;
+  editSection.style.display = 'block';
+  panelContent.innerHTML = '<div class="panel-eyebrow">Morphism</div>'
+    + '<div class="panel-title">'+esc(fl)+' \u2192 '+esc(tl)+'</div>'
+    + '<div class="panel-desc">'+(m.desc ? esc(m.desc) : '<em style="opacity:0.5">No description yet.</em>')+'</div>';
+  editSection.innerHTML = '<div class="panel-eyebrow">Edit Morphism</div>'
+    + '<input class="edit-field mono" id="eMLabel" value="'+esc(m.label||'')+'" placeholder="label">'
+    + '<textarea class="edit-field" id="eMDesc" rows="6" placeholder="Description...">'+esc(m.desc||'')+'</textarea>'
+    + '<label style="display:flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary);cursor:pointer">'
+    + '<input type="checkbox" id="eDashed"'+(m.dashed?' checked':'')+'>dashed (feedback / loop)</label>';
+  document.getElementById('eMLabel').addEventListener('input', function(ev) { m.label = ev.target.value; render(); });
+  document.getElementById('eMDesc').addEventListener('input', function(ev) { m.desc = ev.target.value; });
+  document.getElementById('eDashed').addEventListener('change', function(ev) { m.dashed = ev.target.checked; render(); });
+}
+
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ── Path finder ────────────────────────────────────
+function findAllPaths(from, to, maxLen) {
+  var paths = [], queue = [[from, []]];
+  while (queue.length) {
+    var item = queue.shift(), curr = item[0], path = item[1];
+    if (path.length >= maxLen) continue;
+    for (var mid in state.morphisms) {
+      var m = state.morphisms[mid];
+      if (m.from === curr && path.indexOf(mid) === -1) {
+        var np = path.concat([mid]);
+        if (m.to === to) paths.push(np);
+        else queue.push([m.to, np]);
+      }
+    }
+  }
+  return paths;
+}
+
+function findCommutingSquares() {
+  var ids = Object.keys(state.nodes), pairs = [];
+  for (var ai = 0; ai < ids.length; ai++) {
+    for (var bi = 0; bi < ids.length; bi++) {
+      var a = ids[ai], b = ids[bi];
+      if (a === b) continue;
+      var paths = findAllPaths(a, b, 4);
+      if (paths.length >= 2) {
+        var key = [a,b].sort().join('|');
+        if (!pairs.find(function(p){ return [p.from,p.to].sort().join('|')===key; }))
+          pairs.push({ from: a, to: b, paths: paths });
+      }
+    }
+  }
+  return pairs;
+}
+
+function showCommutingPairs(pairs) {
+  foundPairs = pairs; activePairIdx = -1;
+  commuteSection.style.display = 'block';
+  var c = document.getElementById('commuteResults');
+  if (!pairs.length) { c.innerHTML = '<div class="panel-empty">No commuting paths found (need \u22652 distinct paths between the same pair, length \u22644).</div>'; return; }
+  c.innerHTML = pairs.map(function(p, i) {
+    var fl = (state.nodes[p.from]&&state.nodes[p.from].label)||p.from;
+    var tl = (state.nodes[p.to]&&state.nodes[p.to].label)||p.to;
+    var ps = p.paths.map(function(path, j) {
+      var ls = path.map(function(mid){ return (state.morphisms[mid]&&state.morphisms[mid].label)||mid; }).join(' \u2192 ');
+      return '<div class="path-line"><span class="path-swatch '+(j===0?'pa':'pb')+'"></span>'+esc(ls)+'</div>';
+    });
+    return '<div class="commute-pair" data-idx="'+i+'">'
+      +'<div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--text-secondary);margin-bottom:4px">'+esc(fl)+' \u27f6 '+esc(tl)+' ('+p.paths.length+')</div>'
+      +ps.join('')+'</div>';
+  }).join('');
+  c.querySelectorAll('.commute-pair').forEach(function(el) {
+    el.addEventListener('click', function() { highlightPair(parseInt(el.dataset.idx)); });
+  });
+}
+
+function highlightPair(idx) {
+  document.querySelectorAll('.morphism').forEach(function(el) {
+    el.classList.remove('commute-a','commute-b');
+    var p = el.querySelector('.morph-path');
+    if (p) p.setAttribute('marker-end','url(#ah)');
+  });
+  document.querySelectorAll('.commute-pair').forEach(function(el) { el.classList.remove('active-pair'); });
+  if (idx === activePairIdx) { activePairIdx = -1; return; }
+  activePairIdx = idx;
+  var pair = foundPairs[idx]; if (!pair) return;
+  var ap = document.querySelector('.commute-pair[data-idx="'+idx+'"]');
+  if (ap) ap.classList.add('active-pair');
+  pair.paths.forEach(function(path, pi) {
+    var cls = pi===0?'commute-a':'commute-b';
+    var mk = pi===0?'url(#ah-orange)':'url(#ah-blue)';
+    path.forEach(function(mid) {
+      var el = document.querySelector('.morphism[data-id="'+mid+'"]');
+      if (el) { el.classList.add(cls); var p = el.querySelector('.morph-path'); if(p) p.setAttribute('marker-end',mk); }
+    });
+  });
+}
+
+// ── Modes ──────────────────────────────────────────
+var modeLabel = document.getElementById('modeLabel');
+
+function setMode(m) {
+  mode = m;
+  modeLabel.textContent = m==='connect' ? 'connecting\u2026' : m==='delete' ? 'delete' : 'navigate';
+  modeLabel.className = 'mode-badge ' + (m==='connect'?'connect':m==='delete'?'delete-mode':'navigate');
+  document.getElementById('btnConnect').classList.toggle('active', m==='connect');
+  document.getElementById('btnDelete').classList.toggle('active', m==='delete');
+  connectSource = null;
+  tempLine.style.display = 'none';
+  document.querySelectorAll('.node').forEach(function(n) { n.classList.remove('connect-source','delete-highlight'); });
+  document.querySelectorAll('.morphism').forEach(function(n) { n.classList.remove('delete-highlight'); });
+  if (m==='connect') toast('click source object, then target');
+  else if (m==='delete') toast('click an object or morphism to delete');
+}
+
+// ── Events ────────────────────────────────────────
+svgEl.addEventListener('mousedown', function(e) {
+  svgRect = svgEl.getBoundingClientRect();
+  var nodeEl = e.target.closest('.node');
+  var morphEl = e.target.closest('.morphism');
+
+  if (mode === 'delete') {
+    if (nodeEl) {
+      var id = nodeEl.dataset.id;
+      for (var mid in state.morphisms) { var m=state.morphisms[mid]; if(m.from===id||m.to===id) delete state.morphisms[mid]; }
+      delete state.nodes[id]; selected=null; showWelcome(); render(); toast('object deleted');
+    } else if (morphEl) {
+      delete state.morphisms[morphEl.dataset.id]; selected=null; showWelcome(); render(); toast('morphism deleted');
+    }
+    return;
+  }
+
+  if (mode === 'connect') {
+    if (nodeEl) {
+      var id = nodeEl.dataset.id;
+      if (!connectSource) { connectSource=id; nodeEl.classList.add('connect-source'); toast('now click target'); }
+      else if (id !== connectSource) {
+        var mid = 'm'+state.nextMorphId++;
+        state.morphisms[mid] = { from: connectSource, to: id, label: 'new', desc: '' };
+        setMode('navigate'); selected={type:'morphism',id:mid}; render(); showMorphismEditor(mid);
+        toast('morphism created');
+      }
+    }
+    return;
+  }
+
+  if (nodeEl) {
+    var id = nodeEl.dataset.id;
+    selected={type:'node',id:id}; applySelection(); showNodeEditor(id);
+    var pt=getSVGPoint(e); dragging=id; dragOffset.x=pt.x-state.nodes[id].x; dragOffset.y=pt.y-state.nodes[id].y;
+    nodeEl.classList.add('dragging');
+  } else if (morphEl) {
+    var id = morphEl.dataset.id;
+    selected={type:'morphism',id:id}; applySelection(); showMorphismEditor(id);
+  } else {
+    selected=null; editSection.style.display='none'; showWelcome(); applySelection();
+  }
+});
+
+svgEl.addEventListener('mousemove', function(e) {
+  var pt = getSVGPoint(e);
+  if (dragging) {
+    state.nodes[dragging].x = Math.max(0, pt.x - dragOffset.x);
+    state.nodes[dragging].y = Math.max(0, pt.y - dragOffset.y);
+    render(); return;
+  }
+  if (mode==='connect' && connectSource) {
+    var sc = nodeCenter(connectSource);
+    tempLine.style.display=''; tempLine.setAttribute('x1',sc.x); tempLine.setAttribute('y1',sc.y);
+    tempLine.setAttribute('x2',pt.x); tempLine.setAttribute('y2',pt.y);
+  }
+  if (mode==='delete') {
+    document.querySelectorAll('.node').forEach(function(n){n.classList.remove('delete-highlight');});
+    document.querySelectorAll('.morphism').forEach(function(n){n.classList.remove('delete-highlight');});
+    var ne=e.target.closest('.node'), me=e.target.closest('.morphism');
+    if(ne) ne.classList.add('delete-highlight');
+    if(me) me.classList.add('delete-highlight');
+  }
+});
+
+svgEl.addEventListener('mouseup', function() {
+  if (dragging) { var el=document.querySelector('.node[data-id="'+dragging+'"]'); if(el) el.classList.remove('dragging'); dragging=null; }
+});
+svgEl.addEventListener('mouseleave', function() {
+  if (dragging) { var el=document.querySelector('.node[data-id="'+dragging+'"]'); if(el) el.classList.remove('dragging'); dragging=null; }
+});
+
+document.getElementById('btnAddNode').addEventListener('click', function() {
+  setMode('navigate');
+  var id='node'+state.nextNodeId++;
+  state.nodes[id]={x:180+Math.random()*280,y:130+Math.random()*180,label:'New Object',tag:'CONCEPT',desc:''};
+  selected={type:'node',id:id}; render(); showNodeEditor(id); toast('object created');
+});
+document.getElementById('btnConnect').addEventListener('click', function() { setMode(mode==='connect'?'navigate':'connect'); });
+document.getElementById('btnDelete').addEventListener('click', function() { setMode(mode==='delete'?'navigate':'delete'); });
+document.getElementById('btnFindPaths').addEventListener('click', function() {
+  var pairs=findCommutingSquares(); showCommutingPairs(pairs);
+  toast('found '+pairs.length+' pair'+(pairs.length!==1?'s':'')+' with multiple paths');
+});
+document.getElementById('btnExport').addEventListener('click', function() {
+  var blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='research-category.json'; a.click();
+  toast('exported');
+});
+document.getElementById('btnImport').addEventListener('click', function() { document.getElementById('fileInput').click(); });
+document.getElementById('fileInput').addEventListener('change', function(e) {
+  var file=e.target.files[0]; if(!file) return;
+  var r=new FileReader(); r.onload=function(ev){
+    try { var imp=JSON.parse(ev.target.result); if(imp.nodes&&imp.morphisms){Object.assign(state,imp);render();showWelcome();toast('imported');} }
+    catch(err){toast('invalid JSON');}
+  }; r.readAsText(file); e.target.value='';
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT') return;
+  if (e.key==='Escape') { setMode('navigate'); selected=null; editSection.style.display='none'; showWelcome(); applySelection(); }
+  else if (e.key==='n'||e.key==='N') document.getElementById('btnAddNode').click();
+  else if (e.key==='c'||e.key==='C') document.getElementById('btnConnect').click();
+  else if (e.key==='d'||e.key==='D') document.getElementById('btnDelete').click();
+  else if (e.key==='f'||e.key==='F') document.getElementById('btnFindPaths').click();
+  else if (e.key==='e'||e.key==='E') document.getElementById('btnExport').click();
+  else if (e.key==='i'||e.key==='I') document.getElementById('btnImport').click();
+});
+
+function toast(msg) {
+  var t=document.getElementById('catToast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._timer); t._timer=setTimeout(function(){t.classList.remove('show');},2000);
+}
+
+window.addEventListener('resize', function() { svgRect=null; drawGrid(); });
+drawGrid();
+render();
+</script>
