@@ -10,9 +10,13 @@ Does dinner with mom feel like a *good* use of your time? Is it good enough to a
 
 <div class="day-only" markdown="1">
 Time is finite. The people we love won't be here forever. This is an accessible truth everyone can agree on.
+Good feels like the choice we'd still make knowing the full weight of what we're giving up. he felt decision, not the optimied one. When we're present at dinner with mom, we're not calculating opportunity costs. We're in the moment that, when it's gone, we cannot recover through any achievement. Good feels like attending to what's irreplaceable while it's still here.
 </div>
 
+
 <div class="night-only" markdown="1">
+An open issue is when we don't know what good feels like. It's not uncommon for people misread their internals. 
+Imagine the internals of the human deciding to rename the Department of Defense to the Department of war (yes, it is a thing; check war.gov)
 We're working on safety-relevant problems while time runs out on irreplaceable relationships. The formalization limits apply here too; we can optimize calendars (verifiable), we can work on important problems (validatable), but we can't prove we allocated our finite attention to what will matter when we look back.
 </div>
 
