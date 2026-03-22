@@ -9,12 +9,12 @@ I am open to collaboration on AI safety research, interpretability, and formal m
 
 
 <div class="day-only" markdown="1">
-Email: <first_name>.<last_name>@gmail.com
+Email: {first_name}.{last_name}@gmail.com
 </div>
 
 
 <div class="night-only" markdown="1">
-Email:agiornot@gmail.com">agiornot@gmail.com
+Email:agiornot@gmail.com
 </div>
 
 

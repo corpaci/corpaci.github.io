@@ -1,10 +1,8 @@
 # Luiza Corpaci
 
-AI engineer at AMD, completing a Master's in Data Science, applying to PhD programs for Fall 2026. Research at the intersection of formal verification, interpretability, collective intelligence, category theory, and AI safety.
+AI engineer at AMD, completing a Master's in Data Science, applying to PhD programs. Research at the intersection of formal verification, interpretability, collective intelligence, category theory, and AI safety.
 
 ## Start here
-- /about/
-- /blog/what-this-site-is
 - /research/
 - /blog/
 
@@ -16,15 +14,9 @@ AI engineer at AMD, completing a Master's in Data Science, applying to PhD progr
 - AI safety: feature invariance, reliable interpretability, formal tools for deployment guarantees
 - Category theory: structure-preserving maps, functors, applications to learning and meaning
 
-## Canonical research pages
-- /research/formalization-limits/
-- /research/interpretability-grounding/
-- /research/collective-intelligence/
-- /research/ai-safety/
-- /research/category-theory/
 
 ## Projects
-- /projects/bias-measurement/
+- /projects/ictss-playground.md
 
 ## Writing
 - /blog/
