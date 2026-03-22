@@ -3,7 +3,7 @@ layout: post
 title: "How Does Good Feel Like?"
 permalink: /blog/good-feels-like
 tags: [good, meta, philosophy, ai-safety, alignment, interpretability]
-description: "The nature of doing good; why department of war is a bad idea; verifiable vs validatable vs good; the gap between formal rules and lived experience."
+description: "The nature of doing good; how to live in a world where the Department of War exists; verifiable vs validatable vs good; the gap between formal rules and lived experience."
 ---
 
 
@@ -21,6 +21,8 @@ Is it good enough to anchor whatever it is you're doing instread against it?
 Time is finite. The people we love won't be here forever. This is an accessible truth we can (probably) agree on. [^finite-time]
 
 [^finite-time]: Maybe this will not be true for all of human existence, but it seems to be a limitation of today's experience. Until we reach whatever form of life expansion we settle on, I'll try to deal with the feebleness of being a biological human.
+
+</div>
 
 
 <div class="day-only" markdown="1">
