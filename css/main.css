@@ -677,16 +677,24 @@ sup[id^="fnref:"] a {
 
 /* Content visibility by mode */
 .night-only,
-.beyond-only { display: none; }
+.beyond-only,
+.in-day,
+.in-night,
+.in-beyond { display: none; }
 
-[data-theme="night"] .night-only { display: revert; }
+[data-theme="night"] .night-only,
+[data-theme="night"] .in-night { display: revert; }
 [data-theme="night"] .day-only { display: none; }
 
-[data-theme="spectrum"] .beyond-only { display: revert; }
+[data-theme="spectrum"] .beyond-only,
+[data-theme="spectrum"] .in-beyond { display: revert; }
 [data-theme="spectrum"] .day-only { display: none; }
 
+[data-theme="day"] .in-day { display: revert; }
+
 @media (prefers-color-scheme: dark) {
-  [data-theme="night"] .night-only { display: revert; }
+  [data-theme="night"] .night-only,
+  [data-theme="night"] .in-night { display: revert; }
   [data-theme="night"] .day-only { display: none; }
 }
 
