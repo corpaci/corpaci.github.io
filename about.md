@@ -10,6 +10,7 @@ hide_title: true
 ## AI hardware verification engineer by day
 
 My job is making sure AI understands how to make chips work correctly.
+
 <!-- 
 On the side, I do research. The question I keep coming back to is: *when you try to write rules for something, what gets lost?* A recipe can tell you the steps, but it can't tell you when the dough feels right. A test suite can check a thousand cases but can't guarantee the thousand-and-first. I'm interested in that gap, the edge where formal rules run out.
 
