@@ -7,8 +7,10 @@ hide_title: true
 
 <div class="day-only" markdown="1">
 
-AMD AI hardware verification engineer by day in Iași, Romania. My job is making sure AI understands how to make chips work correctly.
+## AI hardware verification engineer by day
 
+My job is making sure AI understands how to make chips work correctly.
+<!-- 
 On the side, I do research. The question I keep coming back to is: *when you try to write rules for something, what gets lost?* A recipe can tell you the steps, but it can't tell you when the dough feels right. A test suite can check a thousand cases but can't guarantee the thousand-and-first. I'm interested in that gap, the edge where formal rules run out.
 
 In engineering, there are two questions: "Does it work correctly?" and "Is it the right thing to build?" These sound simple, but the gap between them turns out to be one of the deepest problems in philosophy, mathematics, and AI safety. Most of my work lives in that gap between validation and verification.[^vv-def]
@@ -17,15 +19,17 @@ That question connects many of the things I do. I study how AI systems represent
 
 I studied engineering in Bucharest, designed chips at Marvell, did math and complexity research in Vienna, then ML research on how neural networks work from the inside. I'm finishing a Master's in Data Science and applying to PhD programs and AI safety fellowships.
 
-I won Best Paper at ICTSS 2024. I run reading groups on topology and category theory, and I'm building towards a framework called **Mutual Thriving** for how groups can reason well together with Johannes and Marian.
+I won Best Paper at ICTSS 2024. I run reading groups on topology and category theory, and I'm building towards a framework called **Mutual Thriving** for how groups can reason well together with Johannes and Marian. -->
 
 </div>
 
 <div class="night-only" markdown="1">
 
-Wanderer by night.
+## Wanderer by night.
 
-**A central result so far:** ICTSS 2024 Best Paper ; spectral matrix complexity metrics predict combinatorial t-way coverage. The deeper claim: *any system's outputs encode the geometry of the measuring apparatus.* This is what I call Grounding Relative Understanding (GRU). The Fisher Information bound makes it precise: I(θ; X) ≤ I(θ; f(X)) with equality iff f is sufficient. Applied to mechanistic interpretability ; your probing method is not neutral. The features you find are a joint product of the model and the probe. This is not a bug in the methodology, it is the methodology's fundamental structure, and most of the field is not being careful about it.
+I explore undefinability, incompleteness and incompressibility in math, AI, and philosophy.
+
+<!-- **A central result so far:** ICTSS 2024 Best Paper ; spectral matrix complexity metrics predict combinatorial t-way coverage. The deeper claim: *any system's outputs encode the geometry of the measuring apparatus.* This is what I call Grounding Relative Understanding (GRU). The Fisher Information bound makes it precise: I(θ; X) ≤ I(θ; f(X)) with equality iff f is sufficient. Applied to mechanistic interpretability ; your probing method is not neutral. The features you find are a joint product of the model and the probe. This is not a bug in the methodology, it is the methodology's fundamental structure, and most of the field is not being careful about it.
 
 **The formalization thread:** Tarski, Gödel, Chaitin form a sequence. Undefinability → incompleteness → incompressibility. The Chaitin bound is the one that bites hardest in practice: for any formal system F there exists c such that F ⊬ K(s) > c for any specific string s. The ceiling on certifiable compression is bounded by the complexity of the formalizer itself. This shows up in hardware verification (why specs always have gaps), in interpretability (why SAE features behave strangely at ambiguous boundaries), and in natural language (why controlled natural languages feel like they've had their soul removed). Same phenomenon, different substrate.
 
@@ -39,18 +43,21 @@ Wanderer by night.
 
 **Background:** Politehnica Bucharest (Automatic Control & CS) → Marvell (chip design, low-level verification) → SBA Research Vienna (combinatorial testing, complexity theory, socio-technological resilience) → University of Vienna (mechanistic interpretability, ML) → AMD (hardware verification) → converging toward AI safety and the geometry of understanding.
 
-Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / ARENA fellowships, Fall 2026.
+Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / ARENA fellowships, Fall 2026. -->
 
 <div class="beyond-only" markdown="1">
+## Wonderer in the beyond.
+
+I wonder about wonders.
 
 <div>
 
 
 </div>
 
-## Background
+<!-- ## Background -->
 
-<div class="day-only" markdown="1">
+<!-- <div class="day-only" markdown="1">
 Bucharest (engineering) → Marvell (chip design) → Vienna (math & ML research) → AMD (AI/hardware)
 </div>
 
@@ -58,4 +65,4 @@ Bucharest (engineering) → Marvell (chip design) → Vienna (math & ML research
 Politehnica Bucharest → Marvell → SBA Research → University of Vienna → AMD → PhD + safety fellowships.
 </div>
 
-[^vv-def]: Official definitions (ISO 9000:2015): verification is "confirmation, through the provision of objective evidence, that specified requirements have been fulfilled"; validation is "confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled."
+[^vv-def]: Official definitions (ISO 9000:2015): verification is "confirmation, through the provision of objective evidence, that specified requirements have been fulfilled"; validation is "confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled." -->
