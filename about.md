@@ -51,9 +51,6 @@ Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / A
 
 I wonder about wonders.
 
-<div>
-
-
 </div>
 
 <!-- ## Background -->
