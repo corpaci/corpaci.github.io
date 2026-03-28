@@ -1,170 +1,106 @@
 ---
 layout: page
 title: SAIR Embedding Geometry
-subtitle: Do TRUE and FALSE mathematical implications cluster differently in sentence embedding space?
+subtitle: How much label signal is recoverable from prompt-conditioned renderings of equational implications?
 permalink: /projects/sair-embedding-geometry/
 ---
 
 <div class="night-only" markdown="1">
 
-An experimental investigation into whether sentence embedders can distinguish TRUE from FALSE mathematical implications without understanding the underlying mathematics — purely from the linguistic texture of how the implications are written.
+This project began with a small question that sits somewhere between interpretability, formal reasoning, and representation:
+
+**For a fixed learned model, how does the input change its internal representations, and how does that affect the output?**
+
+An immediate trigger was the [https://competition.sair.foundation/competitions/mathematics-distillation-challenge-equational-theories-stage1/overview](SAIR Mathematics Distillation Challenge) on equational theories, where the task is to compress useful reasoning into a small human-readable cheat sheet (smaller than 10KB). The benchmark is built on the [https://github.com/teorth/equational_theories?tab=readme-ov-file](equational_theories project), which has the goal to "explore the space of equational theories of magmas, ordered by implication."
+
+In my context, I'm exploring a narrow scope.
+
+I am **not** testing whether an embedder understands algebra.  
+I am testing whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication instances.
 
 ## The Question
 
-Mathematical implications have a distinctive linguistic structure depending on their truth value:
+Given a pair of equations `(equation1, equation2)` labeled TRUE or FALSE, how much of that label is recoverable from the embedding of a textual rendering such as:
 
-- **TRUE implications** often express *structural relationships*: "if projection, then absorption" — one property transforms into another using the same entities.
-- **FALSE implications** often juxtapose *unrelated properties*: "if commutative, then associative" — two properties that happen to be about the same structure but aren't actually connected.
+- `equation1 implies equation2`
+- `If equation1, then equation2.`
+- `equation1`
+- `equation2`
+- <todo add the other templates>
 
-This creates a hypothesis: even without mathematical understanding, an embedder might detect the difference through pure linguistic texture.
+And once stronger controls are added:
 
-We tested this on the SAIR competition dataset — 1269 verified Lean-proof algebraic equations across four difficulty levels (normal, hard, hard1, hard2), each labeled TRUE or FALSE.
+- does the signal survive grouped evaluation?
+- is it invariant across templates?
+- how much is explained by shallow structure alone?
+- what changes when a prompt wrapper is added to a bare equation?
 
-## The Findings
+## Dataset
 
-### Core Result: 87.4% Accuracy (Normal Split)
+The experiment uses the [https://huggingface.co/datasets/SAIRfoundation/equational-theories-selected-problems/tree/main/data](SAIR equational-theory benchmark) derived from the equational_theories project. The broader project explores equational laws ordered by implication; Stage 1 of the challenge asks for a design of a compact cheat sheet to improve performance on true/false implication judgments.
 
-Using `all-mpnet-base-v2` sentence embeddings + logistic regression with 5-fold stratified cross-validation:
+The strongest claims are these:
 
-- **Accuracy**: 87.4% ± 2.27% (p < 0.001, permutation test)
-- **AUC**: 0.9496 ± 1.79%
-- **Cohen's d** (effect size on PC1): -0.627
-- **Centroid similarity**: 0.9883 (classes nearly overlap but remain linearly separable)
+- A linear probe on frozen embeddings performs well, and this effect survives grouped cross-validation with only a small drop relative to naive CV. That means the main effect is not explained away by the train/test leakage story.
+- Cross-template transfer drops substantially. So this is **not** one universal implication geometry that every phrasing simply reveals. Different textual templates induce different usable geometries.
+- `eq1_only` remains very strong, and under grouped evaluation it can outperform the more natural implication phrasing. This suggests that much of the recoverable label signal is already present in the source law alone.
+- A shallow baseline based on operator counts already performs strongly. So a substantial portion of the effect is tied to structural regularities in the equations themselves, not just high-level linguistic framing.
+- The most interesting result is that the **difference vector** between `natural` and `eq1_only` embeddings is highly label-informative. This suggests that the prompt wrapper is not behaving like a constant additive offset. It changes the representation in an instance-dependent way that correlates with the label.
 
-This is *real* signal — permutation tests with randomized labels yielded 49.9% ± 2.1%, far below the observed 87.4%.
+## Current interpretation
 
-### Text Templates: Semantic Framing Matters
+The most cautious interpretation I’m comfortable with is:
 
-Testing six distinct linguistic templates (same equation pairs, different phrasings):
+> There is robust label signal in frozen embeddings of equational-implication instances, but it is not template-invariant. Much of the signal is anchored in `equation1`, while prompt wrappers induce additional label-relevant deformations of that base representation.
 
-| Template | AUC | Notes |
-|----------|-----|-------|
-| **separate** | 0.9206 | Embed eq1 and eq2 independently, concatenate |
-| **conjoined** | 0.9145 | "eq1 and eq2" (drops implication structure) |
-| **natural** | 0.9136 | "If eq1, then eq2." |
-| **raw** | 0.9031 | "eq1 implies eq2" |
-| **eq1_only** | 0.8980 | Just the first equation |
-| **eq2_only** | 0.7466 | Just the second equation |
+That is more modest than saying the embedder understands the mathematics.  
+It is also more interesting than saying the effect is trivial leakage.
 
-**Interpretation**: Both equations are essential; the second equation carries little discriminative power alone. The natural conditional phrasing ("if...then...") doesn't help beyond raw juxtaposition, suggesting the embedder responds to equation structure, not phrasing.
+## Why I find this interesting
 
-### The Hard Split Paradox
+The most useful object here may not be the embedding itself, but the **prompt-induced displacement**.
 
-Performance on "hard" subsets is *better* than normal, not worse — 97.5% vs 87.4%. This demanded investigation:
+- `eq1_only` gives a rough base representation of the source-law family.
+- `natural` gives that base plus a prompt-conditioned deformation.
+- the deformation itself carries label signal.
 
-**Structural analysis** revealed hard equations have:
-- Shorter text (25.5 vs 25.8 chars) — not the reason
-- Fewer variables (3.5 vs 3.8) — not the reason
-- **Higher variable reuse** (77.2% vs 76.4%) — *this matters*
+That makes this a small model organism for a broader question:
 
-Hard split TRUE implications reuse variables more consistently. This makes them structurally distinctive — true signal, but a selection artifact rather than semantic depth.
+**when a prompt helps a model, does it help by changing what is represented, or by changing how existing representations are routed and read out?**
 
-**Baseline test** (character n-gram Jaccard similarity): Hard split achieves 79.5% with text patterns alone. Normal split achieves 49.1%, showing:
-- Normal split relies on genuine semantic embedding signal (87.4% - 49.1% = 38.3% gain)
-- Hard split relies partly on lexical structure (79.5% baseline; only 18% additional gain from embedder)
 
-## What the Embedder Actually Detects
-
-1. **On normal split**: Genuine differences in equation structure that simple character statistics miss. The embedder provides real semantic value.
-2. **On hard split**: Mostly structural cues (variable reuse patterns) baked into how the dataset was curated.
-3. **Variable choice matters**: TRUE implications tend to reuse the same variables; FALSE implications introduce new variables. This is a statistical signature the embedder picks up without reasoning about algebra.
-
-## Statistical Rigor
-
-- **Permutation test** (100 iterations): Real accuracy (87.4%) vs. randomized labels (49.9%). P-value < 0.001.
-- **Cross-validation**: 5-fold stratified to preserve class ratios, especially important on imbalanced splits.
-- **Effect sizes**: Cohen's d = -0.627 (moderate separation); centroid cosine similarity = 0.9883 (tight but separable).
-
-## Code & Reproducibility
-
-The full pipeline is parametrizable:
-
-```bash
-# Embed, cluster, classify, and plot all splits with all templates
-python sair_experiment.py --data all --template all --steps embed cluster classify plot
-
-# Run diagnostics (lexical baseline, structural analysis, permutation test)
-python diagnostic_tests.py
-
-# Generate comprehensive visualizations
-python visualize_results.py
-```
-
-Code lives in `/llm-bias-traffic-light/` alongside diagnostic tests and visualization scripts.
-
-## Open Questions
-
-1. **Does variable naming drive the effect?** Randomizing variable names (x → VAR_0, y → VAR_1) would test whether the embedder exploits naming patterns vs. semantic structure.
-2. **How does this generalize?** Do other mathematical domains (calculus, logic, set theory) show similar TRUE/FALSE separation?
-3. **What's the ceiling?** With fine-tuning or larger models, what accuracy is theoretically possible?
-
-## Implications
-
-This suggests embedders learn statistical regularities about *how humans write true vs. false claims* — not because they understand mathematics, but because TRUE statements tend to be more coherent (reusing entities, building structure) while FALSE statements often throw together unrelated ideas. This is a warning about confusing linguistic coherence with semantic correctness.
+[Code →](https://github.com/corpaci/sair-competition-exploration)
 
 </div>
 
 <div class="day-only" markdown="1">
 
-An investigation into whether sentence embeddings can distinguish TRUE from FALSE mathematical implications. Using Lean-verified algebraic equations from the SAIR dataset, we show that standard embeddings (all-mpnet-base-v2) achieve 87.4% accuracy in a binary classification task, significantly above chance.
+A pilot on prompt-conditioned representation geometry in the SAIR equational-theory benchmark.
 
-## Core Results
+The core question is simple:
 
-**87.4% ± 2.27% accuracy** (logistic regression, 5-fold CV) on 1000 balanced algebraic equations. Permutation tests confirm the signal is real (p < 0.001), not overfitting or noise.
+**How much TRUE/FALSE signal is recoverable from different textual renderings of the same equational-implication instance using a frozen encoder?**
 
-### Key Findings
+## Main takeaways
 
-- TRUE implications use similar variables and express structural transformations
-- FALSE implications often juxtapose unrelated properties
-- Embedders detect this difference without mathematical understanding — it's a linguistic texture signal
-- Hard splits (37-35% TRUE class) classify at 97.5%, likely due to selection artifacts (higher variable reuse)
-- Character n-gram Jaccard similarity explains 79.5% on hard splits but only 49.1% on normal, showing hard splits rely on surface patterns while normal splits require semantic understanding
+- A linear probe on frozen embeddings performs strongly, and this survives grouped cross-validation.
+- The signal is **not** template-invariant: cross-template transfer drops substantially.
+- `equation1` carries most of the predictive mass.
+- Shallow structural baselines explain a large fraction of the effect.
+- The most interesting result is that the embedding difference between `natural` and `eq1_only` is itself strongly label-informative.
 
-### Text Templates
+## Current interpretation
 
-Different linguistic framings (same equations):
-- **separate** (independent embeddings): Best (AUC 0.9206)
-- **natural** ("If...then..."): Good (AUC 0.9136)
-- **conjoined** (drops structure): Still good (AUC 0.9145)
-- **eq2_only** (second equation alone): Poor (AUC 0.7466)
+The safest summary is:
 
-Both equations are necessary; phrasing matters less than equation structure.
+> Much of the recoverable signal is anchored in the source law, but prompt wrappers induce additional label-relevant deformations of that base representation.
 
-## The Finding in Context
+This is evidence of structured prompt effects on representation. It is **not** yet evidence of mathematical understanding.
 
-This demonstrates that embeddings capture statistical regularities about how TRUE and FALSE statements are *written* — TRUE statements are linguistically more coherent (reuse variables, build structure), while FALSE statements throw together unrelated ideas. This is useful for classification but doesn't imply mathematical understanding.
+## Context
 
-[Code →](https://github.com/corpaci/llm-bias-traffic-light) | [Diagnostic tests →](/projects/sair-embedding-geometry/#diagnostic-tests)
+The work was inspired by the SAIR Mathematics Distillation Challenge, whose first stage asks for a compact cheat sheet that improves model performance on true/false equational-theory problems, and by the broader equational_theories project on implication relations between magma laws. :contentReference[oaicite:3]{index=3}
+
+[Code →](https://github.com/corpaci/sair-competition-exploration)
 
 </div>
-
-## Diagnostic Tests
-
-Three ruthless checks for experimental validity:
-
-**Fool #1: Lexical Leakage**
-Character 3-gram Jaccard similarity as a baseline:
-- Normal: 49.1% (no signal) → Embedder adds 38.3%
-- Hard: 79.5% (substantial signal) → Embedder adds 18%
-
-Conclusion: Normal split requires semantic understanding; hard split is mostly surface-level.
-
-**Fool #2: Hard Split Paradox**
-Why does the harder split classify better? Structural analysis:
-- Hard equations share more variables (77.2% vs 76.4%)
-- This makes TRUE implications more distinctive (same variables transformed)
-- Selection artifact, not overfitting
-
-**Fool #3: Overfitting on Small Samples**
-Permutation test (100 randomized label runs):
-- Real accuracy: 87.4%
-- Permuted mean: 49.9% ± 2.1%
-- Min permuted: 44.0%, Max: 54.7%
-- P-value: < 0.001
-
-Signal is statistically indistinguishable from absolutely real.
-
----
-
-**Repository**: [github.com/corpaci/llm-bias-traffic-light](https://github.com/corpaci/llm-bias-traffic-light)
-**Dataset**: [SAIR Competition](https://sair.mosaicml.com/)
