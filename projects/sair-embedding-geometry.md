@@ -67,6 +67,10 @@ And once stronger controls are added:
 
 Naive CV on `natural`: 0.870. Grouped: 0.855. Leakage was real, effect was small.
 
+![Accuracy and AUC degradation across splits for each template](/img/performance_across_splits_beyond.png)
+
+The two charts above show what happens per different splits. All templates drop together. `eq2_only` (the flat bottom line) sits near chance throughout every split. The signal lives almost entirely in the first equation.
+
 ### Cross-template transfer
 
 Training on one template, testing on another (full matrix in the repo):
@@ -91,6 +95,10 @@ Selected pairs: `raw` → `conjoined` transfers at 0.830 (structurally similar, 
 Best encoder (mpnet, natural): AUC 0.950. Best shallow baseline: AUC 0.863. Gap: 0.087.
 
 Counting `*`, `+`, `(`, `=`, and unique variables explains most of what the encoder explains. The encoder adds real signal, but the margin is smaller than headline accuracy suggests.
+
+![Full results dashboard: heatmaps, template ranking, centroid separation, clustering vs. classification](/img/sair_results_beyond.png)
+
+The dashboard above summarizes the full picture. Top row: accuracy and AUC are stable across splits for most templates — `eq2_only` is the one clear outlier in every panel. Middle row: the centroid separation chart (top-right) shows that `eq1_only` keeps TRUE and FALSE embeddings furthest apart; the antecedent equation already carries most of the geometry. Bottom-center: templates that separate classes in embedding space (high Cohen's d) also classify better, as clustering and classification are aligned.
 
 ### Delta analysis
 
@@ -162,11 +170,19 @@ I am testing whether a frozen sentence encoder contains recoverable TRUE/FALSE s
 
 Naive CV vs. grouped: ~1.5pp drop. Leakage was real, effect was small.
 
+![Accuracy and AUC degradation across splits](/img/performance_across_splits_night.png)
+
+All templates drop together as splits get harder. `eq2_only` is near chance the whole time. The antecedent does the work.
+
 **Cross-template transfer gap: 0.383** (within 0.915, cross 0.532). `natural` → `formal_query`: 0.507 despite semantic similarity. `raw` → `conjoined`: 0.830.
 
 **Best shallow baseline** (operator counts): AUC 0.863. Encoder (mpnet, natural): AUC 0.950. Gap: 0.087.
 
-**Delta (natural − eq1_only):** variance ratio 1.09, classifies at 89.3%. 
+![Full results dashboard](/img/sair_results_night.png)
+
+Heatmaps confirm `eq2_only` is the outlier everywhere. `eq1_only` separates class centroids most in embedding space. Templates that cluster TRUE/FALSE apart also classify them better.
+
+**Delta (natural − eq1_only):** variance ratio 1.09, classifies at 89.3%.
 
 ## Current interpretation
 
@@ -208,6 +224,14 @@ A pilot on prompt-conditioned representation geometry in the SAIR equational-the
 - Cross-template transfer gap: 0.383. Signal is not template-invariant.
 - Best shallow baseline (operator counts): AUC 0.863. Encoder adds ~0.09 AUC.
 - Delta (natural − eq1_only) classifies at 89.3%. Surface-structure control pending.
+
+![Accuracy and AUC across splits](/img/performance_across_splits.png)
+
+All templates degrade together on harder splits. `eq2_only` is near chance throughout.
+
+![Full results dashboard](/img/sair_results_day.png)
+
+`eq2_only` is the outlier in every panel. `eq1_only` separates class centroids furthest. Clustering and classification align.
 
 ## Current interpretation
 
