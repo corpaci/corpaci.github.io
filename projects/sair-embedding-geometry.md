@@ -21,7 +21,7 @@ Rough estimates suggest that large formal libraries like [Lean's mathlib](https:
 
 My question from this project for now is not about an exact number, but whether **a small, well-structured textual object** (e.g., as the SAIR competition constrains to a 10KB cheat sheet) can activate a meaningful portion of the latent structure in a model.
 
-These said, I am **not** testing whether an embedder understands algebra. What I am testing is whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication/-identity instances.
+These said, I am **not** testing whether an embedder understands algebra. What I am testing is whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication instances.
 
 ## The Question
 
@@ -36,34 +36,81 @@ Given a pair of equations `(equation1, equation2)` labeled TRUE or FALSE, how mu
 
 And once stronger controls are added:
 
-- does the signal survive grouped evaluation?
+- does the signal survive grouped evaluation (holding out all rows sharing the same antecedent)?
 - is it invariant across templates?
 - how much is explained by shallow structure alone?
 - what changes when a prompt wrapper is added to a bare equation?
 
+## Setup
+
+**Dataset:** 1000 equation pairs from the SAIR normal split (500 TRUE, 500 FALSE), Lean-verified labels.
+
+**Encoder:** `all-MiniLM-L6-v2` (384-dim) from `sentence-transformers`. Results below use MiniLM; `all-mpnet-base-v2` (768-dim) is consistent throughout.
+
+**Probe:** L2-regularized logistic regression on the raw embedding, with `StandardScaler` preprocessing.
+
+**Evaluation:** 5-fold stratified CV for naive estimates; GroupKFold grouped by `equation1` for leakage-corrected estimates. 906 unique antecedents across 1000 rows; ~9% of test examples have an exact `equation1` match in training. Grouped CV removes this entirely; the drop is ~1.5pp.
+
 ## Results
 
-The strongest claims are these:
+### Linear probe accuracy
 
-- A linear probe on frozen embeddings performs well, and this effect survives grouped cross-validation with only a small drop relative to naive CV. That means the main effect is not explained away by the train/test leakage story.
-- Cross-template transfer drops substantially. So this is **not** a single template-invariant geometry that all phrasings reveal equally. Different textual templates induce different usable geometries.
-- `eq1_only` remains very strong, and under grouped evaluation it can outperform the more natural implication phrasing. This suggests that much of the recoverable label signal is already present in the source law alone.
-- A shallow baseline based on operator counts already performs strongly. So a substantial portion of the effect is tied to structural regularities in the equations themselves, not just high-level linguistic framing.
-- The most interesting result is that the **difference vector** between `natural` and `eq1_only` embeddings is highly label-informative. This suggests that the prompt wrapper is not behaving like a constant additive offset. It changes the representation in an instance-dependent way that correlates with the label.
+| Template | Grouped acc | Grouped AUC |
+|---|---|---|
+| eq1_only | **0.878** | **0.951** |
+| formal_query | 0.871 | 0.947 |
+| countermodel | 0.861 | 0.941 |
+| conjoined | 0.860 | 0.935 |
+| natural | 0.855 | 0.933 |
+| raw | 0.852 | 0.934 |
+| eq2_only | 0.535 | 0.544 |
 
-### Open question: what survives after controlling for surface structure?
+Naive CV on `natural`: 0.870. Grouped: 0.855. Leakage was real, effect was small.
 
-The shallow baseline's strength means the difference vector result needs further testing. If the difference vector remains label-informative after regressing out operator counts, equation length, and other surface features, that's the real headline — evidence of prompt-induced geometric structure beyond what syntax explains. If it doesn't survive, the story is simpler: prompts help the encoder pick up on structural regularities it already partially encodes. I haven't run this control yet.
+### Cross-template transfer
+
+Training on one template, testing on another (full matrix in the repo):
+
+- **Within-template accuracy:** 0.915
+- **Cross-template accuracy:** 0.532
+- **Transfer gap:** 0.383
+
+Selected pairs: `raw` → `conjoined` transfers at 0.830 (structurally similar, as both are concatenating). `natural` -> `formal_query` transfers at 0.507 (near chance despite both being implication phrasings). The signal is **not** template-invariant. Different textual templates find different paths to the label.
+
+### Shallow structural baselines
+
+| Baseline | AUC |
+|---|---|
+| operator/symbol counts | **0.863** |
+| shuffled eq2 (broken pairing) | 0.762 |
+| parenthesis profile only | 0.721 |
+| char TF-IDF (2–4 gram) | 0.685 |
+| equation lengths only | 0.662 |
+| random labels | 0.500 |
+
+Best encoder (mpnet, natural): AUC 0.950. Best shallow baseline: AUC 0.863. Gap: 0.087.
+
+Counting `*`, `+`, `(`, `=`, and unique variables explains most of what the encoder explains. The encoder adds real signal, but the margin is smaller than headline accuracy suggests.
+
+### Delta analysis
+
+For each instance, compute Δ = embed(`natural`) − embed(`eq1_only`). This is what the prompt wrapper adds to the bare equation embedding.
+
+| Pair | Var(Δ)/Var(base) | Cohen's d on \|Δ\| | Classify from Δ alone |
+|---|---|---|---|
+| natural − raw | 0.117 | 0.289 | 0.868 |
+| natural − conjoined | 0.124 | −0.032 | 0.854 |
+| natural − eq1_only | **1.092** | 0.158 | **0.893** |
+
+The delta between `natural` and `eq1_only` has variance exceeding the base embedding (ratio 1.09), and classifies at 89.3% on its own. The delta varies across instances in ways that correlate with the label. **Whether this survives after regressing out operator counts and equation length is the remaining open question.** That control hasn't been run, and the strongest version of the prompt-restructuring claim depends on it.
 
 ## Current interpretation
 
-The most cautious interpretation I'm comfortable with is:
-
->> There is robust label signal in frozen embeddings of equational-implication instances, but it is not template-invariant. Much of the signal is anchored in `equation1`, while prompt wrappers induce additional label-relevant deformations of that base representation.
+> There is a label signal in frozen embeddings of equational-implication instances (grouped AUC 0.93–0.95), but it is not template-invariant. Much of the signal is anchored in `equation1` and is partially explainable by shallow operator statistics. Prompt wrappers induce additional label-relevant deformations of the base representation, but whether those deformations carry signal independent of surface structure is unverified.
 
 ## Why I find this interesting
 
-The most useful object here may not be the embedding itself, but the **prompt-induced displacement**.
+The most useful object here may be in the **prompt-induced displacement**.
 
 - `eq1_only` gives a rough base representation of the source-law family.
 - `natural` gives that base plus a prompt-conditioned deformation.
@@ -73,17 +120,17 @@ That makes this a small model organism for a broader question:
 
 **When a prompt helps a model, does it help by changing what is represented, or by changing how existing representations are routed and read out?**
 
-This connects to something I keep circling back to.[^active-inference] In the [verification/validation gap](https://en.wikipedia.org/wiki/Verification_and_validation), the hard question is never whether the system meets the spec — it's whether the spec captures what was needed. A cheat sheet is a spec for reasoning. The model either follows it (verification) or it doesn't. But whether the cheat sheet *asks the right thing of the model* — whether it frames the problem in a way the model can use — that's validation. And the difference vector result suggests that framing isn't neutral. The same mathematical content, framed differently, produces geometrically different representations that differ in their usefulness for the task.
+This connects to something I keep circling back to.[^active-inference] In the [verification/validation gap](https://en.wikipedia.org/wiki/Verification_and_validation), the hard question is whether the spec captures what was needed (validation). In the SAIR competition case, a cheat sheet is a spec for reasoning. The model either follows it (verification) or it doesn't. But whether the cheat sheet *guides the right thing in the model* is validation. The delta result suggests that framing isn't neutral. The same mathematical content, framed differently, produces geometrically different representations that differ in their usefulness for a task.
 
-[^active-inference]: The active inference framing: the cheat sheet reduces free energy by providing priors. It constrains the model's prediction space. The question is whether the constraint changes the model's generative model (what is represented) or just its precision-weighting over existing representations (how they're read out). The difference vector being label-informative suggests the former — the prompt is restructuring representation, not just filtering it.
+[^active-inference]: The active inference framing: the cheat sheet reduces free energy by providing priors. It constrains the model's prediction space. The question is whether the constraint changes the model's generative model (what is represented) or just its precision-weighting over existing representations (how they're read out). 
 
-If this is right, the optimal cheat sheet isn't a knowledge dump. It's a *lens* — a framing that maximally deforms the model's representations toward the decision boundary. 10KB of the right lens beats 10KB of algebraic facts.
+If this idea is on the right track, the optimal cheat sheet is a *lens*; a framing that deforms the model's representations toward a decision boundary. 10KB of the right lens may beat 10KB of algebraic facts.
 
 And that's a specific instance of a much broader question about AI-human co-production: when AI helps us think, does it change what we think, or how we access what we already know?[^co-production]
 
 [^co-production]: I put some extra thoughts in a [LessWrong post](https://www.lesswrong.com/posts/jqcJeAezRzFwhw3Kz/you-re-absolutely-right-senator-i-was-being-naive-about-the) on the broader framing of this question in the context of AI-assisted reasoning loops.
 
-Onwards, next steps may take me towards an exploration of prompt-induced displacements as measurable objects. Ping if curious.
+Ongoing. Next step is the surface-structure control on the delta: if the delta remains label-informative after regressing out operator counts, equation length, and variable count, the prompt-restructuring story gets much stronger. If it doesn't, the story is simpler but still interesting.
 
 [Code](https://github.com/corpaci/sair-competition-exploration)
 
@@ -95,64 +142,47 @@ This project began with a small question that sits somewhere between interpretab
 
 **For a fixed learned model, how does the input change its internal representations, and how does that affect the output?**
 
-An immediate trigger was the [SAIR Mathematics Distillation Challenge](https://competition.sair.foundation/competitions/mathematics-distillation-challenge-equational-theories-stage1/overview) on equational theories, where the task is to compress useful reasoning into a small human-readable cheat sheet (smaller than 10KB). The benchmark is built on the [equational_theories project](https://github.com/teorth/equational_theories?tab=readme-ov-file), which has the goal to "explore the space of equational theories of magmas, ordered by implication."
+An immediate trigger was the [SAIR Mathematics Distillation Challenge](https://competition.sair.foundation/competitions/mathematics-distillation-challenge-equational-theories-stage1/overview) on equational theories, where the task is to compress useful reasoning into a small human-readable cheat sheet (smaller than 10KB). Built on the [equational_theories project](https://github.com/teorth/equational_theories).
 
-I am testing whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication instances.
-I am **not** testing whether an embedder understands algebra.
+I am testing whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication instances. I am **not** testing whether an embedder understands algebra.
 
-
-## The Question
-
-Given an identity of equations `equation1 = equation2` labeled TRUE or FALSE, how much of that label is recoverable from the embedding of a textual rendering such as:
-
-- `equation1 implies equation2`
-- `If equation1, then equation2.`
-- `equation1`
-- `equation2`
-- `Is there an algebra where equation2 holds but equation1 fails?`
-+ additional controlled variants (rewrite, counterexample)
+**Setup:** 1000 equation pairs (500 TRUE / 500 FALSE), SAIR normal split, Lean-verified labels. Encoder: `all-MiniLM-L6-v2` (384-dim). Probe: L2 logistic regression. Evaluation: GroupKFold by `equation1` (906 unique antecedents, ~9% row overlap removed).
 
 ## Results
 
-The strongest claims are these:
+**Grouped CV accuracy across templates:**
 
-- A linear probe on frozen embeddings performs well, and this effect survives grouped cross-validation with only a small drop relative to naive CV. That means the main effect is not explained away by the train/test leakage story.
-- Cross-template transfer drops substantially. So this is **not** one universal templatic implication geometry that every phrasing reveals. Different textual templates induce different usable geometries.
-- `eq1_only` remains very strong, and under grouped evaluation it can outperform the more natural implication phrasing. This suggests that much of the recoverable label signal is already present in the source law alone.
-- A shallow baseline based on operator counts already performs strongly. So a substantial portion of the effect is tied to structural regularities in the equations themselves, not just high-level linguistic framing.
-- The difference vector being label-informative suggests that the prompt may be doing more than simply reweighting or filtering existing representations. A stronger version of that claim would require direct hidden-state analysis[^further].
+| Template | Grouped acc | Grouped AUC |
+|---|---|---|
+| eq1_only | **0.878** | **0.951** |
+| formal_query | 0.871 | 0.947 |
+| natural | 0.855 | 0.933 |
+| conjoined | 0.860 | 0.935 |
+| eq2_only | 0.535 | 0.544 |
 
-[^further]: Waiting out for the SAIR organizers to [open access to the cheatsheets & their scores](https://zulip.sair.foundation/#narrow/channel/13-Math-Distillation-Challenge---equational-theories/topic/prompt.26score.20~.20public.20.2Fmech.20interp.20on.20cheatsheet.20effect/with/1307).
+Naive CV vs. grouped: ~1.5pp drop. Leakage was real, effect was small.
 
-Taken together, these results suggest that prompt effects in this setting are not purely cosmetic: different textual framings change the geometry of representations in ways that affect downstream classification.
+**Cross-template transfer gap: 0.383** (within 0.915, cross 0.532). `natural` → `formal_query`: 0.507 despite semantic similarity. `raw` → `conjoined`: 0.830.
+
+**Best shallow baseline** (operator counts): AUC 0.863. Encoder (mpnet, natural): AUC 0.950. Gap: 0.087.
+
+**Delta (natural − eq1_only):** variance ratio 1.09, classifies at 89.3%. 
 
 ## Current interpretation
 
-The most cautious interpretation I'm comfortable with is:
-
-> There is robust label signal in frozen embeddings of equational-implication instances, but it is not template-invariant. Much of the signal is anchored in `equation1`, while prompt wrappers induce additional label-relevant deformations of that base representation.
-
+> The label signal survives grouped CV, but not in a template-invariant form. Much is anchored in `equation1`, partially explained by operator statistics. Prompt wrappers add label-relevant geometric deformation; independence from surface structure is unverified.
 
 ## Why I find this interesting
 
-The most useful object here may not be the embedding itself, but the **prompt-induced displacement**.
-
-- `eq1_only` gives a rough base representation of the source-law family.
-- `natural` gives that base plus a prompt-conditioned deformation.
-- the deformation itself carries label signal.
-
-That makes this a small model organism for a broader question:
+The most useful object here may not be the embedding itself, but the **prompt-induced displacement**. `eq1_only` gives a base representation. `natural` adds a prompt-conditioned deformation. The deformation carries label signal.
 
 **When a prompt helps a model, does it help by changing what is represented, or by changing how existing representations are routed and read out?**
 
-This has a direct implication for the competition itself. If the optimal prompt is not a summary of algebraic facts but a framing that maximally deforms representations toward the decision boundary, then the 10KB cheat sheet should be designed as a *lens*, not an encyclopedia. The question becomes: what framing induces the largest label-relevant displacement across the widest range of equation types?
+If the delta survives surface-structure control, the answer leans toward restructuring. Either way it's informative for what the optimal 10KB cheat sheet looks like: a *lens*, not an encyclopedia.[^further]
 
-Onwards, next steps may take me towards an exploration of prompt-induced displacements as measurable objects. Ping if curious.
-
+[^further]: Waiting for SAIR organizers to [open access to cheatsheets and scores](https://zulip.sair.foundation/#narrow/channel/13-Math-Distillation-Challenge---equational-theories/topic/prompt.26score.20~.20public.20.2Fmech.20interp.20on.20cheatsheet.20effect/with/1307) for the next step.
 
 [Code](https://github.com/corpaci/sair-competition-exploration)
-
-
 
 </div>
 
@@ -160,27 +190,28 @@ Onwards, next steps may take me towards an exploration of prompt-induced displac
 
 A pilot on prompt-conditioned representation geometry in the SAIR equational-theory benchmark.
 
-The core question is simple:
+**Question:** How much TRUE/FALSE signal is recoverable from different textual renderings of the same equational-implication instance using a frozen encoder?
 
-**How much TRUE/FALSE signal is recoverable from different textual renderings of the same equational-implication instance using a frozen encoder?**
+**Setup:** 1000 equation pairs, SAIR normal split, Lean-verified labels. Encoder: `all-MiniLM-L6-v2` (384-dim). Probe: L2 logistic regression, GroupKFold CV grouped by antecedent equation.
 
-## Main takeaways
+## Results
 
-- A linear probe on frozen embeddings performs strongly, and this survives grouped cross-validation.
-- The signal is **not** template-invariant: cross-template transfer drops substantially.
-- `equation1` carries most of the predictive mass.
-- Shallow structural baselines explain a large fraction of the effect.
-- The most interesting result is that the embedding difference between `natural` and `eq1_only` is itself strongly label-informative, indicating that prompt-induced changes in representation carry may task-relevant signal.
+| Template | Grouped AUC |
+|---|---|
+| eq1_only | **0.951** |
+| formal_query | 0.947 |
+| natural | 0.933 |
+| conjoined | 0.935 |
+| eq2_only | 0.544 |
+
+- Grouped CV vs. naive: −1.5pp. Leakage was small.
+- Cross-template transfer gap: 0.383. Signal is not template-invariant.
+- Best shallow baseline (operator counts): AUC 0.863. Encoder adds ~0.09 AUC.
+- Delta (natural − eq1_only) classifies at 89.3%. Surface-structure control pending.
 
 ## Current interpretation
 
-The safest summary is:
-
-> Much of the recoverable signal is anchored in the source, but prompt wrappers induce additional label-relevant deformations of that base representation.
-
-This is evidence that prompt wording can induce structured, task-relevant changes in representation. It is **not** claiming anything about an embedder's mathematical understanding.
-
-
+> Signal is robust and survives leakage correction. It is anchored in equation1, partially explained by operator statistics, and not template-invariant. Whether prompt-induced displacement carries signal beyond surface structure is the open question.
 
 [Code](https://github.com/corpaci/sair-competition-exploration)
 
@@ -190,8 +221,7 @@ This is evidence that prompt wording can induce structured, task-relevant change
 <div class="all-modes" markdown="1">
 
 **Reading modes:**
-- ☀️ Day: results only
+- ☀️ Day: results mostly as-is
 - 🌙 Night: interpretation
-- 🪐 Beyond: speculation & broader framing
 
 </div>
