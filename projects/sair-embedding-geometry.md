@@ -221,7 +221,7 @@ A pilot on prompt-conditioned representation geometry in the SAIR equational-the
 <div class="all-modes" markdown="1">
 
 **Reading modes:**
-- ☀️ Day: results mostly as-is
+- ☀️ Day: results
 - 🌙 Night: interpretation
 
 </div>
