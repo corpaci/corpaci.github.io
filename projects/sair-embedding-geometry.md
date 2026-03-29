@@ -17,12 +17,11 @@ What I think they're asking is: How much information to contain all human-discov
 
 ### How much information fits in all of mathematics?
 
-> The [Lean mathlib library](https://leanprover-community.github.io/mathlib-overview.html) formalizes a substantial portion of undergraduate and early graduate mathematics in roughly 1.5 million lines of code — about 50–70MB of source. But mathlib is still a fraction of known mathematics. Estimates of total published mathematics vary: roughly 4–5 million papers exist. At ~20KB of actual mathematical content per paper (stripping exposition), that's roughly 80–100GB of raw text. But the information-theoretic content is far less. Most papers are incremental — small extensions of known structures. The core dependency graph — the set of truly independent ideas — is much smaller. A reasonable estimate: all of human mathematics, maximally compressed into its logical skeleton, is somewhere between 100MB and 1GB. Total formalized, proven, maximally compressed human knowledge about the physical world: probably 1–10 gigabytes. That's a rough Fermi estimate. The uncertainty spans an order of magnitude because "formalized and proven" is doing a lot of work — most of what humans know isn't formalized.[^claude-written]
+Rough estimates suggest that large formal libraries like [Lean's mathlib](https://leanprover-community.github.io/mathlib-overview.html) already encode tens of megabytes of structured mathematics, while the total corpus of published mathematics is orders of magnitude larger. However, the core of it in the minimal dependency graph of independent ideas may be far smaller than what raw text volumes suggest.
 
-[^claude-written]: These estimates are Claude-generated and I have not yet verified them.
+My question from this project for now is not about an exact number, but whether **a small, well-structured textual object** (e.g., as the SAIR competition constrains to a 10KB cheat sheet) can activate a meaningful portion of the latent structure in a model.
 
-I am **not** testing whether an embedder understands algebra.
-I am testing whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication instances.
+These said, I am **not** testing whether an embedder understands algebra. What I am testing is whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication/-identity instances.
 
 ## The Question
 
@@ -32,7 +31,8 @@ Given a pair of equations `(equation1, equation2)` labeled TRUE or FALSE, how mu
 - `If equation1, then equation2.`
 - `equation1`
 - `equation2`
-- <todo: add the other templates>
+- `Is there an algebra where equation2 holds but equation1 fails?`
++ additional controlled variants (rewrite, counterexample)
 
 And once stronger controls are added:
 
@@ -46,7 +46,7 @@ And once stronger controls are added:
 The strongest claims are these:
 
 - A linear probe on frozen embeddings performs well, and this effect survives grouped cross-validation with only a small drop relative to naive CV. That means the main effect is not explained away by the train/test leakage story.
-- Cross-template transfer drops substantially. So this is **not** one universal implication geometry that every phrasing simply reveals. Different textual templates induce different usable geometries.
+- Cross-template transfer drops substantially. So this is **not** a single template-invariant geometry that all phrasings reveal equally. Different textual templates induce different usable geometries.
 - `eq1_only` remains very strong, and under grouped evaluation it can outperform the more natural implication phrasing. This suggests that much of the recoverable label signal is already present in the source law alone.
 - A shallow baseline based on operator counts already performs strongly. So a substantial portion of the effect is tied to structural regularities in the equations themselves, not just high-level linguistic framing.
 - The most interesting result is that the **difference vector** between `natural` and `eq1_only` embeddings is highly label-informative. This suggests that the prompt wrapper is not behaving like a constant additive offset. It changes the representation in an instance-dependent way that correlates with the label.
@@ -107,17 +107,20 @@ Given an identity of equations `equation1 = equation2` labeled TRUE or FALSE, ho
 - `If equation1, then equation2.`
 - `equation1`
 - `equation2`
-- <todo: add the other templates>
+- `Is there an algebra where equation2 holds but equation1 fails?`
++ additional controlled variants (rewrite, counterexample)
 
 ## Results
 
 The strongest claims are these:
 
 - A linear probe on frozen embeddings performs well, and this effect survives grouped cross-validation with only a small drop relative to naive CV. That means the main effect is not explained away by the train/test leakage story.
-- Cross-template transfer drops substantially. So this is **not** one universal implication geometry that every phrasing simply reveals. Different textual templates induce different usable geometries.
+- Cross-template transfer drops substantially. So this is **not** one universal templatic implication geometry that every phrasing reveals. Different textual templates induce different usable geometries.
 - `eq1_only` remains very strong, and under grouped evaluation it can outperform the more natural implication phrasing. This suggests that much of the recoverable label signal is already present in the source law alone.
 - A shallow baseline based on operator counts already performs strongly. So a substantial portion of the effect is tied to structural regularities in the equations themselves, not just high-level linguistic framing.
-- The most interesting result is that the **difference vector** between `natural` and `eq1_only` embeddings is highly label-informative. This suggests that the prompt wrapper is not behaving like a constant additive offset. It changes the representation in an instance-dependent way that correlates with the label.
+- The most interesting result is that the **difference vector** between `natural` and `eq1_only` embeddings is highly label-informative. This suggests that the prompt wrapper is **not well-approximated by a constant additive offset**. It appears to induce an instance-dependent change in representation that correlates with the label.
+
+Taken together, these results suggest that prompt effects in this setting are not purely cosmetic: different textual framings change the geometry of representations in ways that affect downstream classification.
 
 ## Current interpretation
 
@@ -159,7 +162,7 @@ The core question is simple:
 - The signal is **not** template-invariant: cross-template transfer drops substantially.
 - `equation1` carries most of the predictive mass.
 - Shallow structural baselines explain a large fraction of the effect.
-- The most interesting result is that the embedding difference between `natural` and `eq1_only` is itself strongly label-informative.
+- The most interesting result is that the embedding difference between `natural` and `eq1_only` is itself strongly label-informative, indicating that prompt-induced changes in representation carry may task-relevant signal.
 
 ## Current interpretation
 
@@ -167,9 +170,22 @@ The safest summary is:
 
 > Much of the recoverable signal is anchored in the source, but prompt wrappers induce additional label-relevant deformations of that base representation.
 
-This is evidence of structured prompt effects on representation. It is **not** yet evidence of mathematical understanding.
+This is evidence that prompt wording can induce structured, task-relevant changes in representation. It is **not** claiming anything about an embedder's mathematical understanding.
+
 
 
 [Code →](https://github.com/corpaci/sair-competition-exploration)
+
+</div>
+
+Onwards, next steps may take me towards an exploration of prompt-induced displacements as measurable objects. Ping if curious.
+
+
+<div class="all-modes" markdown="1">
+
+**Reading modes:**
+- ☀️ Day: results only
+- 🌙 Night: interpretation
+- 🪐 Beyond: speculation & broader framing
 
 </div>
