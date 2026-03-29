@@ -20,6 +20,4 @@ L. Corpaci, M. Wagner, S. Raubitzek, L. Kampel, K. Mallinger, D. E. Simos. *Esti
 
 [**SAIR Embedding Geometry**](/projects/sair-embedding-geometry/) — Do sentence embeddings distinguish TRUE from FALSE mathematical implications? Testing on Lean-verified algebraic equations with 87.4% accuracy, plus diagnostics for lexical leakage and statistical validity.
 
-[**Social Bias Measurement**](/projects/bias-measurement/) — Geometric rigor in bias measurement using the BBQ dataset and SONAR embeddings. Midpoint geometry as an alternative to ad hoc benchmarks.
-
 
