@@ -83,7 +83,9 @@ And that's a specific instance of a much broader question about AI-human co-prod
 
 [^co-production]: I put some extra thoughts in a [LessWrong post](https://www.lesswrong.com/posts/jqcJeAezRzFwhw3Kz/you-re-absolutely-right-senator-i-was-being-naive-about-the) on the broader framing of this question in the context of AI-assisted reasoning loops.
 
-[Code →](https://github.com/corpaci/sair-competition-exploration)
+Onwards, next steps may take me towards an exploration of prompt-induced displacements as measurable objects. Ping if curious.
+
+[Code](https://github.com/corpaci/sair-competition-exploration)
 
 </div>
 
@@ -118,7 +120,9 @@ The strongest claims are these:
 - Cross-template transfer drops substantially. So this is **not** one universal templatic implication geometry that every phrasing reveals. Different textual templates induce different usable geometries.
 - `eq1_only` remains very strong, and under grouped evaluation it can outperform the more natural implication phrasing. This suggests that much of the recoverable label signal is already present in the source law alone.
 - A shallow baseline based on operator counts already performs strongly. So a substantial portion of the effect is tied to structural regularities in the equations themselves, not just high-level linguistic framing.
-- The most interesting result is that the **difference vector** between `natural` and `eq1_only` embeddings is highly label-informative. This suggests that the prompt wrapper is **not well-approximated by a constant additive offset**. It appears to induce an instance-dependent change in representation that correlates with the label.
+- The difference vector being label-informative suggests that the prompt may be doing more than simply reweighting or filtering existing representations. A stronger version of that claim would require direct hidden-state analysis[^further].
+
+[^further]: Waiting out for the SAIR organizers to [open access to the cheatsheets & their scores](https://zulip.sair.foundation/#narrow/channel/13-Math-Distillation-Challenge---equational-theories/topic/prompt.26score.20~.20public.20.2Fmech.20interp.20on.20cheatsheet.20effect/with/1307).
 
 Taken together, these results suggest that prompt effects in this setting are not purely cosmetic: different textual framings change the geometry of representations in ways that affect downstream classification.
 
@@ -143,8 +147,12 @@ That makes this a small model organism for a broader question:
 
 This has a direct implication for the competition itself. If the optimal prompt is not a summary of algebraic facts but a framing that maximally deforms representations toward the decision boundary, then the 10KB cheat sheet should be designed as a *lens*, not an encyclopedia. The question becomes: what framing induces the largest label-relevant displacement across the widest range of equation types?
 
+Onwards, next steps may take me towards an exploration of prompt-induced displacements as measurable objects. Ping if curious.
 
-[Code →](https://github.com/corpaci/sair-competition-exploration)
+
+[Code](https://github.com/corpaci/sair-competition-exploration)
+
+
 
 </div>
 
@@ -174,11 +182,9 @@ This is evidence that prompt wording can induce structured, task-relevant change
 
 
 
-[Code →](https://github.com/corpaci/sair-competition-exploration)
+[Code](https://github.com/corpaci/sair-competition-exploration)
 
 </div>
-
-Onwards, next steps may take me towards an exploration of prompt-induced displacements as measurable objects. Ping if curious.
 
 
 <div class="all-modes" markdown="1">
