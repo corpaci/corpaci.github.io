@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day">
+
+<head>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark')  { saved = 'night'; localStorage.setItem('theme', 'night'); }
+      if (saved === 'light') { saved = 'day';   localStorage.setItem('theme', 'day');   }
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+      document.documentElement.setAttribute('data-theme', saved || preferred);
+    })();
+  </script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="keywords" content="AI safety, formal verification, interpretability, hardware verification, category theory, persistent homology, LLM, machine learning, AI engineering">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Limits to Formalization | Luiza Corpaci</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Limits to Formalization" />
+<meta name="author" content="Luiza Corpaci" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
+<meta property="og:description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
+<link rel="canonical" href="https://corpaci.com/research/formalization-limits/" />
+<meta property="og:url" content="https://corpaci.com/research/formalization-limits/" />
+<meta property="og:site_name" content="Luiza Corpaci" />
+<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="twitter:title" content="Limits to Formalization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-03-21T19:32:29+02:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Limits to Formalization","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/research/formalization-limits/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/img/favicon.ico">
+
+<link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Luiza Corpaci" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ]
+  });"></script>
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css"/>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand" href="/">Luiza Corpaci</a>
+    <div class="nav-links">
+      <a class="nav-link" href="/about/">About</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">◐</button>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <article>
+  
+  <div class="page-header">
+    <h1>Limits to Formalization</h1>
+    
+    <p class="page-subtitle">What happens when you try to measure what resists measurement.</p>
+    
+  </div>
+  
+  <p>What happens when you take fuzzy input and produce something measurable and checkable? Self-reference creates paradoxes (Tarski<sup id="fnref:tarski"><a href="#fn:tarski" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>, Gödel<sup id="fnref:godel"><a href="#fn:godel" class="footnote" rel="footnote" role="doc-noteref">2</a></sup>); finite formalizations don’t capture all true statements about some sufficiently rich domains. The main tension: syntax is tractable<sup id="fnref:tractable"><a href="#fn:tractable" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>, semantics is rich<sup id="fnref:rich"><a href="#fn:rich" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>, and formalization covers them imperfectly.</p>
+
+<p>I’m interested in the maximal complexity that can be compressed through formalization, the syntax-semantics interface (where structure ends and meaning begins), and whether there exists a natural language kernel that is fully formalizable<sup id="fnref:kernel"><a href="#fn:kernel" class="footnote" rel="footnote" role="doc-noteref">5</a></sup>.</p>
+
+<p>One direction recommended by <a href="https://lean-lang.org/">Leo de Moura’s work on Lean</a>: formalization as bootstrapping ; using a program implemented from a spec as a spec for an improved program, where each iteration collapses semantic ambiguity into syntactic commitment<sup id="fnref:commitment"><a href="#fn:commitment" class="footnote" rel="footnote" role="doc-noteref">6</a></sup> and quality becomes improvement rather than correspondence to a fixed ground truth.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:tarski">
+      <p>Tarski’s undefinability theorem: no sufficiently expressive language can define its own truth predicate. The condition is that the language must be able to express basic arithmetic. Truth for a language can only be defined in a richer metalanguage ; you always need to step outside. <a href="#fnref:tarski" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:godel">
+      <p>Gödel’s incompleteness theorems: any consistent formal system capable of expressing basic arithmetic contains true statements it cannot prove (first theorem) and cannot prove its own consistency (second theorem). The formal system is necessarily incomplete from within. <a href="#fnref:godel" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:tractable">
+      <p>Syntactic objects ; strings, symbols, formal expressions ; can be mechanically manipulated, checked, and compared. You can write algorithms over them. They hold still. <a href="#fnref:tractable" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:rich">
+      <p>Semantic content ; meaning, reference, truth conditions ; resists mechanical capture because it’s tied to context, interpretation, and the world outside the formal system. It doesn’t hold still. <a href="#fnref:rich" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:kernel">
+      <p>Controlled natural languages (like Attempto Controlled English) are fragments designed to map cleanly to first-order logic ; simple declaratives with unambiguous referents. The formalizable region ends where context-dependence, deixis, metaphor, and pragmatic implication take over. The boundary isn’t sharp; there’s a gradient, and the fully formalizable fragment is narrow enough that it barely feels like natural language anymore. <a href="#fnref:kernel" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:commitment">
+      <p>Implementation forces you to resolve every ambiguity the spec left open. “Handle errors appropriately” becomes a concrete choice about <em>how</em>. Each such choice collapses the space of possible interpretations into one specific form. In the bootstrapping loop, these commitments accumulate: the next spec inherits resolved ambiguities from the previous implementation, and the process converges toward increasing precision. <a href="#fnref:commitment" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+</article>
+
+  </main>
+
+  <footer class="footer mt-5 py-4">
+    <div class="container footer-content">
+      <p class="footer-ethos">Grounding in relative understandings. All the way down.</p>
+      <p>&copy; 2026 Luiza Corpaci</p>
+    </div>
+  </footer>
+
+  <script>
+    var THEMES = ['day', 'night', 'spectrum'];
+    var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u273A' };
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var idx = THEMES.indexOf(current);
+      var next = THEMES[(idx + 1) % THEMES.length];
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[next] || ICONS['day'];
+    }
+    (function() {
+      var t = document.documentElement.getAttribute('data-theme');
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[t] || ICONS['day'];
+    })();
+  </script>
+</body>
+
+</html>

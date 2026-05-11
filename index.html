@@ -1,37 +1,26 @@
 ---
 layout: default
 ---
-<div class="home-identity">
-  <h1>Luiza Corpaci</h1>
-  <div class="day-only">
-    <p>By day I build systems that translate between levels of abstraction. Currently working on LLM pipelines at AMD that take natural language specs and compresses them into formal verification assertions.</p>
+{% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
+{% assign posts_by_month = visible_posts | group_by_exp: "post", "post.date | date: '%B %Y'" %}
 
-  </div>
-  <div class="night-only">
-    <p>By night I'm a researcher interested in a few big questions, a current one being: when we try to make fuzzy, human ideas precise and checkable, what gets lost in translation?</p>
-  </div>
-  <div class="beyond-only">
-    <p>Beyond that, I'm color.</p>
-    <p>If you care about: what formalization can't capture, why interpretability probes tell as much about themselves as about the model, or whether there's a mechanism that separates living systems from merely active ones, we're in the right space-time.</p>
-  </div>
-</div>
-
-<!-- <h2 class="mb-3" style="font-size: 1.15rem;">Recent Writing</h2>
 <div class="posts">
-  {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
-  {% for post in visible_posts limit:10 %}
+  {% for month_group in posts_by_month %}
+  <h2 class="timeline-month">{{ month_group.name }}</h2>
+  {% for post in month_group.items %}
   <article class="post-card mb-3">
     <time class="entry_date">{{ post.date | date: "%B %d, %Y" }}</time>
     <h2 class="post-title">
       <a href="{{ post.url }}" class="entry_title">{{ post.title }}</a>
       {% for tag in post.tags %}
-      <a href="/blog/tags/#{{ tag | slugify }}" class="tag-badge">{{ tag }}</a>
+      <a href="#" class="tag-badge">{{ tag }}</a>
       {% endfor %}
     </h2>
   </article>
+  {% endfor %}
   {% endfor %}
 
   {% if visible_posts.size == 0 %}
   <p class="text-muted">No posts yet. Check back soon!</p>
   {% endif %}
-</div> -->
+</div>

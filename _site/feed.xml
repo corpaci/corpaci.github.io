@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <link href="https://corpaci.com/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://corpaci.com/" rel="alternate" type="text/html" hreflang="en" />
+  <updated>2026-05-11T11:54:07+03:00</updated>
+  <id>https://corpaci.com/feed.xml</id>
+  <title type="html">Luiza Corpaci</title>
+  <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
+  
+  
+    <entry xml:lang="en">
+      <title type="html">How Does Good Feel Like?</title>
+      <link href="https://corpaci.com/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
+      <published>2026-03-22T00:00:00+02:00</published>
+      <updated>2026-03-22T20:40:12+02:00</updated>
+      <id>https://corpaci.com/blog/how-does-good-feel-like</id>
+      <content type="html" xml:base="https://corpaci.com/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
+
+<p>Does dinner with mom feel like a <em>good</em> use of time?</p>
+
+<p>Not strategic, not productive, not efficient, nor optimal.</p>
+
+<p>Just good.</p>
+
+<p>Is it good enough to anchor whatever it is you’re doing instread against it?</p>
+
+<div class="day-only">
+  <p>Time is finite. The people we love won’t be here forever. This is an accessible truth we can (probably) agree on. <sup id="fnref:finite-time"><a href="#fn:finite-time" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
+
+</div>
+
+<div class="day-only">
+  <p>Here’s a small exercise:</p>
+</div>
+
+<div class="in-night in-beyond">
+  <p>Here’s a small exercise I stumbled on while going through the first question in <a href="https://www.nytimes.com/2015/02/13/style/the-36-questions-on-the-way-to-love.html">36 Questions on the Way to Love</a>:</p>
+</div>
+
+<p>Think about what you’re choosing to do today instead of dinner with someone you love.</p>
+
+<p>Now imagine that person lives in the next town. How much would you give up to have that dinner?</p>
+
+<p>What if they live in another country?</p>
+
+<p>Now imagine they’re gone entirely and you’re remembering the last dinner you didn’t have.</p>
+
+<p>Something changes, doesn’t it? The dinner didn’t, but our ability to feel its worth did.</p>
+
+<p>Good feels like the choice we’d still make knowing the full weight of what we’re giving up on. The felt choice, not the optimized one. When we’re present at dinner, we’re not calculating opportunity costs, we’re in the moment that, when gone, we cannot recover through any adjustments of reality. Good feels like attending to what’s irreplaceable while it’s still here.</p>
+
+<div class="in-night in-beyond">
+
+  <p>Sometimes we don’t know what good feels like. It’s not uncommon for people to misread their internals. Imagine the internals of the human deciding to change the Department of Defense to Department of war (yes, it is a thing; check war.gov). I’d bet some misfiring happened there.</p>
+
+  <p>We’re working on safety-relevant problems while time runs out on our human relationships. The formalization limits apply here too; we can optimize calendars (verifiable), we can work on important problems (validatable), but we can’t prove we allocated our finite attention to what will matter when we look back from an end-of-life point in time.</p>
+</div>
+
+<p>Can we build tools that help humans make some of trade-offs better? If we had an AI that could predict E[remaining dinners with mom], would using it help us make more meanigful choices or make us more anxious?</p>
+
+<div class="day-only">
+  <p>AI made idea generation nearly free, but we haven’t yet scaled how we evaluate these ideas. We can check if something works correctly, but not if it’s the right thing to build, nor if it’s the good thing to build.</p>
+</div>
+
+<div class="in-night in-beyond">
+  <p>What if the AI’s predictions were wrong?</p>
+
+  <p>What if the predictions are right but we couldn’t verify them?</p>
+
+  <p>What if the predictions are right but we couldn’t really tell if that’s what’s good to build in the first place?</p>
+</div>
+
+<p>Moreover, human intelligence is no longer the center of the universe. Maybe that happened this year or this decade or this century and maybe not everyone will agree as to when, but it’s here and it’s real and it fails often enough to negate its existence, but it also surprises often enough to prove its existence.</p>
+
+<p>Jakob von Uexküll’s concept (1909): every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not “the world as it is,” but “the world as perceived through this body, these sensors, these purposes.”</p>
+
+<div class="beyond-only">
+  <p>Jakob von Uexküll’s concept (1909) describes how every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not “the world as it is,” but “the world as perceived through this body, these sensors, these purposes.”</p>
+
+  <p>This made me think that mechanistic features might be projecting an Umwelt onto the model’s representation space. When features fracture, maybe it’s because we’re formalizing our own perceptual categories, not discovering the model’s actual Umwelt.</p>
+
+  <p>Can we build tools to verify accross Umwelts? What if “alignment” is trying to make AI share human Umwelt, but that’s structurally impossible, like teaching a tick to see colors?</p>
+</div>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:finite-time">
+      <p>Maybe this will not be true for all of human existence, but it seems to be a limitation of today’s experience. Until we reach whatever form of life expansion we settle on, I’ll try to deal with the feebleness of being a biological human. <a href="#fnref:finite-time" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content>
+      <author>
+        <name>Luiza Corpaci</name>
+      </author>
+      
+      
+        <category term="good" />
+      
+        <category term="meta" />
+      
+        <category term="philosophy" />
+      
+        <category term="ai-safety" />
+      
+        <category term="alignment" />
+      
+        <category term="interpretability" />
+      
+      
+      
+        <summary type="html"><![CDATA[The nature of doing good; how to live in a world where the Department of War exists; verifiable vs validatable vs good; the gap between formal rules and lived experience.]]></summary>
+      
+    </entry>
+  
+</feed>
