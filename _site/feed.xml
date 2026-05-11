@@ -3,11 +3,56 @@
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
   <link href="https://corpaci.com/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://corpaci.com/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-05-11T11:54:07+03:00</updated>
+  <updated>2026-05-11T11:56:52+03:00</updated>
   <id>https://corpaci.com/feed.xml</id>
   <title type="html">Luiza Corpaci</title>
   <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
   
+  
+    <entry xml:lang="en">
+      <title type="html">What formalisms are good for defining good?</title>
+      <link href="https://corpaci.com/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
+      <published>2026-04-08T00:00:00+03:00</published>
+      <updated>2026-05-11T11:55:22+03:00</updated>
+      <id>https://corpaci.com/blog/good-formalisms-for-good</id>
+      <content type="html" xml:base="https://corpaci.com/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
+Ambiguity: good for whom?, good relative to what?, good on what timescale?</p>
+
+<p>Claim: “Good” is not a single number.
+Ambiguity: what is it then?</p>
+
+<p>Claim: “Good” has structure; it’s not arbitrary. 
+Ambiguity: what kind of structure? can we find the structure that remains invariant accross all formalisms trying to capture it?</p>
+
+<p>Claim: a good question to ask next is: what operations on good must preserve good?
+Ambiguity: should we define good by its invariances rather than content? (Noether style)</p>
+
+<p>Claim: Good is not invariant.
+Ambiguity: is it covariant?</p>
+
+<p>extra question: what, in human cognition and experience, is interesting or valuable to a much more capable system? How do we make sure it encounters that early enough for it to matter?</p>]]></content>
+      <author>
+        <name>Luiza Corpaci</name>
+      </author>
+      
+      
+        <category term="good" />
+      
+        <category term="meta" />
+      
+        <category term="philosophy" />
+      
+        <category term="ai-safety" />
+      
+        <category term="alignment" />
+      
+        <category term="interpretability" />
+      
+      
+      
+        <summary type="html"><![CDATA[The nature of good; verifiable vs validatable vs good; the gap between formal rules and lived experience.]]></summary>
+      
+    </entry>
   
     <entry xml:lang="en">
       <title type="html">How Does Good Feel Like?</title>
