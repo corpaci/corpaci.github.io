@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "My understanding on ((the limits of) formalizations for) AI Safety"
+title: "My understanding on ((the limits of) formalizations for) AI (Safety)"
 permalink: /blog/limits-of-formalization
 tags: [formal-methods, ai-safety, alignment, interpretability, formal-verification]
 description: "From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment."
 ---
 
-The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.
+Limits of formalization appear as structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding these is a prerequisite to knowing what alignment approaches can and cannot achieve.
 
 Towards this, I have used my ml4good project to explore them, understand the space of what's possible and point down senseful paths for me to engage with the field. In hope this is useful to others out there (inclusive of future me that might stray away into fuzzy ideals), I'm gathering my thoughts into this post. Toggle up & enjoy the ride!
 
@@ -14,23 +14,16 @@ Towards this, I have used my ml4good project to explore them, understand the spa
 
 <div class="in-night in-beyond" markdown="1">
 
+Let's start with some general knowns:
+
 **Reality exists.**
-Something is there. Behind the shadows on the wall. Plato names it.
+Plato's cave. The real is there, behind the shadows on the wall, even if we can't see it directly.
 
 **We can reach it with reason.**
-Logic extracts form from things. Aristotle builds the tool.
-
-**We can say it all.**
-If reality is computable, a perfect language captures everything. Leibniz dreams it.
-
-**We never touch it directly.**
-Every representation is already filtered through our cognitive structure. Kant interrupts.
-
-**Build the language anyway.**
-Frege makes predicate logic. Precise enough to eliminate ambiguity. The tool is sharp.
+Logic extracts form from things. Aristotle set the form, Leibniz dreamed the perfect language that captures everything, Frege builds a tool precise enough to eliminate ambiguity through predicate logic.
 
 **The real is bigger than the language.**
-Cantor: infinity has more than one size. Any formal system enumerates countably many truths. Reality may be uncountably rich. First gap.
+Cantor scoped infinity and found that it has more than one size. Any formal system enumerates countably many truths. Reality may be uncountably rich. First gap.
 
 **Self-reference breaks the language.**
 Russell: the set of all sets that don't contain themselves destroys naive formalization. Fix: stratify. Statements about things must live at a higher level than the things.

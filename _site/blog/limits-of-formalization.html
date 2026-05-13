@@ -17,24 +17,24 @@
 
 <meta name="keywords" content="AI safety, formal verification, interpretability, hardware verification, category theory, persistent homology, LLM, machine learning, AI engineering">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>My understanding on ((the limits of) formalizations for) AI Safety | Luiza Corpaci</title>
+<title>My understanding on ((the limits of) formalizations for) AI (Safety) | Luiza Corpaci</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="My understanding on ((the limits of) formalizations for) AI Safety" />
+<meta property="og:title" content="My understanding on ((the limits of) formalizations for) AI (Safety)" />
 <meta name="author" content="Luiza Corpaci" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment." />
 <meta property="og:description" content="From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment." />
-<link rel="canonical" href="https://corpaci.com/blog/limits-of-formalization" />
-<meta property="og:url" content="https://corpaci.com/blog/limits-of-formalization" />
+<link rel="canonical" href="http://localhost:4000/blog/limits-of-formalization" />
+<meta property="og:url" content="http://localhost:4000/blog/limits-of-formalization" />
 <meta property="og:site_name" content="Luiza Corpaci" />
-<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="og:image" content="http://localhost:4000/apple-touch-icon.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-05-13T00:00:00+03:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
-<meta property="twitter:title" content="My understanding on ((the limits of) formalizations for) AI Safety" />
+<meta property="twitter:image" content="http://localhost:4000/apple-touch-icon.png" />
+<meta property="twitter:title" content="My understanding on ((the limits of) formalizations for) AI (Safety)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T17:26:37+03:00","datePublished":"2026-05-13T00:00:00+03:00","description":"From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment.","headline":"My understanding on ((the limits of) formalizations for) AI Safety","image":"https://corpaci.com/apple-touch-icon.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://corpaci.com/blog/limits-of-formalization"},"url":"https://corpaci.com/blog/limits-of-formalization"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T17:48:35+03:00","datePublished":"2026-05-13T00:00:00+03:00","description":"From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment.","headline":"My understanding on ((the limits of) formalizations for) AI (Safety)","image":"http://localhost:4000/apple-touch-icon.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/limits-of-formalization"},"url":"http://localhost:4000/blog/limits-of-formalization"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -82,7 +82,7 @@
   </aside>
   <article class="post">
     <header class="post-header mb-4">
-      <h1 class="post-title">My understanding on ((the limits of) formalizations for) AI Safety</h1>
+      <h1 class="post-title">My understanding on ((the limits of) formalizations for) AI (Safety)</h1>
       <div class="post-meta">
         <time class="entry_date">May 13, 2026</time>
         
@@ -103,7 +103,7 @@
       </div>
     </header>
     <div class="post-content">
-      <p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
+      <p>Limits of formalization appear as structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding these is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
 
 <p>Towards this, I have used my ml4good project to explore them, understand the space of what’s possible and point down senseful paths for me to engage with the field. In hope this is useful to others out there (inclusive of future me that might stray away into fuzzy ideals), I’m gathering my thoughts into this post. Toggle up &amp; enjoy the ride!</p>
 
@@ -111,23 +111,16 @@
 
 <div class="in-night in-beyond">
 
+  <p>Let’s start with some general knowns:</p>
+
   <p><strong>Reality exists.</strong>
-Something is there. Behind the shadows on the wall. Plato names it.</p>
+Plato’s cave. The real is there, behind the shadows on the wall, even if we can’t see it directly.</p>
 
   <p><strong>We can reach it with reason.</strong>
-Logic extracts form from things. Aristotle builds the tool.</p>
-
-  <p><strong>We can say it all.</strong>
-If reality is computable, a perfect language captures everything. Leibniz dreams it.</p>
-
-  <p><strong>We never touch it directly.</strong>
-Every representation is already filtered through our cognitive structure. Kant interrupts.</p>
-
-  <p><strong>Build the language anyway.</strong>
-Frege makes predicate logic. Precise enough to eliminate ambiguity. The tool is sharp.</p>
+Logic extracts form from things. Aristotle set the form, Leibniz dreamed the perfect language that captures everything, Frege builds a tool precise enough to eliminate ambiguity through predicate logic.</p>
 
   <p><strong>The real is bigger than the language.</strong>
-Cantor: infinity has more than one size. Any formal system enumerates countably many truths. Reality may be uncountably rich. First gap.</p>
+Cantor scoped infinity and found that it has more than one size. Any formal system enumerates countably many truths. Reality may be uncountably rich. First gap.</p>
 
   <p><strong>Self-reference breaks the language.</strong>
 Russell: the set of all sets that don’t contain themselves destroys naive formalization. Fix: stratify. Statements about things must live at a higher level than the things.</p>
