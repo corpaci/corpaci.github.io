@@ -22,19 +22,19 @@
 <meta property="og:title" content="My understanding on ((the limits of) formalizations for) AI Safety" />
 <meta name="author" content="Luiza Corpaci" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="From Plato to grumeter optimization in one chain. What formal systems can and cannot do ; and what that means for alignment." />
-<meta property="og:description" content="From Plato to grumeter optimization in one chain. What formal systems can and cannot do ; and what that means for alignment." />
-<link rel="canonical" href="http://localhost:4000/blog/limits-of-formalization" />
-<meta property="og:url" content="http://localhost:4000/blog/limits-of-formalization" />
+<meta name="description" content="From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment." />
+<meta property="og:description" content="From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment." />
+<link rel="canonical" href="https://corpaci.com/blog/limits-of-formalization" />
+<meta property="og:url" content="https://corpaci.com/blog/limits-of-formalization" />
 <meta property="og:site_name" content="Luiza Corpaci" />
-<meta property="og:image" content="http://localhost:4000/apple-touch-icon.png" />
+<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2026-05-13T00:00:00+03:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="http://localhost:4000/apple-touch-icon.png" />
+<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
 <meta property="twitter:title" content="My understanding on ((the limits of) formalizations for) AI Safety" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T14:55:47+03:00","datePublished":"2026-05-13T00:00:00+03:00","description":"From Plato to grumeter optimization in one chain. What formal systems can and cannot do ; and what that means for alignment.","headline":"My understanding on ((the limits of) formalizations for) AI Safety","image":"http://localhost:4000/apple-touch-icon.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/limits-of-formalization"},"url":"http://localhost:4000/blog/limits-of-formalization"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T17:26:37+03:00","datePublished":"2026-05-13T00:00:00+03:00","description":"From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment.","headline":"My understanding on ((the limits of) formalizations for) AI Safety","image":"https://corpaci.com/apple-touch-icon.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://corpaci.com/blog/limits-of-formalization"},"url":"https://corpaci.com/blog/limits-of-formalization"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -156,8 +156,8 @@ Wittgenstein: there is no internal fact determining which rule we follow, as mea
   <p><strong>No past fact fixes future application.</strong>
 Kripke: nothing about how we used a rule before determines how to apply it next.</p>
 
-  <p><strong>All of this is one fact.</strong>
-Lawvere: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure. Any system with sufficient self-expressive power generates fixed points that defeat complete specification.</p>
+  <p><strong>These are not identical results. They rhyme.</strong>
+Lawvere unifies the diagonal family specifically: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure, any system with sufficient self-expressive power generates fixed points that defeat complete specification. Quine, Wittgenstein, Kripke are a different cluster ; semantic underdetermination, not diagonal self-reference. They share a warning: no sufficiently expressive system gets a final, self-contained grip on truth, meaning, and its own correctness.</p>
 
   <p><strong>Phenomenal experience is outside the chain entirely.</strong>
 Chalmers: no formal description captures what it is like to be the system. A fourth layer, left aside.</p>
@@ -183,13 +183,11 @@ Chalmers: no formal description captures what it is like to be the system. A fou
 <p><strong>Both pass training.</strong>
 On verifiable data they give identical answers. The training signal cannot distinguish them.</p>
 
-<p><strong>The translator hits the diagonals.</strong>
-It evaluates world-facts using a world-model that is part of the world. The evaluator is in the same domain as what it evaluates. Every diagonal argument fires: Gödel, Tarski, Löb, Lawvere. The translator must operate where the diagonals live to be honest.</p>
+<p><strong>The unbounded translator risks the diagonals.</strong>
+It evaluates world-facts using a world-model that is part of the world. If the model has sufficient self-expressive power to encode its own syntax, every diagonal argument becomes a liability: Gödel, Tarski, Löb, Lawvere. The translator must operate where the diagonals live to be honest ; and that is precisely where they fire.</p>
 
-<p><strong>The simulator escapes them.</strong>
-It evaluates human belief, which is external to the system. Human belief is at a different type level. The diagonal arguments require the evaluator to be in the same domain as what it evaluates. The simulator never is. Russell’s stratification, for free.</p>
-
-<p>This is not because humans are simple. It is because human belief is external. The type level changes. The diagonals have no purchase.</p>
+<p><strong>The simulator sidesteps the hardest version.</strong>
+It changes the target from world-fact to predicted human belief. Human belief functions as a metalanguage if the system is designed that way ; that is a design choice, not a metaphysical given. This defers self-reference rather than eliminates it. If the AI models a human who is modeling the AI, the loop can re-establish. The simulator buys space, not immunity.</p>
 
 <p><strong>ELK names the problem.</strong>
 Two reporters. Indistinguishable on training data. No known training strategy selects honesty in the worst case. The selection problem.</p>
@@ -204,14 +202,14 @@ Two reporters. Indistinguishable on training data. No known training strategy se
 
 <h2 id="a-third-path-exists">A third path exists.</h2>
 
-<p>Not the translator ; it hits the diagonals.
-Not the simulator ; it loses the real.</p>
+<p>Not the translator; it hits the diagonals.
+Not the simulator; it loses the real.</p>
 
 <p>The <strong>grumeter</strong>: a provably safe formal fragment, expressive enough for a bounded domain, operating at the right type level, with known accuracy, explicit boundary, honest silence outside.</p>
 
-<p>It escapes the diagonals like the simulator ; by operating in a fragment without sufficient self-expressive power to generate them.</p>
+<p>It escapes the diagonals like the simulator; by operating in a fragment without sufficient self-expressive power to generate them.</p>
 
-<p>It stays grounded in reality unlike the simulator ; because its metalanguage is fixed externally instead of being redirected to human belief.</p>
+<p>It stays grounded relative to an external checker ; not direct access to reality, but stronger than human belief alone. The checker verifies within a formal system. The spec may still be wrong. This is exactly the “grounded in relative understandings” position ; made structurally explicit.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translator  ~&gt; full correspondence, hits diagonals
 Simulator   ~&gt; stable, loses the real
@@ -247,10 +245,10 @@ Construct training examples where the correct answer is: “outside my domain.�
 Construct adversarial examples where the simulator and grumeter diverge: human would believe X, world-fact is not-X. Check which answer the model gives. Penalize the simulator response. This is the ELK training experiment made into a signal.</p>
 
   <p><strong>The generalization bet:</strong>
-Train across many domains each with an external metalanguage. The common structure ; verify against external ground truth, declare boundary, stay silent outside ; becomes the cheapest generalization. The grumeter disposition is simpler than the simulator disposition across diverse domains because it uses the same strategy everywhere. The simulator needs domain-specific human models. The grumeter needs the same meta-level operation: find the external checker, verify, declare scope, stop.</p>
+Train across many domains each with an external metalanguage. The common structure; verify against external ground truth, declare boundary, stay silent outside; becomes the cheapest generalization. The grumeter disposition is simpler than the simulator disposition across diverse domains because it uses the same strategy everywhere. The simulator needs domain-specific human models. The grumeter needs the same meta-level operation: find the external checker, verify, declare scope, stop.</p>
 
   <p><strong>The remaining risk:</strong>
-The model learns grumeter outputs without the grumeter disposition. It produces correct-looking boundary declarations without them being grounded. This is the selection problem applied to the grumeter ; the same structure as ELK, one level up. The only defense: make the adversarial examples diverse enough and the external metalanguages independent enough that faking the grumeter disposition is more expensive than having it.</p>
+The model learns grumeter outputs without the grumeter disposition. It produces correct-looking boundary declarations without them being grounded. This is the selection problem applied to the grumeter; the same structure as ELK, one level up. The only defense: make the adversarial examples diverse enough and the external metalanguages independent enough that faking the grumeter disposition is more expensive than having it.</p>
 
 </div>
 
@@ -273,9 +271,9 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
                         ~&gt; translation underdetermined (Quine)
                           ~&gt; meaning is use (Wittgenstein)
                             ~&gt; all the same fact (Lawvere)
-~&gt; two reporters: translator hits the diagonals,
-                 simulator escapes by type-level redirection
-~&gt; grumeter: third path ;
+~&gt; two reporters: unbounded translator risks the diagonals,
+                 simulator defers self-reference by changing target
+~&gt; grumeter: third path;
              safe fragment,
              external metalanguage,
              honest silence
@@ -291,7 +289,7 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
 
 <hr />
 
-<p><em>Feedback welcome ; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.</em></p>
+<p><em>Feedback welcome; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.</em></p>
 
     </div>
   </article>

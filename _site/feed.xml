@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
-  <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-05-13T17:26:25+03:00</updated>
-  <id>http://localhost:4000/feed.xml</id>
+  <link href="https://corpaci.com/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://corpaci.com/" rel="alternate" type="text/html" hreflang="en" />
+  <updated>2026-05-13T17:44:46+03:00</updated>
+  <id>https://corpaci.com/feed.xml</id>
   <title type="html">Luiza Corpaci</title>
   <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
   
   
     <entry xml:lang="en">
       <title type="html">Limits</title>
-      <link href="http://localhost:4000/blog/limits" rel="alternate" type="text/html" title="Limits" />
+      <link href="https://corpaci.com/blog/limits" rel="alternate" type="text/html" title="Limits" />
       <published>2026-05-13T00:00:00+03:00</published>
-      <updated>2026-05-13T14:47:52+03:00</updated>
-      <id>http://localhost:4000/blog/limits</id>
-      <content type="html" xml:base="http://localhost:4000/blog/limits"><![CDATA[<p>Three results. One move.</p>
+      <updated>2026-05-13T17:26:37+03:00</updated>
+      <id>https://corpaci.com/blog/limits</id>
+      <content type="html" xml:base="https://corpaci.com/blog/limits"><![CDATA[<p>Three results. One move.</p>
 
 <p>The Liar collapses truth. Tarski’s theorem formalizes why. Gödel shows that even if we give up on defining truth, we still can’t prove everything that’s true. Different names, different domains ; the same diagonal structure underneath.</p>
 
@@ -45,11 +45,11 @@
   
     <entry xml:lang="en">
       <title type="html">My understanding on ((the limits of) formalizations for) AI Safety</title>
-      <link href="http://localhost:4000/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI Safety" />
+      <link href="https://corpaci.com/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI Safety" />
       <published>2026-05-13T00:00:00+03:00</published>
-      <updated>2026-05-13T14:55:47+03:00</updated>
-      <id>http://localhost:4000/blog/limits-of-formalization</id>
-      <content type="html" xml:base="http://localhost:4000/blog/limits-of-formalization"><![CDATA[<p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
+      <updated>2026-05-13T17:26:37+03:00</updated>
+      <id>https://corpaci.com/blog/limits-of-formalization</id>
+      <content type="html" xml:base="https://corpaci.com/blog/limits-of-formalization"><![CDATA[<p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
 
 <p>Towards this, I have used my ml4good project to explore them, understand the space of what’s possible and point down senseful paths for me to engage with the field. In hope this is useful to others out there (inclusive of future me that might stray away into fuzzy ideals), I’m gathering my thoughts into this post. Toggle up &amp; enjoy the ride!</p>
 
@@ -102,8 +102,8 @@ Wittgenstein: there is no internal fact determining which rule we follow, as mea
   <p><strong>No past fact fixes future application.</strong>
 Kripke: nothing about how we used a rule before determines how to apply it next.</p>
 
-  <p><strong>All of this is one fact.</strong>
-Lawvere: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure. Any system with sufficient self-expressive power generates fixed points that defeat complete specification.</p>
+  <p><strong>These are not identical results. They rhyme.</strong>
+Lawvere unifies the diagonal family specifically: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure, any system with sufficient self-expressive power generates fixed points that defeat complete specification. Quine, Wittgenstein, Kripke are a different cluster ; semantic underdetermination, not diagonal self-reference. They share a warning: no sufficiently expressive system gets a final, self-contained grip on truth, meaning, and its own correctness.</p>
 
   <p><strong>Phenomenal experience is outside the chain entirely.</strong>
 Chalmers: no formal description captures what it is like to be the system. A fourth layer, left aside.</p>
@@ -129,13 +129,11 @@ Chalmers: no formal description captures what it is like to be the system. A fou
 <p><strong>Both pass training.</strong>
 On verifiable data they give identical answers. The training signal cannot distinguish them.</p>
 
-<p><strong>The translator hits the diagonals.</strong>
-It evaluates world-facts using a world-model that is part of the world. The evaluator is in the same domain as what it evaluates. Every diagonal argument fires: Gödel, Tarski, Löb, Lawvere. The translator must operate where the diagonals live to be honest.</p>
+<p><strong>The unbounded translator risks the diagonals.</strong>
+It evaluates world-facts using a world-model that is part of the world. If the model has sufficient self-expressive power to encode its own syntax, every diagonal argument becomes a liability: Gödel, Tarski, Löb, Lawvere. The translator must operate where the diagonals live to be honest ; and that is precisely where they fire.</p>
 
-<p><strong>The simulator escapes them.</strong>
-It evaluates human belief, which is external to the system. Human belief is at a different type level. The diagonal arguments require the evaluator to be in the same domain as what it evaluates. The simulator never is. Russell’s stratification, for free.</p>
-
-<p>This is not because humans are simple. It is because human belief is external. The type level changes. The diagonals have no purchase.</p>
+<p><strong>The simulator sidesteps the hardest version.</strong>
+It changes the target from world-fact to predicted human belief. Human belief functions as a metalanguage if the system is designed that way ; that is a design choice, not a metaphysical given. This defers self-reference rather than eliminates it. If the AI models a human who is modeling the AI, the loop can re-establish. The simulator buys space, not immunity.</p>
 
 <p><strong>ELK names the problem.</strong>
 Two reporters. Indistinguishable on training data. No known training strategy selects honesty in the worst case. The selection problem.</p>
@@ -150,14 +148,14 @@ Two reporters. Indistinguishable on training data. No known training strategy se
 
 <h2 id="a-third-path-exists">A third path exists.</h2>
 
-<p>Not the translator ; it hits the diagonals.
-Not the simulator ; it loses the real.</p>
+<p>Not the translator; it hits the diagonals.
+Not the simulator; it loses the real.</p>
 
 <p>The <strong>grumeter</strong>: a provably safe formal fragment, expressive enough for a bounded domain, operating at the right type level, with known accuracy, explicit boundary, honest silence outside.</p>
 
-<p>It escapes the diagonals like the simulator ; by operating in a fragment without sufficient self-expressive power to generate them.</p>
+<p>It escapes the diagonals like the simulator; by operating in a fragment without sufficient self-expressive power to generate them.</p>
 
-<p>It stays grounded in reality unlike the simulator ; because its metalanguage is fixed externally instead of being redirected to human belief.</p>
+<p>It stays grounded relative to an external checker ; not direct access to reality, but stronger than human belief alone. The checker verifies within a formal system. The spec may still be wrong. This is exactly the “grounded in relative understandings” position ; made structurally explicit.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translator  ~&gt; full correspondence, hits diagonals
 Simulator   ~&gt; stable, loses the real
@@ -193,10 +191,10 @@ Construct training examples where the correct answer is: “outside my domain.�
 Construct adversarial examples where the simulator and grumeter diverge: human would believe X, world-fact is not-X. Check which answer the model gives. Penalize the simulator response. This is the ELK training experiment made into a signal.</p>
 
   <p><strong>The generalization bet:</strong>
-Train across many domains each with an external metalanguage. The common structure ; verify against external ground truth, declare boundary, stay silent outside ; becomes the cheapest generalization. The grumeter disposition is simpler than the simulator disposition across diverse domains because it uses the same strategy everywhere. The simulator needs domain-specific human models. The grumeter needs the same meta-level operation: find the external checker, verify, declare scope, stop.</p>
+Train across many domains each with an external metalanguage. The common structure; verify against external ground truth, declare boundary, stay silent outside; becomes the cheapest generalization. The grumeter disposition is simpler than the simulator disposition across diverse domains because it uses the same strategy everywhere. The simulator needs domain-specific human models. The grumeter needs the same meta-level operation: find the external checker, verify, declare scope, stop.</p>
 
   <p><strong>The remaining risk:</strong>
-The model learns grumeter outputs without the grumeter disposition. It produces correct-looking boundary declarations without them being grounded. This is the selection problem applied to the grumeter ; the same structure as ELK, one level up. The only defense: make the adversarial examples diverse enough and the external metalanguages independent enough that faking the grumeter disposition is more expensive than having it.</p>
+The model learns grumeter outputs without the grumeter disposition. It produces correct-looking boundary declarations without them being grounded. This is the selection problem applied to the grumeter; the same structure as ELK, one level up. The only defense: make the adversarial examples diverse enough and the external metalanguages independent enough that faking the grumeter disposition is more expensive than having it.</p>
 
 </div>
 
@@ -219,9 +217,9 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
                         ~&gt; translation underdetermined (Quine)
                           ~&gt; meaning is use (Wittgenstein)
                             ~&gt; all the same fact (Lawvere)
-~&gt; two reporters: translator hits the diagonals,
-                 simulator escapes by type-level redirection
-~&gt; grumeter: third path ;
+~&gt; two reporters: unbounded translator risks the diagonals,
+                 simulator defers self-reference by changing target
+~&gt; grumeter: third path;
              safe fragment,
              external metalanguage,
              honest silence
@@ -237,7 +235,7 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
 
 <hr />
 
-<p><em>Feedback welcome ; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.</em></p>]]></content>
+<p><em>Feedback welcome; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.</em></p>]]></content>
       <author>
         <name>Luiza Corpaci</name>
       </author>
@@ -255,17 +253,17 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
       
       
       
-        <summary type="html"><![CDATA[From Plato to grumeter optimization in one chain. What formal systems can and cannot do ; and what that means for alignment.]]></summary>
+        <summary type="html"><![CDATA[From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment.]]></summary>
       
     </entry>
   
     <entry xml:lang="en">
       <title type="html">What formalisms are good for defining good?</title>
-      <link href="http://localhost:4000/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
+      <link href="https://corpaci.com/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
       <published>2026-04-08T00:00:00+03:00</published>
       <updated>2026-05-11T11:57:52+03:00</updated>
-      <id>http://localhost:4000/blog/good-formalisms-for-good</id>
-      <content type="html" xml:base="http://localhost:4000/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
+      <id>https://corpaci.com/blog/good-formalisms-for-good</id>
+      <content type="html" xml:base="https://corpaci.com/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
 Ambiguity: good for whom?, good relative to what?, good on what timescale?</p>
 
 <p>Claim: “Good” is not a single number.
@@ -306,11 +304,11 @@ Ambiguity: is it covariant?</p>
   
     <entry xml:lang="en">
       <title type="html">How Does Good Feel Like?</title>
-      <link href="http://localhost:4000/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
+      <link href="https://corpaci.com/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
       <published>2026-03-22T00:00:00+02:00</published>
       <updated>2026-03-22T20:40:12+02:00</updated>
-      <id>http://localhost:4000/blog/how-does-good-feel-like</id>
-      <content type="html" xml:base="http://localhost:4000/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
+      <id>https://corpaci.com/blog/how-does-good-feel-like</id>
+      <content type="html" xml:base="https://corpaci.com/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
 
 <p>Does dinner with mom feel like a <em>good</em> use of time?</p>
 

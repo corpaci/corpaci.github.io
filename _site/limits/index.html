@@ -24,16 +24,16 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
 <meta property="og:description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
-<link rel="canonical" href="http://localhost:4000/limits/" />
-<meta property="og:url" content="http://localhost:4000/limits/" />
+<link rel="canonical" href="https://corpaci.com/limits/" />
+<meta property="og:url" content="https://corpaci.com/limits/" />
 <meta property="og:site_name" content="Luiza Corpaci" />
-<meta property="og:image" content="http://localhost:4000/apple-touch-icon.png" />
+<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="http://localhost:4000/apple-touch-icon.png" />
+<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
 <meta property="twitter:title" content="Limits" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T14:59:46+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Limits","image":"http://localhost:4000/apple-touch-icon.png","url":"http://localhost:4000/limits/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T17:26:37+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Limits","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/limits/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -209,6 +209,34 @@
 .bad { color: var(--accent-secondary); font-weight: 600; }
 
 .liar-row.hidden { display: none; }
+
+/* ── Pattern diagram ── */
+.pattern-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.2rem;
+  margin: 1.25rem 0;
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.pattern-diagram strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.pd-loop {
+  font-size: 1.4rem;
+  color: var(--accent-secondary);
+  line-height: 1;
+}
 
 /* ── Gödel statement ── */
 .g-stmt {
@@ -480,12 +508,33 @@
   </section>
 
   <!-- ════════════════════════════════════════
+       INTERLUDE: THE PATTERN
+  ════════════════════════════════════════ -->
+  <section class="ls" id="s-pattern">
+    <div class="ls-tag">The pattern</div>
+
+    <p>Three walls. One shape.</p>
+
+    <p>The Liar tried to settle its own truth. Tarski's <code>T</code> tried to define truth for every sentence including the one defining <code>T</code>. Gödel's <code>G</code> claimed something about its own provability. Each case: <strong>a system trying to settle a property of itself</strong> ; where the property requires stepping outside the system to evaluate.</p>
+
+    <div class="pattern-diagram">
+      <span>System <strong>S</strong></span>
+      <span class="pd-loop">&#x21BA;</span>
+      <span>evaluates property <strong>P</strong> of <strong>S</strong></span>
+    </div>
+
+    <p>The same move generates the Liar paradox, Tarski's undefinability, Gödel's incompleteness, Rice's theorem, the halting problem. Lawvere showed in 1969 that they are all instances of one categorical fact about self-expressive systems.</p>
+
+    <p class="ls-prompt" style="margin-top:1.4rem;">AI systems are formal systems. They build models of themselves during training. The walls are not a feature of arithmetic ; they appear in anything with this shape.</p>
+  </section>
+
+  <!-- ════════════════════════════════════════
        IV. ALIGNMENT
   ════════════════════════════════════════ -->
   <section class="ls" id="s-align">
     <div class="ls-tag">IV ; Alignment</div>
 
-    <p>You are trying to build an AI system that is aligned with human values. The same walls appear.</p>
+    <p>You are trying to build an AI system that is aligned with human values. The shape from above appears three times.</p>
 
     <div class="al-panels">
       <div class="al-panel">

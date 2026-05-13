@@ -139,6 +139,34 @@ permalink: /limits/
 
 .liar-row.hidden { display: none; }
 
+/* ── Pattern diagram ── */
+.pattern-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.2rem;
+  margin: 1.25rem 0;
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.pattern-diagram strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.pd-loop {
+  font-size: 1.4rem;
+  color: var(--accent-secondary);
+  line-height: 1;
+}
+
 /* ── Gödel statement ── */
 .g-stmt {
   font-family: var(--font-mono);
@@ -409,12 +437,33 @@ permalink: /limits/
   </section>
 
   <!-- ════════════════════════════════════════
+       INTERLUDE: THE PATTERN
+  ════════════════════════════════════════ -->
+  <section class="ls" id="s-pattern">
+    <div class="ls-tag">The pattern</div>
+
+    <p>Three walls. One shape.</p>
+
+    <p>The Liar tried to settle its own truth. Tarski's <code>T</code> tried to define truth for every sentence including the one defining <code>T</code>. Gödel's <code>G</code> claimed something about its own provability. Each case: <strong>a system trying to settle a property of itself</strong> ; where the property requires stepping outside the system to evaluate.</p>
+
+    <div class="pattern-diagram">
+      <span>System <strong>S</strong></span>
+      <span class="pd-loop">&#x21BA;</span>
+      <span>evaluates property <strong>P</strong> of <strong>S</strong></span>
+    </div>
+
+    <p>The same move generates the Liar paradox, Tarski's undefinability, Gödel's incompleteness, Rice's theorem, the halting problem. Lawvere showed in 1969 that they are all instances of one categorical fact about self-expressive systems.</p>
+
+    <p class="ls-prompt" style="margin-top:1.4rem;">AI systems are formal systems. They build models of themselves during training. The walls are not a feature of arithmetic ; they appear in anything with this shape.</p>
+  </section>
+
+  <!-- ════════════════════════════════════════
        IV. ALIGNMENT
   ════════════════════════════════════════ -->
   <section class="ls" id="s-align">
     <div class="ls-tag">IV ; Alignment</div>
 
-    <p>You are trying to build an AI system that is aligned with human values. The same walls appear.</p>
+    <p>You are trying to build an AI system that is aligned with human values. The shape from above appears three times.</p>
 
     <div class="al-panels">
       <div class="al-panel">

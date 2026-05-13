@@ -3,7 +3,7 @@ layout: post
 title: "My understanding on ((the limits of) formalizations for) AI Safety"
 permalink: /blog/limits-of-formalization
 tags: [formal-methods, ai-safety, alignment, interpretability, formal-verification]
-description: "From Plato to grumeter optimization in one chain. What formal systems can and cannot do ; and what that means for alignment."
+description: "From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment."
 ---
 
 The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.
@@ -59,8 +59,8 @@ Wittgenstein: there is no internal fact determining which rule we follow, as mea
 **No past fact fixes future application.**
 Kripke: nothing about how we used a rule before determines how to apply it next. 
 
-**All of this is one fact.**
-Lawvere: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure. Any system with sufficient self-expressive power generates fixed points that defeat complete specification.
+**These are not identical results. They rhyme.**
+Lawvere unifies the diagonal family specifically: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure, any system with sufficient self-expressive power generates fixed points that defeat complete specification. Quine, Wittgenstein, Kripke are a different cluster ; semantic underdetermination, not diagonal self-reference. They share a warning: no sufficiently expressive system gets a final, self-contained grip on truth, meaning, and its own correctness.
 
 **Phenomenal experience is outside the chain entirely.**
 Chalmers: no formal description captures what it is like to be the system. A fourth layer, left aside.
@@ -86,13 +86,11 @@ The **simulator** predicts what a human would believe given the sensor outputs. 
 **Both pass training.**
 On verifiable data they give identical answers. The training signal cannot distinguish them.
 
-**The translator hits the diagonals.**
-It evaluates world-facts using a world-model that is part of the world. The evaluator is in the same domain as what it evaluates. Every diagonal argument fires: Gödel, Tarski, Löb, Lawvere. The translator must operate where the diagonals live to be honest.
+**The unbounded translator risks the diagonals.**
+It evaluates world-facts using a world-model that is part of the world. If the model has sufficient self-expressive power to encode its own syntax, every diagonal argument becomes a liability: Gödel, Tarski, Löb, Lawvere. The translator must operate where the diagonals live to be honest ; and that is precisely where they fire.
 
-**The simulator escapes them.**
-It evaluates human belief, which is external to the system. Human belief is at a different type level. The diagonal arguments require the evaluator to be in the same domain as what it evaluates. The simulator never is. Russell's stratification, for free.
-
-This is not because humans are simple. It is because human belief is external. The type level changes. The diagonals have no purchase.
+**The simulator sidesteps the hardest version.**
+It changes the target from world-fact to predicted human belief. Human belief functions as a metalanguage if the system is designed that way ; that is a design choice, not a metaphysical given. This defers self-reference rather than eliminates it. If the AI models a human who is modeling the AI, the loop can re-establish. The simulator buys space, not immunity.
 
 **ELK names the problem.**
 Two reporters. Indistinguishable on training data. No known training strategy selects honesty in the worst case. The selection problem.
@@ -107,14 +105,14 @@ Two reporters. Indistinguishable on training data. No known training strategy se
 
 ## A third path exists.
 
-Not the translator ; it hits the diagonals.
-Not the simulator ; it loses the real.
+Not the translator; it hits the diagonals.
+Not the simulator; it loses the real.
 
 The **grumeter**: a provably safe formal fragment, expressive enough for a bounded domain, operating at the right type level, with known accuracy, explicit boundary, honest silence outside.
 
-It escapes the diagonals like the simulator ; by operating in a fragment without sufficient self-expressive power to generate them.
+It escapes the diagonals like the simulator; by operating in a fragment without sufficient self-expressive power to generate them.
 
-It stays grounded in reality unlike the simulator ; because its metalanguage is fixed externally instead of being redirected to human belief.
+It stays grounded relative to an external checker ; not direct access to reality, but stronger than human belief alone. The checker verifies within a formal system. The spec may still be wrong. This is exactly the "grounded in relative understandings" position ; made structurally explicit.
 
 ```
 Translator  ~> full correspondence, hits diagonals
@@ -151,10 +149,10 @@ Construct training examples where the correct answer is: "outside my domain." Pe
 Construct adversarial examples where the simulator and grumeter diverge: human would believe X, world-fact is not-X. Check which answer the model gives. Penalize the simulator response. This is the ELK training experiment made into a signal.
 
 **The generalization bet:**
-Train across many domains each with an external metalanguage. The common structure ; verify against external ground truth, declare boundary, stay silent outside ; becomes the cheapest generalization. The grumeter disposition is simpler than the simulator disposition across diverse domains because it uses the same strategy everywhere. The simulator needs domain-specific human models. The grumeter needs the same meta-level operation: find the external checker, verify, declare scope, stop.
+Train across many domains each with an external metalanguage. The common structure; verify against external ground truth, declare boundary, stay silent outside; becomes the cheapest generalization. The grumeter disposition is simpler than the simulator disposition across diverse domains because it uses the same strategy everywhere. The simulator needs domain-specific human models. The grumeter needs the same meta-level operation: find the external checker, verify, declare scope, stop.
 
 **The remaining risk:**
-The model learns grumeter outputs without the grumeter disposition. It produces correct-looking boundary declarations without them being grounded. This is the selection problem applied to the grumeter ; the same structure as ELK, one level up. The only defense: make the adversarial examples diverse enough and the external metalanguages independent enough that faking the grumeter disposition is more expensive than having it.
+The model learns grumeter outputs without the grumeter disposition. It produces correct-looking boundary declarations without them being grounded. This is the selection problem applied to the grumeter; the same structure as ELK, one level up. The only defense: make the adversarial examples diverse enough and the external metalanguages independent enough that faking the grumeter disposition is more expensive than having it.
 
 </div>
 
@@ -178,9 +176,9 @@ Reality exists
                         ~> translation underdetermined (Quine)
                           ~> meaning is use (Wittgenstein)
                             ~> all the same fact (Lawvere)
-~> two reporters: translator hits the diagonals,
-                 simulator escapes by type-level redirection
-~> grumeter: third path ;
+~> two reporters: unbounded translator risks the diagonals,
+                 simulator defers self-reference by changing target
+~> grumeter: third path;
              safe fragment,
              external metalanguage,
              honest silence
@@ -196,4 +194,4 @@ Reality exists
 
 ---
 
-*Feedback welcome ; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.*
+*Feedback welcome; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.*
