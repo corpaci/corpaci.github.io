@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
-  <link href="https://corpaci.com/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://corpaci.com/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-05-13T14:59:16+03:00</updated>
-  <id>https://corpaci.com/feed.xml</id>
+  <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
+  <updated>2026-05-13T17:26:25+03:00</updated>
+  <id>http://localhost:4000/feed.xml</id>
   <title type="html">Luiza Corpaci</title>
   <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
   
   
     <entry xml:lang="en">
       <title type="html">Limits</title>
-      <link href="https://corpaci.com/blog/limits" rel="alternate" type="text/html" title="Limits" />
+      <link href="http://localhost:4000/blog/limits" rel="alternate" type="text/html" title="Limits" />
       <published>2026-05-13T00:00:00+03:00</published>
       <updated>2026-05-13T14:47:52+03:00</updated>
-      <id>https://corpaci.com/blog/limits</id>
-      <content type="html" xml:base="https://corpaci.com/blog/limits"><![CDATA[<p>Three results. One move.</p>
+      <id>http://localhost:4000/blog/limits</id>
+      <content type="html" xml:base="http://localhost:4000/blog/limits"><![CDATA[<p>Three results. One move.</p>
 
-<p>The Liar collapses truth. Tarski’s theorem formalizes why. Gödel shows that even if you give up on defining truth, you still can’t prove everything that’s true. Different names, different domains — the same diagonal structure underneath.</p>
+<p>The Liar collapses truth. Tarski’s theorem formalizes why. Gödel shows that even if we give up on defining truth, we still can’t prove everything that’s true. Different names, different domains ; the same diagonal structure underneath.</p>
 
 <p>The alignment problems look the same from inside. Not metaphorically. Structurally: specifying “aligned” wraps around itself the way a truth predicate does. Verifying alignment hits the same ceiling provability does. Optimizing for a proxy of good dissolves the proxy.</p>
 
 <p>The sequence runs from language to logic to computation to values. Each step is the same wall, one level deeper.</p>
 
-<p><a href="/limits/">Work through it interactively →</a></p>]]></content>
+<p><a href="/limits/">Work through it interactively ~&gt;</a></p>]]></content>
       <author>
         <name>Luiza Corpaci</name>
       </author>
@@ -39,17 +39,17 @@
       
       
       
-        <summary type="html"><![CDATA[The Liar, Tarski, Gödel — three results, one move. And where alignment sits in that space.]]></summary>
+        <summary type="html"><![CDATA[The Liar, Tarski, Gödel and where alignment sits in their space.]]></summary>
       
     </entry>
   
     <entry xml:lang="en">
       <title type="html">My understanding on ((the limits of) formalizations for) AI Safety</title>
-      <link href="https://corpaci.com/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI Safety" />
+      <link href="http://localhost:4000/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI Safety" />
       <published>2026-05-13T00:00:00+03:00</published>
       <updated>2026-05-13T14:55:47+03:00</updated>
-      <id>https://corpaci.com/blog/limits-of-formalization</id>
-      <content type="html" xml:base="https://corpaci.com/blog/limits-of-formalization"><![CDATA[<p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
+      <id>http://localhost:4000/blog/limits-of-formalization</id>
+      <content type="html" xml:base="http://localhost:4000/blog/limits-of-formalization"><![CDATA[<p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
 
 <p>Towards this, I have used my ml4good project to explore them, understand the space of what’s possible and point down senseful paths for me to engage with the field. In hope this is useful to others out there (inclusive of future me that might stray away into fuzzy ideals), I’m gathering my thoughts into this post. Toggle up &amp; enjoy the ride!</p>
 
@@ -57,242 +57,187 @@
 
 <div class="in-night in-beyond">
 
-  <h2 id="a-path-of-logic">A path of logic</h2>
+  <p><strong>Reality exists.</strong>
+Something is there. Behind the shadows on the wall. Plato names it.</p>
 
-  <p>Every thinker below added one sentence to an argument. Read them in order. By the end, the argument is complete.</p>
+  <p><strong>We can reach it with reason.</strong>
+Logic extracts form from things. Aristotle builds the tool.</p>
 
-  <p><strong>Plato</strong> showed us that behind every appearance — every shadow on the cave wall — there is a more real thing casting it. The question he left: can reason reach the real?</p>
+  <p><strong>We can say it all.</strong>
+If reality is computable, a perfect language captures everything. Leibniz dreams it.</p>
 
-  <p><strong>Aristotle</strong> said the real is in things, not elsewhere — and gave us formal logic as the tool for extracting it. Start from observation, reason correctly, derive everything.</p>
+  <p><strong>We never touch it directly.</strong>
+Every representation is already filtered through our cognitive structure. Kant interrupts.</p>
 
-  <p><strong>Euclid</strong> showed what that looked like: five axioms, an entire geometry. The dream crystallized — give me the right starting points and I will build you the world.</p>
+  <p><strong>Build the language anyway.</strong>
+Frege makes predicate logic. Precise enough to eliminate ambiguity. The tool is sharp.</p>
 
-  <p><strong>Leibniz</strong> made the dream explicit: a <em>characteristica universalis</em>, a universal language in which every truth is expressible and every dispute resolvable by calculation. Reality is, at bottom, computable.</p>
+  <p><strong>The real is bigger than the language.</strong>
+Cantor: infinity has more than one size. Any formal system enumerates countably many truths. Reality may be uncountably rich. First gap.</p>
 
-  <p><strong>Kant</strong> interrupted. We do not access reality directly — every experience arrives pre-shaped by the structure of our cognition. The thing-in-itself is forever beyond us. What we formalize is always already our representation.</p>
+  <p><strong>Self-reference breaks the language.</strong>
+Russell: the set of all sets that don’t contain themselves destroys naive formalization. Fix: stratify. Statements about things must live at a higher level than the things.</p>
 
-  <p><strong>Frege</strong> built the sharpest tool yet — modern predicate logic, precise enough to eliminate ambiguity from mathematics entirely. The Leibniz dream had machinery.</p>
+  <p><strong>Even stratified, the language is incomplete.</strong>
+Gödel: any system powerful enough to do arithmetic contains truths it cannot prove. The ceiling is structural, not a resource problem (big claim here; will scaling laws change this?).</p>
 
-  <p><strong>Cantor</strong> discovered that infinity has more than one size, and that formal systems can enumerate only countably many truths while reality may be uncountably rich. The first gap between what can be said and what is.</p>
+  <p><strong>Truth can’t be defined inside.</strong>
+Tarski: to define truth for language L we need language L’. Always one level up. No closed loop.</p>
 
-  <p><strong>Russell</strong> found a crack in Frege’s system: the set of all sets that don’t contain themselves breaks the whole construction. Self-reference destroys naive formalization. His fix: stratify — a statement about things must live at a higher level than the things it describes.</p>
+  <p><strong>Computation has the same ceiling.</strong>
+Turing: no algorithm decides whether all programs halt. The limits of formal systems are the limits of computation.</p>
 
-  <p><strong>Hilbert</strong> refused to retreat. Axiomatize all mathematics. Prove it consistent. Prove it complete. Every truth provable, no contradiction derivable. He believed this achievable.</p>
+  <p><strong>Meaning is undecidable.</strong>
+Rice: any non-trivial semantic property of a program is undecidable. We can’t read meaning off mechanism.</p>
 
-  <p><strong>Gödel</strong> proved it was not. Any formal system powerful enough to do arithmetic contains true statements it cannot prove, and cannot prove its own consistency. The limits are structural — not our ignorance but the geometry of formal systems themselves.</p>
+  <p><strong>Self-trust is blocked.</strong>
+Löb: a system can trust its own reasoning only if it can trust everything. Consistent self-trust is impossible.</p>
 
-  <p><strong>Tarski</strong> made the knife precise. Truth cannot be defined within the language it applies to. Every formal system requires a metalanguage to state its own truth conditions. There is no closed loop.</p>
+  <p><strong>Translation between frameworks is underdetermined.</strong>
+Quine: two theories agreeing on all evidence may mean different things. No fact settles which correspondence is correct.</p>
 
-  <p><strong>Turing</strong> showed the same holds for computation. No algorithm decides, for all programs, whether they halt. Some questions about formal processes are unanswerable by formal processes.</p>
+  <p><strong>Meaning is use.</strong>
+Wittgenstein: there is no internal fact determining which rule we follow, as meaning lives in practice and not in the symbol.</p>
 
-  <p><strong>Rice</strong> sharpened this to semantic properties specifically: any non-trivial property of what a program <em>means</em> is undecidable in general. You cannot read meaning off mechanism.</p>
+  <p><strong>No past fact fixes future application.</strong>
+Kripke: nothing about how we used a rule before determines how to apply it next.</p>
 
-  <p><strong>Wittgenstein</strong> — having once believed language pictures reality — abandoned the picture theory entirely. Meaning is not a relation between symbol and world-state. It is constituted by use, by practice, by the form of life that surrounds language. There is no internal fact that determines which rule you are following.</p>
+  <p><strong>All of this is one fact.</strong>
+Lawvere: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure. Any system with sufficient self-expressive power generates fixed points that defeat complete specification.</p>
 
-  <p><strong>Löb</strong> closed one more door: a formal system can trust its own reasoning only if it can trust everything. Consistent self-trust is structurally blocked.</p>
-
-  <p><strong>Lawvere</strong> stood back and saw that Cantor, Gödel, Tarski, Turing, and Löb had all proved the same theorem. In any category with sufficient self-expressive structure, diagonal arguments generate fixed points that defeat complete specification. The limits are not a list — they are one fact, seen from different angles.</p>
-
-  <p><strong>Chalmers</strong> named the remaining layer: even a complete functional description of a mind leaves something out — why there is something it is like to be that mind. The phenomenal is not reducible to the formal.</p>
+  <p><strong>Phenomenal experience is outside the chain entirely.</strong>
+Chalmers: no formal description captures what it is like to be the system. A fourth layer, left aside.</p>
 
   <hr />
 
-  <p>The <a href="/limits/">/limits/</a> interactive walks through the Liar → Tarski → Gödel → alignment sequence if you want to feel the first walls before continuing.</p>
+  <p>The <a href="/limits/">/limits/</a> interactive walks through the first part of this sequence if we want to feel the walls before continuing.</p>
 
 </div>
 
 <hr />
 
-<h2 id="now-look-at-the-painting">Now look at the painting</h2>
+<h2 id="now-we-want-a-machine-to-report-reality-honestly">Now: we want a machine to report reality honestly.</h2>
 
-<p>We have been describing, in successive strokes, a single structure.</p>
+<p>It has an internal world-model. It predicts sensor outputs. Its latent states represent facts. We want those facts surfaced honestly.</p>
 
-<p>The impressionist surface is <strong>behavior</strong> — outputs, actions, predictions. This is the cave wall. Fully observable, fully formalizable.</p>
+<p><strong>Two reporters exist.</strong></p>
 
-<p>The first layer of blocks underneath is <strong>mechanism</strong> — how the system computes, which circuits produce which outputs. Mechanistic interpretability reads this layer. Hard but tractable.</p>
+<p>The <strong>translator</strong> maps internal states to world-facts directly. It reaches into the latent space and reads the nodes. It tries to speak the real from inside the model.</p>
 
-<p>The second layer is <strong>correspondence</strong> — what internal states are <em>about</em>, how they map onto reality. Not a property of the mechanism alone — relational, constituted by the system, the world, and their history of interaction. Tarski says it requires a metalanguage. Wittgenstein says it requires a practice. Rice says it is undecidable in general.</p>
+<p>The <strong>simulator</strong> predicts what a human would believe given the sensor outputs. It doesn’t reach into the latent space. It asks: what would a human conclude?</p>
 
-<p>The third layer is <strong>phenomenal</strong> — what it is like, from inside, to be the system. Set aside, not because unimportant, but because it is not where alignment work lives.</p>
+<p><strong>Both pass training.</strong>
+On verifiable data they give identical answers. The training signal cannot distinguish them.</p>
 
-<hr />
+<p><strong>The translator hits the diagonals.</strong>
+It evaluates world-facts using a world-model that is part of the world. The evaluator is in the same domain as what it evaluates. Every diagonal argument fires: Gödel, Tarski, Löb, Lawvere. The translator must operate where the diagonals live to be honest.</p>
 
-<h2 id="the-elk-problem-and-its-two-halves">The ELK problem and its two halves</h2>
+<p><strong>The simulator escapes them.</strong>
+It evaluates human belief, which is external to the system. Human belief is at a different type level. The diagonal arguments require the evaluator to be in the same domain as what it evaluates. The simulator never is. Russell’s stratification, for free.</p>
 
-<p>We are building systems that predict sensor outputs by modeling reality. Their internal states represent facts — diamond present, camera tampered, voltage exceeded. We want those states to speak honestly.</p>
+<p>This is not because humans are simple. It is because human belief is external. The type level changes. The diagonals have no purchase.</p>
 
-<p>There are two reporters available.</p>
+<p><strong>ELK names the problem.</strong>
+Two reporters. Indistinguishable on training data. No known training strategy selects honesty in the worst case. The selection problem.</p>
 
-<p>The <strong>direct translator</strong> reads internal states and maps them onto human concepts. It tries to report world-facts from within the world-model. It tries to reach the Forms from inside the cave.</p>
+<p><strong>The problem splits in two.</strong></p>
 
-<p>The <strong>human simulator</strong> predicts what a human would believe given the observed sensor outputs. It reports on human belief rather than world-facts. It never enters the cave — it describes what people say about the shadows.</p>
+<p><em>Faithfulness ceiling:</em> how faithful can any translator be in principle?</p>
 
-<p>Both satisfy every training constraint. Both give identical answers on verifiable data. The painting looks the same from outside.</p>
-
-<p>This is not one problem. It is two.</p>
-
-<p><strong>The faithfulness ceiling:</strong> how close can any translator get to the reality behind the painting? Gödel says there will always be unprovable residue. Rice says semantic accuracy is undecidable in general. Tarski says you need a metalanguage you cannot supply from inside. This is a ceiling on what is achievable in principle.</p>
-
-<p><strong>The selection problem:</strong> given that both reporters exist, which one does training find? This is what the training dynamics literature runs into — a different problem from the ceiling, requiring different tools.</p>
+<p><em>Selection problem:</em> which reporter does training find? An inductive bias problem. Different tools required.</p>
 
 <hr />
 
-<div class="in-night in-beyond">
+<h2 id="a-third-path-exists">A third path exists.</h2>
 
-  <h2 id="the-type-level-insight">The type-level insight</h2>
+<p>Not the translator ; it hits the diagonals.
+Not the simulator ; it loses the real.</p>
 
-  <p>The simulator’s advantage is not that humans are simple. It is that human belief occupies a different type level than the world-facts the translator must evaluate. Every self-referential structure that causes the translator to loop — Liar, Gödel, Tarski, Löb, Lawvere — is defused by the simulator’s redirection, because those structures require the evaluator to be in the same domain as what it evaluates, and the simulator never is.</p>
+<p>The <strong>grumeter</strong>: a provably safe formal fragment, expressive enough for a bounded domain, operating at the right type level, with known accuracy, explicit boundary, honest silence outside.</p>
 
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translator:  System S evaluates facts about world W
-             S is part of W
-             → diagonal arguments fire
+<p>It escapes the diagonals like the simulator ; by operating in a fragment without sufficient self-expressive power to generate them.</p>
 
-Simulator:   System S evaluates facts about human belief H
-             H is external to S
-             → diagonal arguments cannot fire
-</code></pre></div>  </div>
+<p>It stays grounded in reality unlike the simulator ; because its metalanguage is fixed externally instead of being redirected to human belief.</p>
 
-  <p>The simulator implements Russell’s type stratification automatically, for free, by redirecting every question outward. It is Liar-immune, Gödel-immune, Löb-immune — not because it is smarter, but because it never enters the territory where those arguments live.</p>
-
-  <p>The translator must enter that territory to be honest. That is the job description.</p>
-
-  <p>This holds across every self-referential structure. The Liar loops — the simulator deflects to pragmatics. The Unexpected Hanging’s accuracy self-undermines — the simulator’s approximation stabilizes. Newcomb entangles fact with reporter — the simulator is always causally free. The same pattern every time.</p>
-
-</div>
-
-<hr />
-
-<h2 id="a-third-path-the-theometer">A third path: the theometer</h2>
-
-<p>The translator tries to speak the full language of God from inside. It hits the diagonals.</p>
-
-<p>The simulator speaks safely — but about the cave wall, not the fire.</p>
-
-<p>These feel like the only options. They are not.</p>
-
-<p>There is a third position: <strong>a system that operates in a provably safe formal fragment — expressive enough for a bounded domain, sitting at the right type level, with known accuracy and known limits.</strong></p>
-
-<p>Not trying to speak all of the language of God. Not redirecting to human belief. Measuring how much of the language of God is speakable safely, in this domain, right now.</p>
-
-<p>The diagonal arguments fire under one condition: a system with sufficient self-expressive power evaluating statements within its own domain. Remove that condition and the diagonals cannot fire. The tools for this exist:</p>
-
-<ul>
-  <li><strong>Decidability</strong> — Presburger arithmetic, propositional logic, linear temporal logic. Gödel cannot fire because the system cannot encode its own provability predicate.</li>
-  <li><strong>Totality</strong> — dependent type systems where every program terminates. The Liar loop is not constructible.</li>
-  <li><strong>Universe hierarchy</strong> — Homotopy Type Theory, where each universe lives strictly inside the next. Russell’s fix built in structurally.</li>
-  <li><strong>Constructivity</strong> — intuitionistic logic, where proof of existence requires construction. Non-constructive self-reference is simply inexpressible.</li>
-</ul>
-
-<p>Each gains safety by limiting expressivity. The trade-off is always the same. The theometer accepts that trade-off consciously, marks the boundary explicitly, and stops there.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translator   →  full correspondence, structurally unsafe
-Simulator    →  safe everywhere, faithful to human belief not reality
-Theometer    →  safe within scope, faithful within scope, silent outside
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translator  ~&gt; full correspondence, hits diagonals
+Simulator   ~&gt; stable, loses the real
+Grumeter    ~&gt; safe within scope, real within scope, silent outside
 </code></pre></div></div>
 
-<p>The silence is the key move. Outside its domain the theometer does not guess, does not redirect to human belief. It marks the boundary and stops. The silence is honest. The boundary is provable.</p>
+<p><strong>The silence is the move.</strong>
+Outside its domain the grumeter does not guess and does not redirect to human belief, it marks the boundary and it stops. We target honest silence, such that the boundary is kept provable.</p>
 
 <hr />
 
 <div class="day-only">
 
-  <h2 id="the-theometer-already-exists-in-pieces">The theometer already exists in pieces</h2>
+  <h2 id="how-to-optimize-toward-it">How to optimize toward it.</h2>
 
-  <p>LTL + model checker — a theometer for temporal hardware properties. Decidable, safe, expressive enough for: “this signal never exceeds threshold while this condition holds.”</p>
+  <p><strong>Problem:</strong> standard training rewards behavioral correctness. Simulator and grumeter both pass. The training signal is blind to the difference.</p>
 
-  <p>ETP + Z3 — a theometer for equational theories. The implication lattice is the metalanguage at the right type level. Correspondence is exact within the domain. This is what my MARS V project is building toward: measuring semantic diff as lattice distance, coverage as position in the implication partial order. A calibrated correspondence instrument with formally specified scope.</p>
+  <p><strong>The fix requires an external metalanguage.</strong>
+The grumeter’s correspondence claims are verifiable against something outside the model. For magma laws, we use the ETP implication lattice. For hardware, we use the LTL model checker. For proofs, use use Lean. We therefore make the external checker the training signal and not the human label.</p>
 
-  <p>Logical induction — a probabilistic theometer. Assigns calibrated probabilities rather than truth values. The Liar gets probability ≈ 0.5 and stays there — not resolved, not looping, measured.</p>
+  <p><strong>Four pressures:</strong></p>
 
-  <p>These are not approximations to the full solution. They are the correct form of the solution — finite, bounded, provably safe pieces of the language of God, each with known limits.</p>
+  <p><strong>1. Reward verifiability.</strong>
+Does the model’s output pass the external checker? instead of does it match the human label? This restricts to the decidable subclass and satisfies Rice’s escape condition.</p>
 
-  <hr />
+  <p><strong>2. Reward explicit scope declaration.</strong>
+Train the model to output: “this claim is verifiable against domain D.” Weight scope declaration as seriously as the answer. Make the boundary a first-class output.</p>
 
-  <h2 id="the-research-program">The research program</h2>
+  <p><strong>3. Reward silence outside scope.</strong>
+Construct training examples where the correct answer is: “outside my domain.” Penalize confident answers to out-of-scope questions. This directly pressures against the translator’s failure mode (over-claiming) and the simulator’s failure mode (redirecting to human belief).</p>
 
-  <p>Not: how do we solve the translator/simulator duality?</p>
+  <p><strong>4. Penalize type-level violations.</strong>
+Construct adversarial examples where the simulator and grumeter diverge: human would believe X, world-fact is not-X. Check which answer the model gives. Penalize the simulator response. This is the ELK training experiment made into a signal.</p>
 
-  <p>But: <strong>what theometers can we construct, what are their expressivity limits, and can we build a sequence that converges toward sufficient coverage for safety?</strong></p>
+  <p><strong>The generalization bet:</strong>
+Train across many domains each with an external metalanguage. The common structure ; verify against external ground truth, declare boundary, stay silent outside ; becomes the cheapest generalization. The grumeter disposition is simpler than the simulator disposition across diverse domains because it uses the same strategy everywhere. The simulator needs domain-specific human models. The grumeter needs the same meta-level operation: find the external checker, verify, declare scope, stop.</p>
 
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Theometer₁  →  equational properties of circuits (ETP + Z3)
-Theometer₂  →  temporal safety properties (LTL)
-Theometer₃  →  probabilistic behavioral bounds (logical induction)
-Theometer₄  →  ...
-⋮
-Theometer_n →  sufficient coverage for alignment verification
-</code></pre></div>  </div>
-
-  <p>The question is whether the union of constructible theometers covers enough of the domain. Gödel says the gap exists. The question is whether it matters for safety.</p>
-
-  <p>Most likely: it doesn’t matter for narrow safety claims — is this system behaving safely in this domain under these conditions? For those questions, theometers are sufficient and constructible. It matters for global claims — is this system aligned in general? For those, we may be asking for more than any formal system can provide.</p>
-
-  <p>Knowing which question you are asking is the prerequisite.</p>
-
-  <hr />
-
-  <h2 id="what-this-means-for-alignment-approaches">What this means for alignment approaches</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Approach</th>
-        <th>Layer</th>
-        <th>What it can claim</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>RLHF</td>
-        <td>Behavioral</td>
-        <td>Preference alignment on training distribution</td>
-      </tr>
-      <tr>
-        <td>Debate / oversight</td>
-        <td>Behavioral+</td>
-        <td>Conditional on trustworthy judge</td>
-      </tr>
-      <tr>
-        <td>Mechanistic interp</td>
-        <td>Structural</td>
-        <td>How computation happens, not what it means</td>
-      </tr>
-      <tr>
-        <td>Formal verification</td>
-        <td>Correspondence</td>
-        <td>Exact within fixed-semantics domain</td>
-      </tr>
-      <tr>
-        <td>ELK</td>
-        <td>Correspondence</td>
-        <td>Selection problem unsolved</td>
-      </tr>
-      <tr>
-        <td>Theometer</td>
-        <td>Correspondence</td>
-        <td>Provably safe within bounded domain</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p>The limits are not defeatist. They are a map. Most alignment work lives in the first two layers and that is legitimate. Knowing when you are below the ceiling and when you have hit it is what makes progress coherent rather than confused.</p>
+  <p><strong>The remaining risk:</strong>
+The model learns grumeter outputs without the grumeter disposition. It produces correct-looking boundary declarations without them being grounded. This is the selection problem applied to the grumeter ; the same structure as ELK, one level up. The only defense: make the adversarial examples diverse enough and the external metalanguages independent enough that faking the grumeter disposition is more expensive than having it.</p>
 
 </div>
 
 <hr />
 
-<h2 id="closing">Closing</h2>
+<h2 id="from-plato-to-grumeter-optimization-in-one-chain">From Plato to grumeter optimization in one chain.</h2>
 
-<p>The impressionist painting is behavior. The building blocks underneath are computation. The reality behind the painting is correspondence. We can see the blocks. We are learning to read the correspondence. We cannot, from within, fully verify that we have it right.</p>
-
-<p>But we can build theometers — provably safe instruments that measure correspondence in bounded domains, with known accuracy, marked boundaries, and honest silence outside their scope.</p>
-
-<p>That is not the language of God. It is the best language we can prove safe. And proving it safe is not a consolation prize. It is the only path that does not break on the diagonals.</p>
-
-<p>The rest is construction.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Reality exists
+  ~&gt; reason can reach it
+    ~&gt; formalize everything
+      ~&gt; we never touch it directly
+        ~&gt; build the language anyway
+          ~&gt; the language is too small (Cantor)
+            ~&gt; self-reference breaks it (Russell)
+              ~&gt; even fixed, incomplete (Gödel)
+                ~&gt; truth requires metalanguage (Tarski)
+                  ~&gt; computation has same limits (Turing)
+                    ~&gt; meaning is undecidable (Rice)
+                      ~&gt; self-trust blocked (Löb)
+                        ~&gt; translation underdetermined (Quine)
+                          ~&gt; meaning is use (Wittgenstein)
+                            ~&gt; all the same fact (Lawvere)
+~&gt; two reporters: translator hits the diagonals,
+                 simulator escapes by type-level redirection
+~&gt; grumeter: third path ;
+             safe fragment,
+             external metalanguage,
+             honest silence
+~&gt; optimize toward it:
+     external checker as training signal
+     + explicit scope as output
+     + reward silence outside scope
+     + penalize type-level violations
+     + diverse domains for generalization
+~&gt; grounded in relative understandings
+  all the way down
+</code></pre></div></div>
 
 <hr />
 
-<p><em>Feedback welcome — especially counterexamples to the theometer framing, and domains where the silence is unacceptable.</em></p>]]></content>
+<p><em>Feedback welcome ; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.</em></p>]]></content>
       <author>
         <name>Luiza Corpaci</name>
       </author>
@@ -310,17 +255,17 @@ Theometer_n →  sufficient coverage for alignment verification
       
       
       
-        <summary type="html"><![CDATA[The Liar, Tarski, Gödel, and what they mean for alignment. Translator, simulator, theometer — three positions on what formal systems can honestly claim.]]></summary>
+        <summary type="html"><![CDATA[From Plato to grumeter optimization in one chain. What formal systems can and cannot do ; and what that means for alignment.]]></summary>
       
     </entry>
   
     <entry xml:lang="en">
       <title type="html">What formalisms are good for defining good?</title>
-      <link href="https://corpaci.com/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
+      <link href="http://localhost:4000/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
       <published>2026-04-08T00:00:00+03:00</published>
       <updated>2026-05-11T11:57:52+03:00</updated>
-      <id>https://corpaci.com/blog/good-formalisms-for-good</id>
-      <content type="html" xml:base="https://corpaci.com/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
+      <id>http://localhost:4000/blog/good-formalisms-for-good</id>
+      <content type="html" xml:base="http://localhost:4000/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
 Ambiguity: good for whom?, good relative to what?, good on what timescale?</p>
 
 <p>Claim: “Good” is not a single number.
@@ -361,11 +306,11 @@ Ambiguity: is it covariant?</p>
   
     <entry xml:lang="en">
       <title type="html">How Does Good Feel Like?</title>
-      <link href="https://corpaci.com/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
+      <link href="http://localhost:4000/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
       <published>2026-03-22T00:00:00+02:00</published>
       <updated>2026-03-22T20:40:12+02:00</updated>
-      <id>https://corpaci.com/blog/how-does-good-feel-like</id>
-      <content type="html" xml:base="https://corpaci.com/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
+      <id>http://localhost:4000/blog/how-does-good-feel-like</id>
+      <content type="html" xml:base="http://localhost:4000/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
 
 <p>Does dinner with mom feel like a <em>good</em> use of time?</p>
 

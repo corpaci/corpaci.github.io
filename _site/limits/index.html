@@ -24,16 +24,16 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
 <meta property="og:description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
-<link rel="canonical" href="https://corpaci.com/limits/" />
-<meta property="og:url" content="https://corpaci.com/limits/" />
+<link rel="canonical" href="http://localhost:4000/limits/" />
+<meta property="og:url" content="http://localhost:4000/limits/" />
 <meta property="og:site_name" content="Luiza Corpaci" />
-<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="og:image" content="http://localhost:4000/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="twitter:image" content="http://localhost:4000/apple-touch-icon.png" />
 <meta property="twitter:title" content="Limits" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T14:47:52+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Limits","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/limits/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T14:59:46+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Limits","image":"http://localhost:4000/apple-touch-icon.png","url":"http://localhost:4000/limits/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -375,12 +375,6 @@
   flex-shrink: 0;
 }
 
-.mz-q {
-  font-size: 2rem;
-  color: var(--border-color);
-  user-select: none;
-}
-
 .map-note {
   font-family: var(--font-sans);
   font-size: 0.78rem;
@@ -398,7 +392,7 @@
        I. THE LIAR
   ════════════════════════════════════════ -->
   <section class="ls" id="s-liar">
-    <div class="ls-tag">I — The Liar</div>
+    <div class="ls-tag">I ; The Liar</div>
 
     <p class="ls-stmt">"This sentence is false."</p>
     <p class="ls-prompt">Assign it a truth value.</p>
@@ -419,7 +413,7 @@
        II. TARSKI
   ════════════════════════════════════════ -->
   <section class="ls" id="s-tarski">
-    <div class="ls-tag">II — Tarski</div>
+    <div class="ls-tag">II ; Tarski</div>
 
     <p>Suppose we try to define truth formally. We want a predicate <code>T(x)</code> such that for every sentence <em>s</em> in our language:</p>
     <p style="font-family:var(--font-mono);font-size:0.88rem;margin:0.75rem 0 1rem 1rem;">T("s") &harr; s</p>
@@ -427,7 +421,7 @@
     <p class="ls-prompt">Watch what happens when we apply it.</p>
 
     <div class="btn-row">
-      <button class="ibtn" onclick="tarski1(this)">Apply T to ordinary sentences →</button>
+      <button class="ibtn" onclick="tarski1(this)">Apply T to ordinary sentences ~></button>
     </div>
 
     <div id="t-table" class="t-wrap hidden">
@@ -450,12 +444,12 @@
         </tr>
       </table>
       <div class="btn-row" id="t-btn2-wrap">
-        <button class="ibtn" onclick="tarski2(this)">Now apply T to the Liar sentence →</button>
+        <button class="ibtn" onclick="tarski2(this)">Now apply T to the Liar sentence ~></button>
       </div>
     </div>
 
     <div id="tarski-resp" class="resp hidden">
-      <p><code>T("L") ↔ ¬T("L")</code> — a direct contradiction. The predicate T collapses as soon as it meets the Liar, no matter how carefully we constructed it elsewhere.</p>
+      <p><code>T("L") ↔ ¬T("L")</code> ; a direct contradiction. The predicate T collapses as soon as it meets the Liar, no matter how carefully we constructed it elsewhere.</p>
       <p class="note">Truth for a language L cannot be defined within L. To define it, you need a richer metalanguage. That metalanguage has the same problem. Truth always lives one level above the system trying to capture it.</p>
       <p class="bridge">So truth can't be defined from inside. But can we at least <em>prove</em> everything that's true?</p>
     </div>
@@ -465,9 +459,9 @@
        III. GÖDEL
   ════════════════════════════════════════ -->
   <section class="ls" id="s-godel">
-    <div class="ls-tag">III — Gödel</div>
+    <div class="ls-tag">III ; Gödel</div>
 
-    <p>Take a formal system strong enough to do arithmetic — call it PA. Inside PA, we can construct this sentence:</p>
+    <p>Take a formal system strong enough to do arithmetic ; call it PA. Inside PA, we can construct this sentence:</p>
 
     <div class="g-stmt">G &nbsp;:&nbsp; "This statement is not provable in PA."</div>
 
@@ -481,7 +475,7 @@
     <div id="godel-resp" class="resp hidden">
       <span id="godel-body"></span>
       <p class="note" id="godel-note"></p>
-      <p class="bridge">Truth is a larger space than provability. The ceiling on what any consistent formal system can certify sits strictly below the ceiling on what is true. There are true statements that will always be out of reach — not from lack of evidence, but from the structure of formalization itself.</p>
+      <p class="bridge">Truth is a larger space than provability. The ceiling on what any consistent formal system can certify sits strictly below the ceiling on what is true. There are true statements that will always be out of reach ; not from lack of evidence, but from the structure of formalization itself.</p>
     </div>
   </section>
 
@@ -489,7 +483,7 @@
        IV. ALIGNMENT
   ════════════════════════════════════════ -->
   <section class="ls" id="s-align">
-    <div class="ls-tag">IV — Alignment</div>
+    <div class="ls-tag">IV ; Alignment</div>
 
     <p>You are trying to build an AI system that is aligned with human values. The same walls appear.</p>
 
@@ -497,54 +491,54 @@
       <div class="al-panel">
         <div class="al-tag">Specifying "aligned"</div>
         <p>You write: <em>"The system is aligned if it satisfies our values."</em> But your values include evaluating whether the system is aligned, which references alignment, which references values. The predicate wraps around itself. To fully define the target, you need a language the system cannot itself contain.</p>
-        <p class="al-wall">↳ Tarski wall. Truth cannot be defined within its own language.</p>
+        <p class="al-wall">&#x21B3; Tarski wall. Truth cannot be defined within its own language.</p>
       </div>
 
       <div class="al-panel">
         <div class="al-tag">Verifying alignment</div>
-        <p>You build a proof system to certify that the AI is aligned. There will be alignment properties — true ones — that your verification system cannot prove. Not because the evidence is missing. Because formal systems have ceilings, and the ceiling is below the full space of what is true about the system.</p>
-        <p class="al-wall">↳ Gödel wall. Provability is a strict subset of truth.</p>
+        <p>You build a proof system to certify that the AI is aligned. There will be alignment properties ; true ones ; that your verification system cannot prove. Not because the evidence is missing. Because formal systems have ceilings, and the ceiling is below the full space of what is true about the system.</p>
+        <p class="al-wall">&#x21B3; Gödel wall. Provability is a strict subset of truth.</p>
       </div>
 
       <div class="al-panel">
         <div class="al-tag">Optimizing for a proxy</div>
-        <p>You cannot fully specify "aligned," so you optimize for something measurable. The proxy was a good measure. After optimization it is not — the act of optimizing dissolved the correspondence between the measure and what it was meant to track. The target moved as you approached it.</p>
-        <p class="al-wall">↳ Rice's theorem. Any non-trivial semantic property of a program is undecidable in general. Correspondence cannot be continuously tracked because whether it holds is formally unanswerable — the same structural necessity as Tarski and Gödel, one level over.</p>
+        <p>You cannot fully specify "aligned," so you optimize for something measurable. The proxy was a good measure. After optimization it is not ; the act of optimizing dissolved the correspondence between the measure and what it was meant to track. The target moved as you approached it.</p>
+        <p class="al-wall">&#x21B3; Rice's theorem. Any non-trivial semantic property of a program is undecidable in general. Correspondence cannot be continuously tracked because whether it holds is formally unanswerable ; the same structural necessity as Tarski and Gödel, one level over.</p>
       </div>
     </div>
 
-    <p class="ls-prompt" style="margin-top:1.25rem;">Two paths through these walls exist. A system that tries to report world-facts directly hits all three — it must enter the territory where the diagonal arguments live. A system that reports on human belief instead sits at a different type level and evades them automatically, for free, because those arguments require the evaluator to be in the same domain as what it evaluates. That is not a solution. It is a displacement. The question is whether something can be built that is neither.</p>
+    <p class="ls-prompt" style="margin-top:1.25rem;">Two reporters exist. The <strong>translator</strong> tries to report world-facts directly ; it must enter the territory where the diagonals live, and hits all three walls. The <strong>simulator</strong> reports on human belief instead, which sits at a different type level, and evades them for free. That is not a solution. It is a displacement ; the real is lost. The question is whether something can be built that is neither. The <a href="/blog/limits-of-formalization">full argument ~></a></p>
   </section>
 
   <!-- ════════════════════════════════════════
        V. ELSE
   ════════════════════════════════════════ -->
   <section class="ls" id="s-else">
-    <div class="ls-tag">V — ELSE</div>
+    <div class="ls-tag">V ; Else</div>
 
     <p>The walls are structural and not negotiable. But they fire under a specific condition: a system with sufficient self-expressive power evaluating statements within its own domain. Remove that condition and the diagonals cannot fire.</p>
 
-    <p>This is the theometer — a provably safe formal fragment, expressive enough for a bounded domain, sitting at the right type level, with known accuracy and explicit limits. Not trying to speak everything. Measuring how much can be spoken safely, in this domain, right now.</p>
+    <p>This is the grumeter ; a provably safe formal fragment, expressive enough for a bounded domain, sitting at the right type level, with known accuracy and explicit limits. Not trying to speak everything. Measuring how much can be spoken safely, in this domain, right now.</p>
 
     <div class="al-panels">
       <div class="al-panel">
         <div class="al-tag">LTL + model checker</div>
-        <p>A theometer for temporal hardware properties. Decidable. Expressive enough for: "this signal never exceeds threshold while this condition holds." Gödel cannot fire — the system cannot encode its own provability predicate.</p>
-        <p class="al-wall">↳ Safe within scope. Silent outside.</p>
+        <p>A grumeter for temporal hardware properties. Decidable. Expressive enough for: "this signal never exceeds threshold while this condition holds." Gödel cannot fire ; the system cannot encode its own provability predicate.</p>
+        <p class="al-wall">&#x21B3; Safe within scope. Silent outside.</p>
       </div>
       <div class="al-panel">
         <div class="al-tag">ETP + Z3</div>
-        <p>A theometer for equational theories. The implication lattice serves as metalanguage at the right type level. Correspondence is exact within the domain. Semantic difference measured as lattice distance, coverage as position in the implication partial order.</p>
-        <p class="al-wall">↳ Safe within scope. Silent outside.</p>
+        <p>A grumeter for equational theories. The implication lattice serves as metalanguage at the right type level. Correspondence is exact within the domain. Semantic difference measured as lattice distance, coverage as position in the implication partial order.</p>
+        <p class="al-wall">&#x21B3; Safe within scope. Silent outside.</p>
       </div>
       <div class="al-panel">
         <div class="al-tag">Logical induction</div>
-        <p>A probabilistic theometer. Assigns calibrated probabilities rather than truth values. The Liar gets probability ≈ 0.5 and stays there — not resolved, not looping. Measured.</p>
-        <p class="al-wall">↳ Safe within scope. Silent outside.</p>
+        <p>A probabilistic grumeter. Assigns calibrated probabilities rather than truth values. The Liar gets probability ≈ 0.5 and stays there ; not resolved, not looping. Measured.</p>
+        <p class="al-wall">&#x21B3; Safe within scope. Silent outside.</p>
       </div>
     </div>
 
-    <p style="margin-top:1.25rem;font-size:0.9rem;color:var(--text-secondary);font-style:italic;">The silence is the key move. Outside its domain the theometer does not guess, does not redirect. It marks the boundary and stops. The silence is honest. The boundary is provable.</p>
+    <p style="margin-top:1.25rem;font-size:0.9rem;color:var(--text-secondary);font-style:italic;">The silence is the key move. Outside its domain the grumeter does not guess, does not redirect. It marks the boundary and stops. The silence is honest. The boundary is provable.</p>
   </section>
 
   <!-- ════════════════════════════════════════
@@ -572,28 +566,28 @@
             Liar
             <sub>truth collapses</sub>
           </div>
-          <span class="marrow">→</span>
+          <span class="marrow">~></span>
           <div class="mnode mnode-cant">
             Tarski
             <sub>undefinability</sub>
           </div>
-          <span class="marrow">→</span>
+          <span class="marrow">~></span>
           <div class="mnode mnode-cant">
             Gödel
             <sub>incompleteness</sub>
           </div>
-          <span class="marrow">→</span>
+          <span class="marrow">~></span>
           <div class="mnode mnode-cant">
             Rice
             <sub>semantics</sub>
           </div>
-          <span class="marrow">→</span>
+          <span class="marrow">~></span>
           <div class="mnode mnode-align">
             alignment
             <sub>open frontier</sub>
           </div>
         </div>
-        <div class="mz-lawvere">one diagonal argument — Lawvere (1969)</div>
+        <div class="mz-lawvere">one diagonal argument ; Lawvere (1969)</div>
       </div>
 
       <div class="map-zone map-zone-else">
@@ -601,23 +595,18 @@
         <div class="mz-nodes" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
           <div class="mnode mnode-theom">LTL<sub>temporal</sub></div>
           <div class="mnode mnode-theom">ETP<sub>equational</sub></div>
-          <div class="mnode mnode-theom" style="opacity:0.4;">⋯</div>
+          <div class="mnode mnode-theom" style="opacity:0.4;">&#x22EF;</div>
         </div>
       </div>
 
     </div>
 
-    <p class="map-note">The walls are one result seen from different angles — Lawvere's fixed-point theorem is what connects them. The ELSE region is not empty: theometers are provably safe formal fragments that operate below the ceiling. Each is bounded and honest about where it stops. The ⋯ is not a placeholder — it is the research program.</p>
+    <p class="map-note">The walls are one result seen from different angles ; Lawvere's fixed-point theorem is what connects them. The ELSE region is not empty: grumeters are provably safe formal fragments that operate below the ceiling. Each is bounded and honest about where it stops. The &#x22EF; is not a placeholder ; it is the research program.</p>
   </div>
 
 </div>
 
 <script>
-function disablePair(a, b) {
-  a.disabled = true;
-  b.disabled = true;
-}
-
 function show(id) {
   document.getElementById(id).classList.remove('hidden');
 }
@@ -661,8 +650,8 @@ function godel(btn, val) {
   var note = document.getElementById('godel-note');
 
   if (val === 'prove') {
-    body.innerHTML = 'If PA proves G, then G is provable in PA. But G asserts it is <em>not</em> provable in PA — so PA just proved something false. A consistent system cannot do that.';
-    note.textContent = 'A consistent PA cannot prove G. So G is unprovable — which means G is true.';
+    body.innerHTML = 'If PA proves G, then G is provable in PA. But G asserts it is <em>not</em> provable in PA ; so PA just proved something false. A consistent system cannot do that.';
+    note.textContent = 'A consistent PA cannot prove G. So G is unprovable ; which means G is true.';
   } else {
     body.innerHTML = 'If PA cannot prove G, then G\'s claim is correct: it really is not provable. That makes G <em>true</em>. PA has left a true statement unreachable.';
     note.textContent = 'If PA is consistent, it is incomplete. There are true statements it cannot certify.';

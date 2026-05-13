@@ -21,9 +21,9 @@ Background: chip design (Marvell), combinatorial testing (SBA Research, Vienna),
 
 The question across all of it: does the meaning survive the translation?
 
-Silicon, activations, specs, natural language — same question, different substrate. Active threads: semantic equivalence in LLM-generated formal code, feature stability at rule-gap boundaries, semantic diffing via equational theories, bias geometry in embedding space.
+Silicon, activations, specs, natural language ; same question, different substrate. Active threads: semantic equivalence in LLM-generated formal code, feature stability at rule-gap boundaries, semantic diffing via equational theories, bias geometry in embedding space.
 
-The Tarski → Gödel → Chaitin sequence is background radiation through most of this.
+The Tarski ~> Gödel ~> Chaitin sequence is background radiation through most of this.
 
 Finishing MSc Data Science (TU Wien). Looking toward PhD and AI safety fellowships, 2026.
 

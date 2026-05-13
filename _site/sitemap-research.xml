@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://corpaci.com/research/</loc></url>
-  <url><loc>https://corpaci.com/research/formalization-limits/</loc></url>
-  <url><loc>https://corpaci.com/research/interpretability-grounding/</loc></url>
-  <url><loc>https://corpaci.com/research/collective-intelligence/</loc></url>
-  <url><loc>https://corpaci.com/research/ai-safety/</loc></url>
-  <url><loc>https://corpaci.com/research/category-theory/</loc></url>
+  <url><loc>http://localhost:4000/research/</loc></url>
+  <url><loc>http://localhost:4000/research/formalization-limits/</loc></url>
+  <url><loc>http://localhost:4000/research/interpretability-grounding/</loc></url>
+  <url><loc>http://localhost:4000/research/collective-intelligence/</loc></url>
+  <url><loc>http://localhost:4000/research/ai-safety/</loc></url>
+  <url><loc>http://localhost:4000/research/category-theory/</loc></url>
 </urlset>
