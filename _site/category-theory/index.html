@@ -17,23 +17,23 @@
 
 <meta name="keywords" content="AI safety, formal verification, interpretability, hardware verification, category theory, persistent homology, LLM, machine learning, AI engineering">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Social Bias Measurement | Luiza Corpaci</title>
+<title>Category Theory | Luiza Corpaci</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Social Bias Measurement" />
+<meta property="og:title" content="Category Theory" />
 <meta name="author" content="Luiza Corpaci" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
 <meta property="og:description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
-<link rel="canonical" href="https://corpaci.com/projects/bias-measurement/" />
-<meta property="og:url" content="https://corpaci.com/projects/bias-measurement/" />
+<link rel="canonical" href="https://corpaci.com/category-theory/" />
+<meta property="og:url" content="https://corpaci.com/category-theory/" />
 <meta property="og:site_name" content="Luiza Corpaci" />
 <meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
-<meta property="twitter:title" content="Social Bias Measurement" />
+<meta property="twitter:title" content="Category Theory" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T18:13:19+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Social Bias Measurement","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/projects/bias-measurement/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T18:13:19+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Category Theory","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/category-theory/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -78,37 +78,17 @@
     <article>
   
   <div class="page-header">
-    <h1>Social Bias Measurement</h1>
+    <h1>Category Theory</h1>
     
-    <p class="page-subtitle">Geometric rigor over ad hoc benchmarks.</p>
+    <p class="page-subtitle">Structure that travels across domains.</p>
     
   </div>
   
-  <div class="night-only">
+  <p>Category theory is the mathematics of structure-preserving maps. What draws me to it is that the same abstract patterns — functors, natural transformations, adjunctions — keep appearing across domains that look unrelated on the surface: logic, computation, linguistics, learning.</p>
 
-  <p>An experimental framework using the BBQ dataset and SONAR embeddings, with midpoint geometry as the principled bias metric. With Soheyb Kouider (primary collaborator on the geometric framing).</p>
+<p>For AI research specifically, categorical frameworks offer a way to be precise about structure without committing to a particular representation — which matters when you’re trying to say something general about what models can and cannot compute, or about how meaning relates to form.</p>
 
-  <p><strong>The reference-group problem.</strong> Most bias benchmarks measure deviation from a “neutral” baseline ; but who chooses the baseline? The choice is arbitrary, and the metric is contaminated by that arbitrariness. Midpoint geometry sidesteps this: instead of measuring distance from an external anchor, it measures the geometric structure of the embedding space itself ; which groups cluster together, which are separated, and by how much. The midpoint between two group representations is the natural bias-neutral reference point, requiring no external calibration.</p>
-
-  <p><strong>The combinatorial testing angle.</strong> The BBQ dataset has structure: social categories (race, gender, religion, etc.) interact. A model that performs well on each category independently may still behave unexpectedly when categories co-occur. Covering arrays let us enumerate the <em>t</em>-way interactions systematically rather than relying on what happened to appear in the benchmark. The same combinatorial machinery that applies to test suite design applies here.</p>
-
-  <p><strong>The GRU connection.</strong> LLM decision boundaries in SONAR space reveal internal precision-weighting that isn’t specified by the training objective. The model’s own geometry generates relevance ; which groups it treats as similar, which as distant ; in ways that weren’t externally imposed. This is one of the two empirical anchors for the <a href="/active-inference/">active inference</a> thread.</p>
-
-</div>
-
-<div class="day-only">
-
-  <p>An experimental framework for measuring social bias in AI language models with mathematical rigor, rather than ad hoc benchmarks. With Soheyb Kouider.</p>
-
-  <p>The specific insight: most bias metrics measure deviation from a “neutral” reference point ; but that reference point is always chosen by someone, and that choice is never truly neutral. Midpoint geometry avoids this by measuring the shape of the embedding space itself: how groups cluster, how far apart they are, what the natural midpoints between them look like.</p>
-
-  <p>This connects to a broader question: how do you measure unfairness without first defining “fair”? We argue you can measure relative structure without fixing an absolute baseline.</p>
-
-  <p><strong>Publication:</strong> L. Corpaci, M. Wagner, S. Raubitzek, L. Kampel, K. Mallinger, D. E. Simos. <em>Estimating Combinatorial t-Way Coverage Based on Matrix Complexity Metrics.</em> <strong>ICTSS 2024</strong>: 3–20. <a href="https://doi.org/10.1007/978-3-031-80889-0_1">DOI</a> ; Best Paper Award.</p>
-
-  <p><a href="/projects/ictss-playground/">Interactive playground →</a></p>
-
-</div>
+<p>This is a background interest that threads through the formalization and interpretability work rather than a standalone research thread.</p>
 
 </article>
 

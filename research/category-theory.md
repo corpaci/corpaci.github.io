@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Category Theory
 subtitle: Structure that travels across domains.

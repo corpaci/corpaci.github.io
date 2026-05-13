@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
-  <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-05-13T18:13:00+03:00</updated>
-  <id>http://localhost:4000/feed.xml</id>
+  <link href="https://corpaci.com/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://corpaci.com/" rel="alternate" type="text/html" hreflang="en" />
+  <updated>2026-05-13T18:18:49+03:00</updated>
+  <id>https://corpaci.com/feed.xml</id>
   <title type="html">Luiza Corpaci</title>
   <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
   
   
     <entry xml:lang="en">
       <title type="html">Limits</title>
-      <link href="http://localhost:4000/blog/limits" rel="alternate" type="text/html" title="Limits" />
+      <link href="https://corpaci.com/blog/limits" rel="alternate" type="text/html" title="Limits" />
       <published>2026-05-13T00:00:00+03:00</published>
       <updated>2026-05-13T17:26:37+03:00</updated>
-      <id>http://localhost:4000/blog/limits</id>
-      <content type="html" xml:base="http://localhost:4000/blog/limits"><![CDATA[<p>Three results. One move.</p>
+      <id>https://corpaci.com/blog/limits</id>
+      <content type="html" xml:base="https://corpaci.com/blog/limits"><![CDATA[<p>Three results. One move.</p>
 
 <p>The Liar collapses truth. Tarski’s theorem formalizes why. Gödel shows that even if we give up on defining truth, we still can’t prove everything that’s true. Different names, different domains ; the same diagonal structure underneath.</p>
 
@@ -45,11 +45,11 @@
   
     <entry xml:lang="en">
       <title type="html">My understanding on ((the limits of) formalizations for) AI (Safety)</title>
-      <link href="http://localhost:4000/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI (Safety)" />
+      <link href="https://corpaci.com/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI (Safety)" />
       <published>2026-05-13T00:00:00+03:00</published>
-      <updated>2026-05-13T17:59:01+03:00</updated>
-      <id>http://localhost:4000/blog/limits-of-formalization</id>
-      <content type="html" xml:base="http://localhost:4000/blog/limits-of-formalization"><![CDATA[<p>Limits of formalization appear as structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding these is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
+      <updated>2026-05-13T18:13:19+03:00</updated>
+      <id>https://corpaci.com/blog/limits-of-formalization</id>
+      <content type="html" xml:base="https://corpaci.com/blog/limits-of-formalization"><![CDATA[<p>Limits of formalization appear as structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding these is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
 
 <p>Towards this, I have used my ml4good project to explore them, understand the space of what’s possible and point down senseful paths for me to engage with the field. In hope this is useful to others out there (inclusive of future me that might stray away into fuzzy ideals), I’m gathering my thoughts into this post. Toggle up &amp; enjoy the ride!</p>
 
@@ -252,11 +252,11 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
   
     <entry xml:lang="en">
       <title type="html">What formalisms are good for defining good?</title>
-      <link href="http://localhost:4000/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
+      <link href="https://corpaci.com/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
       <published>2026-04-08T00:00:00+03:00</published>
       <updated>2026-05-11T11:57:52+03:00</updated>
-      <id>http://localhost:4000/blog/good-formalisms-for-good</id>
-      <content type="html" xml:base="http://localhost:4000/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
+      <id>https://corpaci.com/blog/good-formalisms-for-good</id>
+      <content type="html" xml:base="https://corpaci.com/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
 Ambiguity: good for whom?, good relative to what?, good on what timescale?</p>
 
 <p>Claim: “Good” is not a single number.
@@ -297,11 +297,11 @@ Ambiguity: is it covariant?</p>
   
     <entry xml:lang="en">
       <title type="html">How Does Good Feel Like?</title>
-      <link href="http://localhost:4000/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
+      <link href="https://corpaci.com/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
       <published>2026-03-22T00:00:00+02:00</published>
       <updated>2026-03-22T20:40:12+02:00</updated>
-      <id>http://localhost:4000/blog/how-does-good-feel-like</id>
-      <content type="html" xml:base="http://localhost:4000/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
+      <id>https://corpaci.com/blog/how-does-good-feel-like</id>
+      <content type="html" xml:base="https://corpaci.com/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
 
 <p>Does dinner with mom feel like a <em>good</em> use of time?</p>
 

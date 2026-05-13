@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>http://localhost:4000/formalization-limits/</loc></url>
-  <url><loc>http://localhost:4000/interpretability-grounding/</loc></url>
-  <url><loc>http://localhost:4000/collective-intelligence/</loc></url>
-  <url><loc>http://localhost:4000/ai-safety/</loc></url>
-  <url><loc>http://localhost:4000/category-theory/</loc></url>
-  <url><loc>http://localhost:4000/active-inference/</loc></url>
+  <url><loc>https://corpaci.com/formalization-limits/</loc></url>
+  <url><loc>https://corpaci.com/interpretability-grounding/</loc></url>
+  <url><loc>https://corpaci.com/collective-intelligence/</loc></url>
+  <url><loc>https://corpaci.com/ai-safety/</loc></url>
+  <url><loc>https://corpaci.com/category-theory/</loc></url>
+  <url><loc>https://corpaci.com/active-inference/</loc></url>
 </urlset>

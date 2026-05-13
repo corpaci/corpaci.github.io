@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day">
+
+<head>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark')  { saved = 'night'; localStorage.setItem('theme', 'night'); }
+      if (saved === 'light') { saved = 'day';   localStorage.setItem('theme', 'day');   }
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+      document.documentElement.setAttribute('data-theme', saved || preferred);
+    })();
+  </script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="keywords" content="AI safety, formal verification, interpretability, hardware verification, category theory, persistent homology, LLM, machine learning, AI engineering">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Interpretability and Grounding | Luiza Corpaci</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Interpretability and Grounding" />
+<meta name="author" content="Luiza Corpaci" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
+<meta property="og:description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
+<link rel="canonical" href="https://corpaci.com/interpretability-grounding/" />
+<meta property="og:url" content="https://corpaci.com/interpretability-grounding/" />
+<meta property="og:site_name" content="Luiza Corpaci" />
+<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="twitter:title" content="Interpretability and Grounding" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T18:13:19+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Interpretability and Grounding","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/interpretability-grounding/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/img/favicon.ico">
+
+<link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Luiza Corpaci" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ]
+  });"></script>
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css"/>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand" href="/">Luiza Corpaci</a>
+    <div class="nav-links">
+      <a class="nav-link" href="/about/">About</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">◐</button>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <article>
+  
+  <div class="page-header">
+    <h1>Interpretability and Grounding</h1>
+    
+    <p class="page-subtitle">What measurement can and cannot reveal about neural networks.</p>
+    
+  </div>
+  
+  <div class="night-only">
+
+  <p>A system’s outputs encode the structure of the measuring system itself. This principle ; Grounding Relative Understanding (GRU) ; is the interpretability consequence of the ICTSS 2024 result on spectral metrics.</p>
+
+  <p><strong>The Fisher Information connection.</strong> The information a measurement carries about a parameter is bounded by the geometry of the measurement apparatus: $I(\theta; X) \leq I(\theta; f(X))$ with equality iff $f$ is sufficient. Applied to interpretability: the features you extract from a model are a joint product of the model <em>and</em> the probe. Your probing method is not neutral. The features you find tell you about the model filtered through the probe’s geometry ; and most of the field is not being careful about this.</p>
+
+  <p>This is not a bug in interpretability methodology. It’s the methodology’s fundamental structure. It means: (1) probing results should always be reported relative to their probe architecture, (2) feature comparisons across different probing methods are not apples-to-apples, and (3) the claim that a feature represents some concept is always a claim about the (model, probe) pair, not the model alone.</p>
+
+  <p><strong>SAE feature invariance.</strong> The applied question: do sparse autoencoder features remain stable across the boundary between clearly-in-distribution inputs and rule-gap territory ; cases where the training regime said nothing specific? Feynman would ask: stable in what sense? Stable under what transformation group? I mean: does the feature activation geometry remain consistent when inputs transition into the rule-gap region? If features fracture there, that is a precise safety-relevant signal. We are most exposed exactly where interpretability is most likely to break.</p>
+
+  <p><strong>Planned experiments:</strong></p>
+
+  <ol>
+    <li>Identify rule-gap boundary cases using the ICTSS spectral complexity metric as a prior (high-complexity regions = likely ambiguity).</li>
+    <li>Measure SAE feature activation distributions at clean inputs vs. boundary inputs.</li>
+    <li>Test whether feature geometry (cosine similarity structure, clustering) is stable across the boundary.</li>
+    <li>Correlate instability with model output variance ; does feature fracture predict behavioral inconsistency?</li>
+    <li>Repeat across multiple SAE architectures and probe methods to test whether instability is a model property or a (model, probe) property.</li>
+    <li>Extend to out-of-distribution inputs where ground truth behavior is available (controlled ambiguity injection).</li>
+    <li>Develop a stability metric that can be computed without requiring explicit boundary labels.</li>
+    <li>Test whether stability predicts downstream task performance on ambiguous inputs.</li>
+    <li>Compare stability profiles across model scales ; does larger = more stable at boundaries?</li>
+    <li>Connect stability to the endogenous precision-weighting question from the active inference thread.</li>
+    <li>Formalize GRU in terms of sufficient statistics and test whether “more sufficient” probes give more stable features.</li>
+    <li>Draft: a probe-relative feature report format for interpretability papers.</li>
+  </ol>
+
+</div>
+
+<div class="day-only">
+
+  <p>A system’s outputs encode the structure of the measuring system itself. This is the core idea I call Grounding Relative Understanding (GRU): when you probe a neural network with a measurement tool, what you find is partly a property of the network and partly a property of the tool.</p>
+
+  <p>This matters for interpretability ; the field that tries to understand what’s happening inside AI systems. Most interpretability results are reported as if the measurement tool were transparent. GRU says it isn’t. The “features” you find in a model are always features of the (model + probe) pair.</p>
+
+  <p>The applied question: do the internal features of a neural network remain stable when the network is operating in ambiguous situations it wasn’t explicitly trained on? If not, that’s precisely where interpretability breaks down ; and where we most need it to work.</p>
+
+</div>
+
+</article>
+
+  </main>
+
+  <footer class="footer mt-5 py-4">
+    <div class="container footer-content">
+      <p class="footer-ethos">Grounding in relative understandings. All the way down.</p>
+      <p>&copy; 2026 Luiza Corpaci</p>
+    </div>
+  </footer>
+
+  <script>
+    var THEMES = ['day', 'night', 'spectrum'];
+    var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u273A' };
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var idx = THEMES.indexOf(current);
+      var next = THEMES[(idx + 1) % THEMES.length];
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[next] || ICONS['day'];
+    }
+    (function() {
+      var t = document.documentElement.getAttribute('data-theme');
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[t] || ICONS['day'];
+    })();
+  </script>
+</body>
+
+</html>

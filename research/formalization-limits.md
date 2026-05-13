@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Limits to Formalization
 subtitle: What happens when you try to measure what resists measurement.

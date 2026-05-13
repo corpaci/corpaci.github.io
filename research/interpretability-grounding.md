@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Interpretability and Grounding
 subtitle: What measurement can and cannot reveal about neural networks.

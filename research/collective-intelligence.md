@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Collective Intelligence
 subtitle: Infrastructure for value alignment at the human level.

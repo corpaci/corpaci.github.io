@@ -17,23 +17,23 @@
 
 <meta name="keywords" content="AI safety, formal verification, interpretability, hardware verification, category theory, persistent homology, LLM, machine learning, AI engineering">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Social Bias Measurement | Luiza Corpaci</title>
+<title>Active Inference &amp; the Living/Non-Living Boundary | Luiza Corpaci</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Social Bias Measurement" />
+<meta property="og:title" content="Active Inference &amp; the Living/Non-Living Boundary" />
 <meta name="author" content="Luiza Corpaci" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
 <meta property="og:description" content="AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety." />
-<link rel="canonical" href="https://corpaci.com/projects/bias-measurement/" />
-<meta property="og:url" content="https://corpaci.com/projects/bias-measurement/" />
+<link rel="canonical" href="https://corpaci.com/active-inference/" />
+<meta property="og:url" content="https://corpaci.com/active-inference/" />
 <meta property="og:site_name" content="Luiza Corpaci" />
 <meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
-<meta property="twitter:title" content="Social Bias Measurement" />
+<meta property="twitter:title" content="Active Inference &amp; the Living/Non-Living Boundary" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T18:13:19+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Social Bias Measurement","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/projects/bias-measurement/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T18:13:19+03:00","description":"AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.","headline":"Active Inference &amp; the Living/Non-Living Boundary","image":"https://corpaci.com/apple-touch-icon.png","url":"https://corpaci.com/active-inference/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -78,35 +78,31 @@
     <article>
   
   <div class="page-header">
-    <h1>Social Bias Measurement</h1>
+    <h1>Active Inference & the Living/Non-Living Boundary</h1>
     
-    <p class="page-subtitle">Geometric rigor over ad hoc benchmarks.</p>
+    <p class="page-subtitle">What distinguishes a thermostat from a cell.</p>
     
   </div>
   
   <div class="night-only">
 
-  <p>An experimental framework using the BBQ dataset and SONAR embeddings, with midpoint geometry as the principled bias metric. With Soheyb Kouider (primary collaborator on the geometric framing).</p>
+  <p>Here’s the claim: what distinguishes living from non-living active inference systems isn’t complexity, embodiment, or self-modeling per se ; it’s whether the E-component (the precision or relevance-weighting over prediction errors) is endogenously generated through organizational closure. A thermostat minimizes free energy. A cell minimizes free energy <em>and</em> generates its own relevance function from within its own organizational dynamics. This is the autopoietic twist on FEP, and I think it’s testable.</p>
 
-  <p><strong>The reference-group problem.</strong> Most bias benchmarks measure deviation from a “neutral” baseline ; but who chooses the baseline? The choice is arbitrary, and the metric is contaminated by that arbitrariness. Midpoint geometry sidesteps this: instead of measuring distance from an external anchor, it measures the geometric structure of the embedding space itself ; which groups cluster together, which are separated, and by how much. The midpoint between two group representations is the natural bias-neutral reference point, requiring no external calibration.</p>
+  <p>Two empirical anchors: (1) the ICTSS spectral metrics result, where matrix complexity predicted combinatorial coverage ; a case where the structure of the measurement apparatus shows up in the measurement. (2) The BBQ/SONAR bias work, where LLM decision boundaries reveal internal precision-weighting that isn’t specified by the training objective. Both cases: the system’s own structure generates relevance endogenously.</p>
 
-  <p><strong>The combinatorial testing angle.</strong> The BBQ dataset has structure: social categories (race, gender, religion, etc.) interact. A model that performs well on each category independently may still behave unexpectedly when categories co-occur. Covering arrays let us enumerate the <em>t</em>-way interactions systematically rather than relying on what happened to appear in the benchmark. The same combinatorial machinery that applies to test suite design applies here.</p>
+  <p><strong>The formal distinction:</strong> In standard FEP, the precision parameter ε weights the relative contribution of prediction errors from different sources. In living systems, ε is itself a variable generated by the system’s own internal dynamics ; it’s not set by the observer or the training regime, it emerges from organizational closure. The question is whether current LLMs exhibit this property or merely simulate it.</p>
 
-  <p><strong>The GRU connection.</strong> LLM decision boundaries in SONAR space reveal internal precision-weighting that isn’t specified by the training objective. The model’s own geometry generates relevance ; which groups it treats as similar, which as distant ; in ways that weren’t externally imposed. This is one of the two empirical anchors for the <a href="/active-inference/">active inference</a> thread.</p>
+  <p><strong>Planned work:</strong> Operationalize “endogenous precision-weighting” as a measurable property using activation geometry. If the precision signal is endogenous, it should show up as a stable internal feature that predicts model behavior across distribution shifts ; not as a response to input statistics alone.</p>
 
 </div>
 
 <div class="day-only">
 
-  <p>An experimental framework for measuring social bias in AI language models with mathematical rigor, rather than ad hoc benchmarks. With Soheyb Kouider.</p>
+  <p>Living things and thermostats both react to their environment. But a thermostat just follows a rule someone else set. A living cell decides for itself what matters ; it generates its own sense of relevance from its own internal organization.</p>
 
-  <p>The specific insight: most bias metrics measure deviation from a “neutral” reference point ; but that reference point is always chosen by someone, and that choice is never truly neutral. Midpoint geometry avoids this by measuring the shape of the embedding space itself: how groups cluster, how far apart they are, what the natural midpoints between them look like.</p>
+  <p>I’m researching where exactly that difference lives ; what makes a system go from “following instructions” to “generating its own priorities.” I think this is relevant to AI safety because we need to understand whether AI systems are developing their own sense of what’s relevant, or just following ours. That distinction has very different implications for how these systems behave when we’re not looking.</p>
 
-  <p>This connects to a broader question: how do you measure unfairness without first defining “fair”? We argue you can measure relative structure without fixing an absolute baseline.</p>
-
-  <p><strong>Publication:</strong> L. Corpaci, M. Wagner, S. Raubitzek, L. Kampel, K. Mallinger, D. E. Simos. <em>Estimating Combinatorial t-Way Coverage Based on Matrix Complexity Metrics.</em> <strong>ICTSS 2024</strong>: 3–20. <a href="https://doi.org/10.1007/978-3-031-80889-0_1">DOI</a> ; Best Paper Award.</p>
-
-  <p><a href="/projects/ictss-playground/">Interactive playground →</a></p>
+  <p>This argument is grounded in two empirical anchors from existing experiments, and is a direction I’m actively developing.</p>
 
 </div>
 

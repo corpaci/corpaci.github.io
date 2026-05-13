@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: Active Inference & the Living/Non-Living Boundary
 subtitle: What distinguishes a thermostat from a cell.
