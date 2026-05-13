@@ -301,10 +301,8 @@
 }
 
 .map-zone-else {
-  flex: 0 0 72px;
+  flex: 0 0 120px;
   background: var(--bg-primary);
-  align-items: center;
-  justify-content: center;
 }
 
 .mz-label {
@@ -357,6 +355,20 @@
   color: var(--text-secondary);
 }
 
+.mnode-theom {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.mz-lawvere {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  color: var(--text-secondary);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
 .marrow {
   color: var(--border-color);
   font-size: 0.75rem;
@@ -380,7 +392,7 @@
 
 <div class="lj">
 
-  <p class="lj-intro">Four stops. From no intuition to a working map of what formal systems can and cannot do — and where AI safety sits in that space.</p>
+  <p class="lj-intro">Five stops. From no intuition to a working map of what formal systems can and cannot do, and what can be built within those limits.</p>
 
   <!-- ════════════════════════════════════════
        I. THE LIAR
@@ -497,9 +509,42 @@
       <div class="al-panel">
         <div class="al-tag">Optimizing for a proxy</div>
         <p>You cannot fully specify "aligned," so you optimize for something measurable. The proxy was a good measure. After optimization it is not — the act of optimizing dissolved the correspondence between the measure and what it was meant to track. The target moved as you approached it.</p>
-        <p class="al-wall">↳ New wall. Same structure. The map is still being drawn here.</p>
+        <p class="al-wall">↳ Rice's theorem. Any non-trivial semantic property of a program is undecidable in general. Correspondence cannot be continuously tracked because whether it holds is formally unanswerable — the same structural necessity as Tarski and Gödel, one level over.</p>
       </div>
     </div>
+
+    <p class="ls-prompt" style="margin-top:1.25rem;">Two paths through these walls exist. A system that tries to report world-facts directly hits all three — it must enter the territory where the diagonal arguments live. A system that reports on human belief instead sits at a different type level and evades them automatically, for free, because those arguments require the evaluator to be in the same domain as what it evaluates. That is not a solution. It is a displacement. The question is whether something can be built that is neither.</p>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       V. ELSE
+  ════════════════════════════════════════ -->
+  <section class="ls" id="s-else">
+    <div class="ls-tag">V — ELSE</div>
+
+    <p>The walls are structural and not negotiable. But they fire under a specific condition: a system with sufficient self-expressive power evaluating statements within its own domain. Remove that condition and the diagonals cannot fire.</p>
+
+    <p>This is the theometer — a provably safe formal fragment, expressive enough for a bounded domain, sitting at the right type level, with known accuracy and explicit limits. Not trying to speak everything. Measuring how much can be spoken safely, in this domain, right now.</p>
+
+    <div class="al-panels">
+      <div class="al-panel">
+        <div class="al-tag">LTL + model checker</div>
+        <p>A theometer for temporal hardware properties. Decidable. Expressive enough for: "this signal never exceeds threshold while this condition holds." Gödel cannot fire — the system cannot encode its own provability predicate.</p>
+        <p class="al-wall">↳ Safe within scope. Silent outside.</p>
+      </div>
+      <div class="al-panel">
+        <div class="al-tag">ETP + Z3</div>
+        <p>A theometer for equational theories. The implication lattice serves as metalanguage at the right type level. Correspondence is exact within the domain. Semantic difference measured as lattice distance, coverage as position in the implication partial order.</p>
+        <p class="al-wall">↳ Safe within scope. Silent outside.</p>
+      </div>
+      <div class="al-panel">
+        <div class="al-tag">Logical induction</div>
+        <p>A probabilistic theometer. Assigns calibrated probabilities rather than truth values. The Liar gets probability ≈ 0.5 and stays there — not resolved, not looping. Measured.</p>
+        <p class="al-wall">↳ Safe within scope. Silent outside.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.25rem;font-size:0.9rem;color:var(--text-secondary);font-style:italic;">The silence is the key move. Outside its domain the theometer does not guess, does not redirect. It marks the boundary and stops. The silence is honest. The boundary is provable.</p>
   </section>
 
   <!-- ════════════════════════════════════════
@@ -538,21 +583,31 @@
             <sub>incompleteness</sub>
           </div>
           <span class="marrow">→</span>
+          <div class="mnode mnode-cant">
+            Rice
+            <sub>semantics</sub>
+          </div>
+          <span class="marrow">→</span>
           <div class="mnode mnode-align">
             alignment
             <sub>open frontier</sub>
           </div>
         </div>
+        <div class="mz-lawvere">one diagonal argument — Lawvere (1969)</div>
       </div>
 
       <div class="map-zone map-zone-else">
         <div class="mz-label">Else</div>
-        <span class="mz-q">?</span>
+        <div class="mz-nodes" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
+          <div class="mnode mnode-theom">LTL<sub>temporal</sub></div>
+          <div class="mnode mnode-theom">ETP<sub>equational</sub></div>
+          <div class="mnode mnode-theom" style="opacity:0.4;">⋯</div>
+        </div>
       </div>
 
     </div>
 
-    <p class="map-note">The arrow through the CAN'T region is a sequence, not three separate results. Each wall is the same move one level deeper. The ELSE region is not empty — it is unmapped. The alignment nodes sit at its edge.</p>
+    <p class="map-note">The walls are one result seen from different angles — Lawvere's fixed-point theorem is what connects them. The ELSE region is not empty: theometers are provably safe formal fragments that operate below the ceiling. Each is bounded and honest about where it stops. The ⋯ is not a placeholder — it is the research program.</p>
   </div>
 
 </div>

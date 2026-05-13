@@ -3,7 +3,7 @@
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
   <link href="https://corpaci.com/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://corpaci.com/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-05-13T14:54:44+03:00</updated>
+  <updated>2026-05-13T14:59:16+03:00</updated>
   <id>https://corpaci.com/feed.xml</id>
   <title type="html">Luiza Corpaci</title>
   <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
@@ -47,7 +47,7 @@
       <title type="html">My understanding on ((the limits of) formalizations for) AI Safety</title>
       <link href="https://corpaci.com/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI Safety" />
       <published>2026-05-13T00:00:00+03:00</published>
-      <updated>2026-05-13T14:53:53+03:00</updated>
+      <updated>2026-05-13T14:55:47+03:00</updated>
       <id>https://corpaci.com/blog/limits-of-formalization</id>
       <content type="html" xml:base="https://corpaci.com/blog/limits-of-formalization"><![CDATA[<p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
 
