@@ -3,7 +3,7 @@
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
   <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-05-13T17:58:50+03:00</updated>
+  <updated>2026-05-13T18:13:00+03:00</updated>
   <id>http://localhost:4000/feed.xml</id>
   <title type="html">Luiza Corpaci</title>
   <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
@@ -47,7 +47,7 @@
       <title type="html">My understanding on ((the limits of) formalizations for) AI (Safety)</title>
       <link href="http://localhost:4000/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI (Safety)" />
       <published>2026-05-13T00:00:00+03:00</published>
-      <updated>2026-05-13T17:48:35+03:00</updated>
+      <updated>2026-05-13T17:59:01+03:00</updated>
       <id>http://localhost:4000/blog/limits-of-formalization</id>
       <content type="html" xml:base="http://localhost:4000/blog/limits-of-formalization"><![CDATA[<p>Limits of formalization appear as structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding these is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
 
@@ -103,13 +103,13 @@ Chalmers: no formal description captures what it is like to be the system. A fou
 
   <hr />
 
-  <p>The <a href="/limits/">/limits/</a> interactive walks through the first part of this sequence if we want to feel the walls before continuing.</p>
+  <p>The <a href="/limits/">limits/</a> interactive walks through the first part of this sequence if we want to feel the walls before continuing.</p>
 
 </div>
 
 <hr />
 
-<h2 id="now-we-want-a-machine-to-report-reality-honestly">Now: we want a machine to report reality honestly.</h2>
+<h2 id="now-we-want-a-machine-to-report-reality-honestly">Now, we want a machine to report reality honestly.</h2>
 
 <p>It has an internal world-model. It predicts sensor outputs. Its latent states represent facts. We want those facts surfaced honestly.</p>
 
@@ -193,7 +193,7 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
 
 <hr />
 
-<h2 id="from-plato-to-grumeter-optimization-in-one-chain">From Plato to grumeter optimization in one chain.</h2>
+<h2 id="from-plato-to-grumeter-optimization-in-one-view">From Plato to grumeter optimization in one view:</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Reality exists
   ~&gt; reason can reach it
@@ -228,7 +228,7 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
 
 <hr />
 
-<p><em>Feedback welcome; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.</em></p>]]></content>
+<p><em>Feedback welcome; especially counterexamples to the grumeter framing.</em></p>]]></content>
       <author>
         <name>Luiza Corpaci</name>
       </author>

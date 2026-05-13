@@ -60,13 +60,13 @@ Chalmers: no formal description captures what it is like to be the system. A fou
 
 ---
 
-The [/limits/](/limits/) interactive walks through the first part of this sequence if we want to feel the walls before continuing.
+The [limits/](/limits/) interactive walks through the first part of this sequence if we want to feel the walls before continuing.
 
 </div>
 
 ---
 
-## Now: we want a machine to report reality honestly.
+## Now, we want a machine to report reality honestly.
 
 It has an internal world-model. It predicts sensor outputs. Its latent states represent facts. We want those facts surfaced honestly.
 
@@ -151,7 +151,7 @@ The model learns grumeter outputs without the grumeter disposition. It produces 
 
 ---
 
-## From Plato to grumeter optimization in one chain.
+## From Plato to grumeter optimization in one view:
 
 ```
 Reality exists
@@ -187,4 +187,4 @@ Reality exists
 
 ---
 
-*Feedback welcome; especially counterexamples to the grumeter framing, and domains where the silence is unacceptable.*
+*Feedback welcome; especially counterexamples to the grumeter framing.*

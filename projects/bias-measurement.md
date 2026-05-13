@@ -13,7 +13,7 @@ An experimental framework using the BBQ dataset and SONAR embeddings, with midpo
 
 **The combinatorial testing angle.** The BBQ dataset has structure: social categories (race, gender, religion, etc.) interact. A model that performs well on each category independently may still behave unexpectedly when categories co-occur. Covering arrays let us enumerate the *t*-way interactions systematically rather than relying on what happened to appear in the benchmark. The same combinatorial machinery that applies to test suite design applies here.
 
-**The GRU connection.** LLM decision boundaries in SONAR space reveal internal precision-weighting that isn't specified by the training objective. The model's own geometry generates relevance ; which groups it treats as similar, which as distant ; in ways that weren't externally imposed. This is one of the two empirical anchors for the [active inference](/research/active-inference/) thread.
+**The GRU connection.** LLM decision boundaries in SONAR space reveal internal precision-weighting that isn't specified by the training objective. The model's own geometry generates relevance ; which groups it treats as similar, which as distant ; in ways that weren't externally imposed. This is one of the two empirical anchors for the [active inference](/active-inference/) thread.
 
 
 </div>

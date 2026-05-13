@@ -3,8 +3,13 @@
 AI engineer at AMD, completing a Master's in Data Science, applying to PhD programs. Research at the intersection of formal verification, interpretability, collective intelligence, category theory, and AI safety.
 
 ## Start here
-- /research/
 - /blog/
+- /formalization-limits/
+- /interpretability-grounding/
+- /ai-safety/
+- /active-inference/
+- /collective-intelligence/
+- /category-theory/
 
 ## Core topics
 - Limits to formalization: syntax-semantics interface, incompleteness, what formalisms cannot reach
