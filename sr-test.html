@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SR Distance Matrix — test</title>
+  <style>
+    body { font-family: monospace; padding: 2rem; background: #f0efeb; }
+    table { border-collapse: collapse; font-size: 0.72rem; }
+    td, th { padding: 3px 6px; border: 1px solid #ccc; }
+    th { background: #e0dfd9; }
+    td { text-align: right; }
+    .low  { background: #c6f0c2; }
+    .mid  { background: #fdf0c0; }
+    .high { background: #f5c6c6; }
+    h2 { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>SR Distance Matrix</h1>
+  <p>Open the browser console and run <code>SRDistance.diagnose(nodes, matrix)</code> for nearest-neighbor output.</p>
+
+  <h2>Nearest neighbors (k=3)</h2>
+  <div id="nn-output"></div>
+
+  <h2>Full matrix</h2>
+  <div id="matrix-output"></div>
+
+  <script src="/js/sr-distance.js"></script>
+  <script>
+    fetch('/assets/data/self_reference.json')
+      .catch(function() {
+        // fallback: try _data path for local jekyll serve
+        return fetch('/_data/self_reference.json');
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) { init(data); })
+      .catch(function(e) {
+        // load inline if fetch fails (file:// protocol)
+        document.body.innerHTML += '<p style="color:red">Fetch failed — run via <code>bundle exec jekyll serve</code></p>';
+      });
+
+    function init(data) {
+      var nodes   = data.nodes;
+      var weights = data.config.feature_weights;
+      var matrix  = SRDistance.buildMatrix(nodes, weights);
+
+      // expose globals for console exploration
+      window.nodes   = nodes;
+      window.matrix  = matrix;
+      window.weights = weights;
+
+      SRDistance.diagnose(nodes, matrix);
+      renderNN(nodes, matrix);
+      renderMatrix(nodes, matrix);
+    }
+
+    function renderNN(nodes, matrix) {
+      var report = SRDistance.nearestNeighbors(nodes, matrix, 3);
+      var html = '<table><tr><th>Node</th><th>1st</th><th>2nd</th><th>3rd</th></tr>';
+      report.forEach(function(entry) {
+        html += '<tr><td>' + entry.label + '</td>';
+        entry.nearest.forEach(function(n) {
+          var cls = n.d < 0.35 ? 'low' : n.d < 0.6 ? 'mid' : 'high';
+          html += '<td class="' + cls + '">' + n.label + '<br>(' + n.d.toFixed(3) + ')</td>';
+        });
+        html += '</tr>';
+      });
+      html += '</table>';
+      document.getElementById('nn-output').innerHTML = html;
+    }
+
+    function renderMatrix(nodes, matrix) {
+      var html = '<table><tr><th></th>';
+      nodes.forEach(function(n) { html += '<th>' + n.id.replace(/_/g,' ').slice(0,12) + '</th>'; });
+      html += '</tr>';
+      nodes.forEach(function(u, i) {
+        html += '<tr><th>' + u.id.replace(/_/g,' ').slice(0,16) + '</th>';
+        nodes.forEach(function(v, j) {
+          var d = matrix[i][j];
+          var cls = i === j ? '' : d < 0.35 ? 'low' : d < 0.6 ? 'mid' : 'high';
+          html += '<td class="' + cls + '">' + (i === j ? '—' : d.toFixed(2)) + '</td>';
+        });
+        html += '</tr>';
+      });
+      html += '</table>';
+      document.getElementById('matrix-output').innerHTML = html;
+    }
+  </script>
+</body>
+</html>

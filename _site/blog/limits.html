@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="day">
+
+<head>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark')  { saved = 'night'; localStorage.setItem('theme', 'night'); }
+      if (saved === 'light') { saved = 'day';   localStorage.setItem('theme', 'day');   }
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+      document.documentElement.setAttribute('data-theme', saved || preferred);
+    })();
+  </script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="keywords" content="AI safety, formal verification, interpretability, hardware verification, category theory, persistent homology, LLM, machine learning, AI engineering">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Limits | Luiza Corpaci</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Limits" />
+<meta name="author" content="Luiza Corpaci" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="The Liar, Tarski, Gödel — three results, one move. And where alignment sits in that space." />
+<meta property="og:description" content="The Liar, Tarski, Gödel — three results, one move. And where alignment sits in that space." />
+<link rel="canonical" href="https://corpaci.com/blog/limits" />
+<meta property="og:url" content="https://corpaci.com/blog/limits" />
+<meta property="og:site_name" content="Luiza Corpaci" />
+<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-13T00:00:00+03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="twitter:title" content="Limits" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T14:46:48+03:00","datePublished":"2026-05-13T00:00:00+03:00","description":"The Liar, Tarski, Gödel — three results, one move. And where alignment sits in that space.","headline":"Limits","image":"https://corpaci.com/apple-touch-icon.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://corpaci.com/blog/limits"},"url":"https://corpaci.com/blog/limits"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/img/favicon.ico">
+
+<link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Luiza Corpaci" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ]
+  });"></script>
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css"/>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand" href="/">Luiza Corpaci</a>
+    <div class="nav-links">
+      <a class="nav-link" href="/about/">About</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">◐</button>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div class="post-layout">
+  <aside class="toc-sidebar" id="toc-sidebar" aria-label="Table of contents">
+    <nav class="toc-nav"></nav>
+  </aside>
+  <article class="post">
+    <header class="post-header mb-4">
+      <h1 class="post-title">Limits</h1>
+      <div class="post-meta">
+        <time class="entry_date">May 13, 2026</time>
+        
+        <span class="post-tags">
+          
+          <a href="/blog/tags/#formal-methods" class="tag-badge">formal-methods</a>
+          
+          <a href="/blog/tags/#ai-safety" class="tag-badge">ai-safety</a>
+          
+          <a href="/blog/tags/#alignment" class="tag-badge">alignment</a>
+          
+          <a href="/blog/tags/#interpretability" class="tag-badge">interpretability</a>
+          
+        </span>
+        
+      </div>
+    </header>
+    <div class="post-content">
+      <p>Three results. One move.</p>
+
+<p>The Liar collapses truth. Tarski’s theorem formalizes why. Gödel shows that even if you give up on defining truth, you still can’t prove everything that’s true. Different names, different domains — the same diagonal structure underneath.</p>
+
+<p>The alignment problems look the same from inside. Not metaphorically. Structurally: specifying “aligned” wraps around itself the way a truth predicate does. Verifying alignment hits the same ceiling provability does. Optimizing for a proxy of good dissolves the proxy.</p>
+
+<p>The sequence runs from language to logic to computation to values. Each step is the same wall, one level deeper.</p>
+
+<p><a href="/limits/">Work through it interactively →</a></p>
+
+    </div>
+  </article>
+</div>
+<script>
+(function() {
+  var content = document.querySelector('.post-content');
+  var nav = document.querySelector('.toc-nav');
+  if (!content || !nav) return;
+
+  var headings = content.querySelectorAll('h2, h3');
+  if (headings.length < 2) return;
+
+  var ul = document.createElement('ul');
+
+  // "Overview" entry pointing to the top of the post
+  var overviewLi = document.createElement('li');
+  overviewLi.className = 'toc-h2';
+  var overviewA = document.createElement('a');
+  overviewA.href = '#';
+  overviewA.textContent = 'Overview';
+  overviewLi.appendChild(overviewA);
+  ul.appendChild(overviewLi);
+
+  headings.forEach(function(h) {
+    if (!h.id) {
+      h.id = h.textContent.trim().toLowerCase()
+        .replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+    }
+    var li = document.createElement('li');
+    li.className = 'toc-' + h.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  nav.appendChild(ul);
+
+  // Scroll spy with IntersectionObserver
+  var links = nav.querySelectorAll('a');
+  var headingMap = {};
+  links.forEach(function(link) {
+    headingMap[link.getAttribute('href').slice(1)] = link;
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('toc-active'); });
+        var active = headingMap[entry.target.id];
+        if (active) active.classList.add('toc-active');
+      }
+    });
+  }, { rootMargin: '0px 0px -80% 0px' });
+
+  headings.forEach(function(h) { observer.observe(h); });
+
+  // Activate "Overview" when scrolled above the first heading
+  var firstHeading = headings[0];
+  if (firstHeading) {
+    var topObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('toc-active'); });
+        overviewA.classList.add('toc-active');
+      }
+    }, { rootMargin: '0px 0px -80% 0px' });
+    topObserver.observe(document.querySelector('.post-header'));
+  }
+
+  // Set initial active state
+  overviewA.classList.add('toc-active');
+})();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var footnotesDiv = document.querySelector('div.footnotes');
+  if (!footnotesDiv) return;
+
+  var refs = document.querySelectorAll('sup[id^="fnref:"]');
+  var wide = window.matchMedia('(min-width: 1200px)');
+
+  refs.forEach(function(ref) {
+    var id = ref.id.replace('fnref:', '');
+    var footnote = document.getElementById('fn:' + id);
+    if (!footnote) return;
+
+    // Clone and strip backlink
+    var clone = footnote.cloneNode(true);
+    var backlink = clone.querySelector('.reversefootnote');
+    if (backlink) backlink.remove();
+
+    // Extract HTML, stripping outer <p> wrapper
+    var html = clone.innerHTML.trim();
+    html = html.replace(/^<p>/i, '').replace(/<\/p>\s*$/i, '');
+    html = html.replace(/<\/p>\s*<p>/gi, '<br><br>');
+
+    // Create sidenote
+    var sidenote = document.createElement('span');
+    sidenote.className = 'sidenote';
+    sidenote.innerHTML = '<sup class="sidenote-number">' + ref.textContent + '</sup> ' + html;
+
+    // Insert after <sup> and any trailing punctuation (e.g. the "." in "well[^1].")
+    // so that punctuation doesn't get orphaned when sidenote becomes display:block
+    var insertBefore = ref.nextSibling;
+    if (insertBefore && insertBefore.nodeType === 3 && /^[.,;:)\]]/.test(insertBefore.textContent)) {
+      if (insertBefore.textContent.length > 1) {
+        insertBefore.splitText(1);
+      }
+      insertBefore = insertBefore.nextSibling;
+    }
+    ref.parentNode.insertBefore(sidenote, insertBefore);
+
+    // Click handler: toggle on narrow screens, noop on wide
+    var link = ref.querySelector('a');
+    if (link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (!wide.matches) {
+          sidenote.classList.toggle('sidenote-visible');
+        }
+      });
+    }
+  });
+
+  footnotesDiv.style.display = 'none';
+});
+</script>
+
+
+  </main>
+
+  <footer class="footer mt-5 py-4">
+    <div class="container footer-content">
+      <p class="footer-ethos">Grounding in relative understandings. All the way down.</p>
+      <p>&copy; 2026 Luiza Corpaci</p>
+    </div>
+  </footer>
+
+  <script>
+    var THEMES = ['day', 'night', 'spectrum'];
+    var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u273A' };
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var idx = THEMES.indexOf(current);
+      var next = THEMES[(idx + 1) % THEMES.length];
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[next] || ICONS['day'];
+    }
+    (function() {
+      var t = document.documentElement.getAttribute('data-theme');
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[t] || ICONS['day'];
+    })();
+  </script>
+</body>
+
+</html>

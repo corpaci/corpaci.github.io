@@ -1,0 +1,546 @@
+---
+layout: default
+title: Limits
+permalink: /limits/
+---
+
+<style>
+.lj { max-width: 42rem; }
+
+.lj-intro {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  border-left: 2px solid var(--border-color);
+  padding-left: 1rem;
+  margin-bottom: 3.5rem;
+  line-height: 1.65;
+}
+
+/* ── Section chrome ── */
+.ls {
+  margin-bottom: 3.5rem;
+}
+
+.ls-tag {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.ls-stmt {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.ls-prompt {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.9rem;
+}
+
+/* ── Buttons ── */
+.btn-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.ibtn {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.ibtn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ibtn.chosen {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--code-bg);
+}
+
+.ibtn:disabled { opacity: 0.45; cursor: default; }
+
+/* ── Response box ── */
+.resp {
+  margin-top: 1.1rem;
+  padding: 1rem 1.2rem;
+  border-left: 2px solid var(--accent);
+  background: var(--code-bg);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.resp.hidden { display: none; }
+
+.resp .note {
+  margin-top: 0.75rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+.resp .bridge {
+  margin-top: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ── Tarski table ── */
+.t-wrap {
+  margin-top: 1rem;
+}
+
+.t-wrap.hidden { display: none; }
+
+.tt {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+
+.tt th, .tt td {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.tt th {
+  background: var(--code-bg);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.ok  { color: #2a7a3a; }
+.bad { color: var(--accent-secondary); font-weight: 600; }
+
+.liar-row.hidden { display: none; }
+
+/* ── Gödel statement ── */
+.g-stmt {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  padding: 0.7rem 1rem;
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* ── Alignment panels ── */
+.al-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.al-panel {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.al-panel p { margin-bottom: 0; }
+
+.al-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.al-wall {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--accent-secondary);
+  margin-top: 0.55rem;
+}
+
+/* ── Map ── */
+.map-section {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.map-tag {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.map-wrap {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 110px;
+}
+
+.map-zone {
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-zone-can  {
+  flex: 0 0 100px;
+  background: color-mix(in srgb, var(--accent) 9%, var(--bg-primary));
+  border-right: 1px solid var(--border-color);
+}
+
+.map-zone-cant {
+  flex: 1;
+  background: color-mix(in srgb, var(--accent-secondary) 8%, var(--bg-primary));
+  border-right: 1px solid var(--border-color);
+}
+
+.map-zone-else {
+  flex: 0 0 72px;
+  background: var(--bg-primary);
+  align-items: center;
+  justify-content: center;
+}
+
+.mz-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.mz-nodes {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.mnode {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.28rem 0.55rem;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.mnode sub {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.mnode-can {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.mnode-cant {
+  border: 1px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.mnode-align {
+  border: 1px dashed var(--text-secondary);
+  color: var(--text-secondary);
+}
+
+.marrow {
+  color: var(--border-color);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.mz-q {
+  font-size: 2rem;
+  color: var(--border-color);
+  user-select: none;
+}
+
+.map-note {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  line-height: 1.55;
+}
+</style>
+
+<div class="lj">
+
+  <p class="lj-intro">Four stops. From no intuition to a working map of what formal systems can and cannot do — and where AI safety sits in that space.</p>
+
+  <!-- ════════════════════════════════════════
+       I. THE LIAR
+  ════════════════════════════════════════ -->
+  <section class="ls" id="s-liar">
+    <div class="ls-tag">I — The Liar</div>
+
+    <p class="ls-stmt">"This sentence is false."</p>
+    <p class="ls-prompt">Assign it a truth value.</p>
+
+    <div class="btn-row">
+      <button class="ibtn" id="l-t" onclick="liar(this,'true')">True</button>
+      <button class="ibtn" id="l-f" onclick="liar(this,'false')">False</button>
+    </div>
+
+    <div id="liar-resp" class="resp hidden">
+      <span id="liar-body"></span>
+      <p class="note">Neither assignment survives. This is not a trick sentence. It is pointing at a structural property of truth: truth cannot consistently apply to a sentence that asserts its own falsehood.</p>
+      <p class="bridge">Tarski asked: what exactly does this tell us about what truth can be, and where it can be defined?</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       II. TARSKI
+  ════════════════════════════════════════ -->
+  <section class="ls" id="s-tarski">
+    <div class="ls-tag">II — Tarski</div>
+
+    <p>Suppose we try to define truth formally. We want a predicate <code>T(x)</code> such that for every sentence <em>s</em> in our language:</p>
+    <p style="font-family:var(--font-mono);font-size:0.88rem;margin:0.75rem 0 1rem 1rem;">T("s") &harr; s</p>
+
+    <p class="ls-prompt">Watch what happens when we apply it.</p>
+
+    <div class="btn-row">
+      <button class="ibtn" onclick="tarski1(this)">Apply T to ordinary sentences →</button>
+    </div>
+
+    <div id="t-table" class="t-wrap hidden">
+      <table class="tt">
+        <tr><th>Sentence</th><th>Content</th><th>T("s") ↔ s</th></tr>
+        <tr>
+          <td>P</td>
+          <td>"Snow is white."</td>
+          <td class="ok">✓ works</td>
+        </tr>
+        <tr>
+          <td>Q</td>
+          <td>"Grass is green."</td>
+          <td class="ok">✓ works</td>
+        </tr>
+        <tr class="liar-row hidden" id="lrow">
+          <td>L</td>
+          <td>"T(L) is false."</td>
+          <td class="bad">T("L") ↔ ¬T("L") &nbsp;⚡</td>
+        </tr>
+      </table>
+      <div class="btn-row" id="t-btn2-wrap">
+        <button class="ibtn" onclick="tarski2(this)">Now apply T to the Liar sentence →</button>
+      </div>
+    </div>
+
+    <div id="tarski-resp" class="resp hidden">
+      <p><code>T("L") ↔ ¬T("L")</code> — a direct contradiction. The predicate T collapses as soon as it meets the Liar, no matter how carefully we constructed it elsewhere.</p>
+      <p class="note">Truth for a language L cannot be defined within L. To define it, you need a richer metalanguage. That metalanguage has the same problem. Truth always lives one level above the system trying to capture it.</p>
+      <p class="bridge">So truth can't be defined from inside. But can we at least <em>prove</em> everything that's true?</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       III. GÖDEL
+  ════════════════════════════════════════ -->
+  <section class="ls" id="s-godel">
+    <div class="ls-tag">III — Gödel</div>
+
+    <p>Take a formal system strong enough to do arithmetic — call it PA. Inside PA, we can construct this sentence:</p>
+
+    <div class="g-stmt">G &nbsp;:&nbsp; "This statement is not provable in PA."</div>
+
+    <p class="ls-prompt">What happens when PA tries to settle G?</p>
+
+    <div class="btn-row">
+      <button class="ibtn" id="g-prove"   onclick="godel(this,'prove')">PA proves G</button>
+      <button class="ibtn" id="g-noprove" onclick="godel(this,'noprove')">PA cannot prove G</button>
+    </div>
+
+    <div id="godel-resp" class="resp hidden">
+      <span id="godel-body"></span>
+      <p class="note" id="godel-note"></p>
+      <p class="bridge">Truth is a larger space than provability. The ceiling on what any consistent formal system can certify sits strictly below the ceiling on what is true. There are true statements that will always be out of reach — not from lack of evidence, but from the structure of formalization itself.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       IV. ALIGNMENT
+  ════════════════════════════════════════ -->
+  <section class="ls" id="s-align">
+    <div class="ls-tag">IV — Alignment</div>
+
+    <p>You are trying to build an AI system that is aligned with human values. The same walls appear.</p>
+
+    <div class="al-panels">
+      <div class="al-panel">
+        <div class="al-tag">Specifying "aligned"</div>
+        <p>You write: <em>"The system is aligned if it satisfies our values."</em> But your values include evaluating whether the system is aligned, which references alignment, which references values. The predicate wraps around itself. To fully define the target, you need a language the system cannot itself contain.</p>
+        <p class="al-wall">↳ Tarski wall. Truth cannot be defined within its own language.</p>
+      </div>
+
+      <div class="al-panel">
+        <div class="al-tag">Verifying alignment</div>
+        <p>You build a proof system to certify that the AI is aligned. There will be alignment properties — true ones — that your verification system cannot prove. Not because the evidence is missing. Because formal systems have ceilings, and the ceiling is below the full space of what is true about the system.</p>
+        <p class="al-wall">↳ Gödel wall. Provability is a strict subset of truth.</p>
+      </div>
+
+      <div class="al-panel">
+        <div class="al-tag">Optimizing for a proxy</div>
+        <p>You cannot fully specify "aligned," so you optimize for something measurable. The proxy was a good measure. After optimization it is not — the act of optimizing dissolved the correspondence between the measure and what it was meant to track. The target moved as you approached it.</p>
+        <p class="al-wall">↳ New wall. Same structure. The map is still being drawn here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       MAP
+  ════════════════════════════════════════ -->
+  <div class="map-section">
+    <div class="map-tag">The map so far</div>
+
+    <div class="map-wrap">
+
+      <div class="map-zone map-zone-can">
+        <div class="mz-label">Can</div>
+        <div class="mz-nodes">
+          <div class="mnode mnode-can">
+            recursion
+            <sub>self-ref that works</sub>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-zone map-zone-cant">
+        <div class="mz-label">Can't</div>
+        <div class="mz-nodes">
+          <div class="mnode mnode-cant">
+            Liar
+            <sub>truth collapses</sub>
+          </div>
+          <span class="marrow">→</span>
+          <div class="mnode mnode-cant">
+            Tarski
+            <sub>undefinability</sub>
+          </div>
+          <span class="marrow">→</span>
+          <div class="mnode mnode-cant">
+            Gödel
+            <sub>incompleteness</sub>
+          </div>
+          <span class="marrow">→</span>
+          <div class="mnode mnode-align">
+            alignment
+            <sub>open frontier</sub>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-zone map-zone-else">
+        <div class="mz-label">Else</div>
+        <span class="mz-q">?</span>
+      </div>
+
+    </div>
+
+    <p class="map-note">The arrow through the CAN'T region is a sequence, not three separate results. Each wall is the same move one level deeper. The ELSE region is not empty — it is unmapped. The alignment nodes sit at its edge.</p>
+  </div>
+
+</div>
+
+<script>
+function disablePair(a, b) {
+  a.disabled = true;
+  b.disabled = true;
+}
+
+function show(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
+
+// ── I. Liar ───────────────────────────────────
+function liar(btn, val) {
+  var other = document.getElementById(val === 'true' ? 'l-f' : 'l-t');
+  btn.classList.add('chosen');
+  btn.disabled = true;
+  other.disabled = true;
+
+  var body = document.getElementById('liar-body');
+  if (val === 'true') {
+    body.textContent = 'If the sentence is true, then what it says is the case: it is false. Contradiction.';
+  } else {
+    body.textContent = 'If the sentence is false, then what it says is not the case: it is not false, so it is true. Contradiction.';
+  }
+  show('liar-resp');
+}
+
+// ── II. Tarski ────────────────────────────────
+function tarski1(btn) {
+  btn.disabled = true;
+  show('t-table');
+}
+
+function tarski2(btn) {
+  btn.style.display = 'none';
+  document.getElementById('lrow').classList.remove('hidden');
+  show('tarski-resp');
+}
+
+// ── III. Gödel ────────────────────────────────
+function godel(btn, val) {
+  var other = document.getElementById(val === 'prove' ? 'g-noprove' : 'g-prove');
+  btn.classList.add('chosen');
+  btn.disabled = true;
+  other.disabled = true;
+
+  var body = document.getElementById('godel-body');
+  var note = document.getElementById('godel-note');
+
+  if (val === 'prove') {
+    body.innerHTML = 'If PA proves G, then G is provable in PA. But G asserts it is <em>not</em> provable in PA — so PA just proved something false. A consistent system cannot do that.';
+    note.textContent = 'A consistent PA cannot prove G. So G is unprovable — which means G is true.';
+  } else {
+    body.innerHTML = 'If PA cannot prove G, then G\'s claim is correct: it really is not provable. That makes G <em>true</em>. PA has left a true statement unreachable.';
+    note.textContent = 'If PA is consistent, it is incomplete. There are true statements it cannot certify.';
+  }
+  show('godel-resp');
+}
+</script>
