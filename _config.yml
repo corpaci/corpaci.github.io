@@ -1,4 +1,7 @@
 excerpt_separator: "<!--more-->"
+
+exclude:
+  - sr-test.html
 markdown: kramdown
 
 name: Luiza Corpaci

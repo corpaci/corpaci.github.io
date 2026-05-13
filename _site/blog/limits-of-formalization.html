@@ -1,55 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
-  <link href="https://corpaci.com/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://corpaci.com/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-05-13T14:54:44+03:00</updated>
-  <id>https://corpaci.com/feed.xml</id>
-  <title type="html">Luiza Corpaci</title>
-  <subtitle>AI engineer at AMD. Research at the intersection of formal verification, interpretability, category theory, and AI safety.</subtitle>
-  
-  
-    <entry xml:lang="en">
-      <title type="html">Limits</title>
-      <link href="https://corpaci.com/blog/limits" rel="alternate" type="text/html" title="Limits" />
-      <published>2026-05-13T00:00:00+03:00</published>
-      <updated>2026-05-13T14:47:52+03:00</updated>
-      <id>https://corpaci.com/blog/limits</id>
-      <content type="html" xml:base="https://corpaci.com/blog/limits"><![CDATA[<p>Three results. One move.</p>
+<!DOCTYPE html>
+<html lang="en" data-theme="day">
 
-<p>The Liar collapses truth. Tarski’s theorem formalizes why. Gödel shows that even if you give up on defining truth, you still can’t prove everything that’s true. Different names, different domains — the same diagonal structure underneath.</p>
+<head>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark')  { saved = 'night'; localStorage.setItem('theme', 'night'); }
+      if (saved === 'light') { saved = 'day';   localStorage.setItem('theme', 'day');   }
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+      document.documentElement.setAttribute('data-theme', saved || preferred);
+    })();
+  </script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<p>The alignment problems look the same from inside. Not metaphorically. Structurally: specifying “aligned” wraps around itself the way a truth predicate does. Verifying alignment hits the same ceiling provability does. Optimizing for a proxy of good dissolves the proxy.</p>
+<meta name="keywords" content="AI safety, formal verification, interpretability, hardware verification, category theory, persistent homology, LLM, machine learning, AI engineering">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>My understanding on ((the limits of) formalizations for) AI Safety | Luiza Corpaci</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="My understanding on ((the limits of) formalizations for) AI Safety" />
+<meta name="author" content="Luiza Corpaci" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="The Liar, Tarski, Gödel, and what they mean for alignment. Translator, simulator, theometer — three positions on what formal systems can honestly claim." />
+<meta property="og:description" content="The Liar, Tarski, Gödel, and what they mean for alignment. Translator, simulator, theometer — three positions on what formal systems can honestly claim." />
+<link rel="canonical" href="https://corpaci.com/blog/limits-of-formalization" />
+<meta property="og:url" content="https://corpaci.com/blog/limits-of-formalization" />
+<meta property="og:site_name" content="Luiza Corpaci" />
+<meta property="og:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-13T00:00:00+03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://corpaci.com/apple-touch-icon.png" />
+<meta property="twitter:title" content="My understanding on ((the limits of) formalizations for) AI Safety" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Luiza Corpaci"},"dateModified":"2026-05-13T14:53:53+03:00","datePublished":"2026-05-13T00:00:00+03:00","description":"The Liar, Tarski, Gödel, and what they mean for alignment. Translator, simulator, theometer — three positions on what formal systems can honestly claim.","headline":"My understanding on ((the limits of) formalizations for) AI Safety","image":"https://corpaci.com/apple-touch-icon.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://corpaci.com/blog/limits-of-formalization"},"url":"https://corpaci.com/blog/limits-of-formalization"}</script>
+<!-- End Jekyll SEO tag -->
 
-<p>The sequence runs from language to logic to computation to values. Each step is the same wall, one level deeper.</p>
 
-<p><a href="/limits/">Work through it interactively →</a></p>]]></content>
-      <author>
-        <name>Luiza Corpaci</name>
-      </author>
-      
-      
-        <category term="formal-methods" />
-      
-        <category term="ai-safety" />
-      
-        <category term="alignment" />
-      
-        <category term="interpretability" />
-      
-      
-      
-        <summary type="html"><![CDATA[The Liar, Tarski, Gödel — three results, one move. And where alignment sits in that space.]]></summary>
-      
-    </entry>
-  
-    <entry xml:lang="en">
-      <title type="html">My understanding on ((the limits of) formalizations for) AI Safety</title>
-      <link href="https://corpaci.com/blog/limits-of-formalization" rel="alternate" type="text/html" title="My understanding on ((the limits of) formalizations for) AI Safety" />
-      <published>2026-05-13T00:00:00+03:00</published>
-      <updated>2026-05-13T14:53:53+03:00</updated>
-      <id>https://corpaci.com/blog/limits-of-formalization</id>
-      <content type="html" xml:base="https://corpaci.com/blog/limits-of-formalization"><![CDATA[<p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/img/favicon.ico">
+
+<link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Luiza Corpaci" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\[', right: '\\]', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ]
+  });"></script>
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css"/>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand" href="/">Luiza Corpaci</a>
+    <div class="nav-links">
+      <a class="nav-link" href="/about/">About</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">◐</button>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div class="post-layout">
+  <aside class="toc-sidebar" id="toc-sidebar" aria-label="Table of contents">
+    <nav class="toc-nav"></nav>
+  </aside>
+  <article class="post">
+    <header class="post-header mb-4">
+      <h1 class="post-title">My understanding on ((the limits of) formalizations for) AI Safety</h1>
+      <div class="post-meta">
+        <time class="entry_date">May 13, 2026</time>
+        
+        <span class="post-tags">
+          
+          <a href="/blog/tags/#formal-methods" class="tag-badge">formal-methods</a>
+          
+          <a href="/blog/tags/#ai-safety" class="tag-badge">ai-safety</a>
+          
+          <a href="/blog/tags/#alignment" class="tag-badge">alignment</a>
+          
+          <a href="/blog/tags/#interpretability" class="tag-badge">interpretability</a>
+          
+          <a href="/blog/tags/#formal-verification" class="tag-badge">formal-verification</a>
+          
+        </span>
+        
+      </div>
+    </header>
+    <div class="post-content">
+      <p>The limits of formalization in AI safety are structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding that limit is a prerequisite to knowing what alignment approaches can and cannot achieve.</p>
 
 <p>Towards this, I have used my ml4good project to explore them, understand the space of what’s possible and point down senseful paths for me to engage with the field. In hope this is useful to others out there (inclusive of future me that might stray away into fuzzy ideals), I’m gathering my thoughts into this post. Toggle up &amp; enjoy the ride!</p>
 
@@ -292,174 +346,165 @@ Theometer_n →  sufficient coverage for alignment verification
 
 <hr />
 
-<p><em>Feedback welcome — especially counterexamples to the theometer framing, and domains where the silence is unacceptable.</em></p>]]></content>
-      <author>
-        <name>Luiza Corpaci</name>
-      </author>
-      
-      
-        <category term="formal-methods" />
-      
-        <category term="ai-safety" />
-      
-        <category term="alignment" />
-      
-        <category term="interpretability" />
-      
-        <category term="formal-verification" />
-      
-      
-      
-        <summary type="html"><![CDATA[The Liar, Tarski, Gödel, and what they mean for alignment. Translator, simulator, theometer — three positions on what formal systems can honestly claim.]]></summary>
-      
-    </entry>
-  
-    <entry xml:lang="en">
-      <title type="html">What formalisms are good for defining good?</title>
-      <link href="https://corpaci.com/blog/good-formalisms-for-good" rel="alternate" type="text/html" title="What formalisms are good for defining good?" />
-      <published>2026-04-08T00:00:00+03:00</published>
-      <updated>2026-05-11T11:57:52+03:00</updated>
-      <id>https://corpaci.com/blog/good-formalisms-for-good</id>
-      <content type="html" xml:base="https://corpaci.com/blog/good-formalisms-for-good"><![CDATA[<p>Claim: We want a formalism for “good” that can be used in AI Alignment.
-Ambiguity: good for whom?, good relative to what?, good on what timescale?</p>
+<p><em>Feedback welcome — especially counterexamples to the theometer framing, and domains where the silence is unacceptable.</em></p>
 
-<p>Claim: “Good” is not a single number.
-Ambiguity: what is it then?</p>
-
-<p>Claim: “Good” has structure; it’s not arbitrary. 
-Ambiguity: what kind of structure? can we find the structure that remains invariant accross all formalisms trying to capture it?</p>
-
-<p>Claim: a good question to ask next is: what operations on good must preserve good?
-Ambiguity: should we define good by its invariances rather than content? (Noether style)</p>
-
-<p>Claim: Good is not invariant.
-Ambiguity: is it covariant?</p>
-
-<p>extra question: what, in human cognition and experience, is interesting or valuable to a much more capable system? How do we make sure it encounters that early enough for it to matter?</p>]]></content>
-      <author>
-        <name>Luiza Corpaci</name>
-      </author>
-      
-      
-        <category term="good" />
-      
-        <category term="meta" />
-      
-        <category term="philosophy" />
-      
-        <category term="ai-safety" />
-      
-        <category term="alignment" />
-      
-        <category term="interpretability" />
-      
-      
-      
-        <summary type="html"><![CDATA[The nature of good; verifiable vs validatable vs good; the gap between formal rules and lived experience.]]></summary>
-      
-    </entry>
-  
-    <entry xml:lang="en">
-      <title type="html">How Does Good Feel Like?</title>
-      <link href="https://corpaci.com/blog/good-feels-like" rel="alternate" type="text/html" title="How Does Good Feel Like?" />
-      <published>2026-03-22T00:00:00+02:00</published>
-      <updated>2026-03-22T20:40:12+02:00</updated>
-      <id>https://corpaci.com/blog/how-does-good-feel-like</id>
-      <content type="html" xml:base="https://corpaci.com/blog/good-feels-like"><![CDATA[<h2 id="good-cannot-be-computed-good-can-be-recognized">Good cannot be computed. Good can be recognized.</h2>
-
-<p>Does dinner with mom feel like a <em>good</em> use of time?</p>
-
-<p>Not strategic, not productive, not efficient, nor optimal.</p>
-
-<p>Just good.</p>
-
-<p>Is it good enough to anchor whatever it is you’re doing instread against it?</p>
-
-<div class="day-only">
-  <p>Time is finite. The people we love won’t be here forever. This is an accessible truth we can (probably) agree on. <sup id="fnref:finite-time"><a href="#fn:finite-time" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
-
+    </div>
+  </article>
 </div>
+<script>
+(function() {
+  var content = document.querySelector('.post-content');
+  var nav = document.querySelector('.toc-nav');
+  if (!content || !nav) return;
 
-<div class="day-only">
-  <p>Here’s a small exercise:</p>
-</div>
+  var headings = content.querySelectorAll('h2, h3');
+  if (headings.length < 2) return;
 
-<div class="in-night in-beyond">
-  <p>Here’s a small exercise I stumbled on while going through the first question in <a href="https://www.nytimes.com/2015/02/13/style/the-36-questions-on-the-way-to-love.html">36 Questions on the Way to Love</a>:</p>
-</div>
+  var ul = document.createElement('ul');
 
-<p>Think about what you’re choosing to do today instead of dinner with someone you love.</p>
+  // "Overview" entry pointing to the top of the post
+  var overviewLi = document.createElement('li');
+  overviewLi.className = 'toc-h2';
+  var overviewA = document.createElement('a');
+  overviewA.href = '#';
+  overviewA.textContent = 'Overview';
+  overviewLi.appendChild(overviewA);
+  ul.appendChild(overviewLi);
 
-<p>Now imagine that person lives in the next town. How much would you give up to have that dinner?</p>
+  headings.forEach(function(h) {
+    if (!h.id) {
+      h.id = h.textContent.trim().toLowerCase()
+        .replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+    }
+    var li = document.createElement('li');
+    li.className = 'toc-' + h.tagName.toLowerCase();
+    var a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  nav.appendChild(ul);
 
-<p>What if they live in another country?</p>
+  // Scroll spy with IntersectionObserver
+  var links = nav.querySelectorAll('a');
+  var headingMap = {};
+  links.forEach(function(link) {
+    headingMap[link.getAttribute('href').slice(1)] = link;
+  });
 
-<p>Now imagine they’re gone entirely and you’re remembering the last dinner you didn’t have.</p>
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('toc-active'); });
+        var active = headingMap[entry.target.id];
+        if (active) active.classList.add('toc-active');
+      }
+    });
+  }, { rootMargin: '0px 0px -80% 0px' });
 
-<p>Something changes, doesn’t it? The dinner didn’t, but our ability to feel its worth did.</p>
+  headings.forEach(function(h) { observer.observe(h); });
 
-<p>Good feels like the choice we’d still make knowing the full weight of what we’re giving up on. The felt choice, not the optimized one. When we’re present at dinner, we’re not calculating opportunity costs, we’re in the moment that, when gone, we cannot recover through any adjustments of reality. Good feels like attending to what’s irreplaceable while it’s still here.</p>
+  // Activate "Overview" when scrolled above the first heading
+  var firstHeading = headings[0];
+  if (firstHeading) {
+    var topObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        links.forEach(function(l) { l.classList.remove('toc-active'); });
+        overviewA.classList.add('toc-active');
+      }
+    }, { rootMargin: '0px 0px -80% 0px' });
+    topObserver.observe(document.querySelector('.post-header'));
+  }
 
-<div class="in-night in-beyond">
+  // Set initial active state
+  overviewA.classList.add('toc-active');
+})();
+</script>
 
-  <p>Sometimes we don’t know what good feels like. It’s not uncommon for people to misread their internals. Imagine the internals of the human deciding to change the Department of Defense to Department of war (yes, it is a thing; check war.gov). I’d bet some misfiring happened there.</p>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var footnotesDiv = document.querySelector('div.footnotes');
+  if (!footnotesDiv) return;
 
-  <p>We’re working on safety-relevant problems while time runs out on our human relationships. The formalization limits apply here too; we can optimize calendars (verifiable), we can work on important problems (validatable), but we can’t prove we allocated our finite attention to what will matter when we look back from an end-of-life point in time.</p>
-</div>
+  var refs = document.querySelectorAll('sup[id^="fnref:"]');
+  var wide = window.matchMedia('(min-width: 1200px)');
 
-<p>Can we build tools that help humans make some of trade-offs better? If we had an AI that could predict E[remaining dinners with mom], would using it help us make more meanigful choices or make us more anxious?</p>
+  refs.forEach(function(ref) {
+    var id = ref.id.replace('fnref:', '');
+    var footnote = document.getElementById('fn:' + id);
+    if (!footnote) return;
 
-<div class="day-only">
-  <p>AI made idea generation nearly free, but we haven’t yet scaled how we evaluate these ideas. We can check if something works correctly, but not if it’s the right thing to build, nor if it’s the good thing to build.</p>
-</div>
+    // Clone and strip backlink
+    var clone = footnote.cloneNode(true);
+    var backlink = clone.querySelector('.reversefootnote');
+    if (backlink) backlink.remove();
 
-<div class="in-night in-beyond">
-  <p>What if the AI’s predictions were wrong?</p>
+    // Extract HTML, stripping outer <p> wrapper
+    var html = clone.innerHTML.trim();
+    html = html.replace(/^<p>/i, '').replace(/<\/p>\s*$/i, '');
+    html = html.replace(/<\/p>\s*<p>/gi, '<br><br>');
 
-  <p>What if the predictions are right but we couldn’t verify them?</p>
+    // Create sidenote
+    var sidenote = document.createElement('span');
+    sidenote.className = 'sidenote';
+    sidenote.innerHTML = '<sup class="sidenote-number">' + ref.textContent + '</sup> ' + html;
 
-  <p>What if the predictions are right but we couldn’t really tell if that’s what’s good to build in the first place?</p>
-</div>
+    // Insert after <sup> and any trailing punctuation (e.g. the "." in "well[^1].")
+    // so that punctuation doesn't get orphaned when sidenote becomes display:block
+    var insertBefore = ref.nextSibling;
+    if (insertBefore && insertBefore.nodeType === 3 && /^[.,;:)\]]/.test(insertBefore.textContent)) {
+      if (insertBefore.textContent.length > 1) {
+        insertBefore.splitText(1);
+      }
+      insertBefore = insertBefore.nextSibling;
+    }
+    ref.parentNode.insertBefore(sidenote, insertBefore);
 
-<p>Moreover, human intelligence is no longer the center of the universe. Maybe that happened this year or this decade or this century and maybe not everyone will agree as to when, but it’s here and it’s real and it fails often enough to negate its existence, but it also surprises often enough to prove its existence.</p>
+    // Click handler: toggle on narrow screens, noop on wide
+    var link = ref.querySelector('a');
+    if (link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (!wide.matches) {
+          sidenote.classList.toggle('sidenote-visible');
+        }
+      });
+    }
+  });
 
-<p>Jakob von Uexküll’s concept (1909): every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not “the world as it is,” but “the world as perceived through this body, these sensors, these purposes.”</p>
+  footnotesDiv.style.display = 'none';
+});
+</script>
 
-<div class="beyond-only">
-  <p>Jakob von Uexküll’s concept (1909) describes how every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not “the world as it is,” but “the world as perceived through this body, these sensors, these purposes.”</p>
 
-  <p>This made me think that mechanistic features might be projecting an Umwelt onto the model’s representation space. When features fracture, maybe it’s because we’re formalizing our own perceptual categories, not discovering the model’s actual Umwelt.</p>
+  </main>
 
-  <p>Can we build tools to verify accross Umwelts? What if “alignment” is trying to make AI share human Umwelt, but that’s structurally impossible, like teaching a tick to see colors?</p>
-</div>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:finite-time">
-      <p>Maybe this will not be true for all of human existence, but it seems to be a limitation of today’s experience. Until we reach whatever form of life expansion we settle on, I’ll try to deal with the feebleness of being a biological human. <a href="#fnref:finite-time" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content>
-      <author>
-        <name>Luiza Corpaci</name>
-      </author>
-      
-      
-        <category term="good" />
-      
-        <category term="meta" />
-      
-        <category term="philosophy" />
-      
-        <category term="ai-safety" />
-      
-        <category term="alignment" />
-      
-        <category term="interpretability" />
-      
-      
-      
-        <summary type="html"><![CDATA[The nature of doing good; how to live in a world where the Department of War exists; verifiable vs validatable vs good; the gap between formal rules and lived experience.]]></summary>
-      
-    </entry>
-  
-</feed>
+  <footer class="footer mt-5 py-4">
+    <div class="container footer-content">
+      <p class="footer-ethos">Grounding in relative understandings. All the way down.</p>
+      <p>&copy; 2026 Luiza Corpaci</p>
+    </div>
+  </footer>
+
+  <script>
+    var THEMES = ['day', 'night', 'spectrum'];
+    var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u273A' };
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme');
+      var idx = THEMES.indexOf(current);
+      var next = THEMES[(idx + 1) % THEMES.length];
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[next] || ICONS['day'];
+    }
+    (function() {
+      var t = document.documentElement.getAttribute('data-theme');
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = ICONS[t] || ICONS['day'];
+    })();
+  </script>
+</body>
+
+</html>
