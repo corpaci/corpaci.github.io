@@ -6,7 +6,9 @@ tags: [formal-methods, ai-safety, alignment, interpretability, formal-verificati
 description: "From Plato to grumeter optimization in one chain. What formal systems can and cannot do; and what that means for alignment."
 ---
 
-Limits of formalization appear as structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding these is a prerequisite to knowing what alignment approaches can and cannot achieve.
+<!-- Limits of formalization appear as structural consequences of self-reference, semantic undefinability, and the relational nature of correspondence. I believe that understanding these is a prerequisite to knowing what alignment approaches can and cannot achieve. -->
+
+"Can't be formalized" can meany different things depending on context. There are (in principle) logical limits like those described by Gödel and Tarski that constrain self-referential formal systems, which are different from semantic underdetermination problems where the mapping from formalism to meaning itself is underdetermined. Physics wouldn't necessarily hit those logical limits unless it embeds universal computation or self-reference.
 
 Towards this, I have used my ml4good project to explore them, understand the space of what's possible and point down senseful paths for me to engage with the field. In hope this is useful to others out there (inclusive of future me that might stray away into fuzzy ideals), I'm gathering my thoughts into this post. Toggle up & enjoy the ride!
 
@@ -16,47 +18,75 @@ Towards this, I have used my ml4good project to explore them, understand the spa
 
 Let's start with some general knowns:
 
-**Reality exists.**
-Plato's cave. The real is there, behind the shadows on the wall, even if we can't see it directly.
+**Reality exists.**[^plato]
+The real is there, behind the shadows on the wall, even if we can't measure all of it directly.
 
-**We can reach it with reason.**
-Logic extracts form from things. Aristotle set the form, Leibniz dreamed the perfect language that captures everything, Frege builds a tool precise enough to eliminate ambiguity through predicate logic.
+[^plato]: Plato, *The Republic*, Book VII. The allegory of the cave describes prisoners in a cave who mistake shadows on the wall for reality.
 
-**The real is bigger than the language.**
-Cantor scoped infinity and found that it has more than one size. Any formal system enumerates countably many truths. Reality may be uncountably rich. First gap.
+**We can reach it with reason.**[^reason]
+Logic extracts the form of things. Aristotle set the form, Leibniz idealised a perfect language that captures everything, Frege build a tool that eliminates ambiguity through predicate logic.
 
-**Self-reference breaks the language.**
-Russell: the set of all sets that don't contain themselves destroys naive formalization. Fix: stratify. Statements about things must live at a higher level than the things.
+[^reason]: Aristotle's *Organon* laid groundwork for logic. Leibniz dreamed of a *characteristica universalis*, a universal formal language. Frege's *Begriffsschrift* (1879) is considered the first work of modern logic.
 
-**Even stratified, the language is incomplete.**
-Gödel: any system powerful enough to do arithmetic contains truths it cannot prove. The ceiling is structural, not a resource problem (big claim here; will scaling laws change this?).
+**The real is bigger than the language.**[^cantor]
+Cantor scoped infinity and found that it has more than one size. Any formal system enumerates countably many truths, but reality may be uncountably rich
 
-**Truth can't be defined inside.**
-Tarski: to define truth for language L we need language L'. Always one level up. No closed loop.
+[^cantor]: Cantor's 1891 paper "Über eine elementare Frage der Mannigfaltigkeitslehre" proves that the set of real numbers is "larger" than the set of natural numbers.
 
-**Computation has the same ceiling.**
-Turing: no algorithm decides whether all programs halt. The limits of formal systems are the limits of computation.
+**Self-reference breaks the language.**[^russell]
+Russell found that the set of all sets that don't contain themselves breaks naive formalization. A solution is to stratify, as statements about things can live at a higher level than the things.
 
-**Meaning is undecidable.**
-Rice: any non-trivial semantic property of a program is undecidable. We can't read meaning off mechanism.
+[^russell]: Russell's paradox (1901), which he communicated to Frege, showed a flaw in naive set theory. The theory of types, introduced in Whitehead and Russell's *Principia Mathematica*, was one solution.
 
-**Self-trust is blocked.**
+**Even stratified, the language is incomplete.**[^godel]
+Gödel showed that any system powerful enough to do arithmetic contains truths it cannot prove. The ceiling is structural and not a resource problem (this is a big claim and makes one wonder if scaling laws will change this).
+
+[^godel]: Gödel's first incompleteness theorem, from his 1931 paper "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I."
+
+**Truth can't be defined inside.**[^tarski]
+Tarski: to define truth for language L we need language L', L' lives one level up.
+
+[^tarski]: Tarski's undefinability theorem (1936) shows that arithmetical truth cannot be defined within arithmetic itself.
+
+**Computation has the same ceiling.**[^turing]
+Turing: no algorithm decides whether all programs halt; the limits of formal systems are the limits of computation.
+
+[^turing]: The Halting Problem, proven undecidable by Alan Turing in his 1936 paper "On Computable Numbers, with an Application to the Entscheidungsproblem."
+
+**Meaning is undecidable.**[^rice]
+Rice: any non-trivial semantic property of a program is undecidable. We can't read meaning from the mechanism.
+
+[^rice]: Rice's theorem (1951) generalizes the undecidability of the Halting Problem to all non-trivial semantic properties of programs.
+
+**Self-trust is blocked.**[^lob]
 Löb: a system can trust its own reasoning only if it can trust everything. Consistent self-trust is impossible.
 
-**Translation between frameworks is underdetermined.**
+[^lob]: Löb's theorem (1955) formalizes a paradox of self-reference in formal systems. It states that if a system can prove "If I can prove P, then P is true", then it can prove P itself.
+
+**Translation between frameworks is underdetermined.**[^quine]
 Quine: two theories agreeing on all evidence may mean different things. No fact settles which correspondence is correct.
 
-**Meaning is use.**
+[^quine]: The underdetermination of theory by evidence, a central theme in W.V.O. Quine's work, notably in "Two Dogmas of Empiricism" (1951) and *Word and Object* (1960).
+
+**Meaning is use.**[^wittgenstein]
 Wittgenstein: there is no internal fact determining which rule we follow, as meaning lives in practice and not in the symbol.
 
-**No past fact fixes future application.**
+[^wittgenstein]: A central idea in Ludwig Wittgenstein's later philosophy, particularly in his *Philosophical Investigations* (1953).
+
+**No past fact fixes future application.**[^kripke]
 Kripke: nothing about how we used a rule before determines how to apply it next. 
 
-**These are not identical results. They rhyme.**
+[^kripke]: Saul Kripke's skeptical paradox concerning rule-following, presented in *Wittgenstein on Rules and Private Language* (1982).
+
+**These are not identical results. They rhyme.**[^lawvere]
 Lawvere unifies the diagonal family specifically: Cantor, Gödel, Tarski, Turing, Löb ; all instances of the same categorical structure, any system with sufficient self-expressive power generates fixed points that defeat complete specification. Quine, Wittgenstein, Kripke are a different cluster ; semantic underdetermination, not diagonal self-reference. They share a warning: no sufficiently expressive system gets a final, self-contained grip on truth, meaning, and its own correctness.
 
-**Phenomenal experience is outside the chain entirely.**
+[^lawvere]: F. William Lawvere's fixed-point theorem (1969) provides a categorical generalization of many diagonal arguments, including those of Cantor, Russell, and Gödel.
+
+**Phenomenal experience is outside the chain entirely.**[^chalmers]
 Chalmers: no formal description captures what it is like to be the system. A fourth layer, left aside.
+
+[^chalmers]: The "hard problem of consciousness," famously formulated by David Chalmers, for example in his 1996 book *The Conscious Mind*.
 
 ---
 
