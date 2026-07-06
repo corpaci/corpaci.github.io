@@ -6,7 +6,7 @@ tags: [good, meta, philosophy, ai-safety, alignment, interpretability]
 description: "The nature of good; verifiable vs validatable vs good; the gap between formal rules and lived experience."
 ---
 
-
+**Status:** open questions / research notes, not a finished argument.
 
 Claim: We want a formalism for "good" that can be used in AI Alignment.
 Ambiguity: good for whom?, good relative to what?, good on what timescale?
