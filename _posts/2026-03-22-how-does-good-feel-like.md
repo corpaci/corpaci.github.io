@@ -15,7 +15,7 @@ Not strategic, not productive, not efficient, nor optimal.
 
 Just good.
 
-Is it good enough to anchor whatever it is you're doing instread against it?
+Is it good enough to anchor whatever it is you're doing instead against it?
 
 <div class="day-only" markdown="1">
 Time is finite. The people we love won't be here forever. This is an accessible truth we can (probably) agree on. [^finite-time]
@@ -43,7 +43,7 @@ Now imagine they're gone entirely and you're remembering the last dinner you did
 
 Something changes, doesn't it? The dinner didn't, but our ability to feel its worth did.
 
-Good feels like the choice we'd still make knowing the full weight of what we're giving up on. The felt choice, not the optimized one. When we're present at dinner, we're not calculating opportunity costs, we're in the moment that, when gone, we cannot recover through any adjustments of reality. Good feels like attending to what's irreplaceable while it's still here.
+Good feels like the choice we'd still make knowing the full weight of what we're giving up on. The felt choice, not the optimized one. When we're present at dinner, we're not calculating opportunity costs; we're in the moment that, when gone, we cannot recover through any adjustment of reality. Good feels like attending to what's irreplaceable while it's still here.
 
 <div class="in-night in-beyond" markdown="1">
 
@@ -53,7 +53,7 @@ We're working on safety-relevant problems while time runs out on our human relat
 </div>
 
 
-Can we build tools that help humans make some of trade-offs better? If we had an AI that could predict E[remaining dinners with mom], would using it help us make more meanigful choices or make us more anxious? 
+Can we build tools that help humans make some of these trade-offs better? If we had an AI that could predict E[remaining dinners with mom], would using it help us make more meaningful choices or make us more anxious? 
 
 <div class="day-only" markdown="1">
 AI made idea generation nearly free, but we haven't yet scaled how we evaluate these ideas. We can check if something works correctly, but not if it's the right thing to build, nor if it's the good thing to build.
@@ -73,9 +73,7 @@ Moreover, human intelligence is no longer the center of the universe. Maybe that
 Jakob von Uexküll's concept (1909): every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not "the world as it is," but "the world as perceived through this body, these sensors, these purposes."
 
 <div class="beyond-only" markdown="1">
-Jakob von Uexküll's concept (1909) describes how every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not "the world as it is," but "the world as perceived through this body, these sensors, these purposes."
-
 This made me think that mechanistic features might be projecting an Umwelt onto the model's representation space. When features fracture, maybe it's because we're formalizing our own perceptual categories, not discovering the model's actual Umwelt.
 
-Can we build tools to verify accross Umwelts? What if "alignment" is trying to make AI share human Umwelt, but that's structurally impossible, like teaching a tick to see colors?
+Can we build tools to verify across Umwelts? What if "alignment" is trying to make AI share human Umwelt, but that's structurally impossible, like teaching a tick to see colors?
 </div>

@@ -15,7 +15,7 @@ Claim: "Good" is not a single number.
 Ambiguity: what is it then?
 
 Claim: "Good" has structure; it's not arbitrary. 
-Ambiguity: what kind of structure? can we find the structure that remains invariant accross all formalisms trying to capture it?
+Ambiguity: what kind of structure? can we find the structure that remains invariant across all formalisms trying to capture it?
 
 Claim: a good question to ask next is: what operations on good must preserve good?
 Ambiguity: should we define good by its invariances rather than content? (Noether style)
