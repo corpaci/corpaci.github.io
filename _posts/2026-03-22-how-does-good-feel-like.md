@@ -47,7 +47,7 @@ Good feels like the choice we'd still make knowing the full weight of what we're
 
 <div class="in-night in-beyond" markdown="1">
 
-Sometimes we don't know what good feels like. It's not uncommon for people to misread their internals. Imagine the internals of the human deciding to change the Department of Defense to Department of war (yes, it is a thing; check war.gov). I'd bet some misfiring happened there. 
+Sometimes we don't know what good feels like. It's not uncommon for people to misread their internals.
 
 We're working on safety-relevant problems while time runs out on our human relationships. The formalization limits apply here too; we can optimize calendars (verifiable), we can work on important problems (validatable), but we can't prove we allocated our finite attention to what will matter when we look back from an end-of-life point in time.
 </div>
@@ -68,7 +68,7 @@ What if the predictions are right but we couldn't really tell if that's what's g
 </div>
 
 
-Moreover, human intelligence is no longer the center of the universe. Maybe that happened this year or this decade or this century and maybe not everyone will agree as to when, but it's here and it's real and it fails often enough to negate its existence, but it also surprises often enough to prove its existence.
+Moreover, human intelligence is no longer the center of the universe. Maybe that happened this year or this decade or this century and maybe not everyone will agree as to when, but it's here and it's real, and its competence is uneven in ways introspection doesn't track: it fails where we'd swear it couldn't, and surprises us where we'd swear it wouldn't.
 
 Jakob von Uexküll's concept (1909): every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not "the world as it is," but "the world as perceived through this body, these sensors, these purposes."
 
