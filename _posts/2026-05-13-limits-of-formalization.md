@@ -16,6 +16,8 @@ night adds the precise results under each beat ; spectrum adds the leaps beyond 
 Rule for color: it may only contain a step of inference past what dark established, never just "more detail."
 -->
 
+> **Epistemic status.** Exploratory synthesis, not a proof chain. Confidence is highest in the bounded-checker (grumeter) proposal ; it has a concrete mechanism and a known witness (vacuity checking). Confidence is lowest in the philosophical unification of §1 ; treat Cantor-to-Lawvere as a suggestive pattern across related results, not one theorem. Counterexamples wanted, especially to the grumeter framing.
+
 Physics is going into Lean. Whole tracts of mathematics are mechanized and machine-checked. Stand close enough and it looks like the old dream is finally arriving: reality captured in symbols, every claim decidable by a machine. So it is worth asking plainly ; what can be formalized, and what can't?
 
 The short answer, the one this whole post circles: **formalization never closes the gap between symbol and world. It moves it.** Every time you make something checkable, the uncheckable part does not vanish ; it relocates to a seam you did not formalize.
@@ -123,6 +125,12 @@ Chalmers: no formal description captures what it is like to be the system. A fou
 <div class="in-beyond" markdown="1">
 
 Read the chain again and notice it has two families, not one. Cantor–Gödel–Tarski–Turing–Löb–Lawvere are *diagonal* failures: a system rich enough to talk about itself manufactures a sentence that escapes it. Quine–Wittgenstein–Kripke are *semantic* failures: the symbols never fix their own interpretation, however rich the system gets. This is not taxonomy for its own sake. The two clusters have different escape routes ; you can shrink a system below the diagonal threshold, but you cannot shrink your way out of underdetermination ; and knowing which one is biting tells you which move is even available.
+
+</div>
+
+<div class="in-night in-beyond" markdown="1">
+
+A third family belongs in this alignment discussion and is not either of the first two: Goodhart's law, proxy drift, reward hacking ; the empirical fact that a measurable proxy stops tracking the thing it proxies for once you optimize against it. This is not a diagonal failure and not underdetermination. It is an observed regularity in optimization, not a theorem with a proof. Keep the three apart: diagonal (necessary, proven), underdetermination (necessary, proven), proxy drift (contingent, observed). No one has exhibited a specific alignment-relevant property that is unprovable for Gödelian reasons ; the ladder above motivates humility about what formalization reaches, not a proof that alignment is formally impossible.
 
 </div>
 
@@ -266,7 +274,7 @@ The bet I would place: there is a nameable fragment ; *physically reasonable and
 
 Now the alignment payoff. We want a machine that reports reality honestly. There are two natural ways to build the reporter. One reads its own internal world-model and tries to speak the facts it finds there ; call it the **translator**. The other predicts what a human would believe given the same evidence ; the **simulator**. On every example you can check, they agree. Training rewards both equally. Nothing in the training signal tells them apart ; and one of them is honest while the other only looks it. That is the problem in a sentence.
 
-There is a third option that gives up universality to buy honesty: the **grumeter**. It works only inside a bounded domain it can actually check, it says so explicitly, and outside that domain it stays silent rather than guessing. Not "answer everything, sometimes wrong" but "answer narrowly, never bluff, and mark the edge." The silence is the move: outside its scope the grumeter does not guess and does not redirect to human belief ; it marks the boundary and stops.
+There is a third option that gives up universality to buy honesty: the **grumeter**. A grumeter is a bounded semantic checker: it makes correspondence claims only inside a declared formal domain, verifies them against an external checker, and returns "out of scope" rather than guessing when correspondence can't be grounded. (A concrete witness that such fragments exist: vacuity checking in hardware verification, where a check exists precisely to catch a property that passed for the wrong reason ; more on that below.) Not "answer everything, sometimes wrong" but "answer narrowly, never bluff, and mark the edge." The silence is the move: outside its scope the grumeter does not guess and does not redirect to human belief ; it marks the boundary and stops.
 
 <div class="in-night in-beyond" markdown="1">
 
