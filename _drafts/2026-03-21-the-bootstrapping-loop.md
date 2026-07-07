@@ -6,29 +6,6 @@ tags: [formal-methods, ai-safety, interpretability]
 description: "Leo de Moura's insight about implementation-as-spec, connected to fixed-point theorems and hardware verification."
 ---
 
-<div class="night-only" markdown="1">
-
-Leo de Moura's key insight, applied to the Lean prover: the best spec for a second implementation is a first implementation. Not because the first implementation is correct, but because it has committed to specific answers for every ambiguity the original spec left open.
-
-<!--more-->
-
-This sounds circular. It is circular ; deliberately. The loop is: write a spec, implement it, use the implementation as a spec for a second implementation, compare the two. Each pass through the loop collapses ambiguities. The spec becomes more precise not because you added more words, but because you were forced to make choices.
-
-The fixed-point theorem framing: you're iterating a function $f: \text{Spec} \to \text{Impl}$ followed by $g: \text{Impl} \to \text{Spec}$ (by treating the implementation as the next spec). The composition $g \circ f$ is a map from specs to specs. A fixed point of $g \circ f$ is a spec that survives one full cycle ; implementation plus re-abstraction ; without changing. In practice, you don't need a true fixed point; you need convergence to a spec that's precise enough for your purpose.
-
-**When does the loop diverge?** Three cases:
-1. The LLM's implementation choices are inconsistent across runs (noise dominates signal).
-2. The spec contains genuine semantic ambiguity that maps to multiple distinct implementations, none of which dominates.
-3. The implementation language is strictly less expressive than the spec language ; some semantic content can't be compressed into the implementation at all, and is lost at each iteration.
-
-Case 3 is the Chaitin case: there exists content in the spec whose Kolmogorov complexity exceeds what the implementation language can certifiably compress. The bootstrapping loop doesn't converge ; it orbits.
-
-This is the structure underlying LLM-to-formal-assertion pipelines in hardware verification. Each LLM call is a compression step. The interesting question is: which errors survive multiple loops, and why?
-
-</div>
-
-<div class="day-only" markdown="1">
-
 Here's a strange trick for writing better recipes: cook from the recipe, then write a new recipe based on what you actually did.
 
 <!--more-->
@@ -46,5 +23,18 @@ Hardware verification is a natural home for this idea: an AI reads the English d
 The loop doesn't always converge. Sometimes the original spec contains a genuine ambiguity ; something that could legitimately be implemented two different ways ; and the loop alternates between them forever. Sometimes the AI's choices are just inconsistent from run to run. Sometimes the formalism isn't expressive enough to capture what the spec meant at all.
 
 Each failure mode is informative. The bootstrapping loop is a probe for where meaning leaks out.
+
+<div class="in-night in-beyond" markdown="1">
+
+The fixed-point theorem framing: you're iterating a function $f: \text{Spec} \to \text{Impl}$ followed by $g: \text{Impl} \to \text{Spec}$ (by treating the implementation as the next spec). The composition $g \circ f$ is a map from specs to specs. A fixed point of $g \circ f$ is a spec that survives one full cycle ; implementation plus re-abstraction ; without changing. In practice, you don't need a true fixed point; you need convergence to a spec that's precise enough for your purpose.
+
+**When does the loop diverge, formally?** Three cases:
+1. The LLM's implementation choices are inconsistent across runs (noise dominates signal).
+2. The spec contains genuine semantic ambiguity that maps to multiple distinct implementations, none of which dominates.
+3. The implementation language is strictly less expressive than the spec language ; some semantic content can't be compressed into the implementation at all, and is lost at each iteration.
+
+Case 3 is the Chaitin case: there exists content in the spec whose Kolmogorov complexity exceeds what the implementation language can certifiably compress. The bootstrapping loop doesn't converge ; it orbits.
+
+Each LLM call in the hardware-verification pipeline is a compression step in exactly this sense. The interesting question is: which errors survive multiple loops, and why?
 
 </div>
