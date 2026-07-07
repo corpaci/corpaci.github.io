@@ -17,20 +17,14 @@ Just good.
 
 Is it good enough to anchor whatever it is you're doing instead against it?
 
-<div class="day-only" markdown="1">
 Time is finite. The people we love won't be here forever. This is an accessible truth we can (probably) agree on. [^finite-time]
 
 [^finite-time]: Maybe this will not be true for all of human existence, but it seems to be a limitation of today's experience. Until we reach whatever form of life expansion we settle on, I'll try to deal with the feebleness of being a biological human.
 
-</div>
-
-
-<div class="day-only" markdown="1">
 Here's a small exercise:
-</div>
 
 <div class="in-night in-beyond" markdown="1">
-Here's a small exercise I stumbled on while going through the first question in [36 Questions on the Way to Love](https://www.nytimes.com/2015/02/13/style/the-36-questions-on-the-way-to-love.html): 
+(I stumbled on it while going through the first question in [36 Questions on the Way to Love](https://www.nytimes.com/2015/02/13/style/the-36-questions-on-the-way-to-love.html).)
 </div>
 
 Think about what you're choosing to do today instead of dinner with someone you love. 
@@ -55,9 +49,7 @@ We're working on safety-relevant problems while time runs out on our human relat
 
 Can we build tools that help humans make some of these trade-offs better? If we had an AI that could predict E[remaining dinners with mom], would using it help us make more meaningful choices or make us more anxious? 
 
-<div class="day-only" markdown="1">
 AI made idea generation nearly free, but we haven't yet scaled how we evaluate these ideas. We can check if something works correctly, but not if it's the right thing to build, nor if it's the good thing to build.
-</div>
 
 <div class="in-night in-beyond" markdown="1">
 What if the AI's predictions were wrong? 
