@@ -9,9 +9,21 @@ hide_title: true
 
 ## <span class="day-heading"> AI hardware verification engineer by day</span>
 
+</div>
+
+<div class="night-only" markdown="1">
+
+## <span class="night-heading"> Wanderer by night.</span>
+
+</div>
+
+<div class="beyond-only" markdown="1">
+## <span class="beyond-heading"> Wonderer in the beyond.</span>
+</div>
+
 My job is making sure AI understands how to make chips work correctly.
 
-<!-- 
+<!--
 On the side, I do research. The question I keep coming back to is: *when you try to write rules for something, what gets lost?* A recipe can tell you the steps, but it can't tell you when the dough feels right. A test suite can check a thousand cases but can't guarantee the thousand-and-first. I'm interested in that gap, the edge where formal rules run out.
 
 In engineering, there are two questions: "Does it work correctly?" and "Is it the right thing to build?" These sound simple, but the gap between them turns out to be one of the deepest problems in philosophy, mathematics, and AI safety. Most of my work lives in that gap between validation and verification.[^vv-def]
@@ -22,11 +34,7 @@ I studied engineering in Bucharest, designed chips at Marvell, did math and comp
 
 I won Best Paper at ICTSS 2024. I run reading groups on topology and category theory, and I'm building towards a framework called **Mutual Thriving** for how groups can reason well together with Johannes and Marian. -->
 
-</div>
-
-<div class="night-only" markdown="1">
-
-## <span class="night-heading"> Wanderer by night.</span>
+<div class="in-night in-beyond" markdown="1">
 
 I explore undefinability, incompleteness and incompressibility in math, AI, and philosophy.
 
@@ -48,8 +56,7 @@ Finishing MSc Data Science. Applying PhD programs and MATS / Apollo Research / A
 
 </div>
 
-<div class="beyond-only" markdown="1">
-## <span class="beyond-heading"> Wonderer in the beyond.</span>
+<div class="in-beyond" markdown="1">
 
 I wonder about wonders.
 
