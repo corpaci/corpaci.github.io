@@ -64,7 +64,7 @@ Moreover, human intelligence is no longer the center of the universe. Maybe that
 
 Jakob von Uexküll's concept (1909): every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not "the world as it is," but "the world as perceived through this body, these sensors, these purposes."
 
-<div class="beyond-only" markdown="1">
+<div class="in-beyond" markdown="1">
 This made me think that mechanistic features might be projecting an Umwelt onto the model's representation space. When features fracture, maybe it's because we're formalizing our own perceptual categories, not discovering the model's actual Umwelt.
 
 Can we build tools to verify across Umwelts? What if "alignment" is trying to make AI share human Umwelt, but that's structurally impossible, like teaching a tick to see colors?
