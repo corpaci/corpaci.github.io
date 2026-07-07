@@ -53,6 +53,17 @@ description: "Short description for SEO/feeds"
 
 **Key components**: tag badges (`.tag-badge`), research thread cards (`.research-thread`), page headers (`.page-header`), home identity (`.home-identity`), tag filter (`.tag-filter`), footer ethos (`.footer-ethos`).
 
+### Theme layering (day / night / spectrum)
+
+The theme toggle cycles `data-theme` through `day` → `night` → `spectrum` (light / dark / color). Content visibility is additive, not exclusive: **light ⊆ dark ⊆ color** — switching to a deeper theme should only ever add content, never hide or replace it.
+
+- Plain text (no wrapper) = visible in all three themes. This is the base layer, complete on its own for a day reader.
+- `<div class="in-night in-beyond">` = visible in night + spectrum. Adds technical depth on top of the base; if it would just repeat a base sentence, trim the repeat and keep only what's new.
+- `<div class="in-beyond">` alone = visible in spectrum only. Adds one further inference step past the dark layer, never just more detail.
+- **Exception:** a heading that serves as a per-theme identity frame (e.g. "AI hardware verification engineer" / "Wanderer by night." / "Wonderer in the beyond.") may stay wrapped in the older exclusive `day-only` / `night-only` / `beyond-only` classes — swapping a title isn't hiding information, only body prose must be strictly additive.
+
+Avoid `day-only`/`night-only` (without a base plain-text layer) for body content — a page with only those two classes and no plain text renders a blank body in spectrum mode.
+
 ### Includes
 
 - `head.html`: Meta tags, fonts, KaTeX (math rendering with `$...$`, `$$...$$`, `\(...\)`, `\[...\]` delimiters)
