@@ -10,20 +10,19 @@ bundle exec jekyll serve    # Local dev server (http://localhost:4000)
 bundle exec jekyll build    # Production build (output: _site/)
 ```
 
-Requires Ruby 3.3+ and Bundler. CI uses `bundle exec jekyll build --baseurl ""` with `JEKYLL_ENV=production`.
+Requires Ruby 3.3+ and Bundler.
 
 ## Architecture
 
-Jekyll 4.3 research portfolio + blog hosted on GitHub Pages. Deploys automatically on push to `main` via `.github/workflows/jekyll.yml`.
+Jekyll 4.3 research portfolio + blog hosted on GitHub Pages, custom domain `corpaci.com` (see `CNAME`). There is no `.github/workflows/` in this repo — no custom Actions build was found. Deployment on push to `main` almost certainly relies on GitHub Pages' own built-in Jekyll build rather than a committed workflow; verify current Pages settings on GitHub before assuming otherwise. `_site/` is gitignored and not part of deployment.
 
 ### Site Structure
 
-- **Home** (`/index.html`): Identity statement + recent posts with tag badges
+- **Home** (`/index.html`): Identity statement + full post archive grouped by month (there is no separate `/blog/` page — this is it)
 - **Research** (`/research.md`): Active research threads + publications
-- **Blog** (`/blog.md`): Full post archive with client-side tag filtering
-- **About** (`/about.md`): Narrative biography
-- **Connect** (`/connect.md`): Social links and communities
-- **Tags** (`/blog/tags.html`): Posts grouped by tag
+- **About** (`/about.md`): Narrative bio, current work, and a contact section (`#contact`)
+
+`/blog.md`, `/connect.md`, and `/blog/tags.html` do not exist in this repo despite earlier versions of this doc claiming they did — don't assume they're there.
 
 ### Post Front Matter
 
@@ -80,4 +79,4 @@ Avoid `day-only`/`night-only` (without a base plain-text layer) for body content
 - Default `og:image` set to `/apple-touch-icon.png` via front matter defaults in `_config.yml`
 - Favicons: `/img/favicon.ico`, `/favicon-32x32.png`, `/favicon-16x16.png`, `/apple-touch-icon.png`
 - `404.html` provides a custom not-found page for GitHub Pages
-- CI checkout uses `fetch-depth: 0` (full git history) so `jekyll-last-modified-at` can read commit dates
+- `jekyll-last-modified-at` needs full git history to read commit dates; if a build ever runs with a shallow checkout, `<lastmod>` will silently fall back to build time
