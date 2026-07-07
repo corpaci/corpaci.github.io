@@ -5,9 +5,15 @@ subtitle: What measurement can and cannot reveal about neural networks.
 permalink: /interpretability-grounding/
 ---
 
-<div class="night-only" markdown="1">
+A system's outputs encode the structure of the measuring system itself. This is the core idea I call Grounding Relative Understanding (GRU): when you probe a neural network with a measurement tool, what you find is partly a property of the network and partly a property of the tool.
 
-A system's outputs encode the structure of the measuring system itself. This principle ; Grounding Relative Understanding (GRU) ; is the interpretability consequence of the ICTSS 2024 result on spectral metrics.
+This matters for interpretability ; the field that tries to understand what's happening inside AI systems. Most interpretability results are reported as if the measurement tool were transparent. GRU says it isn't. The "features" you find in a model are always features of the (model + probe) pair.
+
+The applied question: do the internal features of a neural network remain stable when the network is operating in ambiguous situations it wasn't explicitly trained on? If not, that's precisely where interpretability breaks down ; and where we most need it to work.
+
+<div class="in-night in-beyond" markdown="1">
+
+This principle ; Grounding Relative Understanding (GRU) ; is the interpretability consequence of the ICTSS 2024 result on spectral metrics.
 
 **The Fisher Information connection.** The information a measurement carries about a parameter is bounded by the geometry of the measurement apparatus: $I(\theta; X) \leq I(\theta; f(X))$ with equality iff $f$ is sufficient. Applied to interpretability: the features you extract from a model are a joint product of the model *and* the probe. Your probing method is not neutral. The features you find tell you about the model filtered through the probe's geometry ; and most of the field is not being careful about this.
 
@@ -29,15 +35,5 @@ This is not a bug in interpretability methodology. It's the methodology's fundam
 10. Connect stability to the endogenous precision-weighting question from the active inference thread.
 11. Formalize GRU in terms of sufficient statistics and test whether "more sufficient" probes give more stable features.
 12. Draft: a probe-relative feature report format for interpretability papers.
-
-</div>
-
-<div class="day-only" markdown="1">
-
-A system's outputs encode the structure of the measuring system itself. This is the core idea I call Grounding Relative Understanding (GRU): when you probe a neural network with a measurement tool, what you find is partly a property of the network and partly a property of the tool.
-
-This matters for interpretability ; the field that tries to understand what's happening inside AI systems. Most interpretability results are reported as if the measurement tool were transparent. GRU says it isn't. The "features" you find in a model are always features of the (model + probe) pair.
-
-The applied question: do the internal features of a neural network remain stable when the network is operating in ambiguous situations it wasn't explicitly trained on? If not, that's precisely where interpretability breaks down ; and where we most need it to work.
 
 </div>
