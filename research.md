@@ -9,7 +9,7 @@ I study semantic faithfulness in AI systems: when intent is translated into spec
 
 ## Active Threads
 
-<div class="research-thread" id="semantic-faithfulness">
+<div class="research-thread" id="semantic-faithfulness" markdown="1">
 <div class="thread-status">Active · Research</div>
 
 ### Semantic Faithfulness Across Representations
@@ -32,7 +32,7 @@ AI systems translate intent into plans, specs, code, tests, proofs, and tool cal
 
 </div>
 
-<div class="research-thread" id="limits-to-formalization">
+<div class="research-thread" id="limits-to-formalization" markdown="1">
 <div class="thread-status">Active · Research</div>
 
 ### [Limits to Formalization](/formalization-limits/)
@@ -41,7 +41,7 @@ What happens when you take fuzzy input and produce something measurable and chec
 
 </div>
 
-<div class="research-thread" id="interpretability-grounding">
+<div class="research-thread" id="interpretability-grounding" markdown="1">
 <div class="thread-status">Active · Research</div>
 
 ### [Interpretability and Grounding](/interpretability-grounding/)
@@ -50,7 +50,7 @@ A system's outputs encode the structure of the measuring system itself ; what I 
 
 </div>
 
-<div class="research-thread" id="bias-measurement">
+<div class="research-thread" id="bias-measurement" markdown="1">
 <div class="thread-status">Active · Research</div>
 
 ### [Social Bias Measurement](/projects/bias-measurement/)
@@ -59,7 +59,7 @@ Measuring social bias in language models with midpoint geometry instead of devia
 
 </div>
 
-<div class="research-thread" id="active-inference">
+<div class="research-thread" id="active-inference" markdown="1">
 <div class="thread-status">Active · Research</div>
 
 ### [Active Inference & the Living/Non-Living Boundary](/active-inference/)
@@ -68,7 +68,7 @@ What distinguishes a thermostat from a cell: whether the relevance-weighting ove
 
 </div>
 
-<div class="research-thread" id="collective-intelligence">
+<div class="research-thread" id="collective-intelligence" markdown="1">
 <div class="thread-status">Active · Collaboration</div>
 
 ### [Collective Intelligence](/collective-intelligence/)
@@ -77,7 +77,7 @@ Infrastructure for collective intelligence and value alignment ; the Mutual Thri
 
 </div>
 
-<div class="research-thread" id="ai-safety">
+<div class="research-thread" id="ai-safety" markdown="1">
 <div class="thread-status">Active · Research</div>
 
 ### [AI Safety](/ai-safety/)
@@ -86,7 +86,7 @@ My approach runs through interpretability: if we cannot reliably read what a mod
 
 </div>
 
-<div class="research-thread" id="category-theory">
+<div class="research-thread" id="category-theory" markdown="1">
 <div class="thread-status">Active · Research</div>
 
 ### [Category Theory](/category-theory/)
