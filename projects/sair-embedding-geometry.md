@@ -57,6 +57,12 @@ The full evaluation also tested two more templates:
 - Best shallow baseline (operator counts): AUC 0.863. Encoder adds ~0.09 AUC.
 - Delta (natural − eq1_only) classifies at 89.3%. Surface-structure control pending.
 
+<div class="in-beyond" markdown="1">
+
+**Cross-template transfer, in full:** training on one template and testing on another (full matrix in the repo) gives within-template accuracy 0.915 and cross-template accuracy 0.532. Selected pairs: `raw` → `conjoined` transfers at 0.830 (structurally similar, both concatenating); `natural` → `formal_query` transfers at 0.507 (near chance despite both being implication phrasings). The signal is not template-invariant.
+
+</div>
+
 <div class="in-day" markdown="1">
 
 ![Accuracy and AUC across splits](/img/performance_across_splits.png)
