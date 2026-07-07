@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+<div class="home-identity">
+  <h1>Luiza Corpaci</h1>
+  <p>I study semantic faithfulness in AI systems: when intent is translated into specs, code, tests, proofs, or explanations, does the meaning survive? Method: formal verification and equational theories as grounded evals, not just behavioral testing.</p>
+  <p><a href="/research/">Current research</a> &middot; <a href="/">Writing</a> &middot; <a href="/about/#contact">Contact</a></p>
+</div>
+
 {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
 {% assign posts_by_month = visible_posts | group_by_exp: "post", "post.date | date: '%B %Y'" %}
 
