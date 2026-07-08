@@ -11,6 +11,8 @@ I'm interested in the maximal complexity that can be compressed through formaliz
 
 One direction recommended by [Leo de Moura's work on Lean](https://lean-lang.org/): formalization as bootstrapping ; using a program implemented from a spec as a spec for an improved program, where each iteration collapses semantic ambiguity into syntactic commitment[^commitment] and quality becomes improvement rather than correspondence to a fixed ground truth.
 
+Longer treatments: [the limits-of-formalization post](/blog/limits-of-formalization), the [limits/ interactive](/limits/) that walks the first walls by hand, and the [self-reference map](/map/).
+
 [^tarski]: Tarski's undefinability theorem: no sufficiently expressive language can define its own truth predicate. The condition is that the language must be able to express basic arithmetic. Truth for a language can only be defined in a richer metalanguage ; you always need to step outside.
 
 [^godel]: Gödel's incompleteness theorems: any consistent formal system capable of expressing basic arithmetic contains true statements it cannot prove (first theorem) and cannot prove its own consistency (second theorem). The formal system is necessarily incomplete from within.

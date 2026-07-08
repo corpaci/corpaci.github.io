@@ -1,0 +1,150 @@
+---
+layout: page
+title: Self-Reference Map
+subtitle: "Recursion that works, paradox that collapses, and the alignment failures in between ; arranged by shared mechanism."
+permalink: /map/
+---
+
+<style>
+.sr-intro {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+#sr-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.sr-legend-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+.sr-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.sr-controls {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.sr-controls input { accent-color: var(--accent); vertical-align: middle; }
+
+#sr-graph {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--code-bg) 45%, var(--bg-primary));
+  margin-bottom: 1rem;
+}
+
+#sr-detail {
+  display: none;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+#sr-detail.sr-detail-open { display: block; }
+
+#sr-detail .sr-thinkers {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: -0.5rem 0 0.75rem;
+}
+
+#sr-detail .sr-pa {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-left: 2px solid var(--border-color);
+  padding-left: 0.75rem;
+}
+
+#sr-detail .sr-meta {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.sr-chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 0.05em 0.4em;
+  color: var(--text-secondary);
+}
+
+.sr-list {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem 1.1rem;
+}
+
+.sr-list li { margin-bottom: 0.1rem; }
+
+.sr-dist { color: var(--text-secondary); opacity: 0.7; }
+
+.sr-note {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+</style>
+
+<p class="sr-intro">
+Self-reference is one move with very different outcomes: recursion and quines put it to work,
+the Liar and Gödel show where it collapses, and Goodhart, ELK, and probe contamination are the
+same shapes wearing machine learning. Each node below is one instance, scored on five features
+(mechanism, productivity, what breaks, locus, domain). <strong>Solid lines</strong> are
+hand-labeled relations; <strong>dashed lines</strong> are computed affinities ; pairs whose
+feature distance is small. Click a node for its story; drag to untangle.
+</p>
+
+<div id="sr-legend"></div>
+
+<p class="sr-controls">
+  <label><input type="checkbox" id="sr-derived-toggle" checked> show computed affinities (dashed)</label>
+</p>
+
+<div id="sr-graph"></div>
+
+<div id="sr-detail" aria-live="polite"></div>
+
+<p class="sr-note">
+The productive→collapse spectrum here is the same territory as
+<a href="/blog/limits-of-formalization">the limits-of-formalization post</a> and the
+<a href="/limits/">limits/ interactive</a>: the walls (Gödel, Tarski, Rice) sit in the middle of
+the map, the alignment cluster inherits them, and the productive cluster is the existence proof
+that self-reference is not always fatal. Distances are weighted Jaccard over the feature sets ;
+weights and data in
+<a href="https://github.com/corpaci/corpaci.github.io/blob/main/_data/self_reference.json">self_reference.json</a>.
+</p>
+
+<script>
+  window.SR = {{ site.data.self_reference | jsonify }};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="/js/sr-distance.js"></script>
+<script src="/js/sr-graph.js"></script>

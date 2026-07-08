@@ -86,12 +86,12 @@ My approach runs through interpretability: if we cannot reliably read what a mod
 
 </div>
 
-<div class="research-thread" id="category-theory" markdown="1">
-<div class="thread-status">Active · Research</div>
+<div class="research-thread" id="self-reference-map" markdown="1">
+<div class="thread-status">Interactive · Map</div>
 
-### [Category Theory](/category-theory/)
+### [Self-Reference Map](/map/)
 
-Structure that travels across domains ; functors, natural transformations, and adjunctions keep appearing across logic, computation, linguistics, and learning. [Full thread →](/category-theory/)
+24 instances of self-reference ; from recursive definitions and quines through Gödel and Tarski to Goodhart, ELK, and mesa-optimization ; one graph, arranged by shared mechanism. The walls of the [limits thread](/formalization-limits/), connected. [Explore →](/map/)
 
 </div>
 
@@ -106,6 +106,6 @@ Structure that travels across domains ; functors, natural transformations, and a
     K. Mallinger, L. Corpaci, T. Neubauer, I. E. Tikász, T. M. Banhazi. <em>Unsupervised and supervised machine learning approach to assess user readiness levels for precision livestock farming technology adoption.</em> Computers and Electronics in Agriculture, 213: 108239, 2023. <a href="https://doi.org/10.1016/j.compag.2023.108239">DOI</a>
   </li>
   <li>
-    S. Raubitzek, L. Corpaci, R. Hofer, K. Mallinger. <em>Scaling Exponents of Time Series Data: A Machine Learning Approach.</em> Entropy 25(12): 1671, 2023.
+    S. Raubitzek, L. Corpaci, R. Hofer, K. Mallinger. <em>Scaling Exponents of Time Series Data: A Machine Learning Approach.</em> Entropy 25(12): 1671, 2023. <a href="https://doi.org/10.3390/e25121671">DOI</a>
   </li>
 </ul>
