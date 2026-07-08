@@ -23,7 +23,7 @@ Time is finite. The people we love won't be here forever. This is an accessible 
 
 Here's a small exercise:
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 (I stumbled on it while going through the first question in [36 Questions on the Way to Love](https://www.nytimes.com/2015/02/13/style/the-36-questions-on-the-way-to-love.html).)
 </div>
 
@@ -39,7 +39,7 @@ Something changes, doesn't it? The dinner didn't, but our ability to feel its wo
 
 Good feels like the choice we'd still make knowing the full weight of what we're giving up on. The felt choice, not the optimized one. When we're present at dinner, we're not calculating opportunity costs; we're in the moment that, when gone, we cannot recover through any adjustment of reality. Good feels like attending to what's irreplaceable while it's still here.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Sometimes we don't know what good feels like. It's not uncommon for people to misread their internals.
 
@@ -51,7 +51,7 @@ Can we build tools that help humans make some of these trade-offs better? If we 
 
 AI made idea generation nearly free, but we haven't yet scaled how we evaluate these ideas. We can check if something works correctly, but not if it's the right thing to build, nor if it's the good thing to build.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 What if the AI's predictions were wrong? 
 
 What if the predictions are right but we couldn't verify them? 

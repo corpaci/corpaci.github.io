@@ -17,9 +17,12 @@
 <body>
   <nav class="navbar">
     <a class="navbar-brand" href="/">Luiza Corpaci</a>
+    {% assign has_strata = false %}
+    {% if content contains 'class="in-night' or content contains 'class="in-beyond' or content contains 'class="night-only' or content contains 'class="beyond-only' %}{% assign has_strata = true %}{% endif %}
     <div class="nav-links">
+      <a class="nav-link{% if page.url == '/research/' %} active{% endif %}" href="/research/">Research</a>
       <a class="nav-link{% if page.url == '/about/' %} active{% endif %}" href="/about/">About</a>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">◐</button>
+      <button class="theme-toggle{% if has_strata %} theme-toggle-breathe{% endif %}" onclick="toggleTheme()" aria-label="Switch theme (day / night / spectrum)">◐</button>
     </div>
   </nav>
 
@@ -38,20 +41,21 @@
   <script>
     var THEMES = ['day', 'night', 'spectrum'];
     var ICONS  = { day: '\u25CB', night: '\u25D1', spectrum: '\u273A' };
+    function setToggleState(theme) {
+      var btn = document.querySelector('.theme-toggle');
+      if (!btn) return;
+      btn.textContent = ICONS[theme] || ICONS['day'];
+      btn.setAttribute('aria-label', 'Theme: ' + theme + '. Switch theme (day / night / spectrum)');
+    }
     function toggleTheme() {
       var current = document.documentElement.getAttribute('data-theme');
       var idx = THEMES.indexOf(current);
       var next = THEMES[(idx + 1) % THEMES.length];
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-      var btn = document.querySelector('.theme-toggle');
-      if (btn) btn.textContent = ICONS[next] || ICONS['day'];
+      setToggleState(next);
     }
-    (function() {
-      var t = document.documentElement.getAttribute('data-theme');
-      var btn = document.querySelector('.theme-toggle');
-      if (btn) btn.textContent = ICONS[t] || ICONS['day'];
-    })();
+    setToggleState(document.documentElement.getAttribute('data-theme'));
   </script>
 </body>
 

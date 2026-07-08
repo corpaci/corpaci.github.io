@@ -1,16 +1,17 @@
 ---
 layout: post
-title: "My understanding on ((the limits of) formalizations for) AI (Safety)"
+title: "The Limits of Formalization for AI Safety"
+subtitle: "or: my understanding on ((the limits of) formalizations for) AI (Safety)"
 permalink: /blog/limits-of-formalization
 tags: [formal-methods, ai-safety, alignment, interpretability, formal-verification]
 description: "Physics is going into Lean. What formal systems can and cannot reach ; and what that means for honest AI."
 ---
 
 <!--
-LAYERING CONVENTION (additive):
-  - plain text            -> base / LIGHT (day, night, spectrum)  = the general-reader post, complete on its own
-  - .in-night .in-beyond  -> DARK add (night + spectrum, hidden in day)   = technical stratum
-  - .in-beyond            -> COLOR add (spectrum only)                     = inference-ahead stratum
+LAYERING CONVENTION (additive, one class per stratum — cumulativity is in the CSS):
+  - plain text  -> base / LIGHT (day, night, spectrum)  = the general-reader post, complete on its own
+  - .in-night   -> DARK add (night + spectrum, hidden in day)  = technical stratum
+  - .in-beyond  -> COLOR add (spectrum only)                   = inference-ahead stratum
 Read order is interleaved so each aperture is continuous: day reads the light spine ;
 night adds the precise results under each beat ; spectrum adds the leaps beyond them.
 Rule for color: it may only contain a step of inference past what dark established, never just "more detail."
@@ -24,7 +25,7 @@ The short answer, the one this whole post circles: **formalization never closes 
 
 I used my ml4good project to map this space ; to understand what's possible and find senseful paths into the field. Gathering my thoughts here in hope it's useful to others (future me included, in case he strays into fuzzy ideals). Toggle up & enjoy the ride!
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Let me make "formalize" precise, because the word smuggles. To formalize a claim is to render it inside a checker ; Lean, a model checker, a type system ; such that its correctness becomes decidable by a fixed procedure. That is a claim about a *system*, not a vibe: there is an object (the formal artifact), a procedure (the checker), and a verdict. Everything below is about what that triple can and cannot reach.
 
@@ -46,7 +47,7 @@ Leibniz wanted a *characteristica universalis*, a language so precise that dispu
 
 It is a good dream. It also does not survive contact with its own ambitions ; and the rest of this section is the story of how, told in the names of the people who proved each step.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Here is that same story as a chain of knowns, each one a name and a result:
 
@@ -128,7 +129,7 @@ Read the chain again and notice it has two families, not one. Cantor–Gödel–
 
 </div>
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 A third family belongs in this alignment discussion and is not either of the first two: Goodhart's law, proxy drift, reward hacking ; the empirical fact that a measurable proxy stops tracking the thing it proxies for once you optimize against it. This is not a diagonal failure and not underdetermination. It is an observed regularity in optimization, not a theorem with a proof. Keep the three apart: diagonal (necessary, proven), underdetermination (necessary, proven), proxy drift (contingent, observed). No one has exhibited a specific alignment-relevant property that is unprovable for Gödelian reasons ; the ladder above motivates humility about what formalization reaches, not a proof that alignment is formally impossible.
 
@@ -142,7 +143,7 @@ Here is what those proofs feel like from the inside, stripped of notation. Any l
 
 If you would rather feel this than take my word for it, the [limits/](/limits/) interactive walks the first steps by hand. Feel the walls before continuing.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Stated as results: **Gödel** ; any consistent system that can do arithmetic has true sentences it can't prove. **Tarski** ; such a system can't define its own truth predicate. **Turing** ; no algorithm decides whether an arbitrary program halts. **Rice** ; and more sharply, *no* non-trivial semantic property of programs is decidable. **Löb** ; a system can't coherently trust its own proofs without trusting everything. **Lawvere** ties the diagonal members into one knot: each is a fixed-point fact about any setting with enough self-application. Load-bearing caveat for later: this cluster bites only systems with enough self-expressive or universal power. Weaker systems are spared ; which is exactly the loophole the grumeter will try to live in.
 
@@ -168,7 +169,7 @@ One consequence deserves to be said loudly, because it is the one people keep ho
 
 Most disagreements dissolve the moment you say which one you mean.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 The cardinal sin of the genre is collapsing (1) and (5) ; the genuinely **unformalizable** ; into (4), the merely **unformalized**. "We can't formalize ethics" almost always means (4) wearing the costume of (1): hard, not impossible. Conversely, halting is (1), and no amount of effort relocates it to (4). Keep the columns separate or every conclusion downstream is suspect. Limit (2) earns a name worth fixing: the **spec-correspondence seam** ; the join between the formal object and the world it is supposed to be about. It is the one limit invariant across every domain, and (following Dodds' provocation that "specifications don't exist") the one that cannot be discharged from inside the system, because the system has no handle on whether its own spec means what you intended.
 
@@ -186,7 +187,7 @@ Here is the whole post compressed to one move. Every formalization rewrites a si
 
 There is a project, physlib, putting physics into Lean ; digitalizing it, theorem by theorem. It works, and the way it works is the whole lesson. What goes into the prover is the *mathematics* of physics, not physics' grip on reality. Noether's theorem ; every continuous symmetry yields a conserved quantity ; is pure mathematics, and it goes in clean. But "*this* Lagrangian describes *that* falling apple" is an empirical bet about the world, and that bet never crosses into the prover. The machine checks the consequences of the laws. It never checks that the laws are the world's.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 By its own account physlib stays flexible ; it is not welded to one axiomatization, and physical laws enter as **inputs**, hypotheses, not as theorems the system earns. And the line between what formalizes and what doesn't is *not* the line between math and physics ; that is the naive reading and it is wrong. Units and dimensional analysis are type-level and fully checkable. Symmetries, gauge structure, conservation laws are formal objects that go in without complaint. The real fault line runs elsewhere: the **deductive skeleton** (formalizable everywhere) versus the **empirical correspondence** (formalizable nowhere). Plenty of "physics" sits on the formal side ; the only thing on the far side is the claim that the symbols are about *this* world.
 
@@ -206,7 +207,7 @@ Follow that to its end. If the laws are always inputs, then a fully formalized p
 
 Some perfectly physical questions cannot be answered by any algorithm. Not "not yet." Never. Below are two of them, then the one reason they happen.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 The walls from earlier needed one thing to bite: enough expressive power to encode a universal computation. Physics has it. So the two results below are not analogies to Gödel and Turing ; they are the same theorems, wearing matter.
 
@@ -222,7 +223,7 @@ Which means the right expectation is the inverse of the usual one. Undecidabilit
 
 Take a chunk of quantum material and ask the most basic question there is: does it cost a minimum jolt of energy to excite it above its resting state (gapped), or can you nudge it by arbitrarily little (gapless)? There is no general method that decides this. For some materials the answer is not merely unknown ; it is undecidable.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Cubitt, Pérez-García and Wolf (*Nature*, 2015) build families of translationally-invariant, nearest-neighbour Hamiltonians on a 2D lattice for which "gapped or gapless?" is undecidable in the exact sense Turing proved the halting problem to be: the construction encodes a universal Turing machine into the ground-state problem, so the gap turns on whether that machine halts. And because algorithmic undecidability implies axiomatic independence, there are concrete models whose spectral gap is *independent of the axioms of mathematics* ; no proof from those axioms settles it either way. Bausch et al. (*Phys. Rev. X*, 2020) brought the same result down to one dimension.
 
@@ -238,7 +239,7 @@ And this is not a contrived corner. The Haldane conjecture, gapped topological s
 
 Now a fluid flowing with no viscosity. Drop a speck in it and ask whether the speck will ever reach some chosen region. Same outcome: no general method decides it.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Cardona, Miranda, Peralta-Salas and Presas (*PNAS*, 2021 ; edited by Tao) construct a Turing-complete stationary Euler flow on a 3D Riemannian domain, by fusing symbolic dynamics with contact topology ; Beltrami fields correspond to Reeb flows under the Etnyre–Ghrist "contact mirror." The payoff is undecidable particle paths: there are constructible starting points for which "does this trajectory enter that open set?" has no decision procedure. The work lives inside Tao's programme to attack the Navier–Stokes blow-up problem using "fluid computers."
 
@@ -254,7 +255,7 @@ Watch the lineage. The same Tao curating the verified equational-theory ground t
 
 The trick behind both is one picture: you can build a computer *out of* the physical system. And anything that can compute inherits the computer's one permanent blind spot ; you cannot always tell, ahead of time, whether a computation ever stops. So the wall is not at the edge of physics. It runs straight through the interior.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Said exactly: each result embeds a universal Turing machine in a physical substrate, then lifts the halting problem to a physical property ; the gap, the path. That is the diagonal cluster from §2 ; the same Lawvere fixed point ; realized in matter instead of syntax. The precondition is identical to the logical case: sufficient computational expressivity. Being "physical" buys no exemption.
 
@@ -276,7 +277,7 @@ Now the alignment payoff. We want a machine that reports reality honestly. There
 
 There is a third option that gives up universality to buy honesty: the **grumeter**. A grumeter is a bounded semantic checker: it makes correspondence claims only inside a declared formal domain, verifies them against an external checker, and returns "out of scope" rather than guessing when correspondence can't be grounded. (A concrete witness that such fragments exist: vacuity checking in hardware verification, where a check exists precisely to catch a property that passed for the wrong reason ; more on that below.) Not "answer everything, sometimes wrong" but "answer narrowly, never bluff, and mark the edge." The silence is the move: outside its scope the grumeter does not guess and does not redirect to human belief ; it marks the boundary and stops.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 The translator must evaluate world-facts using a world-model that is *part of* the world ; if that model can encode its own syntax, every diagonal from §2 becomes a live liability (Gödel, Tarski, Löb, Lawvere) and the translator has to operate exactly where they fire. The simulator sidesteps the hardest version by changing the *target*: from world-fact to predicted human belief, which acts as a metalanguage *if you design it that way* ; a design choice, not a metaphysical gift. That defers self-reference ; it does not kill it (model a human who models the AI and the loop returns). **ELK** is the name for the resulting selection problem: two reporters, identical on all training data, no known signal that selects the honest one. So the problem splits in two, needing different tools ; a *faithfulness ceiling* (how honest can any translator be in principle?) and a *selection problem* (which reporter does training actually find?).
 
@@ -308,7 +309,7 @@ The concrete witness that such fragments exist is vacuity checking in SVA: a sco
 
 Back to the opening question, now with a map. The **deductive skeleton** formalizes everywhere ; that is the triumph, and it is enormous. The **empirical seam** formalizes nowhere ; that is permanent, and it is not a flaw. Some **interior questions** are walled off forever by the diagonals, even where everything around them formalizes beautifully. And **experience and value** sit outside the whole enterprise, never candidates for the procedure. Formalization is one of the most powerful things we have *and* it never touches reality directly. Both true. No contradiction.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Put it at full strength. Grant the strongest success anyone has ever asked for ; a complete, machine-checked formalization of all of known physics. You would still have: **(a)** theorems *conditional on* the laws, not the laws themselves ; **(b)** the correspondence seam still open, with no internal check that the laws are the world's ; **(c)** the undecidable interior questions of §5 still undecidable ; **(d)** phenomenal and normative content still entirely untouched. Total success on the deductive layer eliminates *none* of the five limits of §3. It only makes the skeleton machine-checkable ; which is worth wanting, and is not the same thing as capturing reality.
 

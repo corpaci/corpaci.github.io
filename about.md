@@ -44,7 +44,7 @@ I'm open to fellowship and collaboration conversations around semantic faithfuln
 
 </div>
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 The Tarski ~> Gödel ~> Chaitin sequence is background radiation through most of this.
 

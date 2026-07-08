@@ -10,7 +10,7 @@ This is the first post on this site, and it seems right to say what it is for.
 
 <!--more-->
 
-I am an AI engineer at AMD, where I build tools for hardware verification. I am (hoping to be) completing a Master's in Data Science and applying to PhD programs for sometimes before the next decade. My research interests fits an intersection of formal verification, interpretability, and AI safety.
+I am an AI engineer at AMD, where I build tools for hardware verification. I am (hoping to be) completing a Master's in Data Science, with PhD applications planned for autumn 2027. My research interests fit an intersection of formal verification, interpretability, and AI safety.
 
 I mean this place for thinking in public. Some posts will be technical and others will be more reflective.
 
@@ -19,7 +19,7 @@ I call the thread that connects many of these things "systems all the way down",
 What you can expect:
 
 - **Technical writings** into formalization limits, SAE features, bias measurement, and the mathematics behind them.
-- **Conceptual sketches** connecting category theory, active inference, and interpretability.
+- **Conceptual sketches** connecting active inference and interpretability.
 - **Research notes** that are somewhere between a lab notebook and an essay.
 
-If that resonates, I would be glad to hear from you on the [Connect](/connect/) page.
+If that resonates, I would be glad to hear from you ; [contact](/about/#contact).

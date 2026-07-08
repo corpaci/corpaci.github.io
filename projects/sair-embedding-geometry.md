@@ -7,8 +7,6 @@ permalink: /projects/sair-embedding-geometry/
 
 A pilot on prompt-conditioned representation geometry in the SAIR equational-theory benchmark.
 
-<div class="in-beyond" markdown="1">
-
 This project began with a small question that sits somewhere between interpretability, formal reasoning, and representation:
 
 **For a fixed learned model, how does the input change its internal representations, and how does that affect the output?**
@@ -24,8 +22,6 @@ Rough estimates suggest that large formal libraries like [Lean's mathlib](https:
 My question from this project for now is not about an exact number, but whether **a small, well-structured textual object** (e.g., as the SAIR competition constrains to a 10KB cheat sheet) can activate a meaningful portion of the latent structure in a model.
 
 These said, I am **not** testing whether an embedder understands algebra. What I am testing is whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication instances.
-
-</div>
 
 **Question:** How much TRUE/FALSE signal is recoverable from different textual renderings of the same equational-implication instance using a frozen encoder?
 
@@ -63,7 +59,7 @@ The full evaluation also tested two more templates:
 
 </div>
 
-<div class="in-day" markdown="1">
+<div class="day-only" markdown="1">
 
 ![Accuracy and AUC across splits](/img/performance_across_splits.png)
 
@@ -71,7 +67,7 @@ All templates degrade together on harder splits. `eq2_only` is near chance throu
 
 </div>
 
-<div class="in-night" markdown="1">
+<div class="night-only" markdown="1">
 
 ![Accuracy and AUC degradation across splits](/img/performance_across_splits_night.png)
 
@@ -79,7 +75,7 @@ All templates drop together as splits get harder. `eq2_only` is near chance the 
 
 </div>
 
-<div class="in-beyond" markdown="1">
+<div class="beyond-only" markdown="1">
 
 ![Accuracy and AUC degradation across splits for each template](/img/performance_across_splits_beyond.png)
 
@@ -87,7 +83,7 @@ The two charts above show what happens per different splits. All templates drop 
 
 </div>
 
-<div class="in-day" markdown="1">
+<div class="day-only" markdown="1">
 
 ![Full results dashboard](/img/sair_results_day.png)
 
@@ -95,7 +91,7 @@ The two charts above show what happens per different splits. All templates drop 
 
 </div>
 
-<div class="in-night" markdown="1">
+<div class="night-only" markdown="1">
 
 ![Full results dashboard](/img/sair_results_night.png)
 
@@ -103,11 +99,15 @@ Heatmaps confirm `eq2_only` is the outlier everywhere. `eq1_only` separates clas
 
 </div>
 
-<div class="in-beyond" markdown="1">
+<div class="beyond-only" markdown="1">
 
 ![Full results dashboard: heatmaps, template ranking, centroid separation, clustering vs. classification](/img/sair_results_beyond.png)
 
 The dashboard above summarizes the full picture. Top row: accuracy and AUC are stable across splits for most templates — `eq2_only` is the one clear outlier in every panel. Middle row: the centroid separation chart (top-right) shows that `eq1_only` keeps TRUE and FALSE embeddings furthest apart; the antecedent equation already carries most of the geometry. Bottom-center: templates that separate classes in embedding space (high Cohen's d) also classify better, as clustering and classification are aligned.
+
+</div>
+
+<div class="in-beyond" markdown="1">
 
 ### Delta analysis
 
@@ -127,7 +127,7 @@ The delta between `natural` and `eq1_only` has variance exceeding the base embed
 
 > Signal is robust and survives leakage correction. It is anchored in equation1, partially explained by operator statistics, and not template-invariant. Whether prompt-induced displacement carries signal beyond surface structure is the open question.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 ## Why I find this interesting
 

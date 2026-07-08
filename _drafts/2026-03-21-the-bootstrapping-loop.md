@@ -22,9 +22,9 @@ Hardware verification is a natural home for this idea: an AI reads the English d
 
 The loop doesn't always converge. Sometimes the original spec contains a genuine ambiguity ; something that could legitimately be implemented two different ways ; and the loop alternates between them forever. Sometimes the AI's choices are just inconsistent from run to run. Sometimes the formalism isn't expressive enough to capture what the spec meant at all.
 
-Each failure mode is informative. The bootstrapping loop is a probe for where meaning leaks out.
+Each failure mode is informative. The bootstrapping loop is a probe for where meaning leaks out. This sits inside the [limits to formalization](/formalization-limits/) thread.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 The fixed-point theorem framing: you're iterating a function $f: \text{Spec} \to \text{Impl}$ followed by $g: \text{Impl} \to \text{Spec}$ (by treating the implementation as the next spec). The composition $g \circ f$ is a map from specs to specs. A fixed point of $g \circ f$ is a spec that survives one full cycle ; implementation plus re-abstraction ; without changing. In practice, you don't need a true fixed point; you need convergence to a spec that's precise enough for your purpose.
 

@@ -8,15 +8,13 @@ layout: default
   <article class="post">
     <header class="post-header mb-4">
       <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.subtitle %}
+      <p class="page-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
       <div class="post-meta">
         <time class="entry_date">{{ page.date | date: "%B %d, %Y" }}</time>
-        {% if page.tags.size > 0 %}
-        <span class="post-tags">
-          {% for tag in page.tags %}
-          <a href="/blog/tags/#{{ tag | slugify }}" class="tag-badge">{{ tag }}</a>
-          {% endfor %}
-        </span>
-        {% endif %}
+        {%- if content contains 'class="in-night' %} <span class="stratum-glyph" title="this post deepens in night">◑</span>{% endif %}
+        {%- if content contains 'class="in-beyond' %} <span class="stratum-glyph" title="and one stratum further in spectrum">✺</span>{% endif %}
       </div>
     </header>
     <div class="post-content">

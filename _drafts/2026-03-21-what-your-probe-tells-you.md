@@ -22,7 +22,7 @@ I call this Grounding Relative Understanding. The key move is to stop asking "wh
 
 This is harder. It requires characterizing the probe as carefully as the model. But it's the only way to make interpretability results that generalize.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 The Fisher Information bound makes this precise for measurement in general: $I(\theta; X) \leq I(\theta; f(X))$ with equality iff $f$ is a sufficient statistic. The information you can extract about a parameter $\theta$ from a measurement $f(X)$ is bounded by the information in the raw data $X$, with equality only when $f$ captures everything relevant about $\theta$. Any lossy transformation ; any probe that isn't sufficient ; loses information, and that loss depends on the geometry of $f$ relative to $\theta$.
 

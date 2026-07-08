@@ -355,58 +355,6 @@ img {
   margin: 0;
 }
 
-/* Tag badges */
-.tag-badge {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--accent-secondary);
-  background: color-mix(in srgb, var(--accent-secondary) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent-secondary) 25%, transparent);
-  border-radius: 3px;
-  padding: 0.1em 0.45em;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  margin-left: 0.25rem;
-  vertical-align: middle;
-}
-
-.tag-badge:hover {
-  background: color-mix(in srgb, var(--accent-secondary) 20%, transparent);
-  text-decoration: none;
-  color: var(--accent-secondary);
-}
-
-.post-tags {
-  margin-left: 0.75rem;
-}
-
-/* Tag filter bar (blog page) */
-.tag-filter {
-  margin-bottom: 2rem;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-}
-
-.tag-filter a {
-  display: inline-block;
-  margin: 0.15rem 0.25rem 0.15rem 0;
-  padding: 0.2em 0.6em;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: all 0.15s ease;
-}
-
-.tag-filter a:hover,
-.tag-filter a.active {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 5%, transparent);
-}
-
 /* Page headers (About, Research, Connect) */
 .page-header {
   margin-bottom: 2.5rem;
@@ -448,6 +396,32 @@ img {
 
 .home-identity a {
   color: var(--accent);
+}
+
+/* Open questions on the home page */
+.home-questions {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.home-questions h2 { margin-top: 0; }
+
+.home-questions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-questions li {
+  margin-bottom: 0.85rem;
+  line-height: 1.65;
+}
+
+.oq-link {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  white-space: nowrap;
 }
 
 /* Research thread cards */
@@ -658,7 +632,10 @@ sup[id^="fnref:"] a {
   background-clip: text;
 }
 
-/* Dark mode — explicit toggle */
+/* Night mode. Theme selection is JS-driven: the inline head script sets
+   data-theme from localStorage, defaulting to the prefers-color-scheme value.
+   With JS disabled the hardcoded data-theme="day" wins — there is no pure-CSS
+   dark fallback, by design (content visibility classes need the attribute). */
 [data-theme="night"] {
   --text-primary: #e2dfd9;
   --text-secondary: #9b9590;
@@ -673,26 +650,14 @@ sup[id^="fnref:"] a {
 [data-theme="night"] img { opacity: 0.9; }
 [data-theme="night"] .post-content details { background-color: #24221f; }
 
-/* Night mode — system preference fallback (no JS / stale localStorage) */
-@media (prefers-color-scheme: dark) {
-  [data-theme="night"] {
-    --text-primary: #e2dfd9;
-    --text-secondary: #9b9590;
-    --bg-primary: #1c1b19;
-    --border-color: #3a3632;
-    --code-bg: #252320;
-    --accent: #3aaac8;
-    --accent-hover: #54bdd8;
-    --accent-secondary: #e0a040;
-  }
-  [data-theme="night"] img { opacity: 0.9; }
-  [data-theme="night"] .post-content details { background-color: #24221f; }
-}
-
-/* Content visibility by mode */
+/* Content visibility by mode.
+   Strata (cumulative prose): plain text = all themes; .in-night = night + spectrum;
+   .in-beyond = spectrum only. Cumulativity lives here in the CSS, so one class per
+   stratum is enough — never combine them.
+   Swaps (exclusive variants of the same artifact — identity headings, themed figures):
+   .day-only / .night-only / .beyond-only each show in exactly one theme. */
 .night-only,
 .beyond-only,
-.in-day,
 .in-night,
 .in-beyond { display: none; }
 
@@ -701,16 +666,9 @@ sup[id^="fnref:"] a {
 [data-theme="night"] .day-only { display: none; }
 
 [data-theme="spectrum"] .beyond-only,
+[data-theme="spectrum"] .in-night,
 [data-theme="spectrum"] .in-beyond { display: revert; }
 [data-theme="spectrum"] .day-only { display: none; }
-
-[data-theme="day"] .in-day { display: revert; }
-
-@media (prefers-color-scheme: dark) {
-  [data-theme="night"] .night-only,
-  [data-theme="night"] .in-night { display: revert; }
-  [data-theme="night"] .day-only { display: none; }
-}
 
 /* Theme toggle button */
 .theme-toggle {
@@ -727,17 +685,42 @@ sup[id^="fnref:"] a {
 
 .theme-toggle:hover { color: var(--text-primary); }
 
+/* Pages with hidden strata make the toggle breathe — the hint and the
+   affordance are the same pixel. Spectrum sees everything, so it rests. */
+@keyframes toggle-breathe {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+.theme-toggle-breathe { animation: toggle-breathe 4s ease-in-out infinite; }
+
+[data-theme="spectrum"] .theme-toggle-breathe { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle-breathe { animation: none; }
+}
+
+/* Stratum glyphs — dim ◑ / ✺ markers on posts that carry deeper layers */
+.stratum-glyph {
+  font-family: var(--font-sans);
+  font-size: 0.72em;
+  opacity: 0.45;
+  margin-left: 0.15rem;
+  vertical-align: middle;
+  cursor: help;
+}
+
 /* ── Beyond theme ──────────────────────────────────────────── */
 
-/* Spectrum */
+/* Spectrum. Accent lifted from #e91e8c for WCAG AA contrast on the dark bg. */
 [data-theme="spectrum"] {
   --text-primary: #e2dfd9;
   --text-secondary: #9b9590;
   --bg-primary: #1c1b19;
   --border-color: #3a3632;
   --code-bg: #252320;
-  --accent: #e91e8c;
-  --accent-hover: #ff5cb8;
+  --accent: #ff5cb8;
+  --accent-hover: #ffa1d6;
   --accent-secondary: #ff9800;
 }
 
@@ -764,6 +747,16 @@ sup[id^="fnref:"] a {
 @keyframes spectrum-slide {
   0%   { background-position: 0%   center; }
   100% { background-position: 250% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="spectrum"] h1,
+  [data-theme="spectrum"] h2,
+  [data-theme="spectrum"] h3,
+  [data-theme="spectrum"] .navbar-brand {
+    animation: none;
+    background-position: 0% center;
+  }
 }
 
 /* Mobile */

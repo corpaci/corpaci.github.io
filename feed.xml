@@ -18,7 +18,16 @@ layout: null
       <published>{{ post.date | date_to_xmlschema }}</published>
       <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
       <id>{{ post.id | absolute_url | xml_escape }}</id>
-      <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ post.content | strip }}]]></content>
+      {% comment %}
+        Ship the NIGHT view: keep base prose and .in-night blocks, strip
+        spectrum-only <div class="in-beyond"> blocks. String-level filter —
+        it drops everything from each opening tag to the first following
+        </div>, so in-beyond blocks in posts must not contain nested divs.
+      {% endcomment %}
+      {% assign parts = post.content | split: '<div class="in-beyond">' %}
+      {% assign night_content = parts[0] %}
+      {% for part in parts offset: 1 %}{% assign sub = part | split: '</div>' %}{% for s in sub offset: 1 %}{% assign night_content = night_content | append: s %}{% unless forloop.last %}{% assign night_content = night_content | append: '</div>' %}{% endunless %}{% endfor %}{% endfor %}
+      <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ night_content | strip }}]]></content>
       <author>
         <name>{{ site.author.name | default: site.author | xml_escape }}</name>
       </author>

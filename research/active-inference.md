@@ -11,7 +11,7 @@ I'm researching where exactly that difference lives ; what makes a system go fro
 
 This argument is grounded in two empirical anchors from existing experiments, and is a direction I'm actively developing.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Here's the claim: what distinguishes living from non-living active inference systems isn't complexity, embodiment, or self-modeling per se ; it's whether the E-component (the precision or relevance-weighting over prediction errors) is endogenously generated through organizational closure. A thermostat minimizes free energy. A cell minimizes free energy *and* generates its own relevance function from within its own organizational dynamics. This is the autopoietic twist on FEP, and I think it's testable.
 

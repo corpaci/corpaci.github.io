@@ -11,11 +11,11 @@ The specific insight: most bias metrics measure deviation from a "neutral" refer
 
 This connects to a broader question: how do you measure unfairness without first defining "fair"? We argue you can measure relative structure without fixing an absolute baseline.
 
-**Publication:** L. Corpaci, M. Wagner, S. Raubitzek, L. Kampel, K. Mallinger, D. E. Simos. *Estimating Combinatorial t-Way Coverage Based on Matrix Complexity Metrics.* **ICTSS 2024**: 3–20. [DOI](https://doi.org/10.1007/978-3-031-80889-0_1) ; Best Paper Award.
+**Methodological basis:** the combinatorial machinery builds on L. Corpaci, M. Wagner, S. Raubitzek, L. Kampel, K. Mallinger, D. E. Simos. *Estimating Combinatorial t-Way Coverage Based on Matrix Complexity Metrics.* **ICTSS 2024**: 3–20. [DOI](https://doi.org/10.1007/978-3-031-80889-0_1) ; Best Paper Award. The bias-measurement work itself is not yet published.
 
 [Interactive playground →](/projects/ictss-playground/)
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 **The reference-group problem, more precisely.** The midpoint between two group representations is the natural bias-neutral reference point ; it's fixed by the embedding geometry itself, requiring no external calibration.
 

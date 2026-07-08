@@ -18,9 +18,9 @@ The classic result: to cover every pair of feature values (every 2-way interacti
 
 With Ludwig Kampel, we're applying this to LLMs: using covering arrays to systematically find the combinations of input features where an AI's behavior changes unexpectedly. Which topics combined with which personas produce inconsistent answers? Which combinations of phrasing and named entities push the model into territory it wasn't trained on?
 
-The goal isn't just to find bugs. It's to map the shape of the model's reliability ; to know where it's robust and where it's fragile, before it matters.
+The goal isn't just to find bugs. It's to map the shape of the model's reliability ; to know where it's robust and where it's fragile, before it matters. You can poke at the spectral-complexity intuition behind this in the [ICTSS playground](/projects/ictss-playground/).
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 Formally, a *t*-way covering array $CA(N; t, k, v)$ is an $N \times k$ array over a $v$-element alphabet such that every $t$-column subarray contains every $t$-tuple at least once. The key parameter is $t$ ; the interaction strength. A 2-way covering array guarantees that every pair of input features takes every combination of values at least once. A 3-way array covers every triple. And so on. The size of a *t*-way covering array grows logarithmically in $k$ for fixed $t$ and $v$: $O(v^t \log k)$ tests rather than $O(v^k)$.
 

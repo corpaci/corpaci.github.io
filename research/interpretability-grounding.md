@@ -11,7 +11,7 @@ This matters for interpretability ; the field that tries to understand what's ha
 
 The applied question: do the internal features of a neural network remain stable when the network is operating in ambiguous situations it wasn't explicitly trained on? If not, that's precisely where interpretability breaks down ; and where we most need it to work.
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 This principle ; Grounding Relative Understanding (GRU) ; is the interpretability consequence of the ICTSS 2024 result on spectral metrics.
 

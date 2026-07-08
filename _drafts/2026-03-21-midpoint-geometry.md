@@ -20,9 +20,9 @@ With Soheyb Kouider, I've been working on an approach that avoids this by measur
 
 The idea: if a model treats two groups symmetrically, their representations should be symmetric around their mutual midpoint. You don't need to know what "neutral" looks like; you just need to know whether the structure is symmetric. The midpoint between "man" and "woman" in the model's internal space is the natural reference for that pair ; defined by them, not by us.
 
-It's a small shift in framing, but it changes what the metric is actually measuring: from "how far from our definition of fair" to "how symmetric is the model's own internal structure."
+It's a small shift in framing, but it changes what the metric is actually measuring: from "how far from our definition of fair" to "how symmetric is the model's own internal structure." The project page is [social bias measurement](/projects/bias-measurement/).
 
-<div class="in-night in-beyond" markdown="1">
+<div class="in-night" markdown="1">
 
 **Formally** (with Soheyb Kouider): for two groups $A$ and $B$ (e.g., men and women), and a set of attribute embeddings $\{a_i\}$ (professional terms), compute the midpoint $m_{AB} = \frac{e_A + e_B}{2}$ and measure the asymmetry of attribute projections relative to $m_{AB}$. This requires no external calibration ; it's defined by the two groups themselves. If the model treats $A$ and $B$ symmetrically with respect to attribute $a$, then $a$ projects equally onto both sides of $m_{AB}$. Bias is the deviation from symmetry, measured in the model's own geometry.
 
