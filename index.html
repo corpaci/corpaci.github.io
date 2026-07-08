@@ -3,14 +3,29 @@ layout: default
 ---
 <div class="home-identity">
   <h1>Luiza Corpaci</h1>
-  <p>I study semantic faithfulness in AI systems: when intent is translated into specs, code, tests, proofs, or explanations, does the meaning survive? Method: formal verification and equational theories as grounded evals, not just behavioral testing.</p>
+  <!-- ↓ interim intro — replace with your own text; everything between these
+       comments is the slot -->
+  <!-- <p>I study semantic faithfulness in AI systems: when intent is translated into specs, code, tests, proofs, or explanations, does the meaning survive? Method: formal verification and equational theories as grounded evals, not just behavioral testing.</p> -->
+   <p>I wonder and wander. As of now, I am exploring the intersection of formal methods and AI safety. Previous lives explored control theory, systems engineering, ASIC physical design, complexity sciences and environmental systems.</p>
+  <!-- ↑ end intro slot -->
   <p><a href="/research/">Current research</a> &middot; <a href="/#writing">Writing</a> &middot; <a href="/about/#contact">Contact</a></p>
 </div>
+
+<!-- <div class="home-questions">
+  <h2>Open questions</h2>
+  <ul>
+    <li>Can a verifier's scope be fixed at build time, so that "out of scope" is a checked guarantee rather than a guess? <a class="oq-link" href="/formalization-limits/">limits to formalization →</a></li>
+    <li>Do a model's internal features hold still exactly where the training rules run out ; the place interpretability is needed most? <a class="oq-link" href="/interpretability-grounding/">interpretability &amp; grounding →</a></li>
+    <li>Can bias be measured from the symmetry of a model's own geometry, without anyone first defining "fair"? <a class="oq-link" href="/projects/bias-measurement/">bias measurement →</a></li>
+    <li>What separates a system that follows the relevance we gave it from one that generates its own? <a class="oq-link" href="/active-inference/">active inference →</a></li>
+  </ul>
+</div> -->
 
 {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
 {% assign posts_by_month = visible_posts | group_by_exp: "post", "post.date | date: '%B %Y'" %}
 
 <div class="posts" id="writing">
+  <h2>Writing</h2>
   {% for month_group in posts_by_month %}
   <h2 class="timeline-month">{{ month_group.name }}</h2>
   {% for post in month_group.items %}
@@ -18,9 +33,8 @@ layout: default
     <time class="entry_date">{{ post.date | date: "%B %d, %Y" }}</time>
     <h2 class="post-title">
       <a href="{{ post.url }}" class="entry_title">{{ post.title }}</a>
-      {% for tag in post.tags %}
-      <a href="#" class="tag-badge">{{ tag }}</a>
-      {% endfor %}
+      {%- if post.content contains 'class="in-night' %} <span class="stratum-glyph" title="deepens in night">◑</span>{% endif %}
+      {%- if post.content contains 'class="in-beyond' %} <span class="stratum-glyph" title="and further in spectrum">✺</span>{% endif %}
     </h2>
   </article>
   {% endfor %}
