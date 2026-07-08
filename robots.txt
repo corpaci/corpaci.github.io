@@ -33,6 +33,3 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://corpaci.com/sitemap.xml
-Sitemap: https://corpaci.com/sitemap-research.xml
-Sitemap: https://corpaci.com/sitemap-projects.xml
-Sitemap: https://corpaci.com/sitemap-writing.xml

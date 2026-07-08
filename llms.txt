@@ -1,32 +1,38 @@
+---
+---
 # Luiza Corpaci
 
-AI engineer at AMD, completing a Master's in Data Science, applying to PhD programs. Research at the intersection of formal verification, interpretability, collective intelligence, category theory, and AI safety.
+AI engineer at AMD. I study semantic faithfulness in AI systems: when intent is translated into specs, code, tests, proofs, or explanations, does the meaning survive? Method: formal verification and equational theories as grounded evals, not just behavioral testing. Finishing MSc Data Science (TU Wien); PhD applications planned for autumn 2027.
 
 ## Start here
-- /blog/
+- /research/ — active research threads and publications
+- /blog/limits-of-formalization — what formal systems can and cannot reach, and what that means for honest AI
+- /limits/ — interactive walkthrough of the self-reference limits (Liar, Tarski, Gödel, alignment)
+- /map/ — interactive map of 24 self-reference instances, from quines to Gödel to ELK
+
+## Research threads
 - /formalization-limits/
 - /interpretability-grounding/
 - /ai-safety/
 - /active-inference/
 - /collective-intelligence/
-- /category-theory/
 
 ## Core topics
+- Semantic faithfulness across representations: Equational Theories Project as external ground truth, probe transfer gaps across textual renderings
 - Limits to formalization: syntax-semantics interface, incompleteness, what formalisms cannot reach
-- Interpretability and grounding: what measurement reveals and conceals about neural networks
-- Collective intelligence: value alignment at the human level, active inference, epistemic coordination
+- Interpretability and grounding: what measurement reveals and conceals about neural networks (Grounding Relative Understanding)
 - Social bias measurement: geometric approaches, midpoint geometry, SONAR embeddings
 - AI safety: feature invariance, reliable interpretability, formal tools for deployment guarantees
-- Category theory: structure-preserving maps, functors, applications to learning and meaning
-
 
 ## Projects
-- /projects/ictss-playground.md
+- /projects/sair-embedding-geometry/
+- /projects/bias-measurement/
+- /projects/ictss-playground/
 
 ## Writing
-- /blog/
-
+{% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}{% for post in visible_posts %}- {{ post.url }} — {{ post.title }}
+{% endfor %}
 ## Academic profiles
 - https://scholar.google.com/citations?user=OhRQsPAAAAAJ
 - https://orcid.org/0009-0004-4432-6843
-- https://github.com/CorpaciLC
+- https://github.com/corpaci
