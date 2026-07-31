@@ -2,7 +2,7 @@
 ---
 # Luiza Corpaci
 
-AI engineer at AMD. I study semantic faithfulness in AI systems: when intent is translated into specs, code, tests, proofs, or explanations, does the meaning survive? Method: formal verification and equational theories as grounded evals, not just behavioral testing. Finishing MSc Data Science (TU Wien); PhD applications planned for autumn 2027.
+I study and build certificate-backed methods for detecting semantic drift in AI-generated specifications, proofs, and other artifacts. I currently mentor research at MARS V and SPS Apart, participate in CAISH’s Hardware Assurance Program, and am completing an MSc in Data Science at TU Wien.
 
 ## Start here
 - /research/ — active research threads and publications

@@ -12,11 +12,11 @@ hide_title: true
 I study whether meaning survives translation: when intent becomes a spec, a spec becomes code or a proof, or a model's output becomes an explanation, does the content still mean what it meant ; or does it just look like it does?
 
 **Current work:**
-- AMD: pipelines that turn natural language specs into formal verification assertions ; the same question in silicon, does the translation preserve what it was supposed to preserve.
+- Research mentoring at MARS V and SPS Apart; participating in CAISH’s Hardware Assurance Program.
 - [Semantic faithfulness across representations](/research/#semantic-faithfulness): semantic diffing via the Equational Theories Project, measuring whether a representation preserves its underlying meaning across changes in formality.
 - Other active threads: semantic equivalence in LLM-generated formal code, feature stability at rule-gap boundaries, bias geometry in embedding space ; full list in [research](/research/).
 
-**Background:** chip design (Marvell), combinatorial testing (SBA Research, Vienna), mechanistic interpretability (University of Vienna). Best Paper at ICTSS 2024. Finishing MSc Data Science (TU Wien); PhD applications planned for autumn 2027.
+**Background:** hardware verification (AMD), chip design (Marvell), combinatorial testing (SBA Research, Vienna), mechanistic interpretability (University of Vienna). Best Paper at ICTSS 2024. Completing an MSc in Data Science at TU Wien; PhD applications planned for autumn 2027.
 
 <div id="contact" markdown="1">
 

@@ -10,7 +10,7 @@ This is the first post on this site, and it seems right to say what it is for.
 
 <!--more-->
 
-I am an AI engineer at AMD, where I build tools for hardware verification. I am (hoping to be) completing a Master's in Data Science, with PhD applications planned for autumn 2027. My research interests fit an intersection of formal verification, interpretability, and AI safety.
+I study and build certificate-backed methods for detecting semantic drift in AI-generated specifications, proofs, and other artifacts. I currently mentor research at MARS V and SPS Apart, participate in CAISH’s Hardware Assurance Program, and am completing an MSc in Data Science at TU Wien. My background includes hardware verification at AMD.
 
 I mean this place for thinking in public. Some posts will be technical and others will be more reflective.
 
