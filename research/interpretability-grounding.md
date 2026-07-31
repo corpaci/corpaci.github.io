@@ -15,7 +15,7 @@ The applied question: do the internal features of a neural network remain stable
 
 This principle ; Grounding Relative Understanding (GRU) ; is the interpretability consequence of the ICTSS 2024 result on spectral metrics.
 
-**The Fisher Information connection.** The information a measurement carries about a parameter is bounded by the geometry of the measurement apparatus: $I(\theta; X) \leq I(\theta; f(X))$ with equality iff $f$ is sufficient. Applied to interpretability: the features you extract from a model are a joint product of the model *and* the probe. Your probing method is not neutral. The features you find tell you about the model filtered through the probe's geometry ; and most of the field is not being careful about this.
+**The Fisher Information connection.** Processing a measurement cannot increase the Fisher information it carries about a parameter: $I(\theta; f(X)) \leq I(\theta; X)$, with equality when $f(X)$ is sufficient for $\theta$. Applied to interpretability: the features you extract from a model are a joint product of the model *and* the probe. Your probing method is not neutral. The features you find tell you about the model filtered through the probe's geometry ; and most of the field is not being careful about this.
 
 This is not a bug in interpretability methodology. It's the methodology's fundamental structure. It means: (1) probing results should always be reported relative to their probe architecture, (2) feature comparisons across different probing methods are not apples-to-apples, and (3) the claim that a feature represents some concept is always a claim about the (model, probe) pair, not the model alone.
 
