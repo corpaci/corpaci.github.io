@@ -14,7 +14,6 @@ I study and build certificate-backed methods for detecting semantic drift in AI-
 - /formalization-limits/
 - /interpretability-grounding/
 - /ai-safety/
-- /active-inference/
 - /collective-intelligence/
 
 ## Core topics

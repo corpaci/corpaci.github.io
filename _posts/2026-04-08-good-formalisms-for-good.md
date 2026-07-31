@@ -4,24 +4,24 @@ title: "What formalisms are good for defining good?"
 permalink: /blog/good-formalisms-for-good
 tags: [good, meta, philosophy, ai-safety, alignment, interpretability]
 description: "The nature of good; verifiable vs validatable vs good; the gap between formal rules and lived experience."
+epistemic_status: Research notes
+epistemic_note: These are provisional questions and prompts, not defended claims.
 ---
 
-**Status:** open questions / research notes, not a finished argument.
+Working proposition: We may want a formalism for “good” that can be used in AI alignment.
+Question: good for whom, relative to what, and on what timescale?
 
-Claim: We want a formalism for "good" that can be used in AI Alignment.
-Ambiguity: good for whom?, good relative to what?, good on what timescale?
+Working proposition: “Good” may not be adequately represented by a single number.
+Question: what structure would be better, and for which decisions?
 
-Claim: "Good" is not a single number.
-Ambiguity: what is it then?
+Working proposition: “Good” may have non-arbitrary structure.
+Question: what kind of structure, and which invariants survive across attempts to formalize it?
 
-Claim: "Good" has structure; it's not arbitrary. 
-Ambiguity: what kind of structure? can we find the structure that remains invariant across all formalisms trying to capture it?
+Research prompt: which transformations should preserve a judgment of good?
+Question: could invariances supplement content-based definitions? The Noether comparison is an analogy, not a proposed theorem.
 
-Claim: a good question to ask next is: what operations on good must preserve good?
-Ambiguity: should we define good by its invariances rather than content? (Noether style)
-
-Claim: Good is not invariant.
-Ambiguity: is it covariant?
+Counter-prompt: perhaps judgments of good change with context in structured ways.
+Question: is covariance a useful mathematical model, or only a metaphor?
 
 
-extra question: what, in human cognition and experience, is interesting or valuable to a much more capable system? How do we make sure it encounters that early enough for it to matter?
+Extra question: what, if anything, in human cognition and experience would be interesting or valuable to a much more capable system? What evidence could distinguish answers from projection?

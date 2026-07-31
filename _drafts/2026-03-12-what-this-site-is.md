@@ -19,7 +19,7 @@ I call the thread that connects many of these things "systems all the way down",
 What you can expect:
 
 - **Technical writings** into formalization limits, SAE features, bias measurement, and the mathematics behind them.
-- **Conceptual sketches** connecting active inference and interpretability.
+- **Conceptual sketches** connecting formal methods and interpretability.
 - **Research notes** that are somewhere between a lab notebook and an essay.
 
 If that resonates, I would be glad to hear from you ; [contact](/about/#contact).

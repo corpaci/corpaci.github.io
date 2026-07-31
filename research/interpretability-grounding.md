@@ -3,23 +3,25 @@ layout: page
 title: Interpretability and Grounding
 subtitle: What measurement can and cannot reveal about neural networks.
 permalink: /interpretability-grounding/
+epistemic_status: Methodological hypothesis
+epistemic_note: GRU is my name for a measurement discipline, not an established theorem. The proposed connection to SAE stability is a testable research direction.
 ---
 
-A system's outputs encode the structure of the measuring system itself. This is the core idea I call Grounding Relative Understanding (GRU): when you probe a neural network with a measurement tool, what you find is partly a property of the network and partly a property of the tool.
+Interpretability measurements depend on both the object being measured and the instrument. I use **Grounding Relative Understanding (GRU)** as shorthand for keeping the model, probe, data, and intervention visible when interpreting a result.
 
-This matters for interpretability ; the field that tries to understand what's happening inside AI systems. Most interpretability results are reported as if the measurement tool were transparent. GRU says it isn't. The "features" you find in a model are always features of the (model + probe) pair.
+Moving from an extracted pattern to a claim about a model's representation requires controls: the same pattern may change with the probe, dataset, layer, or intervention. GRU therefore treats a reported feature first as a result of a particular measurement setup. Stronger claims require evidence that the feature survives relevant changes to that setup.
 
-The applied question: do the internal features of a neural network remain stable when the network is operating in ambiguous situations it wasn't explicitly trained on? If not, that's precisely where interpretability breaks down ; and where we most need it to work.
+The applied question is whether internal features remain stable when a network operates in ambiguous situations it was not explicitly trained on. Instability would identify a limit of that model–measurement pairing; it would not, by itself, show that interpretability fails in general.
 
 <div class="in-night" markdown="1">
 
-This principle ; Grounding Relative Understanding (GRU) ; is the interpretability consequence of the ICTSS 2024 result on spectral metrics.
+The ICTSS 2024 result on spectral metrics motivates this line of questioning, but it does not establish GRU as a consequence.
 
-**The Fisher Information connection.** Processing a measurement cannot increase the Fisher information it carries about a parameter: $I(\theta; f(X)) \leq I(\theta; X)$, with equality when $f(X)$ is sufficient for $\theta$. Applied to interpretability: the features you extract from a model are a joint product of the model *and* the probe. Your probing method is not neutral. The features you find tell you about the model filtered through the probe's geometry ; and most of the field is not being careful about this.
+**The Fisher-information connection.** Under the usual regularity conditions, deterministic processing cannot increase the Fisher information a measurement carries about a parameter: $I(\theta; f(X)) \leq I(\theta; X)$, with equality when $f(X)$ is sufficient for $\theta$. This supplies an analogy and one route to formalization: a probe can discard or reshape accessible information. It does not prove a universal bound on every interpretability method.
 
-This is not a bug in interpretability methodology. It's the methodology's fundamental structure. It means: (1) probing results should always be reported relative to their probe architecture, (2) feature comparisons across different probing methods are not apples-to-apples, and (3) the claim that a feature represents some concept is always a claim about the (model, probe) pair, not the model alone.
+The resulting reporting discipline is: (1) state the probe architecture and data, (2) avoid treating results from different probes as directly comparable without calibration, and (3) distinguish “this setup recovers a feature” from the stronger claim that the model uses that feature causally.
 
-**SAE feature invariance.** The applied question: do sparse autoencoder features remain stable across the boundary between clearly-in-distribution inputs and rule-gap territory ; cases where the training regime said nothing specific? Feynman would ask: stable in what sense? Stable under what transformation group? I mean: does the feature activation geometry remain consistent when inputs transition into the rule-gap region? If features fracture there, that is a precise safety-relevant signal. We are most exposed exactly where interpretability is most likely to break.
+**SAE feature invariance hypothesis.** Do sparse-autoencoder features remain stable across the boundary between clearly in-distribution inputs and rule-gap territory—cases where the training regime said nothing specific? Here, stability means that feature-activation geometry remains consistent under defined input transformations. A fracture could be a useful warning about that SAE's transfer behavior; its relationship to downstream safety would still need to be shown.
 
 **Planned experiments:**
 
@@ -28,12 +30,11 @@ This is not a bug in interpretability methodology. It's the methodology's fundam
 3. Test whether feature geometry (cosine similarity structure, clustering) is stable across the boundary.
 4. Correlate instability with model output variance ; does feature fracture predict behavioral inconsistency?
 5. Repeat across multiple SAE architectures and probe methods to test whether instability is a model property or a (model, probe) property.
-6. Extend to out-of-distribution inputs where ground truth behavior is available (controlled ambiguity injection).
+6. Extend to out-of-distribution inputs where an independently checked behavioral target is available (controlled ambiguity injection).
 7. Develop a stability metric that can be computed without requiring explicit boundary labels.
 8. Test whether stability predicts downstream task performance on ambiguous inputs.
 9. Compare stability profiles across model scales ; does larger = more stable at boundaries?
-10. Connect stability to the endogenous precision-weighting question from the active inference thread.
-11. Formalize GRU in terms of sufficient statistics and test whether "more sufficient" probes give more stable features.
-12. Draft: a probe-relative feature report format for interpretability papers.
+10. Formalize GRU in terms of sufficient statistics and test whether "more sufficient" probes give more stable features.
+11. Draft: a probe-relative feature report format for interpretability papers.
 
 </div>

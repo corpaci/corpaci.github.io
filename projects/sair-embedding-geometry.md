@@ -3,6 +3,8 @@ layout: page
 title: SAIR Embedding Geometry
 subtitle: How much label signal is recoverable from prompt-conditioned renderings of equational implications?
 permalink: /projects/sair-embedding-geometry/
+epistemic_status: Exploratory experiment
+epistemic_note: This is a frozen sentence-encoder pilot. It shows label decodability in the stated setup, not algebraic understanding or a causal reasoning mechanism.
 ---
 
 A pilot on prompt-conditioned representation geometry in the SAIR equational-theory benchmark.
@@ -13,13 +15,7 @@ This project began with a small question that sits somewhere between interpretab
 
 An immediate trigger was the [SAIR Mathematics Distillation Challenge](https://competition.sair.foundation/competitions/mathematics-distillation-challenge-equational-theories-stage1/overview) on equational theories, where the task is to compress useful reasoning into a small human-readable cheat sheet (smaller than 10KB). The benchmark is built on the [equational_theories project](https://github.com/teorth/equational_theories?tab=readme-ov-file), which has the goal to "explore the space of equational theories of magmas, ordered by implication."
 
-What I think they're asking is: How much information to contain all human-discovered algebra? How much of that information can be compressed into a small cheat sheet? What is the best way to compress it? And how much of that information is already present in a frozen sentence encoder? How can we design a cheat sheet that extracts that information in a way that generalizes across different textual renderings of the same underlying mathematical facts?
-
-### How much information fits in all of mathematics?
-
-Rough estimates suggest that large formal libraries like [Lean's mathlib](https://leanprover-community.github.io/mathlib-overview.html) already encode tens of megabytes of structured mathematics, while the total corpus of published mathematics is orders of magnitude larger. However, the core of it in the minimal dependency graph of independent ideas may be far smaller than what raw text volumes suggest.
-
-My question from this project for now is not about an exact number, but whether **a small, well-structured textual object** (e.g., as the SAIR competition constrains to a 10KB cheat sheet) can activate a meaningful portion of the latent structure in a model.
+The challenge raises broad questions about mathematical compression. This pilot tests a much narrower one: whether a small, structured textual rendering changes how much task-label signal a fixed encoder exposes.
 
 These said, I am **not** testing whether an embedder understands algebra. What I am testing is whether a frozen sentence encoder contains recoverable TRUE/FALSE signal for **different textual renderings** of equational-implication instances.
 
@@ -125,17 +121,17 @@ The delta between `natural` and `eq1_only` has variance exceeding the base embed
 
 ## Current interpretation
 
-> Signal is robust and survives leakage correction. It is anchored in equation1, partially explained by operator statistics, and not template-invariant. Whether prompt-induced displacement carries signal beyond surface structure is the open question.
+> Within this setup, label signal survives grouped cross-validation. It is concentrated in equation1, partially explained by operator statistics, and not template-invariant. Whether prompt-induced displacement carries signal beyond surface structure remains open.
 
 <div class="in-night" markdown="1">
 
 ## Why I find this interesting
 
-The most useful object here may not be the embedding itself, but the **prompt-induced displacement**. `eq1_only` gives a base representation. `natural` adds a prompt-conditioned deformation. The deformation carries label signal.
+**Hypothesis, not result:** the most useful object may be the **prompt-induced displacement** rather than the embedding alone. `eq1_only` gives a base representation; `natural` adds a prompt-conditioned deformation. In this dataset, that deformation carries label-correlated signal.
 
 **When a prompt helps a model, does it help by changing what is represented, or by changing how existing representations are routed and read out?**
 
-If the delta survives surface-structure control, the answer leans toward restructuring. Either way it's informative for what the optimal 10KB cheat sheet looks like: a *lens*, not an encyclopedia.[^further]
+If the delta survives surface-structure control, restructuring becomes a more plausible explanation. That result could inform the design of a 10KB cheat sheet as a *lens* rather than an encyclopedia, but it would not by itself identify the model's causal mechanism.[^further]
 
 [^further]: Waiting for SAIR organizers to [open access to cheatsheets and scores](https://zulip.sair.foundation/#narrow/channel/13-Math-Distillation-Challenge---equational-theories/topic/prompt.26score.20~.20public.20.2Fmech.20interp.20on.20cheatsheet.20effect/with/1307) for the next step.
 
@@ -143,9 +139,7 @@ If the delta survives surface-structure control, the answer leans toward restruc
 
 <div class="in-beyond" markdown="1">
 
-This connects to something I keep circling back to.[^active-inference] In the [verification/validation gap](https://en.wikipedia.org/wiki/Verification_and_validation), the hard question is whether the spec captures what was needed (validation). In the SAIR competition case, a cheat sheet is a spec for reasoning. The model either follows it (verification) or it doesn't. But whether the cheat sheet *guides the right thing in the model* is validation. The delta result suggests that framing isn't neutral. The same mathematical content, framed differently, produces geometrically different representations that differ in their usefulness for a task.
-
-[^active-inference]: The active inference framing: the cheat sheet reduces free energy by providing priors. It constrains the model's prediction space. The question is whether the constraint changes the model's generative model (what is represented) or just its precision-weighting over existing representations (how they're read out).
+**Speculative connection.** In the [verification/validation gap](https://en.wikipedia.org/wiki/Verification_and_validation), one question is whether a specification captures what was needed. A cheat sheet can be treated as a loose specification for reasoning, but the analogy has limits: this experiment measures encoder geometry, not whether a language model follows or understands the sheet. The result does show that framing changes the measured embedding geometry and its usefulness to this classifier.
 
 And that's a specific instance of a much broader question about AI-human co-production: when AI helps us think, does it change what we think, or how we access what we already know?[^co-production]
 

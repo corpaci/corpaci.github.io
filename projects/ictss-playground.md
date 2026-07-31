@@ -3,9 +3,11 @@ layout: page
 title: "ICTSS Playground"
 subtitle: "Poke at a test matrix, watch the spectral complexity react."
 permalink: /projects/ictss-playground/
+epistemic_status: Published result · Interactive intuition
+epistemic_note: The linked paper reports the evaluated result. This playground illustrates the spectral metrics; it is not a reproduction of the study or a proof of the relationship.
 ---
 
-From the [ICTSS 2024 Best Paper](https://www.sba-research.org/2024/11/04/best-paper-presentation-at-ictss-2024-in-london/): spectral matrix complexity metrics predict combinatorial *t*-way coverage. 
+The [ICTSS 2024 Best Paper](https://www.sba-research.org/2024/11/04/best-paper-presentation-at-ictss-2024-in-london/) evaluated spectral matrix-complexity metrics as predictors of combinatorial *t*-way coverage.
 
 The intuition is that a random-looking matrix covers more combinations than a structured one, and its singular value spectrum is visibly flatter.
 
@@ -271,4 +273,4 @@ Click cells to toggle bits. Try making a highly structured matrix vs. a random o
 
 ---
 
-**What you're seeing:** The singular values of the matrix are the square roots of the eigenvalues of $A^T A$. A flat spectrum (high SVD entropy) means the matrix's "information" is spread across many dimensions ; it covers the test space more uniformly. A peaked spectrum (low entropy, high $\sigma_1$) means most variance is concentrated in one direction ; the matrix is redundant. The ICTSS result: this entropy predicts combinatorial *t*-way coverage without enumerating the combinations.
+**What you're seeing:** The singular values of the matrix are the square roots of the eigenvalues of $A^T A$. A flat spectrum (high SVD entropy) means the spectral mass is spread across more dimensions; a peaked spectrum (low entropy, high $\sigma_1$) means it is concentrated. The published study tested how metrics like these predict combinatorial *t*-way coverage without enumerating every combination. This toy does not calculate coverage, so the relationship itself is not demonstrated here.

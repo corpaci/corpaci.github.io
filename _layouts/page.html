@@ -10,5 +10,11 @@ layout: default
     {% endif %}
   </div>
   {% endunless %}
+  {% if page.epistemic_status %}
+  <div class="epistemic-note">
+    <span class="epistemic-label">{{ page.epistemic_status }}</span>
+    {% if page.epistemic_note %}<span>{{ page.epistemic_note }}</span>{% endif %}
+  </div>
+  {% endif %}
   {{ content }}
 </article>

@@ -3,6 +3,8 @@ layout: page
 title: Research
 subtitle: Active threads and publications.
 permalink: /research/
+epistemic_status: Research overview
+epistemic_note: Each thread below is labeled by evidence level; experimental findings, hypotheses, and conceptual work are not presented as equivalent kinds of support.
 ---
 
 I study semantic faithfulness in AI systems: when intent is translated into specs, code, tests, proofs, tool calls, or explanations, does the meaning survive, or does the artifact just look locally valid while the content drifted? Formal verification and equational theories are the grounded evals I use to ask that question, from hardware to interpretability to bias measurement.
@@ -10,19 +12,19 @@ I study semantic faithfulness in AI systems: when intent is translated into spec
 ## Active Threads
 
 <div class="research-thread" id="semantic-faithfulness" markdown="1">
-<div class="thread-status">Active · Research</div>
+<div class="thread-status">Empirical program · Exploratory results</div>
 
 ### Semantic Faithfulness Across Representations
 
 AI systems translate intent into plans, specs, code, tests, proofs, and tool calls. Each artifact can look locally valid while failing to preserve what it was supposed to mean ; a model can produce a formally valid proof, test, or implementation of the wrong meaning.
 
-**Testbed:** the [Equational Theories Project](https://github.com/teorth/equational_theories), which gives Lean-verified implications and non-implications between equational laws ; external, mechanically-checked ground truth for whether two statements are actually equivalent.
+**Testbed:** the [Equational Theories Project](https://github.com/teorth/equational_theories), which gives Lean-verified implications and non-implications between formalized equational laws—an external, mechanically checked reference for the encoded relation.
 
 **Method:** construct content-preserving vs. drifted pairs across representations that vary in formality and ambiguity (bare equation, natural-language paraphrase, formal query, counterexample framing, ...), then measure whether a probe is sensitive to the semantic invariant or just to surface form.
 
-**Initial observations** (numbers as published on the [SAIR embedding geometry](/projects/sair-embedding-geometry/) project; the surface-structure control is still pending): a linear probe trained and evaluated within a single template reaches 0.915 accuracy, but training on one template and testing on another collapses to 0.532 ; near chance, a transfer gap of 0.383. The signal a probe finds is anchored in surface form more than in the underlying semantic invariant.
+**Initial observations** (numbers reported on the [SAIR embedding geometry](/projects/sair-embedding-geometry/) project; the surface-structure control is still pending): a linear probe trained and evaluated within a single template reaches 0.915 accuracy, while mean cross-template accuracy is 0.532—a transfer gap of 0.383. This shows that the recovered label signal is not template-invariant in this setup; the pending control is needed to determine how much of the gap is explained by surface structure.
 
-**Why this matters for safety:** this looks like an upstream mechanism of Goodhart ; a proxy can stop tracking what it's supposed to measure before anyone has even optimized against it, purely from a change in surface representation.
+**Interpretation to test:** representation changes can break the relationship between a probe and its target even before anyone optimizes against that probe. This resembles one ingredient of Goodhart-style failure, but the pilot does not establish a general Goodhart mechanism.
 
 **How this could be wrong:**
 - The checker itself may encode the wrong meaning ; grounding against an external verifier relocates trust rather than eliminating it. Best current response: use a checker independent of the representation being tested (Lean, not another LLM), and treat drift in the checker as its own explicit risk.
@@ -33,25 +35,25 @@ AI systems translate intent into plans, specs, code, tests, proofs, and tool cal
 </div>
 
 <div class="research-thread" id="limits-to-formalization" markdown="1">
-<div class="thread-status">Active · Research</div>
+<div class="thread-status">Conceptual inquiry</div>
 
 ### [Limits to Formalization](/formalization-limits/)
 
-What happens when you take fuzzy input and produce something measurable and checkable? Self-reference creates paradoxes, and finite formalizations don't capture all true statements about sufficiently rich domains. [Full thread →](/formalization-limits/)
+What happens when you take fuzzy input and produce something measurable and checkable? This thread separates proved limits for formal systems under explicit hypotheses from open questions about specification and meaning. [Full thread →](/formalization-limits/)
 
 </div>
 
 <div class="research-thread" id="interpretability-grounding" markdown="1">
-<div class="thread-status">Active · Research</div>
+<div class="thread-status">Methodological hypothesis</div>
 
 ### [Interpretability and Grounding](/interpretability-grounding/)
 
-A system's outputs encode the structure of the measuring system itself ; what I call Grounding Relative Understanding (GRU), and what it implies for whether SAE features are stable at rule-gap boundaries. [Full thread →](/interpretability-grounding/)
+Interpretability findings depend on the model, probe, data, and intervention. I use Grounding Relative Understanding (GRU) as shorthand for that measurement discipline and ask whether SAE features remain stable at rule-gap boundaries. [Full thread →](/interpretability-grounding/)
 
 </div>
 
 <div class="research-thread" id="bias-measurement" markdown="1">
-<div class="thread-status">Active · Research</div>
+<div class="thread-status">Experimental project · Unpublished</div>
 
 ### [Social Bias Measurement](/projects/bias-measurement/)
 
@@ -59,17 +61,8 @@ Measuring social bias in language models with midpoint geometry instead of devia
 
 </div>
 
-<div class="research-thread" id="active-inference" markdown="1">
-<div class="thread-status">Active · Research</div>
-
-### [Active Inference & the Living/Non-Living Boundary](/active-inference/)
-
-What distinguishes a thermostat from a cell: whether the relevance-weighting over prediction errors is endogenously generated through organizational closure. [Full thread →](/active-inference/)
-
-</div>
-
 <div class="research-thread" id="collective-intelligence" markdown="1">
-<div class="thread-status">Active · Collaboration</div>
+<div class="thread-status">Conceptual collaboration</div>
 
 ### [Collective Intelligence](/collective-intelligence/)
 
@@ -78,20 +71,20 @@ Infrastructure for collective intelligence and value alignment ; the Mutual Thri
 </div>
 
 <div class="research-thread" id="ai-safety" markdown="1">
-<div class="thread-status">Active · Research</div>
+<div class="thread-status">Research position</div>
 
 ### [AI Safety](/ai-safety/)
 
-My approach runs through interpretability: if we cannot reliably read what a model is doing internally, we cannot make strong guarantees about its behavior in deployment. [Full thread →](/ai-safety/)
+My current approach emphasizes interpretability and formal evaluation while treating their measurement limits as limits on the guarantees they can support. [Full thread →](/ai-safety/)
 
 </div>
 
 <div class="research-thread" id="self-reference-map" markdown="1">
-<div class="thread-status">Interactive · Map</div>
+<div class="thread-status">Conceptual map · Similarity is not equivalence</div>
 
 ### [Self-Reference Map](/map/)
 
-24 instances of self-reference ; from recursive definitions and quines through Gödel and Tarski to Goodhart, ELK, and mesa-optimization ; one graph, arranged by shared mechanism. The walls of the [limits thread](/formalization-limits/), connected. [Explore →](/map/)
+24 examples and analogies involving self-reference, from recursive definitions and quines through Gödel and Tarski to Goodhart, ELK, and mesa-optimization, arranged by explicitly chosen features. The map proposes comparisons; it does not establish that the phenomena are equivalent. [Explore →](/map/)
 
 </div>
 

@@ -3,11 +3,13 @@ layout: page
 title: Social Bias Measurement
 subtitle: Geometric rigor over ad hoc benchmarks.
 permalink: /projects/bias-measurement/
+epistemic_status: Experimental project
+epistemic_note: This work is unpublished. Its geometry is descriptive; interpreting geometric differences as bias or harm still requires normative and contextual choices.
 ---
 
-An experimental framework for measuring social bias in AI language models with mathematical rigor, rather than ad hoc benchmarks. With Soheyb Kouider.
+An experimental framework for describing social-bias patterns in language models with geometric and combinatorial tools. With Soheyb Kouider.
 
-The specific insight: most bias metrics measure deviation from a "neutral" reference point ; but that reference point is always chosen by someone, and that choice is never truly neutral. Midpoint geometry replaces a one-sided reference group with a symmetric construction: given two chosen group representations, it measures their relative structure in a specified embedding space and metric.
+The specific motivation: many bias metrics measure deviation from a designated reference group. That designation encodes a modeling choice. Midpoint geometry replaces a one-sided reference group with a symmetric construction: given two chosen group representations, it measures their relative structure in a specified embedding space and metric.
 
 This connects to a broader question: what can be measured before defining "fair"? Relative structure can be measured without fixing an absolute baseline, but interpreting that structure as unfairness still requires normative and contextual choices.
 
@@ -21,6 +23,6 @@ This connects to a broader question: what can be measured before defining "fair"
 
 **The combinatorial testing angle.** The BBQ dataset has structure: social categories (race, gender, religion, etc.) interact. A model that performs well on each category independently may still behave unexpectedly when categories co-occur. Covering arrays let us enumerate the *t*-way interactions systematically rather than relying on what happened to appear in the benchmark. The same combinatorial machinery that applies to test suite design applies here.
 
-**The GRU connection.** LLM decision boundaries in SONAR space reveal internal precision-weighting that isn't specified by the training objective. The model's own geometry generates relevance ; which groups it treats as similar, which as distant ; in ways that weren't externally imposed. This is one of the two empirical anchors for the [active inference](/active-inference/) thread.
+**Possible GRU connection.** Differences in SONAR-space decision geometry may reflect the model, embedding system, prompts, or their interaction. Testing stability across those choices could inform interpretability; the current setup does not establish an intrinsic model geometry.
 
 </div>

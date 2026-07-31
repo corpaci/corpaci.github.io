@@ -3,24 +3,22 @@ layout: page
 title: Limits to Formalization
 subtitle: What happens when you try to measure what resists measurement.
 permalink: /formalization-limits/
+epistemic_status: Conceptual inquiry
+epistemic_note: This page combines established results in logic with open extrapolations about specification and alignment. The extrapolations are questions, not consequences of the theorems.
 ---
 
-What happens when you take fuzzy input and produce something measurable and checkable? Self-reference creates paradoxes (Tarski[^tarski], Gödel[^godel]); finite formalizations don't capture all true statements about some sufficiently rich domains. The main tension: syntax is tractable[^tractable], semantics is rich[^rich], and formalization covers them imperfectly.
+What happens when you take fuzzy input and produce something measurable and checkable? Tarski and Gödel establish precise limits for formal languages and systems that meet their hypotheses.[^tarski][^godel] I use those results as reference points for a broader question: where does a mechanically checked artifact cease to support the interpretation we place on it? The analogy is suggestive, but it is not itself a theorem.
 
 I'm interested in the maximal complexity that can be compressed through formalization, the syntax-semantics interface (where structure ends and meaning begins), and whether there exists a natural language kernel that is fully formalizable[^kernel].
 
-One direction recommended by [Leo de Moura's work on Lean](https://lean-lang.org/): formalization as bootstrapping ; using a program implemented from a spec as a spec for an improved program, where each iteration collapses semantic ambiguity into syntactic commitment[^commitment] and quality becomes improvement rather than correspondence to a fixed ground truth.
+One direction, inspired by iterative formal development in [Lean](https://lean-lang.org/), is to treat formalization as bootstrapping: use an implementation and its specification to construct a more precise successor. Each iteration forces syntactic commitments,[^commitment] but whether those commitments preserve the original intent remains an empirical and interpretive question.
 
 Longer treatments: [the limits-of-formalization post](/blog/limits-of-formalization), the [limits/ interactive](/limits/) that walks the first walls by hand, and the [self-reference map](/map/).
 
-[^tarski]: Tarski's undefinability theorem: no sufficiently expressive language can define its own truth predicate. The condition is that the language must be able to express basic arithmetic. Truth for a language can only be defined in a richer metalanguage ; you always need to step outside.
+[^tarski]: Roughly: an adequate truth predicate for a sufficiently expressive formalized language cannot be defined within that same language under the theorem's hypotheses. A richer metalanguage is one standard response; the exact formulation matters.
 
-[^godel]: Gödel's incompleteness theorems: any consistent formal system capable of expressing basic arithmetic contains true statements it cannot prove (first theorem) and cannot prove its own consistency (second theorem). The formal system is necessarily incomplete from within.
+[^godel]: Roughly: any consistent, effectively axiomatized formal system strong enough to represent the relevant arithmetic is incomplete, and under related hypotheses cannot prove its own consistency. The exact hypotheses matter.
 
-[^tractable]: Syntactic objects ; strings, symbols, formal expressions ; can be mechanically manipulated, checked, and compared. You can write algorithms over them. They hold still.
+[^kernel]: Controlled natural languages (such as Attempto Controlled English) are fragments designed to map cleanly to formal logic. Where to draw a useful boundary between controlled and open-ended language is a design choice, not a settled natural division.
 
-[^rich]: Semantic content ; meaning, reference, truth conditions ; resists mechanical capture because it's tied to context, interpretation, and the world outside the formal system. It doesn't hold still.
-
-[^kernel]: Controlled natural languages (like Attempto Controlled English) are fragments designed to map cleanly to first-order logic ; simple declaratives with unambiguous referents. The formalizable region ends where context-dependence, deixis, metaphor, and pragmatic implication take over. The boundary isn't sharp; there's a gradient, and the fully formalizable fragment is narrow enough that it barely feels like natural language anymore.
-
-[^commitment]: Implementation forces you to resolve every ambiguity the spec left open. "Handle errors appropriately" becomes a concrete choice about *how*. Each such choice collapses the space of possible interpretations into one specific form. In the bootstrapping loop, these commitments accumulate: the next spec inherits resolved ambiguities from the previous implementation, and the process converges toward increasing precision.
+[^commitment]: Implementation forces choices where a specification is silent. Those choices can increase precision, but they can also preserve or amplify a misunderstanding; convergence in syntax does not guarantee convergence on intent.

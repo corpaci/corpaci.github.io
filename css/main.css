@@ -374,6 +374,40 @@ img {
   margin-bottom: 0;
 }
 
+.epistemic-note {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: -1rem 0 2rem;
+  padding: 0.8rem 1rem;
+  border-left: 2px solid var(--accent-secondary);
+  background: var(--code-bg);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.epistemic-label {
+  flex-shrink: 0;
+  color: var(--accent-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .epistemic-note {
+    display: block;
+  }
+
+  .epistemic-label {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+}
+
 /* Home identity statement */
 .home-identity {
   margin-bottom: 3rem;

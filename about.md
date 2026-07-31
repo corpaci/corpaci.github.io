@@ -46,7 +46,7 @@ I'm open to fellowship and collaboration conversations around semantic faithfuln
 
 <div class="in-night" markdown="1">
 
-The Tarski ~> Gödel ~> Chaitin sequence is background radiation through most of this.
+Tarski, Gödel, and Chaitin are recurring reference points in my conceptual writing.
 
 </div>
 
@@ -54,6 +54,6 @@ The Tarski ~> Gödel ~> Chaitin sequence is background radiation through most of
 
 I wonder about wonders.
 
-And whether the capacity to wonder is itself a clue about what can't be formalized.
+A question I keep nearby: whether the capacity to wonder tells us anything about the limits of formalization.
 
 </div>

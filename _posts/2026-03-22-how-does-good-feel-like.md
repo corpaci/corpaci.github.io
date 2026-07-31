@@ -4,10 +4,12 @@ title: "How Does Good Feel Like?"
 permalink: /blog/good-feels-like
 tags: [good, meta, philosophy, ai-safety, alignment, interpretability]
 description: "The nature of doing good; how to live in a world where the Department of War exists; verifiable vs validatable vs good; the gap between formal rules and lived experience."
+epistemic_status: Personal essay
+epistemic_note: This is a normative reflection written in the first person, not an empirical or universal claim about moral cognition.
 ---
 
 
-## Good cannot be computed. Good can be recognized.
+## A working intuition: good is not exhausted by computation
 
 Does dinner with mom feel like a *good* use of time? 
 
@@ -37,7 +39,7 @@ Now imagine they're gone entirely and you're remembering the last dinner you did
 
 Something changes, doesn't it? The dinner didn't, but our ability to feel its worth did.
 
-Good feels like the choice we'd still make knowing the full weight of what we're giving up on. The felt choice, not the optimized one. When we're present at dinner, we're not calculating opportunity costs; we're in the moment that, when gone, we cannot recover through any adjustment of reality. Good feels like attending to what's irreplaceable while it's still here.
+In this essay, I use *good* to name the choice I would still make while feeling the full weight of what I am giving up. The felt choice, not only the optimized one. When I am present at dinner, I am not calculating opportunity costs; I am attending to something that, once gone, cannot be recovered by rearranging a schedule.
 
 <div class="in-night" markdown="1">
 
@@ -49,7 +51,7 @@ We're working on safety-relevant problems while time runs out on our human relat
 
 Can we build tools that help humans make some of these trade-offs better? If we had an AI that could predict E[remaining dinners with mom], would using it help us make more meaningful choices or make us more anxious? 
 
-AI made idea generation nearly free, but we haven't yet scaled how we evaluate these ideas. We can check if something works correctly, but not if it's the right thing to build, nor if it's the good thing to build.
+AI has made idea generation cheap for many tasks, while evaluating those ideas remains costly. Technical checks can tell us whether something works as specified; they do not by themselves settle whether it is the right or good thing to build.
 
 <div class="in-night" markdown="1">
 What if the AI's predictions were wrong? 
@@ -60,12 +62,12 @@ What if the predictions are right but we couldn't really tell if that's what's g
 </div>
 
 
-Moreover, human intelligence is no longer the center of the universe. Maybe that happened this year or this decade or this century and maybe not everyone will agree as to when, but it's here and it's real, and its competence is uneven in ways introspection doesn't track: it fails where we'd swear it couldn't, and surprises us where we'd swear it wouldn't.
+AI systems now perform some cognitive tasks at levels that change how I locate human intelligence in the world. Their competence is uneven: they fail in places I expect strength and surprise me in places I expect weakness. I take that as context for the questions below, not as a claim that human intelligence has been displaced in every relevant sense.
 
 Jakob von Uexküll's concept (1909): every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not "the world as it is," but "the world as perceived through this body, these sensors, these purposes."
 
 <div class="in-beyond" markdown="1">
-This made me think that mechanistic features might be projecting an Umwelt onto the model's representation space. When features fracture, maybe it's because we're formalizing our own perceptual categories, not discovering the model's actual Umwelt.
+**Speculative analogy:** mechanistic features might project something like an Umwelt onto a model's representation space. If features fracture, one possibility is that our measurement categories stopped transferring—not that we discovered the model's own subjective world.
 
-Can we build tools to verify across Umwelts? What if "alignment" is trying to make AI share human Umwelt, but that's structurally impossible, like teaching a tick to see colors?
+Can we build tools that compare representations across different measurement systems? The stronger idea—that alignment requires a shared Umwelt, or that such sharing is structurally impossible—is a philosophical question here, not a result.
 </div>

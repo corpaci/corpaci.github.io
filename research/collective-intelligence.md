@@ -3,8 +3,10 @@ layout: page
 title: Collective Intelligence
 subtitle: Infrastructure for value alignment at the human level.
 permalink: /collective-intelligence/
+epistemic_status: Conceptual collaboration
+epistemic_note: This is an active framework-building collaboration. Its account of collective intelligence is a design lens, not an experimentally established model.
 ---
 
 Infrastructure for collective intelligence and value alignment, implemented in a framework with collaborators Marian and Johannes. Includes community formats, epistemic tools, and a shared vocabulary for reasoning about alignment at the human level.
 
-Theoretically grounded in active inference ; the idea that collectives, like individuals, maintain themselves by minimizing surprise about their own boundaries and states. The practical question is what coordination structures allow groups to reason well together about things that matter, and how those structures can be built deliberately rather than left to emerge from incentive gradients alone.
+One conceptual lens for the work is active inference: groups may coordinate partly by shaping what information becomes salient and actionable. The practical question does not depend on that lens being correct: what coordination structures help groups reason well together about things that matter, and how can those structures be built and evaluated deliberately?

@@ -3,7 +3,9 @@ layout: post
 title: "The Verification/Validation Boundary"
 permalink: /blog/verification-validation-boundary
 tags: [formal-methods, ai-safety, interpretability]
-description: "Why you can never fully check your own work ; and what Tarski has to do with it."
+description: "Why checking an implementation against a specification leaves a separate correspondence question."
+epistemic_status: Conceptual analogy
+epistemic_note: The verification/validation distinction is standard engineering practice. The connection to Tarski is an analogy, not a theorem about every validation task.
 ---
 
 There's a distinction engineers are trained to make: verification asks "did we build it right?" and validation asks "did we build the right thing?"
@@ -14,11 +16,11 @@ These sound similar. They're not.
 
 Verification is something you can automate. You write down what the system should do (a specification), build the system, and check whether the system matches the specification. This can be done mechanically, formally, provably. Hardware verification tools do exactly this.
 
-Validation is different. It asks whether the specification itself was right ; whether it captured what you actually wanted. And there's no formal procedure for that check, because "what you actually wanted" isn't written down in the specification. It's in your head, or your users' heads, or the world the system is supposed to interact with.
+Validation is different. It asks whether the specification itself was right—whether it captured what you actually wanted. That cannot be inferred from the specification alone; it requires evidence about users, intent, or the world the system is supposed to interact with.
 
-This sounds like a practical limitation ; something that better requirements-gathering would fix. I think it's deeper than that.
+Better requirements work can narrow this gap. The question I am exploring is whether some part of it remains structural whenever a formal artifact is interpreted as standing for something outside itself.
 
-Tarski showed that no formal language rich enough to do arithmetic can define its own truth predicate ; the definition always has to come from outside, from a "metalanguage." The verification/validation boundary is the same structure. You can verify within the formal system. You can only validate by stepping outside it.
+Tarski's undefinability theorem places a precise limit on truth predicates in sufficiently expressive formalized languages. The verification/validation boundary has a useful—but incomplete—analogy to its object-language/metalanguage distinction: verification stays within a declared formal relation, while validation introduces evidence from outside that relation.
 
 This shows up everywhere:
 - A test suite that passes tells you the code does what the tests say it should. It doesn't tell you the tests said the right things.
@@ -29,10 +31,10 @@ The honest move is to be explicit about which boundary you're on. "This verifica
 
 <div class="in-night" markdown="1">
 
-**More precisely:** verification is a truth predicate for implementations relative to specs, and it's definable within the formal system. Validation is a truth predicate for specs relative to intent, and it requires stepping outside the formal system ; it requires a metalanguage. This is not a contingent limitation that better tooling will fix. It's a structural property of formalization. Every formal system has a metalanguage; every verification has a corresponding validation question that it cannot answer.
+**Scope of the analogy:** verification mechanically checks implementations relative to specifications. Validation asks whether the specification corresponds to an external intent or need. Calling the latter a “metalanguage” question is conceptually useful, but does not make Tarski's theorem a proof that validation is impossible. Better evidence and tooling can improve validation even though the specification cannot validate its own correspondence by itself.
 
-**In interpretability.** Mechanistic interpretability verifies that a probing method finds certain activation patterns. It cannot validate that those activation patterns represent what we think they represent ; that requires a ground truth about model semantics that exists outside the formal measurement system. Most interpretability failures are validation failures, not verification failures.
+**In interpretability.** A probing method may reliably find an activation pattern. Showing that the pattern represents or causally mediates a concept requires additional interventions and references. Some interpretability errors fit the verification/validation distinction; the claim that most do would require evidence I do not yet have.
 
-**In hardware.** Formal verification verifies that a chip matches its specification. It cannot validate that the specification captured the designer's intent. The history of hardware bugs that survived formal verification is a history of validation failures.
+**In hardware.** Formal verification can show that a chip satisfies its formal properties. Bugs that survive may reflect missing or mistaken properties, environmental assumptions, tool limitations, or implementation details outside the verified model. The V&V distinction helps classify these cases without reducing all of them to one cause.
 
 </div>
