@@ -5,8 +5,6 @@
 I study and build certificate-backed methods for detecting semantic drift in AI-generated specifications, proofs, and other artifacts. I currently mentor research at MARS V and SPS Apart, participate in CAISH’s Hardware Assurance Program, and am completing an MSc in Data Science at TU Wien.
 
 ## Start here
-- /research/: active research threads and publications
-- /lenses/: the same core claim read as engineering, as measurement, and as philosophy
 - /blog/limits-of-formalization: what formal systems can and cannot reach, and what that means for honest AI
 - /limits/: interactive walkthrough of the self-reference limits (Liar, Tarski, Gödel, alignment)
 - /map/: interactive map of 24 self-reference instances, from quines to Gödel to ELK

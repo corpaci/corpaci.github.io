@@ -20,8 +20,6 @@
     {% assign has_strata = false %}
     {% if content contains 'class="in-night' or content contains 'class="in-beyond' or content contains 'class="night-only' or content contains 'class="beyond-only' %}{% assign has_strata = true %}{% endif %}
     <div class="nav-links">
-      <a class="nav-link{% if page.url == '/research/' %} active{% endif %}" href="/research/">Research</a>
-      <a class="nav-link{% if page.url == '/lenses/' %} active{% endif %}" href="/lenses/">Lenses</a>
       <a class="nav-link{% if page.url == '/about/' %} active{% endif %}" href="/about/">About</a>
       <button class="theme-toggle{% if has_strata %} theme-toggle-breathe{% endif %}" onclick="toggleTheme()" aria-label="Switch theme (day / night / spectrum)">◐</button>
     </div>

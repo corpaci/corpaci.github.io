@@ -14,8 +14,8 @@ I study whether meaning survives translation: when intent becomes a spec, a spec
 
 **Current work:**
 - Research mentoring at MARS V and SPS Apart; participating in CAISH’s Hardware Assurance Program.
-- [Semantic faithfulness across representations](/research/#semantic-faithfulness): semantic diffing via the Equational Theories Project, measuring whether a representation preserves its underlying meaning across changes in formality.
-- Other active threads: semantic equivalence in LLM-generated formal code, feature stability at rule-gap boundaries, bias geometry in embedding space. Full list in [research](/research/).
+- Semantic faithfulness across representations: semantic diffing via the Equational Theories Project, measuring whether a representation preserves its underlying meaning across changes in formality.
+- Other active threads: semantic equivalence in LLM-generated formal code, feature stability at rule-gap boundaries, bias geometry in embedding space.
 
 **Background:** hardware verification (AMD), chip design (Marvell), combinatorial testing (SBA Research, Vienna), mechanistic interpretability (University of Vienna). Best Paper at ICTSS 2024. Completing an MSc in Data Science at TU Wien.
 
