@@ -99,7 +99,7 @@ Heatmaps confirm `eq2_only` is the outlier everywhere. `eq1_only` separates clas
 
 ![Full results dashboard: heatmaps, template ranking, centroid separation, clustering vs. classification](/img/sair_results_beyond.png)
 
-The dashboard above summarizes the full picture. Top row: accuracy and AUC are stable across splits for most templates — `eq2_only` is the one clear outlier in every panel. Middle row: the centroid separation chart (top-right) shows that `eq1_only` keeps TRUE and FALSE embeddings furthest apart; the antecedent equation already carries most of the geometry. Bottom-center: templates that separate classes in embedding space (high Cohen's d) also classify better, as clustering and classification are aligned.
+The dashboard above summarizes the full picture. Top row: accuracy and AUC are stable across splits for most templates, and `eq2_only` is the one clear outlier in every panel. Middle row: the centroid separation chart (top-right) shows that `eq1_only` keeps TRUE and FALSE embeddings furthest apart; the antecedent equation already carries most of the geometry. Bottom-center: templates that separate classes in embedding space (high Cohen's d) also classify better, as clustering and classification are aligned.
 
 </div>
 

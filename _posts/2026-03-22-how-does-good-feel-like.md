@@ -67,7 +67,7 @@ AI systems now perform some cognitive tasks at levels that change how I locate h
 Jakob von Uexküll's concept (1909): every organism has its own Umwelt, its subjective perceptual universe, shaped by its sensory apparatus and needs. Not "the world as it is," but "the world as perceived through this body, these sensors, these purposes."
 
 <div class="in-beyond" markdown="1">
-**Speculative analogy:** mechanistic features might project something like an Umwelt onto a model's representation space. If features fracture, one possibility is that our measurement categories stopped transferring—not that we discovered the model's own subjective world.
+**Speculative analogy:** mechanistic features might project something like an Umwelt onto a model's representation space. If features fracture, one possibility is that our measurement categories stopped transferring, not that we discovered the model's own subjective world.
 
-Can we build tools that compare representations across different measurement systems? The stronger idea—that alignment requires a shared Umwelt, or that such sharing is structurally impossible—is a philosophical question here, not a result.
+Can we build tools that compare representations across different measurement systems? The stronger idea (that alignment requires a shared Umwelt, or that such sharing is structurally impossible) is a philosophical question here, not a result.
 </div>

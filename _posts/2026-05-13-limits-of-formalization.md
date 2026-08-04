@@ -4,36 +4,36 @@ title: "The Limits of Formalization for AI Safety"
 subtitle: "or: my understanding on ((the limits of) formalizations for) AI (Safety)"
 permalink: /blog/limits-of-formalization
 tags: [formal-methods, ai-safety, alignment, interpretability, formal-verification]
-description: "Physics is going into Lean. What formal systems can and cannot reach ; and what that means for honest AI."
+description: "Physics is going into Lean. What formal systems can and cannot reach, and what that means for honest AI."
 epistemic_status: Exploratory synthesis
 epistemic_note: Established results in logic are separated from philosophical interpretations and alignment conjectures. Sections labeled inference-ahead are speculative.
 ---
 
 <!--
-LAYERING CONVENTION (additive, one class per stratum — cumulativity is in the CSS):
+LAYERING CONVENTION (additive, one class per stratum: cumulativity is in the CSS):
   - plain text  -> base / LIGHT (day, night, spectrum)  = the general-reader post, complete on its own
   - .in-night   -> DARK add (night + spectrum, hidden in day)  = technical stratum
   - .in-beyond  -> COLOR add (spectrum only)                   = inference-ahead stratum
-Read order is interleaved so each aperture is continuous: day reads the light spine ;
-night adds the precise results under each beat ; spectrum adds the leaps beyond them.
+Read order is interleaved so each aperture is continuous: day reads the light spine;
+night adds the precise results under each beat; spectrum adds the leaps beyond them.
 Rule for color: it may only contain a step of inference past what dark established, never just "more detail."
 -->
 
-Physics is going into Lean. Whole tracts of mathematics are mechanized and machine-checked. Stand close enough and it looks like the old dream is finally arriving: reality captured in symbols, every claim decidable by a machine. So it is worth asking plainly ; what can be formalized, and what can't?
+Physics is going into Lean. Whole tracts of mathematics are mechanized and machine-checked. Stand close enough and it looks like the old dream is finally arriving: reality captured in symbols, every claim decidable by a machine. So it is worth asking plainly: what can be formalized, and what can't?
 
 The working thesis of this post is narrower: **a formal checker does not by itself establish the correspondence between symbol and world.** Making one relation checkable leaves separate questions about whether the formal artifact captured the intended target.
 
-I used my ml4good project to map this space ; to understand what's possible and find senseful paths into the field. Gathering my thoughts here in hope it's useful to others (future me included, in case he strays into fuzzy ideals). Toggle up & enjoy the ride!
+I used my ml4good project to map this space, to understand what's possible and find senseful paths into the field. Gathering my thoughts here in hope it's useful to others (future me included, in case he strays into fuzzy ideals). Toggle up & enjoy the ride!
 
 <div class="in-night" markdown="1">
 
-Let me make “formalize” precise for this post. To formalize a claim is to render an artifact for a checker—Lean, a model checker, a type system—so that a specified relation can be checked by a fixed procedure. The verdict is relative to the encoded claim, assumptions, and checker; it is not correctness in every broader sense.
+Let me make “formalize” precise for this post. To formalize a claim is to render an artifact for a checker (Lean, a model checker, a type system) so that a specified relation can be checked by a fixed procedure. The verdict is relative to the encoded claim, assumptions, and checker; it is not correctness in every broader sense.
 
 </div>
 
 <div class="in-beyond" markdown="1">
 
-The constructions later in the post locate undecidability in model classes involving a lattice Hamiltonian and an inviscid fluid flow—not only in exotic edge cases. How far that lesson generalizes is part of the research program, not something those constructions settle by themselves.
+The constructions later in the post locate undecidability in model classes involving a lattice Hamiltonian and an inviscid fluid flow, not only in exotic edge cases. How far that lesson generalizes is part of the research program, not something those constructions settle by themselves.
 
 </div>
 
@@ -41,11 +41,11 @@ The constructions later in the post locate undecidability in model classes invol
 
 ## 1 · The dream of a perfect language
 
-Reality is out there. Not all of it is in reach of our instruments, but it is there ; behind the shadows, as Plato had it. The whole project of reason is a bet that we can get at it with thought: that if we sharpen our language enough, its structure lines up with the structure of the world.
+Reality is out there. Not all of it is in reach of our instruments, but it is there, behind the shadows, as Plato had it. The whole project of reason is a bet that we can get at it with thought: that if we sharpen our language enough, its structure lines up with the structure of the world.
 
-Leibniz wanted a *characteristica universalis*, a language so precise that disputes could be settled by calculation ; *let us compute*. Frege built the first real piece of it, a logic that drains the ambiguity out of inference. The dream is clean: a notation in which everything true can be said, and saying it wrong becomes impossible.
+Leibniz wanted a *characteristica universalis*, a language so precise that disputes could be settled by calculation: *let us compute*. Frege built the first real piece of it, a logic that drains the ambiguity out of inference. The dream is clean: a notation in which everything true can be said, and saying it wrong becomes impossible.
 
-It is a good dream. It also does not survive contact with its own ambitions ; and the rest of this section is the story of how, told in the names of the people who proved each step.
+It is a good dream. It also does not survive contact with its own ambitions, and the rest of this section is the story of how, told in the names of the people who proved each step.
 
 <div class="in-night" markdown="1">
 
@@ -82,7 +82,7 @@ A richer metalanguage can define truth for the object language in the standard h
 [^tarski]: Tarski's undefinability theorem (1936) shows that arithmetical truth cannot be defined within arithmetic itself.
 
 **The general halting problem is undecidable.**[^turing]
-Turing showed that no algorithm correctly decides halting for every program–input pair. This is a specific limit, not an identification of all limits of proof and computation.
+Turing showed that no algorithm correctly decides halting for every program and input pair. This is a specific limit, not an identification of all limits of proof and computation.
 
 [^turing]: The Halting Problem, proven undecidable by Alan Turing in his 1936 paper "On Computable Numbers, with an Application to the Entscheidungsproblem."
 
@@ -125,7 +125,7 @@ Whether a formal description can capture “what it is like” is a contested ph
 
 <div class="in-beyond" markdown="1">
 
-Read the chain again and notice two families. Cantor–Gödel–Tarski–Turing–Löb–Lawvere involve related diagonal or fixed-point constructions under different hypotheses. Quine–Wittgenstein–Kripke present philosophical problems about interpretation and rule-following. The proposed taxonomy suggests different responses: restricting formal expressivity can avoid some diagonal preconditions, while interpretive underdetermination calls for evidence about use and context. Whether this division is exhaustive remains open.
+Read the chain again and notice two families. Cantor, Gödel, Tarski, Turing, Löb, and Lawvere involve related diagonal or fixed-point constructions under different hypotheses. Quine, Wittgenstein, and Kripke present philosophical problems about interpretation and rule-following. The proposed taxonomy suggests different responses: restricting formal expressivity can avoid some diagonal preconditions, while interpretive underdetermination calls for evidence about use and context. Whether this division is exhaustive remains open.
 
 </div>
 
@@ -162,16 +162,16 @@ The proved diagonal limits are structural within their hypotheses, not merely co
 “That can't be formalized” is one sentence doing at least five jobs. Arguments about AI and formal methods often blur them; this is a proposed separation:
 
 1. **Proved formal limits.** Some decision problems are undecidable, and some formal systems are incomplete, under explicit hypotheses.
-2. **The spec might be wrong.** You formalized *something*, perfectly ; but maybe not the thing you meant.
+2. **The spec might be wrong.** You formalized *something*, perfectly, but maybe not the thing you meant.
 3. **The model uses a continuum.** Almost every real number is uncomputable, but whether a physical theory's continuum commits reality to such values is a separate interpretive question.
-4. **It is merely too hard ; yet.** No barrier in principle ; we just haven't done it. Engineering, not logic.
+4. **It is merely too hard, so far.** No barrier in principle: we just haven't done it. Engineering, not logic.
 5. **The target may be phenomenal or normative.** Whether experience and value admit useful formal treatment is contested; a proof checker alone does not settle them.
 
 Naming which claim is intended often makes the disagreement more tractable.
 
 <div class="in-night" markdown="1">
 
-A common error is collapsing (1) and (5)—claims of in-principle limitation—into (4), the merely **unformalized**. “We can't formalize ethics” often means that the task is hard or underspecified, not that an impossibility theorem applies. Conversely, the general halting problem is in (1). Limit (2) earns a working name: the **spec-correspondence seam**, the join between a formal object and what it is supposed to represent. A checker operating only on the formal object cannot by itself establish that external correspondence; whether this framing transfers cleanly across every domain is a research question.
+A common error is collapsing (1) and (5), claims of in-principle limitation, into (4), the merely **unformalized**. “We can't formalize ethics” often means that the task is hard or underspecified, not that an impossibility theorem applies. Conversely, the general halting problem is in (1). Limit (2) earns a working name: the **spec-correspondence seam**, the join between a formal object and what it is supposed to represent. A checker operating only on the formal object cannot by itself establish that external correspondence; whether this framing transfers cleanly across every domain is a research question.
 
 </div>
 
@@ -183,13 +183,13 @@ Here is the post compressed to one move. A formalization can separate *does this
 
 ---
 
-## 4 · Case study — formalizing physics
+## 4 · Case study: formalizing physics
 
 The physlib project is formalizing physics in Lean, theorem by theorem. A prover can check mathematical consequences of encoded definitions and assumptions. The further claim that a model accurately describes a particular physical system requires empirical evidence outside that proof. This verification/validation distinction is the lesson I draw from the project.
 
 <div class="in-night" markdown="1">
 
-By its own account physlib stays flexible ; it is not welded to one axiomatization, and physical laws enter as **inputs**, hypotheses, not as theorems the system earns. And the line between what formalizes and what doesn't is *not* the line between math and physics ; that is the naive reading and it is wrong. Units and dimensional analysis are type-level and fully checkable. Symmetries, gauge structure, conservation laws are formal objects that go in without complaint. The real fault line runs elsewhere: the **deductive skeleton** (formalizable everywhere) versus the **empirical correspondence** (formalizable nowhere). Plenty of "physics" sits on the formal side ; the only thing on the far side is the claim that the symbols are about *this* world.
+By its own account physlib stays flexible; it is not welded to one axiomatization, and physical laws enter as **inputs**, hypotheses, not as theorems the system earns. And the line between what formalizes and what doesn't is *not* the line between math and physics; that is the naive reading and it is wrong. Units and dimensional analysis are type-level and fully checkable. Symmetries, gauge structure, conservation laws are formal objects that go in without complaint. The real fault line runs elsewhere: the **deductive skeleton** (formalizable everywhere) versus the **empirical correspondence** (formalizable nowhere). Plenty of "physics" sits on the formal side; the only thing on the far side is the claim that the symbols are about *this* world.
 
 </div>
 
@@ -219,7 +219,7 @@ Which means the right expectation is the inverse of the usual one. Undecidabilit
 
 </div>
 
-**A slab of quantum matter ; gapped, or not?**
+**A slab of quantum matter: gapped, or not?**
 
 For a quantum many-body Hamiltonian, ask whether the thermodynamic-limit spectrum is gapped or gapless. Cubitt and collaborators show that no algorithm decides this property across their constructed family of Hamiltonians; this is not a claim about every finite material sample.
 
@@ -235,7 +235,7 @@ Spectral gaps are central in areas including spin chains and topological phases.
 
 </div>
 
-**A frictionless fluid ; where does the speck go?**
+**A frictionless fluid: where does the speck go?**
 
 Now consider an inviscid fluid-flow model and ask whether a particle trajectory will reach a chosen region. For a specially constructed class of flows, no general method decides that reachability question.
 
@@ -263,7 +263,7 @@ More precisely, each result embeds a universal Turing machine in a mathematical 
 
 <div class="in-beyond" markdown="1">
 
-**Speculative extrapolation to alignment.** A trained model is a computational substrate, but that fact alone does not show that a particular alignment property is undecidable. The distinction worth testing is between an *outside seam*—whether a specification captures what we meant—and an *inside seam*—whether the resulting formal decision problem falls into an undecidable class.
+**Speculative extrapolation to alignment.** A trained model is a computational substrate, but that fact alone does not show that a particular alignment property is undecidable. The distinction worth testing is between an *outside seam* (whether a specification captures what we meant) and an *inside seam* (whether the resulting formal decision problem falls into an undecidable class).
 
 **Research conjecture:** there may be useful, physically reasonable decidable fragments whose boundaries track the computational expressivity of the modeled subsystem. A “grumeter” could operate inside such a fragment only if scope membership is itself enforced or checked. The examples above motivate that constraint but do not locate the boundary for AI systems.
 
@@ -287,7 +287,7 @@ The grumeter proposal tries to avoid known diagonal preconditions by using a del
 
 **2. Reward explicit scope.** Train the model to output "this claim is verifiable against domain D," weighted as heavily as the answer. Make the boundary a first-class output.
 
-**3. Reward silence outside scope.** Build examples where the correct answer is "outside my domain," and penalize confident out-of-scope answers ; this pressures against the translator's over-claiming *and* the simulator's redirect-to-belief at once.
+**3. Reward silence outside scope.** Build examples where the correct answer is "outside my domain," and penalize confident out-of-scope answers; this pressures against the translator's over-claiming *and* the simulator's redirect-to-belief at once.
 
 **4. Penalize type-level violations.** Adversarial cases where human-belief and world-fact diverge: human would believe X, the world-fact is not-X. Penalize the simulator response. The ELK experiment, made into a signal.
 
@@ -299,7 +299,7 @@ The grumeter proposal tries to avoid known diagonal preconditions by using a del
 
 An objection to “declare your scope and stay silent outside it” is that scope membership may itself be undecidable. The examples in §5 show undecidable properties, not automatically undecidable membership in every proposed grumeter domain. The design response is to define admissible inputs by construction where possible, and then test whether that boundary is actually enforceable. Which domains permit this remains open.
 
-The concrete witness that such fragments exist is vacuity checking in SVA: a scope carved so that membership is settled by the construction of the assertion language itself, not discovered by looking. So the framework survives the objection, but only by narrowing its own claim ; which is the kind of constraint that makes it look load-bearing instead of aspirational.
+The concrete witness that such fragments exist is vacuity checking in SVA: a scope carved so that membership is settled by the construction of the assertion language itself, not discovered by looking. So the framework survives the objection, but only by narrowing its own claim, which is the kind of constraint that makes it look load-bearing instead of aspirational.
 
 </div>
 
@@ -317,15 +317,15 @@ Even a complete machine-checked formalization of known physical theories would p
 
 <div class="in-beyond" markdown="1">
 
-Where I am taking this: the verification/validation gap—*did I build the thing right* versus *did I build the right thing*—is the through-line of my research. §5 motivates, but does not prove, an AI extrapolation: some questions about computational systems may inherit undecidability when a reduction can be constructed. The grumeter is a constructive hypothesis that useful decidable fragments exist and that their boundaries can be enforced well enough to support reliable abstention.
+Where I am taking this: the verification/validation gap (*did I build the thing right* versus *did I build the right thing*) is the through-line of my research. §5 motivates, but does not prove, an AI extrapolation: some questions about computational systems may inherit undecidability when a reduction can be constructed. The grumeter is a constructive hypothesis that useful decidable fragments exist and that their boundaries can be enforced well enough to support reliable abstention.
 
 Open questions I would put on the table, the first one sharpest:
 
 - Scope-membership can be undecidable (§6), so *which* domains admit a grumeter by construction at all?
 - Is "physically reasonable and decidable" a real fragment, or does the expressivity that makes physics interesting always reach past it?
-- Does the V&V split survive when the verifier is itself a learned, physical system ; or does it collapse the two seams into one?
+- Does the V&V split survive when the verifier is itself a learned, physical system, or does it collapse the two seams into one?
 
-Counterexamples to the framing remain the most useful thing you can send me ; and the scope-membership tension is the first one already on the table.
+Counterexamples to the framing remain the most useful thing you can send me, and the scope-membership tension is the first one already on the table.
 
 </div>
 
@@ -361,7 +361,7 @@ Reality exists
 ~> grumeter: proposed third path ;
              scoped fragment,
              external metalanguage,
-             honest silence ; where scope is fixed by construction
+             honest silence, where scope is fixed by construction
 ~> optimize toward it:
      external checker as training signal
      + explicit scope as output
@@ -374,4 +374,4 @@ Reality exists
 
 ---
 
-*Feedback welcome ; especially counterexamples to the grumeter framing.*
+*Feedback welcome, especially counterexamples to the grumeter framing.*
