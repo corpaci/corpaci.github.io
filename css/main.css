@@ -432,6 +432,31 @@ img {
   color: var(--accent);
 }
 
+/* Compact index of interactive work */
+.home-playgrounds {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.home-playgrounds h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.home-playgrounds p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+
+.home-playgrounds span {
+  padding: 0 0.35rem;
+  color: var(--border-color);
+}
+
 /* Open questions on the home page */
 .home-questions {
   margin-bottom: 2.5rem;
@@ -818,4 +843,156 @@ sup[id^="fnref:"] a {
   .nav-rss {
     display: none;
   }
+}
+
+/* Collatz Claudie (/collatz-claudie/) -----------------------------------------
+   Series colours are her accents in day; night and spectrum use steps
+   snapped into the dark-mode lightness band (validated: CVD dE 15-19,
+   normal-vision dE 21-23, contrast >= 3:1 on every theme). */
+.cx-fig {
+  --cx-1: #1580a0;
+  --cx-2: #c4841d;
+  --cx-ramp: #1580a0;
+  margin: 1.5rem 0 2.5rem;
+}
+
+[data-theme="night"] .cx-fig    { --cx-1: #1a95b2; --cx-2: #b57800; --cx-ramp: #1a95b2; }
+[data-theme="spectrum"] .cx-fig { --cx-1: #dd3a9a; --cx-2: #cb6800; --cx-ramp: #dd3a9a; }
+
+.cx-svg { width: 100%; display: block; overflow: visible; }
+.cx-svg-square { max-width: 520px; margin: 0 auto; }
+
+.cx-fig figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.6rem;
+}
+
+/* recessive chrome: hairline, solid, one shade off the surface */
+.cx-grid  { stroke: var(--border-color); stroke-width: 1; fill: none; }
+.cx-axis line { stroke: var(--border-color); stroke-width: 1; }
+.cx-tick, .cx-axis-label {
+  font-family: var(--font-sans);
+  fill: var(--text-secondary);
+  font-size: 10px;
+}
+.cx-axis-label { font-size: 11px; }
+
+/* marks */
+.cx-odd  { fill: var(--cx-1); }
+.cx-even { fill: var(--cx-2); }
+.cx-odd, .cx-even { transition: r 0.1s ease; }
+.cx-odd:hover, .cx-even:hover { r: 4; }
+
+.cx-traj, .cx-orbit {
+  fill: none;
+  stroke: var(--cx-ramp);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  cursor: crosshair;
+}
+.cx-traj { stroke-width: 2; }
+.cx-traj-hi, .cx-orbit-hi {
+  stroke: var(--cx-2) !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 2.5;
+}
+
+.cx-cycle { fill: none; stroke: var(--cx-2); stroke-width: 2; }
+.cx-cycle-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--cx-2);
+}
+
+/* legend: always present, never colour alone */
+.cx-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+.cx-key { display: inline-flex; align-items: center; gap: 0.4rem; }
+.cx-key i { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+
+/* controls */
+.cx-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  padding: 0.9rem 1rem;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
+  background: var(--code-bg);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.cx-controls label { display: inline-flex; align-items: center; gap: 0.55rem; }
+.cx-controls input[type="range"] { accent-color: var(--accent); max-width: 160px; }
+.cx-controls output { font-variant-numeric: tabular-nums; color: var(--text-primary); min-width: 2.5em; }
+
+/* the one hero number */
+.cx-stat {
+  margin: 1.5rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 2px solid var(--accent);
+  background: var(--code-bg);
+}
+.cx-stat-value {
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  line-height: 1.1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.cx-stat-label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.35rem;
+}
+
+/* tooltip */
+.cx-tip {
+  position: fixed;
+  z-index: 40;
+  pointer-events: none;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+}
+
+/* table view */
+.cx-table { margin: 2rem 0; font-size: 0.85rem; }
+.cx-table summary {
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.cx-table-scroll { overflow-x: auto; max-height: 320px; overflow-y: auto; margin-top: 0.75rem; }
+.cx-table table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.cx-table th, .cx-table td {
+  text-align: right;
+  padding: 0.25rem 0.7rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.cx-table th { font-family: var(--font-sans); font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-odd, .cx-even { transition: none; }
 }

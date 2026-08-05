@@ -16,6 +16,11 @@ description: "Luiza Corpaci builds certificate backed methods for detecting sema
   </ul>
 </div> -->
 
+<div class="home-playgrounds">
+  <h2>Playgrounds</h2>
+  <p><a href="/collatz-chattie/">Collatz Chattie</a> <span aria-hidden="true">·</span> <a href="/projects/ictss-playground/">Spectral matrix complexity</a></p>
+</div>
+
 {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
 {% assign posts_by_month = visible_posts | group_by_exp: "post", "post.date | date: '%B %Y'" %}
 

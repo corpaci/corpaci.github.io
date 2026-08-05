@@ -26,6 +26,7 @@ I study and build certificate-backed methods for detecting semantic drift in AI-
 - /projects/sair-embedding-geometry/
 - /projects/bias-measurement/
 - /projects/ictss-playground/
+- /collatz-chattie/
 
 ## Writing
 {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}{% for post in visible_posts %}- {{ post.url }}: {{ post.title }}
