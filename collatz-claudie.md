@@ -24,7 +24,7 @@ Every integer on Ox, the value it maps to on Oy. The rule splits cleanly into tw
 <figure class="cx-fig">
   <div class="cx-legend" id="cx-lg1"></div>
   <svg id="cx-p1" class="cx-svg" role="img" aria-label="Scatter of each integer against its image under one Collatz step, split into odd and even branches."></svg>
-  <figcaption>Odd inputs land on the upper ray, even inputs on the lower. The upper branch climbs three times as fast as the lower one falls, which is why the question is hard.</figcaption>
+  <figcaption>Odd inputs land on the upper ray, even inputs on the lower. Note that neither branch falls here: both rays rise, at slopes 3 and 1/2. The descent lives in the iteration, not in this graph. Multiplicatively the two moves are a tripling against a halving, which in the log scale of the next two figures is 1.585 up against exactly 1 down.</figcaption>
 </figure>
 
 ## 2 · Fifty primes, followed to the end
@@ -41,22 +41,26 @@ Each path starts at a prime and applies the rule to its own output, over and ove
 
 Here is the honest version of the analogy, and then the picture.
 
-Take **altitude** to be $\log_2 n$. Then an even step lowers altitude by exactly 1, and an odd step raises it by $\log_2(3 + 1/n)$, just under 1.585. Because $3n+1$ is always even, every rise is immediately followed by at least one fall. Averaged over a trajectory, the altitude drifts **down**, and that drift is what the plot below measures.
+Take **altitude** to be $\log_2 n$. Then an even step lowers altitude by exactly 1, and an odd step raises it by $\log_2(3 + 1/n)$, just under 1.585. Because $3n+1$ is always even, every rise is immediately followed by at least one fall. Averaged over a trajectory the altitude drifts **down**, which is the usual heuristic for why the conjecture ought to be true. The number below reports that drift, and then explains why you should not be impressed by it.
 
 <div class="cx-stat">
   <div class="cx-stat-value" id="cx-drift">·</div>
-  <div class="cx-stat-label">mean change in altitude per step, measured across the traced primes<br>negative means the system falls</div>
+  <div class="cx-stat-label">mean change in altitude per step across the traced primes<br>negative, but read the caveat below before believing it means anything</div>
 </div>
 
-So the analogy has a real referent: there is a restoring tendency, it is measurable, and it points inward. Plotted polar, with radius as altitude and angle advancing one notch per step, every trajectory spirals in.
+**This number is bookkeeping, not evidence, and it is worth being precise about why.** Summed over a trajectory the altitude changes telescope, so the mean is just $\bigl(\log_2 1 - \log_2 p\bigr)$ divided by the step count. Every trajectory here ends at 1 by selection, so the numerator is fixed before any dynamics are consulted. The quantity carries no information beyond which primes were chosen and how many steps they took. I verified that identity numerically and initially recorded it as a confirmation; it is better read as a deflation. A negative average drift is also exactly what a fair coin would give you, and a coin proves nothing about a deterministic parity sequence.
+
+What the polar view below does add is falsifiability. Radius is $\log_2 n$, which depends only on the state, so it is defined for every integer whether or not it reaches 1. A divergent trajectory would climb and leave the frame. The figure can be contradicted by its own subject.
+
+**What the angle does not add.** It advances one notch per step and carries no dynamical information at all, so this figure is the previous one bent into a circle. The inward motion is real, since radius tracks the state. The *spiral* is decoration, and the orbital reading it invites is not in the data.
 
 <figure class="cx-fig">
   <div class="cx-legend" id="cx-lg3"></div>
   <svg id="cx-p3" class="cx-svg cx-svg-square" role="img" aria-label="Polar plot with radius as log-2 of the value and angle advancing per step; all trajectories spiral inward to the 4-2-1 cycle at the centre."></svg>
-  <figcaption>Radius is $\log_2 n$, so the centre is $n = 1$. Every path winds inward and finishes on the same small orbit.</figcaption>
+  <figcaption>Radius is $\log_2 n$, so the centre is $n = 1$; angle is step index only. Every traced path winds inward and finishes on the same small cycle. A path that did not reach 1 would spiral outward and off the plot, which is the one thing this coordinate buys over a steps-remaining coordinate.</figcaption>
 </figure>
 
-**Where the analogy holds.** There is a measurable inward drift, a basin that every tested start falls into, and a structure at the centre that nothing escapes once entered.
+**Where the analogy holds.** Every tested start falls into the same basin, nothing escapes the centre once it arrives, and the coordinate is honest enough that a counterexample would be visible rather than undefined.
 
 **Where it breaks, and it matters.** A gravitational point is a *point*, and this is not one. Solving $T(n) = n$ gives $n = 0$ or $n = -1/2$: the map has **no positive fixed point at all**. What sits at the centre is a 3-cycle, $1 \to 4 \to 2 \to 1$, so the right physical image is a stable orbit rather than a mass. The drift is also only an average. Individual steps go up, some trajectories climb for a long time first, and an average pointing down is not a proof that nothing escapes. That gap between measured drift and proof is exactly the open problem.
 
